@@ -7,6 +7,12 @@ export const translations = {
     tripPlanner: "Trip Planner",
     travelGuides: "Travel Guides",
     
+    // 用户认证
+    login: "Login",
+    register: "Register",
+    logout: "Logout",
+    myAccount: "My Account",
+    
     // 首页
     heroTitle: "Discover the Stories Behind Every Landmark",
     heroSubtitle: "Explore the world's wonders with AI-powered historical narratives and local insights.",
@@ -122,6 +128,12 @@ export const translations = {
     popularDestinations: "热门景点",
     tripPlanner: "行程规划",
     travelGuides: "旅行指南",
+    
+    // 用户认证
+    login: "登录",
+    register: "注册",
+    logout: "退出",
+    myAccount: "我的账户",
     
     // 首页
     heroTitle: "探索每个地标背后的故事",
