@@ -2,6 +2,8 @@
 
 LandmarkAI是一个基于Next.js开发的旅游网站，通过AI生成的历史内容，帮助用户深入了解全球著名地标和旅游目的地。
 
+[![自动部署到Vercel](https://img.shields.io/badge/自动部署-Vercel-black.svg?style=for-the-badge&logo=vercel)](https://vercel.com)
+
 ## 功能特点
 
 - **多语言支持**: 支持中文和英文切换
@@ -52,6 +54,12 @@ const USE_DEEPSEEK = true; // 改为true即可使用DeepSeek API
 1. 在Vercel上导入GitHub仓库
 2. 设置环境变量`OPENAI_API_KEY`和`DEEPSEEK_API_KEY`
 3. 部署!
+
+## CI/CD
+
+项目配置了持续集成和部署：
+- 每次提交到`main`分支都会自动部署到Vercel
+- 使用`vercel.json`配置自动部署行为
 
 ## 技术栈
 
