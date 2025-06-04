@@ -12,6 +12,8 @@ export const translations = {
     register: "Register",
     logout: "Logout",
     myAccount: "My Account",
+    darkMode: "Dark",
+    lightMode: "Light",
     
     // 首页
     heroTitle: "Discover the Stories Behind Every Landmark",
@@ -134,6 +136,8 @@ export const translations = {
     register: "注册",
     logout: "退出",
     myAccount: "我的账户",
+    darkMode: "深色",
+    lightMode: "浅色",
     
     // 首页
     heroTitle: "探索每个地标背后的故事",

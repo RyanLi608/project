@@ -80,7 +80,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-6">
           <Link
             href="/about"
             className="text-sm font-medium transition-colors hover:text-primary"
@@ -108,12 +108,14 @@ export default function Header() {
           </Link>
         </nav>
 
-        <div className="hidden md:flex items-center space-x-4">
+        {/* Desktop Right Menu */}
+        <div className="hidden md:flex items-center space-x-2">
           {/* Language Selector */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Globe className="h-5 w-5" />
+              <Button variant="outline" size="sm" className="h-9 px-2">
+                <Globe className="h-4 w-4 mr-1" />
+                {selectedLanguage.name}
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -134,14 +136,15 @@ export default function Header() {
 
           {/* Theme Toggle */}
           <Button
-            variant="ghost"
-            size="icon"
+            variant="outline"
+            size="sm"
+            className="h-9 px-2"
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           >
             {theme === "light" ? (
-              <Moon className="h-5 w-5" />
+              <Moon className="h-4 w-4" />
             ) : (
-              <Sun className="h-5 w-5" />
+              <Sun className="h-4 w-4" />
             )}
           </Button>
 
@@ -149,8 +152,8 @@ export default function Header() {
           {isLoggedIn ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="rounded-full">
-                  <User className="h-5 w-5" />
+                <Button variant="outline" size="sm" className="h-9 rounded-full">
+                  <User className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
@@ -169,11 +172,11 @@ export default function Header() {
             </DropdownMenu>
           ) : (
             <div className="flex items-center space-x-2">
-              <Button variant="ghost" size="sm" onClick={handleLogin} className="flex items-center">
+              <Button variant="outline" size="sm" onClick={handleLogin} className="h-9">
                 <LogIn className="mr-1 h-4 w-4" />
                 {t("login")}
               </Button>
-              <Button size="sm" className="flex items-center">
+              <Button size="sm" variant="default" className="h-9 bg-primary">
                 <UserPlus className="mr-1 h-4 w-4" />
                 {t("register")}
               </Button>
@@ -182,18 +185,44 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu Button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? (
-            <X className="h-5 w-5" />
-          ) : (
-            <Menu className="h-5 w-5" />
-          )}
-        </Button>
+        <div className="flex md:hidden items-center space-x-2">
+          {/* Language Selector (Mobile) */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="sm" className="h-9 w-9 p-0">
+                <Globe className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              {languages.map((lang) => (
+                <DropdownMenuItem
+                  key={lang.code}
+                  onClick={() => setLanguage(lang.code as "en" | "zh")}
+                  className={cn(
+                    "cursor-pointer",
+                    language === lang.code && "font-bold"
+                  )}
+                >
+                  {lang.name}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+          
+          {/* Mobile Menu Toggle */}
+          <Button
+            variant="outline"
+            size="sm"
+            className="h-9 w-9 p-0"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-4 w-4" />
+            ) : (
+              <Menu className="h-4 w-4" />
+            )}
+          </Button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -230,49 +259,23 @@ export default function Header() {
               {t("travelGuides")}
             </Link>
 
-            <div className="flex items-center space-x-4 pt-2">
-              {/* Language Selector */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="flex gap-2">
-                    <Globe className="h-4 w-4" />
-                    {selectedLanguage.name}
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="start">
-                  {languages.map((lang) => (
-                    <DropdownMenuItem
-                      key={lang.code}
-                      onClick={() => {
-                        setLanguage(lang.code as "en" | "zh");
-                      }}
-                      className={cn(
-                        "cursor-pointer",
-                        language === lang.code && "font-bold"
-                      )}
-                    >
-                      {lang.name}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-
-              {/* Theme Toggle */}
+            <div className="flex items-center space-x-2 pt-2">
+              {/* Theme Toggle (Mobile) */}
               <Button
-                variant="ghost"
+                variant="outline"
                 size="sm"
-                className="flex gap-2"
+                className="flex gap-2 h-9"
                 onClick={() => setTheme(theme === "light" ? "dark" : "light")}
               >
                 {theme === "light" ? (
                   <>
                     <Moon className="h-4 w-4" />
-                    Dark
+                    {t("darkMode")}
                   </>
                 ) : (
                   <>
                     <Sun className="h-4 w-4" />
-                    Light
+                    {t("lightMode")}
                   </>
                 )}
               </Button>
@@ -293,7 +296,7 @@ export default function Header() {
                   <Button
                     variant="destructive"
                     size="sm"
-                    className="w-full flex items-center justify-center"
+                    className="w-full flex items-center justify-center h-9"
                     onClick={() => {
                       handleLogout();
                       setIsMobileMenuOpen(false);
@@ -308,7 +311,7 @@ export default function Header() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="w-full flex items-center justify-center"
+                    className="w-full flex items-center justify-center h-9"
                     onClick={() => {
                       handleLogin();
                       setIsMobileMenuOpen(false);
@@ -319,7 +322,7 @@ export default function Header() {
                   </Button>
                   <Button
                     size="sm"
-                    className="w-full flex items-center justify-center"
+                    className="w-full flex items-center justify-center h-9"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <UserPlus className="h-4 w-4 mr-2" />
