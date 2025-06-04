@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/lib/language-context";
+import { destinationTranslations, DestinationKey } from "@/lib/translations";
 
 const destinations = [
   {
@@ -37,21 +41,32 @@ const destinations = [
 ];
 
 export function PopularDestinations() {
+  const { language, t } = useLanguage();
+  const dt = destinationTranslations[language];
+  
+  // 辅助函数，用于获取翻译
+  const getTranslation = (key: string) => {
+    // 尝试将key转换为DestinationKey类型
+    return dt[key as DestinationKey] || key;
+  };
+
   return (
     <section className="py-20 bg-muted/30">
       <div className="container px-4 sm:px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Popular Destinations</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("popularDestinations")}</h2>
             <p className="text-muted-foreground max-w-2xl">
-              Explore some of the world's most iconic landmarks and attractions.
+              {language === "en" 
+                ? "Explore some of the world's most iconic landmarks and attractions." 
+                : "探索世界上一些最具标志性的地标和景点。"}
             </p>
           </div>
           <Link 
             href="/popular"
             className="inline-flex items-center text-primary hover:underline mt-4 md:mt-0"
           >
-            View all destinations <ArrowRight className="ml-2 h-4 w-4" />
+            {language === "en" ? "View all destinations" : "查看所有景点"} <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </div>
 
@@ -61,6 +76,7 @@ export function PopularDestinations() {
               key={destination.id} 
               destination={destination}
               className={index === 0 ? "md:col-span-2" : ""}
+              getTranslation={getTranslation}
             />
           ))}
         </div>
@@ -77,9 +93,10 @@ interface DestinationCardProps {
     image: string;
   };
   className?: string;
+  getTranslation: (key: string) => string;
 }
 
-function DestinationCard({ destination, className }: DestinationCardProps) {
+function DestinationCard({ destination, className, getTranslation }: DestinationCardProps) {
   return (
     <Link 
       href={`/destination/${destination.id}`}
@@ -91,7 +108,7 @@ function DestinationCard({ destination, className }: DestinationCardProps) {
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 z-10" />
       <Image
         src={destination.image}
-        alt={destination.name}
+        alt={getTranslation(destination.name)}
         fill
         style={{ 
           objectFit: "cover", 
@@ -100,8 +117,8 @@ function DestinationCard({ destination, className }: DestinationCardProps) {
         className="transition-transform duration-700 ease-in-out group-hover:scale-110"
       />
       <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-        <h3 className="text-xl font-semibold text-white mb-1">{destination.name}</h3>
-        <p className="text-white/80 text-sm">{destination.location}</p>
+        <h3 className="text-xl font-semibold text-white mb-1">{getTranslation(destination.name)}</h3>
+        <p className="text-white/80 text-sm">{getTranslation(destination.location)}</p>
       </div>
     </Link>
   );

@@ -249,3 +249,76 @@ export const translations = {
     errorOccurred: "发生了意外错误。请稍后再试。",
   }
 }; 
+
+// 景点名称和位置的翻译
+export type DestinationKey = 
+  | "Great Wall of China" | "Eiffel Tower" | "Taj Mahal" | "Machu Picchu" | "Pyramids of Giza" | "Colosseum" | "Statue of Liberty" | "Sydney Opera House"
+  | "China" | "Paris, France" | "Agra, India" | "Peru" | "Egypt" | "Rome, Italy" | "New York, USA" | "Sydney, Australia"
+  | "All" | "Asia" | "Europe" | "North America" | "South America" | "Africa" | "Oceania";
+
+export type DestinationTranslations = {
+  [key in DestinationKey]: string;
+};
+
+export const destinationTranslations: {en: DestinationTranslations, zh: DestinationTranslations} = {
+  en: {
+    // 景点名称
+    "Great Wall of China": "Great Wall of China",
+    "Eiffel Tower": "Eiffel Tower",
+    "Taj Mahal": "Taj Mahal",
+    "Machu Picchu": "Machu Picchu",
+    "Pyramids of Giza": "Pyramids of Giza",
+    "Colosseum": "Colosseum",
+    "Statue of Liberty": "Statue of Liberty",
+    "Sydney Opera House": "Sydney Opera House",
+    
+    // 景点位置
+    "China": "China",
+    "Paris, France": "Paris, France",
+    "Agra, India": "Agra, India",
+    "Peru": "Peru",
+    "Egypt": "Egypt",
+    "Rome, Italy": "Rome, Italy",
+    "New York, USA": "New York, USA",
+    "Sydney, Australia": "Sydney, Australia",
+    
+    // 大洲
+    "All": "All",
+    "Asia": "Asia",
+    "Europe": "Europe",
+    "North America": "North America",
+    "South America": "South America",
+    "Africa": "Africa",
+    "Oceania": "Oceania"
+  },
+  zh: {
+    // 景点名称
+    "Great Wall of China": "中国长城",
+    "Eiffel Tower": "埃菲尔铁塔",
+    "Taj Mahal": "泰姬陵",
+    "Machu Picchu": "马丘比丘",
+    "Pyramids of Giza": "吉萨金字塔",
+    "Colosseum": "罗马斗兽场",
+    "Statue of Liberty": "自由女神像",
+    "Sydney Opera House": "悉尼歌剧院",
+    
+    // 景点位置
+    "China": "中国",
+    "Paris, France": "法国巴黎",
+    "Agra, India": "印度阿格拉",
+    "Peru": "秘鲁",
+    "Egypt": "埃及",
+    "Rome, Italy": "意大利罗马",
+    "New York, USA": "美国纽约",
+    "Sydney, Australia": "澳大利亚悉尼",
+    
+    // 大洲
+    "All": "全部",
+    "Asia": "亚洲",
+    "Europe": "欧洲",
+    "North America": "北美洲",
+    "South America": "南美洲",
+    "Africa": "非洲",
+    "Oceania": "大洋洲"
+  }
+}; 

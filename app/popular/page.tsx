@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MapPin, Search } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { useLanguage } from "@/lib/language-context";
+import { destinationTranslations, DestinationKey } from "@/lib/translations";
 
 const continents = [
   { name: "All", value: "all" },
@@ -76,16 +80,27 @@ const popularDestinations = [
 ];
 
 export default function PopularPage() {
+  const { language, t } = useLanguage();
+  const dt = destinationTranslations[language];
+
+  // 辅助函数，用于获取翻译
+  const getTranslation = (key: string) => {
+    // 尝试将key转换为DestinationKey类型
+    return dt[key as DestinationKey] || key;
+  };
+
   return (
     <div className="pt-24">
       {/* Header */}
       <section className="py-12 md:py-16 bg-muted/30">
         <div className="container px-4 sm:px-6">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Popular Destinations
+            {t("popularDestinations")}
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl">
-            Explore some of the world's most iconic landmarks and attractions. Discover their rich histories, cultural significance, and travel information.
+            {language === "en" 
+              ? "Explore some of the world's most iconic landmarks and attractions. Discover their rich histories, cultural significance, and travel information."
+              : "探索世界上一些最具标志性的地标和景点。发现它们丰富的历史、文化意义和旅行信息。"}
           </p>
         </div>
       </section>
@@ -101,7 +116,7 @@ export default function PopularPage() {
                   variant={continent.value === "all" ? "default" : "outline"}
                   size="sm"
                 >
-                  {continent.name}
+                  {getTranslation(continent.name)}
                 </Button>
               ))}
             </div>
@@ -110,7 +125,7 @@ export default function PopularPage() {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 type="text"
-                placeholder="Search destinations..."
+                placeholder={language === "en" ? "Search destinations..." : "搜索景点..."}
                 className="pl-10"
               />
             </div>
@@ -131,18 +146,18 @@ export default function PopularPage() {
                 <div className="relative overflow-hidden rounded-lg aspect-[4/3] mb-3">
                   <Image
                     src={destination.image}
-                    alt={destination.name}
+                    alt={getTranslation(destination.name)}
                     fill
                     style={{ objectFit: "cover" }}
                     className="transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <h3 className="text-lg font-semibold mb-1 group-hover:text-primary transition-colors">
-                  {destination.name}
+                  {getTranslation(destination.name)}
                 </h3>
                 <div className="flex items-center text-muted-foreground text-sm">
                   <MapPin className="h-3 w-3 mr-1" />
-                  {destination.location}
+                  {getTranslation(destination.location)}
                 </div>
               </Link>
             ))}
@@ -154,7 +169,7 @@ export default function PopularPage() {
       <section className="py-8 mb-12">
         <div className="container px-4 sm:px-6 text-center">
           <Button variant="outline" size="lg">
-            Load More Destinations
+            {language === "en" ? "Load More Destinations" : "加载更多景点"}
           </Button>
         </div>
       </section>
