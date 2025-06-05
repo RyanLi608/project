@@ -12,6 +12,9 @@ const DEEPSEEK_MODEL = 'Qwen/QwQ-32B';
 // 默认使用OpenAI API，如果设置USE_DEEPSEEK=true则使用DeepSeek API
 const USE_DEEPSEEK = process.env.USE_DEEPSEEK === 'true';
 
+// 是否使用模拟数据（当API密钥未配置时）
+const USE_MOCK_DATA = !OPENAI_API_KEY && !DEEPSEEK_API_KEY;
+
 // 获取当前配置
 export const getCurrentConfig = () => {
   if (USE_DEEPSEEK) {
@@ -78,8 +81,75 @@ export const handleApiError = (error: any) => {
   }
 };
 
+// 生成模拟数据
+const generateMockData = (landmarkName: string, language: string = 'Chinese') => {
+  console.log('使用模拟数据，因为API密钥未配置');
+  
+  const isEnglish = language.toLowerCase().includes('english');
+  
+  // 基于地标名生成一致的模拟数据
+  if (landmarkName.toLowerCase().includes('great wall') || landmarkName.includes('长城')) {
+    return isEnglish 
+      ? `The Great Wall of China is one of the most impressive architectural feats in human history. Built over centuries by various Chinese dynasties, primarily during the Ming Dynasty (1368-1644).
+
+1. Historical Background: Construction began as early as the 7th century BC, with various walls being built by different states. The most well-preserved sections today date from the Ming Dynasty. It was built primarily for defense against nomadic tribes from the north.
+
+2. Cultural Significance: The Great Wall symbolizes China's endurance and historical resilience. It represents the unification of China and has become the country's most recognizable cultural symbol internationally.
+
+3. Architectural Features: The wall stretches approximately 13,171 miles (21,196 kilometers) across northern China. It includes watchtowers, garrison stations, and beacon towers. The wall's height typically ranges from 5-8 meters, with a width of 4-5 meters at the base.
+
+4. Best Time to Visit: Spring (April-May) and autumn (September-October) offer the most comfortable temperatures and beautiful scenery. Avoid national holidays when it becomes extremely crowded.
+
+5. Interesting Facts: Contrary to popular belief, the Great Wall is not visible from space with the naked eye. The mortar used in some sections included sticky rice, which contributed to its durability. The wall crosses nine provinces and municipalities.`
+      : `中国长城是人类历史上最令人印象深刻的建筑成就之一。它由多个中国朝代修建，主要是在明朝（1368-1644年）期间。
+
+1. 历史背景：长城的修建最早可追溯到公元前7世纪，不同的国家修建了各种墙壁。今天保存最完好的部分来自明朝。它主要是为了防御来自北方的游牧部落。
+
+2. 文化意义：长城象征着中国的耐力和历史韧性。它代表着中国的统一，并已成为国际上最具辨识度的中国文化象征。
+
+3. 建筑特点：长城横跨中国北部约21,196公里（13,171英里）。它包括了烽火台、驻军站和瞭望塔。墙的高度通常在5-8米之间，底部宽度为4-5米。
+
+4. 最佳参观时间：春季（4-5月）和秋季（9-10月）提供最舒适的温度和美丽的风景。避开国家假日，因为那时会非常拥挤。
+
+5. 有趣的事实：与普遍的看法相反，长城从太空中用肉眼是看不见的。一些部分使用的砂浆中包含糯米，这有助于其耐久性。长城横跨九个省份和直辖市。`;
+  }
+  
+  // 默认模拟数据
+  return isEnglish 
+    ? `${landmarkName} is a fascinating landmark with rich history and cultural significance.
+
+1. Historical Background: This landmark has a history dating back several centuries, with influences from various historical periods and cultural movements.
+
+2. Cultural Significance: It represents an important symbol in local and global cultural heritage, attracting visitors from around the world.
+
+3. Architectural Features: The structure showcases unique design elements characteristic of its period, with notable features including its distinctive silhouette and intricate details.
+
+4. Best Time to Visit: Spring and fall months typically offer the most pleasant weather conditions and smaller crowds. Early morning visits provide the best lighting for photography.
+
+5. Interesting Facts: The landmark has been featured in numerous films and literary works. It underwent several major renovations throughout history, each adding to its unique character.`
+    : `${landmarkName}是一个拥有丰富历史和文化意义的迷人地标。
+
+1. 历史背景：这个地标有着数世纪的历史，受到各个历史时期和文化运动的影响。
+
+2. 文化意义：它在当地和全球文化遗产中代表着重要的象征，吸引着来自世界各地的游客。
+
+3. 建筑特点：该建筑展示了其时期特有的独特设计元素，其显著特点包括其独特的轮廓和复杂的细节。
+
+4. 最佳参观时间：春季和秋季通常提供最宜人的天气条件和较少的人群。清晨参观提供了最佳的摄影光线。
+
+5. 有趣的事实：这个地标在众多电影和文学作品中都有所展示。它在历史上经历了几次重大翻修，每次都为其独特的特性增添了色彩。`;
+};
+
 // 通用的请求AI回答函数
 async function requestAIResponse(prompt: string, language: string = 'Chinese') {
+  // 如果API密钥未配置，使用模拟数据
+  if (USE_MOCK_DATA) {
+    return {
+      success: true,
+      data: generateMockData(prompt, language)
+    };
+  }
+  
   const config = getCurrentConfig();
   
   try {
