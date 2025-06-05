@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import axios from 'axios';
+import { handleApiError } from '@/lib/api/utils';
 
 interface APIResponse<T> {
   data?: T;
@@ -21,12 +23,17 @@ export function useLandmarkInfo() {
         language
       }).toString();
       
-      const res = await fetch(`/api/landmark?${queryParams}`);
-      const data = await res.json();
+      const res = await fetch(`/api/landmark?${queryParams}`, {
+        // 添加缓存控制，确保获取最新数据
+        cache: 'no-store'
+      });
       
       if (!res.ok) {
-        throw new Error(data.error || '获取景点信息失败');
+        const errorData = await res.json();
+        throw new Error(errorData.error || '获取景点信息失败');
       }
+      
+      const data = await res.json();
       
       setResponse({
         data: data.data,
@@ -35,6 +42,7 @@ export function useLandmarkInfo() {
       
       return data.data;
     } catch (error: any) {
+      console.error('Landmark API Error:', error);
       setResponse({
         error: error.message,
         isLoading: false
@@ -74,14 +82,16 @@ export function useItineraryGenerator() {
           days,
           preferences,
           language
-        })
+        }),
+        cache: 'no-store'
       });
       
-      const data = await res.json();
-      
       if (!res.ok) {
-        throw new Error(data.error || '生成行程失败');
+        const errorData = await res.json();
+        throw new Error(errorData.error || '生成行程失败');
       }
+      
+      const data = await res.json();
       
       setResponse({
         data: data.data,
@@ -90,6 +100,7 @@ export function useItineraryGenerator() {
       
       return data.data;
     } catch (error: any) {
+      console.error('Itinerary API Error:', error);
       setResponse({
         error: error.message,
         isLoading: false
@@ -124,12 +135,16 @@ export function useAudioNarration() {
         language
       }).toString();
       
-      const res = await fetch(`/api/narration?${queryParams}`);
-      const data = await res.json();
+      const res = await fetch(`/api/narration?${queryParams}`, {
+        cache: 'no-store'
+      });
       
       if (!res.ok) {
-        throw new Error(data.error || '获取语音导览失败');
+        const errorData = await res.json();
+        throw new Error(errorData.error || '获取语音导览失败');
       }
+      
+      const data = await res.json();
       
       setResponse({
         data: data.data,
@@ -138,6 +153,7 @@ export function useAudioNarration() {
       
       return data.data;
     } catch (error: any) {
+      console.error('Narration API Error:', error);
       setResponse({
         error: error.message,
         isLoading: false

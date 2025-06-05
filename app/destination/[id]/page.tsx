@@ -58,6 +58,9 @@ export default function DestinationPage({ params }: DestinationPageProps) {
     return dt[key as DestinationKey] || key;
   };
   
+  // 检查是否是预定义的景点
+  const isPredefinedLandmark = ["great-wall", "eiffel-tower", "taj-mahal", "machu-picchu", "pyramids", "colosseum", "statue-of-liberty", "sydney-opera-house"].includes(id);
+  
   // Mock data for demonstration
   const destinationData = {
     name: id === "great-wall" ? "Great Wall of China" : 
@@ -65,23 +68,51 @@ export default function DestinationPage({ params }: DestinationPageProps) {
           id === "taj-mahal" ? "Taj Mahal" :
           id === "machu-picchu" ? "Machu Picchu" :
           id === "pyramids" ? "Pyramids of Giza" : 
+          // 未预定义景点使用格式化的ID作为名称
           decodeURIComponent(id).replace(/-/g, ' '),
     location: id === "great-wall" ? "China" : 
              id === "eiffel-tower" ? "Paris, France" :
              id === "taj-mahal" ? "Agra, India" :
              id === "machu-picchu" ? "Peru" :
-             id === "pyramids" ? "Egypt" : "Location",
+             id === "pyramids" ? "Egypt" : 
+             // 未预定义景点的位置
+             language === "en" ? "Various locations" : "多个地点",
     image: id === "great-wall" ? "https://images.pexels.com/photos/1131407/pexels-photo-1131407.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" : 
            id === "eiffel-tower" ? "https://images.pexels.com/photos/699466/pexels-photo-699466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" :
            id === "taj-mahal" ? "https://images.pexels.com/photos/1603650/pexels-photo-1603650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" :
            id === "machu-picchu" ? "https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" :
            id === "pyramids" ? "https://images.pexels.com/photos/71241/pexels-photo-71241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" : 
+           // 未预定义景点使用默认图片
            "https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&w=1920",
     travelInfo: {
-      bestTime: "April to June, September to November",
-      duration: "3-4 hours for most sections",
-      entryFee: "¥40-60 depending on section",
-      openingHours: "7:30 AM - 5:30 PM (varies by section)"
+      bestTime: id === "great-wall" ? "April to June, September to November" :
+                id === "eiffel-tower" ? "May to September" :
+                id === "taj-mahal" ? "October to March" :
+                id === "machu-picchu" ? "May to September" :
+                id === "pyramids" ? "October to April" :
+                // 未预定义景点的最佳旅行时间
+                language === "en" ? "Varies by location" : "因地点而异",
+      duration: id === "great-wall" ? "3-4 hours for most sections" :
+                id === "eiffel-tower" ? "1-2 hours" :
+                id === "taj-mahal" ? "2-3 hours" :
+                id === "machu-picchu" ? "3-4 hours" :
+                id === "pyramids" ? "2-3 hours" :
+                // 未预定义景点的参观时长
+                language === "en" ? "Depends on specific location" : "取决于具体地点",
+      entryFee: id === "great-wall" ? "¥40-60 depending on section" :
+                id === "eiffel-tower" ? "€17-26" :
+                id === "taj-mahal" ? "₹1100 for foreigners" :
+                id === "machu-picchu" ? "$45-65" :
+                id === "pyramids" ? "LE200" :
+                // 未预定义景点的入场费
+                language === "en" ? "Varies by location" : "因地点而异",
+      openingHours: id === "great-wall" ? "7:30 AM - 5:30 PM (varies by section)" :
+                    id === "eiffel-tower" ? "9:00 AM - 11:45 PM" :
+                    id === "taj-mahal" ? "Sunrise to sunset (closed on Fridays)" :
+                    id === "machu-picchu" ? "6:00 AM - 5:30 PM" :
+                    id === "pyramids" ? "8:00 AM - 5:00 PM" :
+                    // 未预定义景点的开放时间
+                    language === "en" ? "Varies by location" : "因地点而异"
     }
   };
 
@@ -172,6 +203,11 @@ export default function DestinationPage({ params }: DestinationPageProps) {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
                 {getTranslation(destinationData.name)}
               </h1>
+              {!isPredefinedLandmark && (
+                <Badge variant="outline" className="mb-4">
+                  {language === "en" ? "Custom search" : "自定义搜索"}
+                </Badge>
+              )}
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
                 {isLandmarkLoading ? (language === "en" ? 'Loading...' : '加载中...') : parsedData.description}
               </p>

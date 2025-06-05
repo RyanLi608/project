@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAudioNarration } from '@/lib/api/deepseek';
+import { getLandmarkInfo } from '@/lib/api/deepseek';
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -15,7 +15,11 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const result = await getAudioNarration(landmark, aspect, language);
+    // 这里我们使用同样的方法获取信息，但增加了特定方面的提示
+    // 在实际应用中，可能需要一个专门的语音导览API
+    const prompt = `请专门讲解${landmark}的${aspect}方面的内容，用${language}语言表达，使内容更适合语音导览。`;
+    
+    const result = await getLandmarkInfo(prompt, language as string);
     
     if (result.success) {
       return NextResponse.json({ data: result.data });
@@ -26,9 +30,9 @@ export async function GET(request: NextRequest) {
       );
     }
   } catch (error: any) {
-    console.error('API route error:', error);
+    console.error('Narration API error:', error);
     return NextResponse.json(
-      { error: error.message || '处理请求时出错' },
+      { error: error.message || '处理语音导览请求时出错' },
       { status: 500 }
     );
   }

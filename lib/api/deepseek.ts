@@ -10,10 +10,10 @@ const DEEPSEEK_API_URL = 'https://api.siliconflow.cn/v1/chat/completions';
 const DEEPSEEK_MODEL = 'Qwen/QwQ-32B';
 
 // 默认使用OpenAI API，如果设置USE_DEEPSEEK=true则使用DeepSeek API
-const USE_DEEPSEEK = false; // 可以根据需要修改此处或通过环境变量设置
+const USE_DEEPSEEK = process.env.USE_DEEPSEEK === 'true';
 
 // 获取当前配置
-const getCurrentConfig = () => {
+export const getCurrentConfig = () => {
   if (USE_DEEPSEEK) {
     return {
       apiKey: DEEPSEEK_API_KEY,
@@ -57,7 +57,7 @@ const getCurrentConfig = () => {
 };
 
 // 错误处理函数
-const handleApiError = (error: any) => {
+export const handleApiError = (error: any) => {
   const apiName = USE_DEEPSEEK ? 'DeepSeek' : 'OpenAI';
   console.error(`${apiName} API Error:`, error);
   
@@ -78,19 +78,11 @@ const handleApiError = (error: any) => {
   }
 };
 
-// 获取景点信息的函数
-export async function getLandmarkInfo(landmarkName: string, language: string = 'Chinese') {
+// 通用的请求AI回答函数
+async function requestAIResponse(prompt: string, language: string = 'Chinese') {
   const config = getCurrentConfig();
   
   try {
-    const prompt = `请提供关于${landmarkName}的以下信息:
-1. 历史背景
-2. 文化意义
-3. 建筑特点
-4. 最佳参观时间
-5. 有趣的事实
-请用${language}语言回答，并保持信息的准确性和教育意义。`;
-
     const response = await axios.post(
       config.apiUrl,
       {
@@ -114,6 +106,27 @@ export async function getLandmarkInfo(landmarkName: string, language: string = '
       success: true,
       data: response.data.choices[0].message.content
     };
+  } catch (error) {
+    const errorMessage = handleApiError(error);
+    return {
+      success: false,
+      error: errorMessage
+    };
+  }
+}
+
+// 获取景点信息的函数
+export async function getLandmarkInfo(landmarkName: string, language: string = 'Chinese') {
+  try {
+    const prompt = `请提供关于${landmarkName}的以下信息:
+1. 历史背景
+2. 文化意义
+3. 建筑特点
+4. 最佳参观时间
+5. 有趣的事实
+请用${language}语言回答，并保持信息的准确性和教育意义。`;
+
+    return await requestAIResponse(prompt, language);
   } catch (error) {
     const errorMessage = handleApiError(error);
     return {
@@ -125,8 +138,6 @@ export async function getLandmarkInfo(landmarkName: string, language: string = '
 
 // 获取旅行建议的函数
 export async function getTravelRecommendations(destination: string, interests: string[], language: string = 'Chinese') {
-  const config = getCurrentConfig();
-  
   try {
     const interestsText = interests.join('、');
     const prompt = `我计划去${destination}旅行，我对${interestsText}特别感兴趣。
@@ -138,29 +149,7 @@ export async function getTravelRecommendations(destination: string, interests: s
 5. 必备物品
 请用${language}语言回答，保持建议的实用性和针对性。`;
 
-    const response = await axios.post(
-      config.apiUrl,
-      {
-        ...config.defaultConfig,
-        messages: [
-          {
-            role: "user",
-            content: prompt
-          }
-        ]
-      },
-      {
-        headers: {
-          'Authorization': `Bearer ${config.apiKey}`,
-          'Content-Type': 'application/json'
-        }
-      }
-    );
-
-    return {
-      success: true,
-      data: response.data.choices[0].message.content
-    };
+    return await requestAIResponse(prompt, language);
   } catch (error) {
     const errorMessage = handleApiError(error);
     return {
@@ -170,49 +159,24 @@ export async function getTravelRecommendations(destination: string, interests: s
   }
 }
 
-// 生成旅游行程的函数
-export async function generateItinerary(destination: string, days: number, preferences: string[], language: string = 'Chinese') {
-  const config = getCurrentConfig();
-  
+// 生成行程规划的函数
+export async function generateItinerary(
+  destination: string,
+  days: number,
+  preferences: string[],
+  language: string = 'Chinese'
+) {
   try {
     const preferencesText = preferences.join('、');
-    const prompt = `请为我生成一个${days}天的${destination}旅行行程。
-我的偏好是${preferencesText}。
-请包括:
-1. 每天的行程安排（上午、下午、晚上）
-2. 推荐的景点和活动
-3. 餐饮建议
-4. 交通方式
-5. 时间管理提示
-请用${language}语言回答，并考虑到景点之间的距离和合理安排。`;
+    const daysText = language === 'Chinese' ? `${days}天` : `${days} days`;
+    
+    const prompt = language === 'Chinese'
+      ? `请为${destination}设计一个${daysText}的详细旅行行程。旅行者偏好：${preferencesText}。
+行程应包括每天的景点、活动推荐、用餐建议和交通提示。提供合理的时间安排和实用的旅行建议。`
+      : `Please design a detailed ${daysText} travel itinerary for ${destination}. Traveler preferences: ${preferences.join(', ')}.
+The itinerary should include daily attractions, activity recommendations, dining suggestions, and transportation tips. Provide reasonable timing and practical travel advice.`;
 
-    // 创建配置的深拷贝并修改token限制
-    const requestConfig = JSON.parse(JSON.stringify(config.defaultConfig));
-    requestConfig.max_tokens = 1024; // 增加token上限以获取更完整的行程
-
-    const response = await axios.post(
-      config.apiUrl,
-      {
-        ...requestConfig,
-        messages: [
-          {
-            role: "user",
-            content: prompt
-          }
-        ]
-      },
-      {
-        headers: {
-          'Authorization': `Bearer ${config.apiKey}`,
-          'Content-Type': 'application/json'
-        }
-      }
-    );
-
-    return {
-      success: true,
-      data: response.data.choices[0].message.content
-    };
+    return await requestAIResponse(prompt, language);
   } catch (error) {
     const errorMessage = handleApiError(error);
     return {
@@ -222,42 +186,13 @@ export async function generateItinerary(destination: string, days: number, prefe
   }
 }
 
-// 获取语音讲解的文本
+// 获取语音导览内容的函数
 export async function getAudioNarration(landmark: string, aspect: string, language: string = 'Chinese') {
-  const config = getCurrentConfig();
-  
   try {
-    const prompt = `请为游客提供一段关于${landmark}的${aspect}的语音导览脚本。
-脚本应该:
-1. 简洁明了（约200-300字）
-2. 生动有趣
-3. 包含关键信息和有趣事实
-4. 适合口语朗读
-请用${language}语言回答，确保语调友好且易于理解。`;
+    const prompt = `请专门讲解${landmark}的${aspect}方面的内容，用${language}语言表达，使内容更适合语音导览。
+内容应该清晰、生动且富有教育意义，长度适中，易于聆听理解。`;
 
-    const response = await axios.post(
-      config.apiUrl,
-      {
-        ...config.defaultConfig,
-        messages: [
-          {
-            role: "user",
-            content: prompt
-          }
-        ]
-      },
-      {
-        headers: {
-          'Authorization': `Bearer ${config.apiKey}`,
-          'Content-Type': 'application/json'
-        }
-      }
-    );
-
-    return {
-      success: true,
-      data: response.data.choices[0].message.content
-    };
+    return await requestAIResponse(prompt, language);
   } catch (error) {
     const errorMessage = handleApiError(error);
     return {

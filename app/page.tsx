@@ -62,10 +62,19 @@ export default function Home() {
       const query = searchQuery.trim().toLowerCase();
       
       // 尝试匹配预定义的景点ID
-      const id = landmarkIds[query] || formatSearchQuery(query);
+      const id = landmarkIds[query];
       
-      // 导航到景点页面
-      router.push(`/destination/${id}`);
+      if (id) {
+        // 找到预定义景点，导航到其页面
+        router.push(`/destination/${id}`);
+      } else {
+        // 未找到预定义景点，使用格式化的查询作为ID
+        const formattedQuery = formatSearchQuery(query);
+        router.push(`/destination/${formattedQuery}`);
+        
+        // 这里可以添加逻辑，如记录未找到的查询，以便后续添加到预定义列表中
+        console.log(`未预定义的景点查询: ${query}`);
+      }
     }
   };
   
