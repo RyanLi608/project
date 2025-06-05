@@ -151,7 +151,22 @@ function matchQuestion(message: string, landmark: string, language: string): str
 }
 
 // 获取模拟回复
-function getMockResponse(landmark: string, language: string, message: string): string {
+function getMockResponse(landmark: string, language: string, message: string, history: any[] = []): string {
+  // 检查是否是后续提问
+  const isFollowUpQuestion = isFollowUp(message, language);
+  
+  // 如果是后续提问且有历史记录，尝试生成连贯的回答
+  if (isFollowUpQuestion && history.length > 0) {
+    // 获取上下文信息
+    const context = getContextFromHistory(history, language);
+    
+    // 生成连贯的回答
+    const followUpResponse = generateFollowUpResponse(context, message, landmark, language);
+    if (followUpResponse) {
+      return followUpResponse;
+    }
+  }
+  
   // 首先尝试匹配问答数据库
   const qaMatch = matchQuestion(message, landmark, language);
   if (qaMatch) return qaMatch;
@@ -174,6 +189,77 @@ function getMockResponse(landmark: string, language: string, message: string): s
   return responses[randomIndex];
 }
 
+// 检查是否是后续提问
+function isFollowUp(message: string, language: string): boolean {
+  const chineseFollowUpPhrases = ["然后呢", "接着呢", "继续", "还有呢", "详细点", "告诉我更多", "再说一些"];
+  const englishFollowUpPhrases = ["and then", "continue", "tell me more", "what else", "more details", "go on", "furthermore"];
+  
+  if (language.toLowerCase().includes("chinese")) {
+    return chineseFollowUpPhrases.some(phrase => message.includes(phrase));
+  } else {
+    return englishFollowUpPhrases.some(phrase => message.toLowerCase().includes(phrase));
+  }
+}
+
+// 从历史记录中获取上下文
+function getContextFromHistory(history: any[], language: string): string {
+  // 获取最近的助手回复作为上下文
+  const recentResponses = history
+    .filter(msg => msg.role === "assistant")
+    .slice(-2)
+    .map(msg => msg.content);
+  
+  if (recentResponses.length === 0) {
+    return language.toLowerCase().includes("chinese") 
+      ? "这是一个有关景点的对话" 
+      : "This is a conversation about a landmark";
+  }
+  
+  return recentResponses.join(" ");
+}
+
+// 生成后续回答
+function generateFollowUpResponse(context: string, message: string, landmark: string, language: string): string | null {
+  // 根据当前上下文生成后续回答
+  if (language.toLowerCase().includes("chinese")) {
+    if (context.includes("长城")) {
+      if (landmark.toLowerCase().includes("great wall") || landmark.includes("长城")) {
+        if (context.includes("八达岭")) {
+          return "除了八达岭，慕田峪长城也很受欢迎，那里人相对较少，风景同样壮观。长城各段有不同特色，比如金山岭长城保存完好，司马台长城可以夜游。您对哪一段更感兴趣？";
+        }
+        if (context.includes("历史")) {
+          return "长城的建造工艺非常先进，使用了因地制宜的材料和技术。例如，在某些地区使用了糯米汁混合石灰，增强了墙体的坚固性。长城还有复杂的信号系统，通过烽火台可以快速传递军事情报。";
+        }
+        return "长城还有许多鲜为人知的事实，比如它并不是一道连续的墙，而是由多段墙壁、塔楼和自然屏障组成的防御系统。长城的建造耗费了大量人力物力，是古代中国工程技术的杰出代表。";
+      }
+    }
+    
+    if (landmark.toLowerCase().includes("eiffel") || landmark.includes("埃菲尔")) {
+      return "关于埃菲尔铁塔，还有一个有趣的事实是它每七年需要重新粉刷一次，大约需要60吨油漆。铁塔的设计考虑了风力阻力，在强风中可以摆动15厘米左右。铁塔顶层有香槟吧，可以一边品尝香槟一边欣赏巴黎全景。";
+    }
+    
+    return "这个景点还有很多值得探索的方面，包括当地的文化传统、美食特色以及周边的其他景点。您想了解哪方面的信息呢？";
+  } else {
+    if (context.includes("Wall")) {
+      if (landmark.toLowerCase().includes("great wall")) {
+        if (context.includes("Badaling")) {
+          return "Besides Badaling, the Mutianyu section is also popular with fewer crowds but equally stunning views. Each section of the Great Wall has different characteristics - Jinshanling is well-preserved while Simatai offers night tours. Which section interests you more?";
+        }
+        if (context.includes("history")) {
+          return "The construction techniques of the Wall were very advanced, using materials and methods adapted to local conditions. For example, in some areas, sticky rice juice was mixed with lime to strengthen the wall. The Wall also had a sophisticated signaling system with beacon towers for rapid military communication.";
+        }
+        return "There are many lesser-known facts about the Great Wall, such as it's not actually a continuous wall but a defense system made of multiple wall sections, towers, and natural barriers. Building the Wall required enormous human and material resources, representing outstanding engineering achievements of ancient China.";
+      }
+    }
+    
+    if (landmark.toLowerCase().includes("eiffel")) {
+      return "Regarding the Eiffel Tower, another interesting fact is that it needs to be repainted every seven years, requiring about 60 tons of paint. The tower's design accounts for wind resistance and can sway up to 15 centimeters in strong winds. There's a champagne bar at the top where you can enjoy a glass while taking in the panoramic views of Paris.";
+    }
+    
+    return "There are many more aspects of this landmark worth exploring, including local cultural traditions, culinary specialties, and other nearby attractions. What aspects would you like to know more about?";
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { message, landmark, language = 'Chinese', history = [] } = await request.json();
@@ -184,6 +270,8 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+    
+    console.log('接收到聊天请求:', { message, landmark, language, historyLength: history.length });
 
     const config = getCurrentConfig();
     const useOpenAI = config.apiUrl.includes('openai.com');
@@ -192,7 +280,7 @@ export async function POST(request: NextRequest) {
     // 检查API密钥是否配置
     if (!apiKey) {
       console.log('API密钥未配置，使用模拟数据');
-      const mockResponse = getMockResponse(landmark, language, message);
+      const mockResponse = getMockResponse(landmark, language, message, history);
       return NextResponse.json({ response: mockResponse });
     }
 
@@ -206,17 +294,30 @@ export async function POST(request: NextRequest) {
     const systemPrompt = language === 'Chinese' 
       ? `你是一个友好专业的${landmark}AI导游，提供关于这个景点的信息、历史、文化背景、建筑特点和旅行建议。
          回答要简洁、有教育意义且富有信息量。只回答与${landmark}相关的问题。
-         如果被问到无关问题，礼貌地将话题引回${landmark}。使用中文回答。`
+         如果被问到无关问题，礼貌地将话题引回${landmark}。使用中文回答。
+         一定要关注对话历史，提供连贯的回答，特别是对"然后呢"、"继续"等后续提问。`
       : `You are a friendly, professional AI tour guide for ${landmark}, providing information about its history, cultural significance, architecture, and travel tips.
          Your answers should be concise, educational, and informative. Only answer questions related to ${landmark}.
-         If asked about unrelated topics, politely bring the conversation back to ${landmark}. Answer in English.`;
+         If asked about unrelated topics, politely bring the conversation back to ${landmark}. Answer in English.
+         Pay close attention to conversation history and provide coherent responses, especially to follow-up questions like "and then?", "continue", etc.`;
 
     try {
       // 首先检查是否有匹配的问答数据
       const qaMatch = matchQuestion(message, landmark, language);
-      if (qaMatch) {
+      if (qaMatch && !isFollowUp(message, language)) {
         console.log('找到匹配的问答数据');
         return NextResponse.json({ response: qaMatch });
+      }
+      
+      // 检查是否是后续提问
+      if (isFollowUp(message, language) && formattedHistory.length > 0) {
+        console.log('检测到后续提问，尝试生成连贯回答');
+        const context = getContextFromHistory(formattedHistory, language);
+        const followUpResponse = generateFollowUpResponse(context, message, landmark, language);
+        
+        if (followUpResponse) {
+          return NextResponse.json({ response: followUpResponse });
+        }
       }
       
       // 发送请求到DeepSeek或OpenAI API
@@ -240,7 +341,7 @@ export async function POST(request: NextRequest) {
         const errorData = await response.json();
         console.error('API错误:', errorData);
         // API错误时使用模拟数据
-        const mockResponse = getMockResponse(landmark, language, message);
+        const mockResponse = getMockResponse(landmark, language, message, history);
         return NextResponse.json({ response: mockResponse });
       }
 
@@ -251,7 +352,7 @@ export async function POST(request: NextRequest) {
     } catch (error) {
       console.error('API请求失败:', error);
       // 请求失败时使用模拟数据
-      const mockResponse = getMockResponse(landmark, language, message);
+      const mockResponse = getMockResponse(landmark, language, message, history);
       return NextResponse.json({ response: mockResponse });
     }
   } catch (error: any) {
