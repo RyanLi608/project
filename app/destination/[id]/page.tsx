@@ -177,6 +177,12 @@ export default function DestinationPage({ params }: DestinationPageProps) {
   
   const parsedData = parseApiData();
 
+  // 处理API错误，提供重试功能
+  const handleRetry = () => {
+    if (isLandmarkLoading) return;
+    fetchLandmarkInfo(destinationData.name, selectedLanguage);
+  };
+
   return (
     <>
       {/* Hero Section */}
@@ -243,7 +249,12 @@ export default function DestinationPage({ params }: DestinationPageProps) {
           {landmarkError && (
             <Alert variant="destructive" className="mb-6">
               <AlertDescription>
-                {t("errorFetching")} {landmarkError}
+                <div className="flex justify-between items-center">
+                  <span>{language === "en" ? "An error occurred. Please try again." : "发生错误，请重试。"}</span>
+                  <Button variant="outline" size="sm" onClick={handleRetry}>
+                    {language === "en" ? "Retry" : "重试"}
+                  </Button>
+                </div>
               </AlertDescription>
             </Alert>
           )}
