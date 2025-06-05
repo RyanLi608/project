@@ -11,11 +11,38 @@ import { PopularDestinations } from "@/components/popular-destinations";
 import { Testimonials } from "@/components/testimonials";
 import { useLanguage } from "@/lib/language-context";
 
+// 预定义的景点ID映射，用于更精确的搜索
+const landmarkIds: Record<string, string> = {
+  // 英文景点名称 -> ID
+  "great wall of china": "great-wall",
+  "great wall": "great-wall",
+  "eiffel tower": "eiffel-tower",
+  "taj mahal": "taj-mahal",
+  "machu picchu": "machu-picchu",
+  "pyramids of giza": "pyramids",
+  "pyramids": "pyramids",
+  "colosseum": "colosseum",
+  "statue of liberty": "statue-of-liberty",
+  "sydney opera house": "sydney-opera-house",
+  
+  // 中文景点名称 -> ID
+  "中国长城": "great-wall",
+  "长城": "great-wall",
+  "埃菲尔铁塔": "eiffel-tower",
+  "泰姬陵": "taj-mahal",
+  "马丘比丘": "machu-picchu",
+  "吉萨金字塔": "pyramids",
+  "金字塔": "pyramids",
+  "罗马斗兽场": "colosseum",
+  "自由女神像": "statue-of-liberty",
+  "悉尼歌剧院": "sydney-opera-house",
+};
+
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   const handleScroll = () => {
     setIsScrolled(window.scrollY > 100);
@@ -31,14 +58,23 @@ export default function Home() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      // 将搜索查询转换为URL友好的格式
-      const formattedQuery = searchQuery
-        .toLowerCase()
-        .replace(/[^\w\s-]/g, '')
-        .replace(/\s+/g, '-');
-        
-      router.push(`/destination/${formattedQuery}`);
+      // 将搜索查询转换为小写以便匹配
+      const query = searchQuery.trim().toLowerCase();
+      
+      // 尝试匹配预定义的景点ID
+      const id = landmarkIds[query] || formatSearchQuery(query);
+      
+      // 导航到景点页面
+      router.push(`/destination/${id}`);
     }
+  };
+  
+  // 将搜索查询转换为URL友好的格式
+  const formatSearchQuery = (query: string): string => {
+    return query
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-');
   };
 
   return (

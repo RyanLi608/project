@@ -17,8 +17,11 @@ import {
   Loader2,
 } from "lucide-react";
 import { PopularDestinations } from "@/components/popular-destinations";
+import { AIChat } from "@/components/ai-chat";
 import { useLandmarkInfo, useAudioNarration } from "@/hooks/useDeepSeekAPI";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { useLanguage } from "@/lib/language-context";
+import { destinationTranslations, DestinationKey } from "@/lib/translations";
 
 interface DestinationPageProps {
   params: {
@@ -30,7 +33,8 @@ export default function DestinationPage({ params }: DestinationPageProps) {
   const { id } = params;
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentAudio, setCurrentAudio] = useState<HTMLAudioElement | null>(null);
-  const [selectedLanguage, setSelectedLanguage] = useState("English");
+  const { language, t } = useLanguage();
+  const selectedLanguage = language === "en" ? "English" : "Chinese";
   
   // Use custom hooks to fetch data
   const {
@@ -46,6 +50,13 @@ export default function DestinationPage({ params }: DestinationPageProps) {
     isLoading: isNarrationLoading,
     fetchAudioNarration
   } = useAudioNarration();
+  
+  // 辅助函数，用于获取翻译
+  const getTranslation = (key: string) => {
+    const dt = destinationTranslations[language];
+    // 尝试将key转换为DestinationKey类型
+    return dt[key as DestinationKey] || key;
+  };
   
   // Mock data for demonstration
   const destinationData = {
@@ -91,12 +102,12 @@ export default function DestinationPage({ params }: DestinationPageProps) {
     try {
       // Fetch narration data if not available
       if (!narrationData) {
-        await fetchAudioNarration(destinationData.name, 'Historical Background', selectedLanguage);
+        await fetchAudioNarration(destinationData.name, language === "en" ? 'Historical Background' : '历史背景', selectedLanguage);
       }
       
       // Use text-to-speech API (simple TTS simulation here)
-      const utterance = new SpeechSynthesisUtterance(narrationData || 'Sorry, no audio data available');
-      utterance.lang = selectedLanguage === 'Chinese' ? 'zh-CN' : 'en-US';
+      const utterance = new SpeechSynthesisUtterance(narrationData || (language === "en" ? 'Sorry, no audio data available' : '抱歉，没有可用的音频数据'));
+      utterance.lang = language === "en" ? 'en-US' : 'zh-CN';
       speechSynthesis.speak(utterance);
       
       setIsPlaying(true);
@@ -114,8 +125,8 @@ export default function DestinationPage({ params }: DestinationPageProps) {
   // Parse and format API response data
   const parseApiData = () => {
     if (!landmarkData) return {
-      description: 'Loading...',
-      history: 'Loading...',
+      description: language === "en" ? 'Loading...' : '加载中...',
+      history: language === "en" ? 'Loading...' : '加载中...',
       highlights: []
     };
     
@@ -123,12 +134,12 @@ export default function DestinationPage({ params }: DestinationPageProps) {
     const sections = landmarkData.split(/\d+\.\s/).filter(Boolean);
     
     return {
-      description: sections[0] || 'No description available',
-      history: sections[1] || 'No historical information available',
+      description: sections[0] || (language === "en" ? 'No description available' : '没有可用的描述'),
+      history: sections[1] || (language === "en" ? 'No historical information available' : '没有可用的历史信息'),
       highlights: [
-        sections[2] || 'Cultural significance',
-        sections[3] || 'Architectural features',
-        sections[4] || 'Interesting facts'
+        sections[2] || (language === "en" ? 'Cultural significance' : '文化意义'),
+        sections[3] || (language === "en" ? 'Architectural features' : '建筑特点'),
+        sections[4] || (language === "en" ? 'Interesting facts' : '有趣的事实')
       ]
     };
   };
@@ -142,7 +153,7 @@ export default function DestinationPage({ params }: DestinationPageProps) {
         <div className="absolute inset-0">
           <Image
             src={destinationData.image}
-            alt={destinationData.name}
+            alt={getTranslation(destinationData.name)}
             fill
             style={{ objectFit: "cover", objectPosition: "center" }}
             priority
@@ -154,15 +165,15 @@ export default function DestinationPage({ params }: DestinationPageProps) {
         <div className="container relative z-10 pb-10">
           <Badge className="mb-4">
             <MapPin className="h-3 w-3 mr-1" />
-            {destinationData.location}
+            {getTranslation(destinationData.location)}
           </Badge>
           <div className="flex items-start justify-between flex-wrap gap-4">
             <div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                {destinationData.name}
+                {getTranslation(destinationData.name)}
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
-                {isLandmarkLoading ? 'Loading...' : parsedData.description}
+                {isLandmarkLoading ? (language === "en" ? 'Loading...' : '加载中...') : parsedData.description}
               </p>
             </div>
             <Button
@@ -174,15 +185,15 @@ export default function DestinationPage({ params }: DestinationPageProps) {
             >
               {isNarrationLoading ? (
                 <>
-                  <Loader2 className="h-5 w-5 animate-spin" /> Loading...
+                  <Loader2 className="h-5 w-5 animate-spin" /> {language === "en" ? 'Loading...' : '加载中...'}
                 </>
               ) : isPlaying ? (
                 <>
-                  <VolumeX className="h-5 w-5" /> Stop Narration
+                  <VolumeX className="h-5 w-5" /> {t("stopNarration")}
                 </>
               ) : (
                 <>
-                  <Volume2 className="h-5 w-5" /> Listen to Guide
+                  <Volume2 className="h-5 w-5" /> {t("listen")}
                 </>
               )}
             </Button>
@@ -196,7 +207,7 @@ export default function DestinationPage({ params }: DestinationPageProps) {
           {landmarkError && (
             <Alert variant="destructive" className="mb-6">
               <AlertDescription>
-                Error fetching data: {landmarkError}
+                {t("errorFetching")} {landmarkError}
               </AlertDescription>
             </Alert>
           )}
@@ -210,10 +221,10 @@ export default function DestinationPage({ params }: DestinationPageProps) {
           {!isLandmarkLoading && !landmarkError && (
             <Tabs defaultValue="overview" className="w-full">
               <TabsList className="grid w-full grid-cols-4 mb-8">
-                <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="history">History</TabsTrigger>
-                <TabsTrigger value="highlights">Highlights</TabsTrigger>
-                <TabsTrigger value="travel">Travel Info</TabsTrigger>
+                <TabsTrigger value="overview">{t("overview")}</TabsTrigger>
+                <TabsTrigger value="history">{t("history")}</TabsTrigger>
+                <TabsTrigger value="highlights">{t("highlights")}</TabsTrigger>
+                <TabsTrigger value="travel">{t("travelInfo")}</TabsTrigger>
               </TabsList>
               
               <TabsContent value="overview" className="space-y-8">
@@ -221,7 +232,7 @@ export default function DestinationPage({ params }: DestinationPageProps) {
                   <Card className="md:col-span-2">
                     <CardContent className="p-6">
                       <h2 className="text-2xl font-bold mb-4 flex items-center">
-                        <Info className="h-5 w-5 mr-2" /> About {destinationData.name}
+                        <Info className="h-5 w-5 mr-2" /> {t("about")} {getTranslation(destinationData.name)}
                       </h2>
                       <div className="prose dark:prose-invert max-w-none">
                         {parsedData.description.split('\n').map((paragraph, idx) => (
@@ -235,108 +246,96 @@ export default function DestinationPage({ params }: DestinationPageProps) {
                   
                   <Card>
                     <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold mb-4">Quick Facts</h3>
+                      <h3 className="text-xl font-semibold mb-4">{t("quickFacts")}</h3>
                       <dl className="space-y-4">
                         <div>
-                          <dt className="text-sm text-muted-foreground">Location</dt>
-                          <dd className="font-medium">{destinationData.location}</dd>
+                          <dt className="text-sm text-muted-foreground">{t("location")}</dt>
+                          <dd className="font-medium">{getTranslation(destinationData.location)}</dd>
                         </div>
                         <div>
-                          <dt className="text-sm text-muted-foreground">Best Time to Visit</dt>
+                          <dt className="text-sm text-muted-foreground">{t("bestTime")}</dt>
                           <dd className="font-medium">{destinationData.travelInfo.bestTime}</dd>
                         </div>
                         <div>
-                          <dt className="text-sm text-muted-foreground">Typical Duration</dt>
+                          <dt className="text-sm text-muted-foreground">{t("duration")}</dt>
                           <dd className="font-medium">{destinationData.travelInfo.duration}</dd>
                         </div>
                         <div>
-                          <dt className="text-sm text-muted-foreground">Entry Fee</dt>
+                          <dt className="text-sm text-muted-foreground">{t("entryFee")}</dt>
                           <dd className="font-medium">{destinationData.travelInfo.entryFee}</dd>
                         </div>
                       </dl>
                     </CardContent>
                   </Card>
+                  
+                  {/* AI Chat */}
+                  <Card className="md:col-span-3">
+                    <CardContent className="p-6">
+                      <AIChat landmarkName={getTranslation(destinationData.name)} />
+                    </CardContent>
+                  </Card>
                 </div>
               </TabsContent>
               
-              <TabsContent value="history" className="space-y-6">
-                <h2 className="text-2xl font-bold mb-4 flex items-center">
-                  <Calendar className="h-5 w-5 mr-2" /> Historical Background
-                </h2>
-                <div className="prose max-w-none dark:prose-invert">
-                  {parsedData.history.split('\n').map((paragraph, idx) => (
-                    <p key={idx}>
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="highlights" className="space-y-6">
-                <h2 className="text-2xl font-bold mb-4 flex items-center">
-                  <Sparkles className="h-5 w-5 mr-2" /> Must-See Highlights
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {parsedData.highlights.map((highlight, index) => (
-                    <Card key={index}>
-                      <CardContent className="p-6">
-                        <h3 className="text-xl font-semibold mb-3">Highlight {index + 1}</h3>
-                        <p className="text-muted-foreground">
-                          {highlight}
+              <TabsContent value="history">
+                <Card>
+                  <CardContent className="p-6">
+                    <h2 className="text-2xl font-bold mb-6">{t("historicalBackground")}</h2>
+                    <div className="prose dark:prose-invert max-w-none">
+                      {parsedData.history.split('\n').map((paragraph, idx) => (
+                        <p key={idx} className="text-muted-foreground mb-4">
+                          {paragraph}
                         </p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
               </TabsContent>
               
-              <TabsContent value="travel" className="space-y-6">
-                <h2 className="text-2xl font-bold mb-4 flex items-center">
-                  <Clock className="h-5 w-5 mr-2" /> Travel Information
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <Card>
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold mb-3">Best Time to Visit</h3>
-                      <p className="text-muted-foreground">
-                        {destinationData.travelInfo.bestTime}
-                      </p>
-                      <p className="text-muted-foreground mt-2">
-                        These months offer pleasant weather and fewer crowds, making your visit more enjoyable.
-                      </p>
-                    </CardContent>
-                  </Card>
-                  
-                  <Card>
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold mb-3">Opening Hours</h3>
-                      <p className="text-muted-foreground">
-                        {destinationData.travelInfo.openingHours}
-                      </p>
-                      <p className="text-muted-foreground mt-2">
-                        It's recommended to arrive early to avoid crowds.
-                      </p>
-                    </CardContent>
-                  </Card>
-                  
-                  <Card>
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold mb-3">Entry Information</h3>
-                      <p className="text-muted-foreground">
-                        {destinationData.travelInfo.entryFee}
-                      </p>
-                      <p className="text-muted-foreground mt-2">
-                        Consider booking tickets in advance to avoid waiting in line.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
+              <TabsContent value="highlights">
+                <Card>
+                  <CardContent className="p-6">
+                    <h2 className="text-2xl font-bold mb-6">{t("mustSeeHighlights")}</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      {parsedData.highlights.map((highlight, idx) => (
+                        <div key={idx} className="bg-muted/50 p-4 rounded-lg">
+                          <h3 className="text-lg font-semibold mb-2 flex items-center">
+                            <Sparkles className="h-4 w-4 mr-2 text-primary" />
+                            {t("highlight")} {idx + 1}
+                          </h3>
+                          <p className="text-muted-foreground">{highlight}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+              
+              <TabsContent value="travel">
+                <Card>
+                  <CardContent className="p-6">
+                    <h2 className="text-2xl font-bold mb-6">{t("travelInfo")}</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div>
+                        <h3 className="text-xl font-semibold mb-4">{t("openingHours")}</h3>
+                        <p className="mb-2">{destinationData.travelInfo.openingHours}</p>
+                        <p className="text-sm text-muted-foreground">{t("arriveEarly")}</p>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-xl font-semibold mb-4">{t("entryInformation")}</h3>
+                        <p className="mb-2">{t("entryFee")}: {destinationData.travelInfo.entryFee}</p>
+                        <p className="text-sm text-muted-foreground">{t("bookAdvance")}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </TabsContent>
             </Tabs>
           )}
         </div>
       </section>
-
+      
       {/* Related Destinations */}
       <PopularDestinations />
     </>
