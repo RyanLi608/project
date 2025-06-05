@@ -15,6 +15,7 @@ import {
   Volume2,
   VolumeX,
   Loader2,
+  Camera,
 } from "lucide-react";
 import { PopularDestinations } from "@/components/popular-destinations";
 import { AIChat } from "@/components/ai-chat";
@@ -22,6 +23,9 @@ import { useLandmarkInfo, useAudioNarration } from "@/hooks/useDeepSeekAPI";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useLanguage } from "@/lib/language-context";
 import { destinationTranslations, DestinationKey } from "@/lib/translations";
+import { LandmarkGallery, getMockGalleryImages } from "@/components/landmark-gallery";
+import { RelatedDestinations } from "@/components/related-destinations";
+import { WeatherInfo } from "@/components/weather-info";
 
 interface DestinationPageProps {
   params: {
@@ -115,6 +119,9 @@ export default function DestinationPage({ params }: DestinationPageProps) {
                     language === "en" ? "Varies by location" : "因地点而异"
     }
   };
+
+  // Add gallery images
+  const galleryImages = getMockGalleryImages(id);
 
   // Fetch data when page loads
   useEffect(() => {
@@ -266,119 +273,174 @@ export default function DestinationPage({ params }: DestinationPageProps) {
           )}
           
           {!isLandmarkLoading && !landmarkError && (
-            <Tabs defaultValue="overview" className="w-full">
-              <TabsList className="grid w-full grid-cols-4 mb-8">
-                <TabsTrigger value="overview">{t("overview")}</TabsTrigger>
-                <TabsTrigger value="history">{t("history")}</TabsTrigger>
-                <TabsTrigger value="highlights">{t("highlights")}</TabsTrigger>
-                <TabsTrigger value="travel">{t("travelInfo")}</TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="overview" className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <Card className="md:col-span-2">
-                    <CardContent className="p-6">
-                      <h2 className="text-2xl font-bold mb-4 flex items-center">
-                        <Info className="h-5 w-5 mr-2" /> {t("about")} {getTranslation(destinationData.name)}
-                      </h2>
-                      <div className="prose dark:prose-invert max-w-none">
-                        {parsedData.description.split('\n').map((paragraph, idx) => (
-                          <p key={idx} className="text-muted-foreground mb-4">
-                            {paragraph}
-                          </p>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2 space-y-8">
+                <Tabs defaultValue="overview" className="w-full">
+                  <TabsList className="grid grid-cols-5 mb-8 w-full">
+                    <TabsTrigger value="overview">{t("overview")}</TabsTrigger>
+                    <TabsTrigger value="gallery">
+                      <Camera className="mr-1 h-4 w-4" />
+                      {language === "en" ? "Gallery" : "图库"}
+                    </TabsTrigger>
+                    <TabsTrigger value="history">{t("history")}</TabsTrigger>
+                    <TabsTrigger value="highlights">{t("highlights")}</TabsTrigger>
+                    <TabsTrigger value="travel-info">{t("travelInfo")}</TabsTrigger>
+                  </TabsList>
                   
-                  <Card>
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold mb-4">{t("quickFacts")}</h3>
-                      <dl className="space-y-4">
-                        <div>
-                          <dt className="text-sm text-muted-foreground">{t("location")}</dt>
-                          <dd className="font-medium">{getTranslation(destinationData.location)}</dd>
-                        </div>
-                        <div>
-                          <dt className="text-sm text-muted-foreground">{t("bestTime")}</dt>
-                          <dd className="font-medium">{destinationData.travelInfo.bestTime}</dd>
-                        </div>
-                        <div>
-                          <dt className="text-sm text-muted-foreground">{t("duration")}</dt>
-                          <dd className="font-medium">{destinationData.travelInfo.duration}</dd>
-                        </div>
-                        <div>
-                          <dt className="text-sm text-muted-foreground">{t("entryFee")}</dt>
-                          <dd className="font-medium">{destinationData.travelInfo.entryFee}</dd>
-                        </div>
-                      </dl>
-                    </CardContent>
-                  </Card>
-                  
-                  {/* AI Chat */}
-                  <Card className="md:col-span-3">
-                    <CardContent className="p-6">
-                      <AIChat landmarkName={getTranslation(destinationData.name)} />
-                    </CardContent>
-                  </Card>
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="history">
-                <Card>
-                  <CardContent className="p-6">
-                    <h2 className="text-2xl font-bold mb-6">{t("historicalBackground")}</h2>
-                    <div className="prose dark:prose-invert max-w-none">
-                      {parsedData.history.split('\n').map((paragraph, idx) => (
-                        <p key={idx} className="text-muted-foreground mb-4">
-                          {paragraph}
-                        </p>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-              
-              <TabsContent value="highlights">
-                <Card>
-                  <CardContent className="p-6">
-                    <h2 className="text-2xl font-bold mb-6">{t("mustSeeHighlights")}</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {parsedData.highlights.map((highlight, idx) => (
-                        <div key={idx} className="bg-muted/50 p-4 rounded-lg">
-                          <h3 className="text-lg font-semibold mb-2 flex items-center">
-                            <Sparkles className="h-4 w-4 mr-2 text-primary" />
-                            {t("highlight")} {idx + 1}
-                          </h3>
-                          <p className="text-muted-foreground">{highlight}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-              
-              <TabsContent value="travel">
-                <Card>
-                  <CardContent className="p-6">
-                    <h2 className="text-2xl font-bold mb-6">{t("travelInfo")}</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      <div>
-                        <h3 className="text-xl font-semibold mb-4">{t("openingHours")}</h3>
-                        <p className="mb-2">{destinationData.travelInfo.openingHours}</p>
-                        <p className="text-sm text-muted-foreground">{t("arriveEarly")}</p>
-                      </div>
+                  <TabsContent value="overview" className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                      <Card className="md:col-span-2">
+                        <CardContent className="p-6">
+                          <h2 className="text-2xl font-bold mb-4 flex items-center">
+                            <Info className="h-5 w-5 mr-2" /> {t("about")} {getTranslation(destinationData.name)}
+                          </h2>
+                          <div className="prose dark:prose-invert max-w-none">
+                            {parsedData.description.split('\n').map((paragraph, idx) => (
+                              <p key={idx} className="text-muted-foreground mb-4">
+                                {paragraph}
+                              </p>
+                            ))}
+                          </div>
+                        </CardContent>
+                      </Card>
                       
-                      <div>
-                        <h3 className="text-xl font-semibold mb-4">{t("entryInformation")}</h3>
-                        <p className="mb-2">{t("entryFee")}: {destinationData.travelInfo.entryFee}</p>
-                        <p className="text-sm text-muted-foreground">{t("bookAdvance")}</p>
-                      </div>
+                      <Card>
+                        <CardContent className="p-6">
+                          <h3 className="text-xl font-semibold mb-4">{t("quickFacts")}</h3>
+                          <dl className="space-y-4">
+                            <div>
+                              <dt className="text-sm text-muted-foreground">{t("location")}</dt>
+                              <dd className="font-medium">{getTranslation(destinationData.location)}</dd>
+                            </div>
+                            <div>
+                              <dt className="text-sm text-muted-foreground">{t("bestTime")}</dt>
+                              <dd className="font-medium">{destinationData.travelInfo.bestTime}</dd>
+                            </div>
+                            <div>
+                              <dt className="text-sm text-muted-foreground">{t("duration")}</dt>
+                              <dd className="font-medium">{destinationData.travelInfo.duration}</dd>
+                            </div>
+                            <div>
+                              <dt className="text-sm text-muted-foreground">{t("entryFee")}</dt>
+                              <dd className="font-medium">{destinationData.travelInfo.entryFee}</dd>
+                            </div>
+                          </dl>
+                        </CardContent>
+                      </Card>
+                      
+                      {/* AI Chat */}
+                      <Card className="md:col-span-3">
+                        <CardContent className="p-6">
+                          <AIChat landmarkName={getTranslation(destinationData.name)} />
+                        </CardContent>
+                      </Card>
                     </div>
+                  </TabsContent>
+                  
+                  <TabsContent value="gallery" className="space-y-6">
+                    <h2 className="text-2xl font-bold mb-4">
+                      {language === "en" ? "Photo Gallery" : "照片图库"}
+                    </h2>
+                    <p className="text-muted-foreground mb-6">
+                      {language === "en" 
+                        ? "Explore visual highlights of this magnificent landmark through our curated photo gallery."
+                        : "通过我们精心策划的照片图库，探索这个宏伟地标的视觉亮点。"}
+                    </p>
+                    
+                    <LandmarkGallery images={galleryImages} />
+                    
+                    <div className="mt-6 pt-6 border-t">
+                      <p className="text-sm text-muted-foreground">
+                        {language === "en" 
+                          ? "Photos courtesy of Pexels. All images are freely available for personal and commercial use."
+                          : "照片由Pexels提供。所有图片均可免费用于个人和商业用途。"}
+                      </p>
+                    </div>
+                  </TabsContent>
+                  
+                  <TabsContent value="history" className="space-y-6">
+                    <Card>
+                      <CardContent className="p-6">
+                        <h2 className="text-2xl font-bold mb-6">{t("historicalBackground")}</h2>
+                        <div className="prose dark:prose-invert max-w-none">
+                          {parsedData.history.split('\n').map((paragraph, idx) => (
+                            <p key={idx} className="text-muted-foreground mb-4">
+                              {paragraph}
+                            </p>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                  
+                  <TabsContent value="highlights" className="space-y-6">
+                    <Card>
+                      <CardContent className="p-6">
+                        <h2 className="text-2xl font-bold mb-6">{t("mustSeeHighlights")}</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                          {parsedData.highlights.map((highlight, idx) => (
+                            <div key={idx} className="bg-muted/50 p-4 rounded-lg">
+                              <h3 className="text-lg font-semibold mb-2 flex items-center">
+                                <Sparkles className="h-4 w-4 mr-2 text-primary" />
+                                {t("highlight")} {idx + 1}
+                              </h3>
+                              <p className="text-muted-foreground">{highlight}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                  
+                  <TabsContent value="travel-info" className="space-y-6">
+                    <Card>
+                      <CardContent className="p-6">
+                        <h2 className="text-2xl font-bold mb-6">{t("travelInfo")}</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                          <div>
+                            <h3 className="text-xl font-semibold mb-4">{t("openingHours")}</h3>
+                            <p className="mb-2">{destinationData.travelInfo.openingHours}</p>
+                            <p className="text-sm text-muted-foreground">{t("arriveEarly")}</p>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-xl font-semibold mb-4">{t("entryInformation")}</h3>
+                            <p className="mb-2">{t("entryFee")}: {destinationData.travelInfo.entryFee}</p>
+                            <p className="text-sm text-muted-foreground">{t("bookAdvance")}</p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                </Tabs>
+              </div>
+              
+              <div className="space-y-8">
+                <AIChat landmarkName={destinationData.name} />
+                
+                <WeatherInfo location={destinationData.location} />
+                
+                <RelatedDestinations currentId={id} />
+                
+                <Card className="overflow-hidden">
+                  <CardContent className="p-0">
+                    <iframe
+                      src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBs-Pc9VeRGg17W6qvNrN7q0jEuV-BLSmw&q=${encodeURIComponent(
+                        destinationData.name
+                      )}`}
+                      width="100%"
+                      height="250"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title={`Map of ${destinationData.name}`}
+                      className="grayscale-[50%] hover:grayscale-0 transition-all duration-300"
+                    />
                   </CardContent>
                 </Card>
-              </TabsContent>
-            </Tabs>
+              </div>
+            </div>
           )}
         </div>
       </section>
