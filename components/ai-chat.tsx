@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useLanguage } from "@/lib/language-context";
-import { Send, Bot, User, Loader2 } from "lucide-react";
+import { Send, Bot, User, Loader2, RefreshCw } from "lucide-react";
 
 interface Message {
   id: string;
@@ -24,6 +24,7 @@ export function AIChat({ landmarkName }: AIChatProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
   // 初始化欢迎消息
@@ -59,19 +60,23 @@ export function AIChat({ landmarkName }: AIChatProps) {
       timestamp: new Date()
     };
     
+    const userInput = input;
     setMessages(prev => [...prev, userMessage]);
     setInput("");
     setIsLoading(true);
+    setError(null);
     
     try {
       // 发送请求到AI API
+      console.log("Sending request to AI API with message:", userInput);
+      
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          message: input,
+          message: userInput,
           landmark: landmarkName,
           language: language === "en" ? "English" : "Chinese",
           history: messages.map(msg => ({
@@ -82,32 +87,37 @@ export function AIChat({ landmarkName }: AIChatProps) {
       });
       
       if (!response.ok) {
-        throw new Error("Failed to get response");
+        const errorData = await response.json();
+        console.error("API Response Error:", errorData);
+        throw new Error(errorData.error || "Failed to get response");
       }
       
       const data = await response.json();
+      console.log("AI response data:", data);
+      
+      if (!data.response) {
+        throw new Error("No response data received");
+      }
       
       // 添加AI回复
       const aiMessage: Message = {
         id: Date.now().toString() + "-ai",
-        content: data.response || 
-          (language === "en" 
-            ? "I'm sorry, I couldn't process your request at the moment."
-            : "抱歉，我现在无法处理您的请求。"),
+        content: data.response,
         role: "assistant",
         timestamp: new Date()
       };
       
       setMessages(prev => [...prev, aiMessage]);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error sending message:", error);
+      setError(error.message || "Unknown error");
       
       // 错误消息
       const errorMessage: Message = {
         id: Date.now().toString() + "-error",
         content: language === "en" 
-          ? "Sorry, there was an error processing your request. Please try again later."
-          : "抱歉，处理您的请求时出错。请稍后再试。",
+          ? `Sorry, there was an error: ${error.message || "Unknown error"}. Please try again.`
+          : `抱歉，发生错误：${error.message || "未知错误"}。请重试。`,
         role: "assistant",
         timestamp: new Date()
       };
@@ -115,6 +125,21 @@ export function AIChat({ landmarkName }: AIChatProps) {
       setMessages(prev => [...prev, errorMessage]);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  // 重试上一条消息
+  const retryLastMessage = () => {
+    // 找到最后一条用户消息
+    const lastUserMessage = [...messages].reverse().find(msg => msg.role === "user");
+    
+    if (lastUserMessage) {
+      // 移除最后一条错误消息
+      setMessages(prev => prev.filter(msg => !msg.id.includes("-error")));
+      // 设置上一条用户消息的内容
+      setInput(lastUserMessage.content);
+      // 立即发送
+      setTimeout(() => sendMessage(), 100);
     }
   };
 
@@ -149,7 +174,9 @@ export function AIChat({ landmarkName }: AIChatProps) {
                   className={`max-w-[80%] rounded-lg px-4 py-2 ${
                     message.role === "user"
                       ? "bg-primary text-primary-foreground"
-                      : "bg-muted"
+                      : message.id.includes("-error")
+                        ? "bg-destructive/10 border border-destructive/20"
+                        : "bg-muted"
                   }`}
                 >
                   <div className="flex items-center gap-2 mb-1">
@@ -170,6 +197,20 @@ export function AIChat({ landmarkName }: AIChatProps) {
                     )}
                   </div>
                   <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                  
+                  {message.id.includes("-error") && (
+                    <div className="mt-2">
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={retryLastMessage}
+                        className="flex items-center gap-1"
+                      >
+                        <RefreshCw className="h-3 w-3" />
+                        {language === "en" ? "Retry" : "重试"}
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
