@@ -25,7 +25,8 @@ const qaDatabase: LanguageQA = {
       "长城多长": "长城全长超过21,000公里，横跨中国北部多个省份，包括北京、河北、天津、山西、陕西、内蒙古、甘肃、宁夏、辽宁、吉林等地。它是世界上最长的人工建筑物。",
       "历史": "长城的历史可以追溯到公元前7世纪的春秋战国时期，当时各国为了防御外敌入侵修建了各自的城墙。秦朝统一中国后，秦始皇连接并加固了北方的城墙，形成了第一版统一的长城。现在我们看到的大部分长城是明朝时期（1368-1644年）修建的，目的是防御北方游牧民族的入侵。",
       "建筑特点": "长城的建筑特点包括城墙、敌楼、烽火台和关隘等多种防御设施。墙体宽度通常在4-5米之间，高度为5-8米，由石块、砖块和夯土构成。长城因地制宜，根据地形特点采用不同的建筑方法，有的依山而建，有的跨越峡谷。砖石结构与当地自然环境完美融合，展示了古代建筑师的智慧。",
-      "最佳时间": "参观长城的最佳时间是春季（4-5月）和秋季（9-10月），这时候天气宜人，风景优美。春季可以看到山花烂漫，秋季则有红叶点缀。夏季（6-8月）气温较高且游客众多，冬季（11-2月）则寒冷但有雪景。建议避开中国的法定假日如国庆节、春节等，那时游客特别多。"
+      "最佳时间": "参观长城的最佳时间是春季（4-5月）和秋季（9-10月），这时候天气宜人，风景优美。春季可以看到山花烂漫，秋季则有红叶点缀。夏季（6-8月）气温较高且游客众多，冬季（11-2月）则寒冷但有雪景。建议避开中国的法定假日如国庆节、春节等，那时游客特别多。",
+      "好玩": "长城绝对值得一游！作为世界七大奇迹之一，它不仅有着壮观的历史和建筑价值，还能让您领略到令人惊叹的自然风景。登上长城，远眺连绵起伏的山脉和蜿蜒曲折的城墙，那种感受是无与伦比的。虽然爬长城可能会有些体力消耗，但当您到达高处欣赏到那壮丽的全景时，所有的疲惫都会烟消云散。每个季节的长城都有不同的美，春季有野花盛开，秋季有红叶满山，冬季则有银装素裹的壮观景象。无论是摄影爱好者还是历史文化爱好者，长城都能带给您难忘的体验。"
     },
     "eiffel-tower": {
       "票价": "埃菲尔铁塔的票价根据参观层数和上塔方式不同而异：步行至二层票价约为11欧元，电梯至二层约为17欧元，电梯至顶层约为26欧元。儿童、青少年和残障人士有优惠票价。建议提前在官网购票以避免排队。",
@@ -47,7 +48,8 @@ const qaDatabase: LanguageQA = {
       "length": "The Great Wall stretches over 21,000 kilometers (13,000 miles) across northern China, spanning provinces including Beijing, Hebei, Tianjin, Shanxi, Shaanxi, Inner Mongolia, Gansu, Ningxia, Liaoning, and Jilin. It is the longest man-made structure in the world.",
       "history": "The history of the Great Wall dates back to the 7th century BC during the Spring and Autumn and Warring States periods, when various states built walls for defense. After unifying China, Emperor Qin Shi Huang connected and strengthened northern walls, forming the first unified Great Wall. Most of what we see today was built during the Ming Dynasty (1368-1644) to defend against northern nomadic tribes.",
       "architecture": "The architectural features of the Great Wall include various defensive facilities such as wall structures, enemy towers, beacon towers, and passes. The wall typically measures 4-5 meters in width and 5-8 meters in height, constructed with stones, bricks, and rammed earth. The Great Wall adapts to local conditions, using different construction methods based on terrain features - some sections follow mountain ridges while others cross valleys.",
-      "best time": "The best time to visit the Great Wall is during spring (April-May) and autumn (September-October) when the weather is pleasant and the scenery is beautiful. Spring offers blooming flowers while autumn provides colorful foliage. Summer (June-August) can be hot with more tourists, and winter (November-February) is cold but offers snow views. Avoid Chinese national holidays like National Day and Spring Festival when it gets extremely crowded."
+      "best time": "The best time to visit the Great Wall is during spring (April-May) and autumn (September-October) when the weather is pleasant and the scenery is beautiful. Spring offers blooming flowers while autumn provides colorful foliage. Summer (June-August) can be hot with more tourists, and winter (November-February) is cold but offers snow views. Avoid Chinese national holidays like National Day and Spring Festival when it gets extremely crowded.",
+      "worth visiting": "The Great Wall is absolutely worth visiting! As one of the Seven Wonders of the World, it offers not only impressive historical and architectural value but also breathtaking natural scenery. Standing on the Great Wall and looking out at the undulating mountains and winding wall is an incomparable experience. While climbing the Wall may require some physical effort, when you reach the higher sections and take in the magnificent panorama, all fatigue disappears. The Great Wall has different beauty in each season - wildflowers in spring, red leaves covering the mountains in autumn, and snow-covered spectacular views in winter. Whether you're a photography enthusiast or a history and culture lover, the Great Wall will give you an unforgettable experience."
     },
     "eiffel-tower": {
       "ticket price": "Eiffel Tower ticket prices vary depending on the level you wish to visit and how you ascend: walking to the 2nd floor costs about €11, taking the elevator to the 2nd floor costs about €17, and going to the top by elevator costs about €26. Discounted rates are available for children, youth, and people with disabilities. It's recommended to purchase tickets online in advance to avoid queues.",
@@ -132,6 +134,20 @@ function matchQuestion(message: string, landmark: string, language: string): str
   
   // 获取所有问题关键词
   const questions = Object.keys(qa);
+  
+  // 特殊处理评价类问题（如"好玩不"、"值得去吗"等）
+  if (lang === "Chinese") {
+    if (message.includes("好玩") || message.includes("值得去") || message.includes("推荐") || 
+        message.includes("怎么样") || message.includes("如何") || message.includes("体验")) {
+      return qa["好玩"] || null;
+    }
+  } else {
+    if (message.toLowerCase().includes("worth") || message.toLowerCase().includes("recommend") || 
+        message.toLowerCase().includes("good") || message.toLowerCase().includes("experience") || 
+        message.toLowerCase().includes("should i visit") || message.toLowerCase().includes("how is")) {
+      return qa["worth visiting"] || null;
+    }
+  }
   
   // 查找匹配的问题
   for (const question of questions) {
