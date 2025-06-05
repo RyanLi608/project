@@ -1,0 +1,15 @@
+[credential]
+    helper = store
+    
+[user]
+    name = RyanLi608
+    email = ryanlishuai608@gmail.com
+
+[core]
+    editor = vim
+    
+[pull]
+    rebase = false
+    
+[push]
+    default = simple 
