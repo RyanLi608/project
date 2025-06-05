@@ -416,8 +416,6 @@ export default function DestinationPage({ params }: DestinationPageProps) {
               </div>
               
               <div className="space-y-8">
-                <AIChat landmarkName={destinationData.name} />
-                
                 <WeatherInfo location={destinationData.location} />
                 
                 <RelatedDestinations currentId={id} />
