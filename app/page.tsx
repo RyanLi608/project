@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Search } from "lucide-react";
 import { PopularDestinations } from "@/components/popular-destinations";
+import { Testimonials } from "@/components/testimonials";
 import { useLanguage } from "@/lib/language-context";
 
 export default function Home() {
@@ -209,6 +210,9 @@ export default function Home() {
 
       {/* Popular Destinations */}
       <PopularDestinations />
+
+      {/* Testimonials Section */}
+      <Testimonials />
 
       {/* CTA Section */}
       <section className="py-20 relative overflow-hidden">
