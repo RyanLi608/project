@@ -4,7 +4,7 @@ import { generateItinerary } from '@/lib/api/deepseek';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { destination, days, preferences, language } = body;
+    const { destination, days, preferences, extraInfo, language } = body;
 
     if (!destination || !days || !preferences) {
       return NextResponse.json(
@@ -17,6 +17,7 @@ export async function POST(request: NextRequest) {
       destination,
       days,
       preferences,
+      extraInfo || '',
       language || 'Chinese'
     );
     

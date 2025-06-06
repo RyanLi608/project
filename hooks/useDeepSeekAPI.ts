@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import axios from 'axios';
 import { handleApiError } from '@/lib/api/utils';
+import { useLanguage } from '@/lib/language-context';
 
 interface APIResponse<T> {
   data?: T;
@@ -168,62 +169,56 @@ export function useLandmarkInfo() {
   };
 }
 
-// 生成行程的Hook
+// 行程规划生成器
 export function useItineraryGenerator() {
-  const [response, setResponse] = useState<APIResponse<string>>({
-    isLoading: false
-  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const { language } = useLanguage();
 
-  const generateItinerary = async (
-    destination: string,
-    days: number,
-    preferences: string[],
-    language: string = 'Chinese'
-  ) => {
-    try {
-      setResponse({ isLoading: true });
-      
-      const res = await fetch('/api/itinerary', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          destination,
-          days,
-          preferences,
-          language
-        }),
-        cache: 'no-store'
-      });
-      
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.error || '生成行程失败');
+  const generateItinerary = useCallback(
+    async (
+      destination: string, 
+      days: number, 
+      preferences: string[],
+      extraInfo: string = '',
+    ) => {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const response = await fetch('/api/itinerary', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            destination,
+            days,
+            preferences,
+            extraInfo,
+            language: language === 'en' ? 'English' : 'Chinese',
+          }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || '生成行程时出错');
+        }
+
+        setIsLoading(false);
+        return data.data;
+      } catch (error: any) {
+        console.error('行程生成错误:', error);
+        setError(error.message || '生成行程时出错');
+        setIsLoading(false);
+        return null;
       }
-      
-      const data = await res.json();
-      
-      setResponse({
-        data: data.data,
-        isLoading: false
-      });
-      
-      return data.data;
-    } catch (error: any) {
-      console.error('Itinerary API Error:', error);
-      setResponse({
-        error: error.message,
-        isLoading: false
-      });
-      return null;
-    }
-  };
+    },
+    [language]
+  );
 
-  return {
-    ...response,
-    generateItinerary
-  };
+  return { isLoading, error, generateItinerary };
 }
 
 // 获取语音导览的Hook

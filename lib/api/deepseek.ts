@@ -234,17 +234,41 @@ export async function generateItinerary(
   destination: string,
   days: number,
   preferences: string[],
+  extraInfo: string = '',
   language: string = 'Chinese'
 ) {
   try {
     const preferencesText = preferences.join('、');
     const daysText = language === 'Chinese' ? `${days}天` : `${days} days`;
     
+    // 构建更加详细的提示词，包含额外信息和更多行程细节
     const prompt = language === 'Chinese'
       ? `请为${destination}设计一个${daysText}的详细旅行行程。旅行者偏好：${preferencesText}。
-行程应包括每天的景点、活动推荐、用餐建议和交通提示。提供合理的时间安排和实用的旅行建议。`
+${extraInfo ? extraInfo + '\n' : ''}
+请提供以下内容：
+1. 行程概述：简要描述此次旅行的亮点和特色
+2. 每天的详细安排，包括：
+   - 上午、下午和晚上的活动安排
+   - 推荐的景点、餐厅和体验活动
+   - 交通方式建议
+   - 时间安排（大致的游览时长）
+3. 如有提供预算信息，请根据预算提供相应的住宿、餐饮和活动建议
+4. 如有提供出发日期，请考虑季节性因素和当地节日
+
+请使用清晰的格式和结构，以便于阅读和理解。行程应该合理可行，节奏适中，既能体验目的地特色，又不会过于紧凑疲惫。`
       : `Please design a detailed ${daysText} travel itinerary for ${destination}. Traveler preferences: ${preferences.join(', ')}.
-The itinerary should include daily attractions, activity recommendations, dining suggestions, and transportation tips. Provide reasonable timing and practical travel advice.`;
+${extraInfo ? extraInfo + '\n' : ''}
+Please include the following:
+1. Itinerary overview: Briefly describe the highlights and features of this trip
+2. Detailed daily arrangements, including:
+   - Morning, afternoon, and evening activities
+   - Recommended attractions, restaurants, and experiences
+   - Transportation suggestions
+   - Timing (approximate duration for sightseeing)
+3. If budget information is provided, please suggest appropriate accommodations, dining, and activities accordingly
+4. If a departure date is provided, please consider seasonal factors and local festivals
+
+Please use a clear format and structure for easy reading and understanding. The itinerary should be reasonable and feasible, with a moderate pace that allows experiencing the destination's features without being too hectic or tiring.`;
 
     return await requestAIResponse(prompt, language);
   } catch (error) {
