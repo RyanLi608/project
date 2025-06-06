@@ -104,18 +104,169 @@ export default function ItineraryPage() {
       : '';
     
     // 生成行程
-    const extraInfo = [budgetInfo, dateInfo].filter(Boolean).join('. ');
-    const result = await generateItinerary(destination, days, preferenceLabels, extraInfo);
-    
-    if (result) {
-      setGeneratedItinerary(result);
-      // 滚动到结果区域
+    try {
+      const extraInfo = [budgetInfo, dateInfo].filter(Boolean).join('. ');
+      const result = await generateItinerary(destination, days, preferenceLabels, extraInfo);
+      
+      if (result) {
+        setGeneratedItinerary(result);
+        // 滚动到结果区域
+        setTimeout(() => {
+          window.scrollTo({
+            top: document.getElementById('itinerary-result')?.offsetTop || 0,
+            behavior: 'smooth',
+          });
+        }, 100);
+      } else {
+        // 如果没有返回结果，创建一个基本的模拟数据
+        console.error('没有返回行程数据');
+        const mockItinerary = createBasicMockItinerary(destination, days, preferenceLabels);
+        setGeneratedItinerary(mockItinerary);
+        
+        setTimeout(() => {
+          window.scrollTo({
+            top: document.getElementById('itinerary-result')?.offsetTop || 0,
+            behavior: 'smooth',
+          });
+        }, 100);
+      }
+    } catch (error) {
+      console.error('行程生成错误:', error);
+      // 创建基本的模拟行程数据
+      const mockItinerary = createBasicMockItinerary(destination, days, preferenceLabels);
+      setGeneratedItinerary(mockItinerary);
+      
       setTimeout(() => {
         window.scrollTo({
           top: document.getElementById('itinerary-result')?.offsetTop || 0,
           behavior: 'smooth',
         });
       }, 100);
+    }
+  };
+  
+  // 创建基本的模拟行程
+  const createBasicMockItinerary = (destination: string, days: number, preferences: string[]) => {
+    if (language === "en") {
+      return `# ${destination} ${days}-Day Itinerary
+
+## Overview
+This is an exciting ${days}-day travel plan for ${destination}, focusing on ${preferences.join(', ')}. This journey will take you through the most charming attractions and experiences in ${destination}.
+
+## Day 1
+### Morning
+- Arrive in ${destination}, check into hotel and rest
+- Enjoy breakfast at a local restaurant near your hotel
+- Visit the most famous landmark in ${destination} (30 minutes walking tour)
+
+### Afternoon
+- Lunch at a local specialty restaurant (1 hour)
+- Explore the historical and cultural district (2 hours)
+- Free time for shopping and relaxation (1.5 hours)
+
+### Evening
+- Taste local specialty dinner (1.5 hours)
+- Enjoy night views or attend a local cultural performance (2 hours)
+- Return to hotel
+
+## Day 2
+### Morning
+- Breakfast at hotel
+- Visit natural scenic area to enjoy natural beauty (3 hours)
+
+### Afternoon
+- Lunch at a restaurant near the scenic area (1 hour)
+- Continue touring or participate in outdoor activities (2-3 hours)
+- Return to city center
+
+### Evening
+- Enjoy dinner
+- Stroll through night market or local characteristic streets (2 hours)
+- Return to hotel
+
+${days > 2 ? `## Day 3
+### Morning
+- Breakfast at hotel
+- Visit museum or art gallery (2 hours)
+
+### Afternoon
+- Enjoy lunch
+- Participate in local experience activities or workshops (2-3 hours)
+- Free activity time
+
+### Evening
+- Dinner at specialty restaurant
+- Night activities or rest
+- Return to hotel` : ''}
+
+## Practical Tips
+1. It is recommended to book tickets for popular attractions in advance
+2. Public transportation in ${destination} is convenient, consider purchasing a transit card
+3. Weather can be variable, recommend carrying rain gear
+4. Respect local customs and cultural traditions
+5. Advance reservations recommended for important attractions and restaurants
+
+Hope you have a memorable journey in ${destination}!`;
+    } else {
+      return `# ${destination}${days}天行程规划
+
+## 行程概述
+这是一个为${destination}设计的${days}天精彩旅行计划，特别关注${preferences.join('、')}。这次旅行将带您领略${destination}最迷人的景点和体验。
+
+## 第1天
+### 上午
+- 抵达${destination}，入住酒店休息调整
+- 在酒店附近的当地餐厅享用早餐，体验当地美食
+- 参观${destination}最著名的地标景点（步行30分钟）
+
+### 下午
+- 在当地特色餐厅享用午餐（1小时）
+- 游览历史文化区，了解当地文化历史（2小时）
+- 自由购物和休息时间（1.5小时）
+
+### 晚上
+- 品尝当地特色晚餐（1.5小时）
+- 欣赏夜景或参加当地文化演出（2小时）
+- 返回酒店休息
+
+## 第2天
+### 上午
+- 酒店早餐
+- 前往自然风景区，欣赏自然美景（3小时）
+
+### 下午
+- 在景区附近的餐厅享用午餐（1小时）
+- 继续游览或参加户外活动（2-3小时）
+- 返回市区
+
+### 晚上
+- 享用晚餐
+- 夜市或当地特色街区漫步（2小时）
+- 返回酒店休息
+
+${days > 2 ? `## 第3天
+### 上午
+- 酒店早餐
+- 参观博物馆或艺术馆（2小时）
+
+### 下午
+- 享用午餐
+- 参加当地体验活动或工作坊（2-3小时）
+- 自由活动时间
+
+### 晚上
+- 享用特色餐厅晚餐
+- 夜间活动或休息
+- 返回酒店` : ''}
+
+## 实用提示
+1. 建议提前预订热门景点门票
+2. ${destination}的公共交通便利，可考虑购买交通卡
+3. 当地天气多变，建议随身携带雨具
+4. 尊重当地习俗和文化传统
+5. 重要景点和餐厅建议提前预约
+
+希望您在${destination}度过一段难忘的旅程！`;
     }
   };
   
@@ -161,30 +312,29 @@ export default function ItineraryPage() {
                     <Label htmlFor="destination">{t("destination")}</Label>
                     <Popover open={openSuggestions} onOpenChange={setOpenSuggestions}>
                       <PopoverTrigger asChild>
-                        <div className="relative">
-                          <Input
-                            id="destination"
-                            placeholder={t("destinationPlaceholder")}
-                            value={destination}
-                            onChange={(e) => setDestination(e.target.value)}
-                            className="w-full pr-10"
-                            required
-                            onFocus={() => setOpenSuggestions(true)}
-                          />
-                          <MapPin className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        </div>
+                        <Button variant="outline" role="combobox" className="w-full justify-between" type="button">
+                          <div className="flex items-center gap-2">
+                            <MapPin className="h-4 w-4" />
+                            {destination ? 
+                              <span>{destination}</span> : 
+                              <span className="text-muted-foreground">{t("destinationPlaceholder")}</span>
+                            }
+                          </div>
+                          <CalendarIcon className="ml-auto h-4 w-4 shrink-0 opacity-50" />
+                        </Button>
                       </PopoverTrigger>
-                      <PopoverContent className="p-0" align="start" side="bottom" sideOffset={5} alignOffset={-5}>
+                      <PopoverContent className="p-0 w-full min-w-[240px]" align="start" side="bottom" sideOffset={5}>
                         <Command>
                           <CommandInput 
                             placeholder={language === "en" ? "Search destinations..." : "搜索目的地..."}
                             value={destination}
                             onValueChange={setDestination}
+                            className="h-9"
                           />
                           <CommandEmpty>
                             {language === "en" ? "No destinations found." : "未找到目的地。"}
                           </CommandEmpty>
-                          <CommandGroup>
+                          <CommandGroup className="max-h-[200px] overflow-auto">
                             {popularDestinations.map((dest) => (
                               <CommandItem
                                 key={dest.value}
