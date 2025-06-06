@@ -95,14 +95,17 @@ export function AIChat({ landmarkName }: AIChatProps) {
       const data = await response.json();
       console.log("AI response data:", data);
       
-      if (!data.response) {
+      // 处理response或answer字段
+      const aiResponseText = data.answer || data.response;
+      
+      if (!aiResponseText) {
         throw new Error("No response data received");
       }
       
       // 添加AI回复
       const aiMessage: Message = {
         id: Date.now().toString() + "-ai",
-        content: data.response,
+        content: aiResponseText,
         role: "assistant",
         timestamp: new Date()
       };

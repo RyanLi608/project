@@ -278,65 +278,47 @@ function generateFollowUpResponse(context: string, message: string, landmark: st
 
 export async function POST(request: NextRequest) {
   try {
-    const { message, landmark, language = 'Chinese', history = [] } = await request.json();
-
-    if (!message) {
+    const body = await request.json();
+    const { message, landmark, language, history } = body;
+    
+    // 如果没有提供消息或地标名称，返回错误
+    if (!message || !landmark) {
       return NextResponse.json(
-        { error: '缺少消息内容' },
+        { error: '请提供消息和地标名称' },
         { status: 400 }
       );
     }
     
-    console.log('接收到聊天请求:', { message, landmark, language, historyLength: history.length });
-
-    const config = getCurrentConfig();
-    const useOpenAI = config.apiUrl.includes('openai.com');
-    const apiKey = config.apiKey;
-
-    // 检查API密钥是否配置
-    if (!apiKey) {
-      console.log('API密钥未配置，使用模拟数据');
-      const mockResponse = getMockResponse(landmark, language, message, history);
-      return NextResponse.json({ response: mockResponse });
+    // 首先尝试匹配问答数据库
+    const qaMatch = matchQuestion(message, landmark, language || 'Chinese');
+    if (qaMatch) {
+      return NextResponse.json({ 
+        answer: qaMatch
+      });
     }
-
-    // 构建完整聊天历史
-    const formattedHistory = history.map((msg: { role: string; content: string }) => ({
-      role: msg.role === 'user' ? 'user' : 'assistant',
-      content: msg.content
-    }));
-
-    // 构建系统提示
-    const systemPrompt = language === 'Chinese' 
-      ? `你是一个友好专业的${landmark}AI导游，提供关于这个景点的信息、历史、文化背景、建筑特点和旅行建议。
-         回答要简洁、有教育意义且富有信息量。只回答与${landmark}相关的问题。
-         如果被问到无关问题，礼貌地将话题引回${landmark}。使用中文回答。
-         一定要关注对话历史，提供连贯的回答，特别是对"然后呢"、"继续"等后续提问。`
-      : `You are a friendly, professional AI tour guide for ${landmark}, providing information about its history, cultural significance, architecture, and travel tips.
-         Your answers should be concise, educational, and informative. Only answer questions related to ${landmark}.
-         If asked about unrelated topics, politely bring the conversation back to ${landmark}. Answer in English.
-         Pay close attention to conversation history and provide coherent responses, especially to follow-up questions like "and then?", "continue", etc.`;
-
+    
+    // 无法匹配问答数据库，使用API或模拟数据
     try {
-      // 首先检查是否有匹配的问答数据
-      const qaMatch = matchQuestion(message, landmark, language);
-      if (qaMatch && !isFollowUp(message, language)) {
-        console.log('找到匹配的问答数据');
-        return NextResponse.json({ response: qaMatch });
+      // 检查是否使用模拟数据
+      const shouldUseMockData = true; // 始终使用模拟数据
+      
+      if (shouldUseMockData) {
+        // 使用模拟数据
+        const mockAnswer = getMockResponse(landmark, language || 'Chinese', message, history);
+        return NextResponse.json({ 
+          answer: mockAnswer
+        });
       }
       
-      // 检查是否是后续提问
-      if (isFollowUp(message, language) && formattedHistory.length > 0) {
-        console.log('检测到后续提问，尝试生成连贯回答');
-        const context = getContextFromHistory(formattedHistory, language);
-        const followUpResponse = generateFollowUpResponse(context, message, landmark, language);
-        
-        if (followUpResponse) {
-          return NextResponse.json({ response: followUpResponse });
-        }
-      }
+      // 这部分代码在使用模拟数据时不会执行
+      const config = getCurrentConfig();
       
-      // 发送请求到DeepSeek或OpenAI API
+      // 构建提示词
+      const prompt = language?.toLowerCase().includes('english')
+        ? `You are a helpful AI assistant for tourists visiting ${landmark}. Answer the following question about ${landmark}: "${message}". Keep your answer informative, concise, and focused on the question. Use historical facts and tourist information when relevant.`
+        : `你是一个为游客提供帮助的AI助手，专门介绍${landmark}。请回答以下关于${landmark}的问题："${message}"。保持回答信息丰富、简洁，并针对问题。在相关时使用历史事实和旅游信息。`;
+      
+      // 发送请求到API
       const response = await fetch(config.apiUrl, {
         method: 'POST',
         headers: {
@@ -346,35 +328,36 @@ export async function POST(request: NextRequest) {
         body: JSON.stringify({
           ...config.defaultConfig,
           messages: [
-            { role: 'system', content: systemPrompt },
-            ...formattedHistory,
-            { role: 'user', content: message }
+            {
+              role: "user",
+              content: prompt
+            }
           ]
-        })
+        }),
       });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error('API错误:', errorData);
-        // API错误时使用模拟数据
-        const mockResponse = getMockResponse(landmark, language, message, history);
-        return NextResponse.json({ response: mockResponse });
-      }
-
+      
       const data = await response.json();
-      const aiResponse = data.choices[0].message.content;
-
-      return NextResponse.json({ response: aiResponse });
-    } catch (error) {
-      console.error('API请求失败:', error);
-      // 请求失败时使用模拟数据
-      const mockResponse = getMockResponse(landmark, language, message, history);
-      return NextResponse.json({ response: mockResponse });
+      
+      if (!data || !data.choices || !data.choices[0]) {
+        throw new Error('API响应格式错误');
+      }
+      
+      const answer = data.choices[0].message?.content || '抱歉，我无法回答这个问题。';
+      
+      return NextResponse.json({ answer });
+    } catch (apiError) {
+      console.error('API错误:', apiError);
+      
+      // API调用失败，使用模拟数据
+      const mockAnswer = getMockResponse(landmark, language || 'Chinese', message, history);
+      return NextResponse.json({ 
+        answer: mockAnswer 
+      });
     }
   } catch (error: any) {
-    console.error('Chat API错误:', error);
+    console.error('处理请求错误:', error);
     return NextResponse.json(
-      { error: error.message || '处理聊天请求时出错' },
+      { error: error.message || '处理请求时出错' },
       { status: 500 }
     );
   }
