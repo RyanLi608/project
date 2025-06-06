@@ -12,8 +12,8 @@ const DEEPSEEK_MODEL = 'Qwen/QwQ-32B';
 // 默认使用OpenAI API，如果设置USE_DEEPSEEK=true则使用DeepSeek API
 const USE_DEEPSEEK = process.env.USE_DEEPSEEK === 'true';
 
-// 是否使用模拟数据（当API密钥未配置时）
-const USE_MOCK_DATA = !OPENAI_API_KEY && !DEEPSEEK_API_KEY;
+// 始终使用模拟数据（无论API密钥是否配置）
+const USE_MOCK_DATA = true; // 修改为强制使用模拟数据
 
 // 获取当前配置
 export const getCurrentConfig = () => {

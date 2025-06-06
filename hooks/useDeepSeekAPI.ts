@@ -84,6 +84,155 @@ const mockData = {
 
 5. Interesting Facts: This landmark has undergone several restorations and modifications, each adding new features. It has also appeared in numerous literary works and films, becoming an important symbol in culture.`
     }
+  },
+  itinerary: {
+    "Chinese": (destination: string, days: number, preferences: string[]) => `# ${destination}${days}天行程规划
+
+## 行程概述
+这是一个为${destination}设计的${days}天精彩旅行计划，特别关注${preferences.join('、')}。这次旅行将带您领略${destination}最迷人的景点和体验。
+
+## 第1天
+### 上午
+- 抵达${destination}，入住酒店休息调整
+- 在酒店附近的当地餐厅享用早餐，体验当地美食
+- 参观${destination}最著名的地标景点（步行30分钟）
+
+### 下午
+- 在当地特色餐厅享用午餐（1小时）
+- 游览历史文化区，了解当地文化历史（2小时）
+- 自由购物和休息时间（1.5小时）
+
+### 晚上
+- 品尝当地特色晚餐（1.5小时）
+- 欣赏夜景或参加当地文化演出（2小时）
+- 返回酒店休息
+
+## 第2天
+### 上午
+- 酒店早餐
+- 前往自然风景区，欣赏自然美景（3小时）
+
+### 下午
+- 在景区附近的餐厅享用午餐（1小时）
+- 继续游览或参加户外活动（2-3小时）
+- 返回市区
+
+### 晚上
+- 享用晚餐
+- 夜市或当地特色街区漫步（2小时）
+- 返回酒店休息
+
+${days > 2 ? `## 第3天
+### 上午
+- 酒店早餐
+- 参观博物馆或艺术馆（2小时）
+
+### 下午
+- 享用午餐
+- 参加当地体验活动或工作坊（2-3小时）
+- 自由活动时间
+
+### 晚上
+- 享用特色餐厅晚餐
+- 夜间活动或休息
+- 返回酒店` : ''}
+
+${days > 3 ? `## 第4天
+### 上午
+- 酒店早餐
+- 前往周边小镇或景点一日游（全天行程）
+
+### 下午
+- 继续一日游行程
+- 在当地享用午餐
+
+### 晚上
+- 返回主要城市
+- 享用晚餐
+- 酒店休息` : ''}
+
+## 实用提示
+1. 建议提前预订热门景点门票
+2. ${destination}的公共交通便利，可考虑购买交通卡
+3. 当地天气多变，建议随身携带雨具
+4. 尊重当地习俗和文化传统
+5. 重要景点和餐厅建议提前预约
+
+希望您在${destination}度过一段难忘的旅程！`,
+    
+    "English": (destination: string, days: number, preferences: string[]) => `# ${destination} ${days}-Day Itinerary
+
+## Overview
+This is an exciting ${days}-day travel plan for ${destination}, focusing on ${preferences.join(', ')}. This journey will take you through the most charming attractions and experiences in ${destination}.
+
+## Day 1
+### Morning
+- Arrive in ${destination}, check into hotel and rest
+- Enjoy breakfast at a local restaurant near your hotel
+- Visit the most famous landmark in ${destination} (30 minutes walking tour)
+
+### Afternoon
+- Lunch at a local specialty restaurant (1 hour)
+- Explore the historical and cultural district (2 hours)
+- Free time for shopping and relaxation (1.5 hours)
+
+### Evening
+- Taste local specialty dinner (1.5 hours)
+- Enjoy night views or attend a local cultural performance (2 hours)
+- Return to hotel
+
+## Day 2
+### Morning
+- Breakfast at hotel
+- Visit natural scenic area to enjoy natural beauty (3 hours)
+
+### Afternoon
+- Lunch at a restaurant near the scenic area (1 hour)
+- Continue touring or participate in outdoor activities (2-3 hours)
+- Return to city center
+
+### Evening
+- Enjoy dinner
+- Stroll through night market or local characteristic streets (2 hours)
+- Return to hotel
+
+${days > 2 ? `## Day 3
+### Morning
+- Breakfast at hotel
+- Visit museum or art gallery (2 hours)
+
+### Afternoon
+- Enjoy lunch
+- Participate in local experience activities or workshops (2-3 hours)
+- Free activity time
+
+### Evening
+- Dinner at specialty restaurant
+- Night activities or rest
+- Return to hotel` : ''}
+
+${days > 3 ? `## Day 4
+### Morning
+- Breakfast at hotel
+- Day trip to nearby town or attraction (full day itinerary)
+
+### Afternoon
+- Continue day trip itinerary
+- Enjoy lunch locally
+
+### Evening
+- Return to main city
+- Enjoy dinner
+- Rest at hotel` : ''}
+
+## Practical Tips
+1. It is recommended to book tickets for popular attractions in advance
+2. Public transportation in ${destination} is convenient, consider purchasing a transit card
+3. Weather can be variable, recommend carrying rain gear
+4. Respect local customs and cultural traditions
+5. Advance reservations recommended for important attractions and restaurants
+
+Hope you have a memorable journey in ${destination}!`
   }
 };
 
@@ -212,7 +361,10 @@ export function useItineraryGenerator() {
         console.error('行程生成错误:', error);
         setError(error.message || '生成行程时出错');
         setIsLoading(false);
-        return null;
+        
+        // 发生错误时使用模拟数据
+        const langKey = language === 'en' ? 'English' : 'Chinese';
+        return mockData.itinerary[langKey](destination, days, preferences);
       }
     },
     [language]
