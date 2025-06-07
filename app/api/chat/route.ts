@@ -276,6 +276,163 @@ function generateFollowUpResponse(context: string, message: string, landmark: st
   }
 }
 
+// 增强版的智能回复系统
+function generateSmartResponse(message: string, landmark: string, language: string): string {
+  const isChineseUI = language.toLowerCase().includes("chinese");
+  
+  // 提取关键词和分析问题类型
+  const keywords = extractKeywords(message, isChineseUI);
+  const questionType = analyzeQuestionType(message, isChineseUI);
+  
+  // 生成针对性回答
+  const specificAnswer = generateSpecificAnswer(keywords, questionType, landmark, isChineseUI);
+  if (specificAnswer) return specificAnswer;
+  
+  // 如果无法生成针对性回答，使用原有的模拟数据
+  return null;
+}
+
+// 提取消息中的关键词
+function extractKeywords(message: string, isChineseUI: boolean): string[] {
+  // 通用关键词（中英文都会处理）
+  const generalKeywords = ["旅游", "tour", "visit", "价格", "price", "费用", "cost", "历史", "history", 
+                          "文化", "culture", "建筑", "architecture", "交通", "transport", "吃", "food", 
+                          "餐厅", "restaurant", "住", "accommodation", "酒店", "hotel", "门票", "ticket", 
+                          "开放", "opening", "时间", "time", "best", "最佳", "特色", "特点", "feature", 
+                          "建议", "推荐", "recommend", "天气", "weather", "拍照", "photo", "摄影", "photography"];
+  
+  // 将消息转为小写并分词
+  const lowerMessage = message.toLowerCase();
+  const words = isChineseUI 
+    ? Array.from(lowerMessage).join(' ').split(/\s+/) // 中文按字符分割
+    : lowerMessage.split(/\s+/);  // 英文按空格分割
+  
+  // 提取匹配的关键词
+  return generalKeywords.filter(keyword => lowerMessage.includes(keyword.toLowerCase()));
+}
+
+// 分析问题类型
+function analyzeQuestionType(message: string, isChineseUI: boolean): string {
+  // 问题类型检测规则
+  const questionPatterns = {
+    "howto": isChineseUI 
+      ? /(怎么|如何|怎样|哪里|哪个).+(去|到达|游览|参观|玩|购买|买)/
+      : /(how|where).+(go|visit|get|buy|play|tour)/i,
+    "what": isChineseUI 
+      ? /(什么|有什么|是什么|有哪些).+(特色|特点|看点|亮点|活动|景点)/
+      : /(what).+(special|unique|highlight|activity|attraction)/i,
+    "when": isChineseUI 
+      ? /(什么时候|何时|几点|哪个月|哪个季节).+(去|开放|关闭|参观)/
+      : /(when|what time|which month|season).+(go|open|close|visit)/i,
+    "why": isChineseUI 
+      ? /(为什么|为何|为啥).+(有名|著名|知名|重要)/
+      : /(why).+(famous|important|known)/i,
+    "recommendation": isChineseUI 
+      ? /(推荐|建议|值得).+(景点|餐厅|酒店|路线|行程)/
+      : /(recommend|suggest|worth).+(attraction|restaurant|hotel|route|itinerary)/i,
+    "opinion": isChineseUI 
+      ? /(好玩|有趣|美|漂亮|值得).+(吗|吧|么|不)/
+      : /(good|fun|beautiful|worth|should).+(visit|see|go)/i,
+    "comparison": isChineseUI 
+      ? /(对比|比较|和|跟|与).+(哪个更|哪个好|区别|差异)/
+      : /(compare|comparison|versus|vs|difference).+(which|better)/i,
+  };
+  
+  // 检查问题是否匹配任一类型
+  for (const [type, pattern] of Object.entries(questionPatterns)) {
+    if (pattern.test(message)) {
+      return type;
+    }
+  }
+  
+  // 默认问题类型
+  return "general";
+}
+
+// 根据关键词和问题类型生成针对性回答
+function generateSpecificAnswer(keywords: string[], questionType: string, landmark: string, isChineseUI: boolean): string | null {
+  // 对于不同地标的特殊处理
+  const isGreatWall = landmark.toLowerCase().includes("great wall") || landmark.toLowerCase().includes("长城");
+  const isEiffelTower = landmark.toLowerCase().includes("eiffel") || landmark.toLowerCase().includes("埃菲尔");
+  
+  // 根据问题类型和关键词组合生成回答
+  if (isGreatWall) {
+    // 长城特定问题处理
+    if (questionType === "howto" && hasAnyKeyword(keywords, ["去", "到达", "交通", "transport", "怎么去"])) {
+      return isChineseUI 
+        ? "前往长城有多种交通方式。去八达岭长城可以乘坐877路公交车、S2线火车或参加旅行团。去慕田峪长城可以乘坐916路公交车然后转乘旅游专线车。私家车或出租车是最方便但也是最贵的选择。建议提前规划路线，特别是在旺季，因为交通可能会很拥挤。"
+        : "There are several ways to reach the Great Wall. For Badaling section, you can take Bus 877, S2 train, or join a tour group. For Mutianyu section, take Bus 916 and then transfer to a tourist shuttle bus. Private car or taxi is the most convenient but also the most expensive option. It's recommended to plan your route in advance, especially during peak season as transportation can be crowded.";
+    }
+    
+    if (questionType === "when" && hasAnyKeyword(keywords, ["time", "时间", "季节", "season", "最佳", "best"])) {
+      return isChineseUI 
+        ? "参观长城的最佳时间是春季（4-5月）和秋季（9-10月），这时候天气宜人，风景优美。春季可以看到山花烂漫，秋季则有红叶点缀。夏季（6-8月）气温较高且游客众多，冬季（11-2月）则寒冷但有壮观的雪景。建议避开中国的法定假日如国庆节、春节等，那时游客特别多。长城的开放时间通常是早上8点到下午5点，但具体时间因季节和不同段落而异。"
+        : "The best time to visit the Great Wall is during spring (April-May) and autumn (September-October) when the weather is pleasant and the scenery is beautiful. Spring offers blooming wildflowers, while autumn provides colorful foliage. Summer (June-August) can be hot with more tourists, and winter (November-February) is cold but offers spectacular snow views. Avoid Chinese national holidays like National Day and Spring Festival when it gets extremely crowded. Opening hours are typically from 8am to 5pm, but exact times vary by season and section.";
+    }
+    
+    if (questionType === "opinion" || (questionType === "general" && hasAnyKeyword(keywords, ["好玩", "worth", "值得", "should"]))) {
+      return isChineseUI 
+        ? "长城绝对值得一游！作为世界文化遗产和人类历史上最伟大的建筑之一，它不仅有着壮观的历史和建筑价值，还能让您领略到令人惊叹的自然风景。登上长城，远眺连绵起伏的山脉和蜿蜒曲折的城墙，那种感受是无与伦比的。虽然爬长城可能会有些体力消耗，但当您到达高处欣赏到那壮丽的全景时，所有的疲惫都会烟消云散。无论是摄影爱好者还是历史文化爱好者，长城都能带给您难忘的体验。"
+        : "The Great Wall is absolutely worth visiting! As a UNESCO World Heritage Site and one of the greatest architectural achievements in human history, it offers not only impressive historical and architectural value but also breathtaking natural scenery. Standing on the Wall and looking out at the undulating mountains and winding fortifications is an incomparable experience. While climbing may require some physical effort, when you reach the higher sections and take in the magnificent panorama, all fatigue disappears. Whether you're a photography enthusiast or a history and culture lover, the Great Wall will give you an unforgettable experience.";
+    }
+    
+    if (hasAnyKeyword(keywords, ["哪里", "section", "段", "which", "best", "最好"])) {
+      return isChineseUI 
+        ? "长城有多个不同特色的段落可供参观：八达岭是最受欢迎的段落，设施完善，交通便利，但游客较多；慕田峪保存完好，景色优美，有缆车可乘坐，游客相对较少；金山岭风景壮观，是摄影爱好者的天堂；司马台可以夜游，有独特的体验；箭扣长城则是徒步爱好者的挑战，风景原始但难度较大。根据您的体力、时间和偏好，八达岭和慕田峪是首次游客的最佳选择。"
+        : "The Great Wall has several distinctive sections for visitors: Badaling is the most popular with excellent facilities and easy access, but it's often crowded; Mutianyu is well-preserved with beautiful scenery, cable car access, and fewer tourists; Jinshanling offers spectacular views and is a paradise for photographers; Simatai provides night tours for a unique experience; Jiankou is challenging for hiking enthusiasts with pristine views but higher difficulty. Depending on your fitness level, time, and preferences, Badaling and Mutianyu are the best choices for first-time visitors.";
+    }
+  }
+  
+  if (isEiffelTower) {
+    // 埃菲尔铁塔特定问题处理
+    if (questionType === "howto" && hasAnyKeyword(keywords, ["去", "到达", "交通", "transport", "怎么去"])) {
+      return isChineseUI 
+        ? "到达埃菲尔铁塔最方便的方式是乘坐巴黎地铁。您可以在Bir-Hakeim站(6号线)、Trocadéro站(6号和9号线)或Champ de Mars-Tour Eiffel站(RER C线)下车，然后步行几分钟即可到达。巴黎市内也有多条公交线路经过铁塔附近。如果您喜欢步行，从塞纳河畔或香榭丽舍大街散步到铁塔也是一种享受。"
+        : "The most convenient way to reach the Eiffel Tower is by Paris Metro. You can get off at Bir-Hakeim station (Line 6), Trocadéro station (Lines 6 and 9), or Champ de Mars-Tour Eiffel station (RER Line C), then walk a few minutes to reach the tower. There are also several bus lines that pass near the tower within Paris. If you enjoy walking, strolling to the tower from the Seine riverbank or Champs-Élysées is also a pleasant experience.";
+    }
+    
+    if (hasAnyKeyword(keywords, ["票", "价格", "费用", "price", "ticket", "cost"])) {
+      return isChineseUI 
+        ? "埃菲尔铁塔的票价根据您想要上到的楼层和选择的上行方式而不同。步行到二层的票价约为11欧元，乘电梯到二层约为17欧元，乘电梯到顶层约为26欧元。儿童、青少年和残障人士有优惠票价。强烈建议提前在官网购票，这样可以避免长时间排队等候，特别是在旅游旺季。网站上也提供'免排队'选项，虽然价格稍高但可以节省大量时间。"
+        : "Eiffel Tower ticket prices vary depending on how high you want to go and how you choose to ascend. Walking to the 2nd floor costs about €11, taking the elevator to the 2nd floor costs about €17, and going to the top by elevator costs about €26. Discounted rates are available for children, youth, and people with disabilities. It's strongly recommended to purchase tickets in advance on the official website to avoid long waiting times, especially during peak tourist season. 'Skip the line' options are also available online, which cost a bit more but can save you considerable time.";
+    }
+    
+    if (questionType === "when" && hasAnyKeyword(keywords, ["time", "时间", "季节", "season", "最佳", "best"])) {
+      return isChineseUI 
+        ? "参观埃菲尔铁塔的最佳时间是春季(4-6月)和秋季(9-10月)，此时天气宜人且游客相对较少。铁塔的开放时间通常是早上9:30至晚上11:45，但夏季会延长至午夜12:45。要想避开人群，建议在开门时或晚上9点后前往。日落时分是最受欢迎的时段，可以欣赏巴黎的黄昏美景和铁塔亮灯。每个整点，铁塔会有五分钟的闪烁灯光秀，非常壮观，尤其是在夜晚。"
+        : "The best time to visit the Eiffel Tower is during spring (April-June) and fall (September-October) when the weather is pleasant and there are fewer tourists. The tower is typically open from 9:30 AM to 11:45 PM, with extended hours until 12:45 AM in summer. To avoid crowds, it's best to go right when it opens or after 9 PM. Sunset is the most popular time as you can enjoy Paris's twilight views and see the tower illumination. Every hour on the hour after sunset, the tower features a five-minute sparkling light show that is spectacular, especially at night.";
+    }
+  }
+  
+  // 通用问题处理
+  if (questionType === "recommendation" || hasAnyKeyword(keywords, ["recommend", "suggestion", "推荐", "建议"])) {
+    if (isGreatWall) {
+      return isChineseUI
+        ? "对于长城游览，我建议您：1) 穿着舒适的鞋子和轻便的衣物，因为会有大量的步行和攀爬；2) 带足够的水和一些小零食，特别是在炎热的天气；3) 提前购买门票，避免排队；4) 考虑雇用当地导游，了解更多历史背景；5) 尽量避开周末和节假日，选择工作日参观；6) 在慕田峪或八达岭段落开始您的长城之旅，这些地方设施完善且交通便利；7) 为相机准备足够的存储空间，您一定会拍摄很多照片。"
+        : "For visiting the Great Wall, I recommend: 1) Wear comfortable shoes and light clothing as there will be lots of walking and climbing; 2) Bring plenty of water and some snacks, especially in hot weather; 3) Purchase tickets in advance to avoid queues; 4) Consider hiring a local guide to learn more about the historical background; 5) Try to avoid weekends and holidays, opt for weekdays instead; 6) Start your Great Wall journey at Mutianyu or Badaling sections, which have good facilities and are easily accessible; 7) Prepare sufficient storage space for your camera as you'll definitely take many photos.";
+    }
+    
+    if (isEiffelTower) {
+      return isChineseUI
+        ? "参观埃菲尔铁塔的建议：1) 提前在官网购买门票，选择指定入场时间以避免长队；2) 考虑在非高峰时段参观，如早上开放时或晚上9点后；3) 如果体力允许，步行上二层可以节省等待电梯的时间，并欣赏不同的视角；4) 铁塔二层和顶层都有餐厅，但需要提前预订；5) 从Trocadéro广场观赏铁塔全景是拍照的最佳地点；6) 在日落时分参观，可以欣赏日落美景并看到铁塔亮灯；7) 带上双筒望远镜，从顶层可以看到更远的巴黎景色。"
+        : "Recommendations for visiting the Eiffel Tower: 1) Purchase tickets in advance on the official website, choosing a specific entry time to avoid long queues; 2) Consider visiting during off-peak hours, such as early opening or after 9 PM; 3) If physically able, walking up to the 2nd floor can save time waiting for elevators and offers different perspectives; 4) There are restaurants on the 2nd floor and top level, but reservations are required; 5) Trocadéro Plaza offers the best vantage point for photographing the entire tower; 6) Visit during sunset to enjoy the beautiful twilight views and see the tower illumination; 7) Bring binoculars to see further Paris landmarks from the top level.";
+    }
+  }
+  
+  // 未能匹配到具体问题类型和关键词
+  return null;
+}
+
+// 检查关键词列表中是否包含任一指定关键词
+function hasAnyKeyword(keywords: string[], targetKeywords: string[]): boolean {
+  return keywords.some(keyword => 
+    targetKeywords.some(target => 
+      keyword.toLowerCase().includes(target.toLowerCase()) || 
+      target.toLowerCase().includes(keyword.toLowerCase())
+    )
+  );
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -289,7 +446,13 @@ export async function POST(request: NextRequest) {
       );
     }
     
-    // 首先尝试匹配问答数据库
+    // 首先尝试使用智能回复系统生成答案
+    const smartAnswer = generateSmartResponse(message, landmark, language || 'Chinese');
+    if (smartAnswer) {
+      return NextResponse.json({ answer: smartAnswer });
+    }
+    
+    // 如果智能回复系统未能生成答案，尝试匹配问答数据库
     const qaMatch = matchQuestion(message, landmark, language || 'Chinese');
     if (qaMatch) {
       return NextResponse.json({ 
@@ -297,63 +460,11 @@ export async function POST(request: NextRequest) {
       });
     }
     
-    // 无法匹配问答数据库，使用API或模拟数据
-    try {
-      // 检查是否使用模拟数据
-      const shouldUseMockData = true; // 始终使用模拟数据
-      
-      if (shouldUseMockData) {
-        // 使用模拟数据
-        const mockAnswer = getMockResponse(landmark, language || 'Chinese', message, history);
-        return NextResponse.json({ 
-          answer: mockAnswer
-        });
-      }
-      
-      // 这部分代码在使用模拟数据时不会执行
-      const config = getCurrentConfig();
-      
-      // 构建提示词
-      const prompt = language?.toLowerCase().includes('english')
-        ? `You are a helpful AI assistant for tourists visiting ${landmark}. Answer the following question about ${landmark}: "${message}". Keep your answer informative, concise, and focused on the question. Use historical facts and tourist information when relevant.`
-        : `你是一个为游客提供帮助的AI助手，专门介绍${landmark}。请回答以下关于${landmark}的问题："${message}"。保持回答信息丰富、简洁，并针对问题。在相关时使用历史事实和旅游信息。`;
-      
-      // 发送请求到API
-      const response = await fetch(config.apiUrl, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${config.apiKey}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          ...config.defaultConfig,
-          messages: [
-            {
-              role: "user",
-              content: prompt
-            }
-          ]
-        }),
-      });
-      
-      const data = await response.json();
-      
-      if (!data || !data.choices || !data.choices[0]) {
-        throw new Error('API响应格式错误');
-      }
-      
-      const answer = data.choices[0].message?.content || '抱歉，我无法回答这个问题。';
-      
-      return NextResponse.json({ answer });
-    } catch (apiError) {
-      console.error('API错误:', apiError);
-      
-      // API调用失败，使用模拟数据
-      const mockAnswer = getMockResponse(landmark, language || 'Chinese', message, history);
-      return NextResponse.json({ 
-        answer: mockAnswer 
-      });
-    }
+    // 使用模拟数据
+    const mockAnswer = getMockResponse(landmark, language || 'Chinese', message, history);
+    return NextResponse.json({ 
+      answer: mockAnswer
+    });
   } catch (error: any) {
     console.error('处理请求错误:', error);
     return NextResponse.json(
