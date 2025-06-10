@@ -30,8 +30,8 @@ export function AIChat({ landmarkName }: AIChatProps) {
   // 初始化欢迎消息
   useEffect(() => {
     const welcomeMessage = language === "en" 
-      ? `Hello! I'm your AI guide for ${landmarkName}. Feel free to ask me anything about its history, architecture, interesting facts, or travel tips!`
-      : `你好！我是你的${landmarkName}AI导游。欢迎随时向我询问关于它的历史、建筑、有趣事实或旅行提示！`;
+      ? `Hello! I'm your AI guide for ${landmarkName}. Feel free to ask me anything about its history, architecture, interesting facts, recommended spots, or travel tips!`
+      : `你好！我是你的${landmarkName}AI导游。欢迎随时向我询问关于它的历史、建筑、有趣事实、推荐打卡点或旅行提示！`;
       
     setMessages([
       {
@@ -154,6 +154,41 @@ export function AIChat({ landmarkName }: AIChatProps) {
     }
   };
 
+  // 提供建议问题
+  const suggestedQuestions = [
+    language === "en" 
+      ? [
+          "Tell me about the history",
+          "What are the must-visit spots?",
+          "Best time to visit?",
+          "Interesting facts",
+          "Cultural significance"
+        ]
+      : [
+          "介绍一下这里的历史",
+          "有哪些必打卡的景点？",
+          "最佳参观时间是？",
+          "有什么有趣的事实",
+          "这里的文化意义"
+        ]
+  ];
+
+  // 点击建议问题
+  const handleSuggestionClick = (question: string) => {
+    setInput(question);
+    setTimeout(() => sendMessage(), 100);
+  };
+
+  // 格式化消息文本，支持换行
+  const formatMessageText = (text: string) => {
+    return text.split('\n').map((line, i) => (
+      <span key={i}>
+        {line}
+        {i < text.split('\n').length - 1 && <br />}
+      </span>
+    ));
+  };
+
   return (
     <Card className="w-full h-[500px] flex flex-col">
       <CardHeader className="pb-3">
@@ -199,7 +234,7 @@ export function AIChat({ landmarkName }: AIChatProps) {
                       </>
                     )}
                   </div>
-                  <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                  {formatMessageText(message.content)}
                   
                   {message.id.includes("-error") && (
                     <div className="mt-2">
@@ -238,6 +273,27 @@ export function AIChat({ landmarkName }: AIChatProps) {
           </div>
         </ScrollArea>
       </CardContent>
+      
+      {messages.length === 1 && !isLoading && (
+        <div className="px-4 mb-4">
+          <p className="text-sm text-muted-foreground mb-2">
+            {language === "en" ? "Try asking:" : "你可以尝试问:"}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {suggestedQuestions[0].map((question, index) => (
+              <Button
+                key={index}
+                variant="outline"
+                size="sm"
+                onClick={() => handleSuggestionClick(question)}
+                className="text-xs"
+              >
+                {question}
+              </Button>
+            ))}
+          </div>
+        </div>
+      )}
       
       <CardFooter className="pt-0">
         <div className="flex w-full gap-2">
