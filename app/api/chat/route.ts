@@ -10,6 +10,7 @@ interface LandmarkQA {
   "great-wall": QuestionAnswers;
   "eiffel-tower": QuestionAnswers;
   "machu-picchu": QuestionAnswers;
+  "taj-mahal": QuestionAnswers;
   "default": QuestionAnswers;
 }
 
@@ -49,6 +50,13 @@ const qaDatabase: LanguageQA = {
       "最佳参观时间": "参观马丘比丘的最佳时间是干季（5月至10月），此时天气晴朗，降雨较少。6月和7月是旅游高峰期，游客最多。如果想避开人群，建议在5月初或10月底参观。雨季（11月至4月）景色更为翠绿，但有雨天的可能性较高。无论何时参观，清晨或傍晚时分的景色最为壮观，光线也更适合拍照。",
       "交通方式": "前往马丘比丘通常从库斯科开始。可以选择搭乘火车到达阿瓜斯卡连特斯镇（马丘比丘山脚下的小镇），然后乘坐巴士上山；或者参加徒步旅行，如著名的印加古道（需要提前数月预订）。印加古道全程约43公里，通常需要4天完成。无论选择哪种方式，都需要提前购买马丘比丘的入场券，因为每天的参观人数有限制。",
       "推荐打卡点": "马丘比丘的必打卡景点包括：1) 守望者小屋（Guardhouse），这里可以俯瞰整个遗址，是拍摄经典照片的最佳位置；2) 太阳神庙（Intihuatana），这块垂直的石头被认为是古印加人的天文观测仪；3) 三窗神庙（Temple of Three Windows），其独特的梯形窗户朝向东方，据说代表印加人的起源地；4) 圣地（Sacred Plaza），城市的宗教中心；5) 瓦纳皮丘山（Huayna Picchu），爬上这座山可以从另一个角度俯瞰马丘比丘，但需要额外的门票；6) 印加桥，展示了印加人精湛的工程技术。"
+    },
+    "taj-mahal": {
+      "历史": "泰姬陵是印度著名的象牙白大理石陵墓，位于北印度的阿格拉市。它由莫卧儿帝国的第五位皇帝沙贾汗于1631年至1653年间建造，是为了纪念他深爱的第三任妻子慕塔兹·玛哈尔（在生产第14个孩子时去世）。泰姬陵是世界文化遗产，也是世界新七大奇迹之一，被公认为是莫卧儿建筑的杰作，融合了波斯、土耳其、印度和伊斯兰建筑风格。",
+      "建筑特点": "泰姬陵是一座由白色大理石建造的陵墓，坐落在四分之一平方公里的园林之中。建筑主体是一个对称的建筑，中央有一个巨大的圆顶（高约73米），四角各有一座小尖塔。整个建筑物矗立在一个高台上，前方是一个反映泰姬陵倒影的长方形水池。大理石表面镶嵌有数千颗宝石，形成精美的花卉和几何图案。建筑内部有精细的雕刻和镶嵌工艺，展示了当时最高水平的工艺技术。",
+      "最佳参观时间": "参观泰姬陵的最佳时间是10月至3月期间，这时天气凉爽干燥。特别推荐在满月之夜或黎明时分参观，此时的光线会使白色大理石呈现出不同的色彩变化。避开星期五参观，因为这天泰姬陵对公众关闭（仅对穆斯林祈祷者开放）。旺季（11月至2月）游客较多，建议提前购票并早到以避开人群。",
+      "门票": "外国游客的泰姬陵门票价格约为1100卢比（约15美元），印度公民仅需50卢比。参观陵墓内部需要额外付费。门票可以在入口处购买，也可以在官方网站上在线预订。购票时需要出示身份证件。为避免排队，建议提前在线购票或在较早时间到达。",
+      "有趣事实": "泰姬陵的建造耗时22年，动用了2万名工人和1000头大象。建筑材料来自印度和亚洲各地，包括从中国、阿富汗和斯里兰卡运来的宝石。据传说，沙贾汗计划在亚穆纳河对岸建造一座黑色大理石陵墓作为自己的陵墓，但这个计划因他被儿子废黜而未能实现。泰姬陵的设计师仍然存在争议，可能是乌斯塔德·艾哈迈德·拉霍里或波斯建筑师乌斯塔德·伊萨。"
     }
   },
   "English": {
@@ -80,6 +88,12 @@ const qaDatabase: LanguageQA = {
       "best time to visit": "The best time to visit Machu Picchu is during the dry season (May to October) when the weather is clear with little rainfall. June and July are peak tourism months with the most visitors. To avoid crowds, early May or late October are recommended. The rainy season (November to April) offers more lush greenery but has a higher chance of rain. Regardless of when you visit, the early morning or late afternoon offers the most spectacular views and lighting for photography.",
       "transportation": "The journey to Machu Picchu typically begins in Cusco. You can take a train to Aguas Calientes (the town at the base of Machu Picchu), then a bus up the mountain; or participate in a trek such as the famous Inca Trail (which requires booking months in advance). The Inca Trail is approximately 43 kilometers long and typically takes 4 days to complete. Regardless of your chosen method, it's necessary to purchase Machu Picchu entrance tickets in advance as daily visitor numbers are limited.",
       "recommended spots": "Must-visit spots in Machu Picchu include: 1) The Guardhouse, which offers a panoramic view of the entire site and is the best location for taking classic photos; 2) Intihuatana (Hitching Post of the Sun), a vertical stone believed to be an astronomical observatory of the ancient Incas; 3) Temple of Three Windows, with its unique trapezoidal windows facing east, said to represent the Inca's place of origin; 4) Sacred Plaza, the religious center of the city; 5) Huayna Picchu Mountain, which you can climb for an alternative view of Machu Picchu (requires an additional ticket); 6) The Inca Bridge, showcasing the Incas' engineering prowess."
+    },
+    "taj-mahal": {
+      "history": "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned by Mughal Emperor Shah Jahan in 1632 to house the tomb of his favorite wife, Mumtaz Mahal. Construction of the Taj Mahal began in 1639 and was completed in 1653. The Taj Mahal is considered one of the finest examples of Mughal architecture and is widely recognized as "the jewel of Muslim art in India" and "the grand mausoleum of Agra".",
+      "architecture": "The Taj Mahal is a large mausoleum consisting of a main central dome, surrounded by four smaller domes. The entire structure is covered in intricate, white marble inlay work. The mausoleum is surrounded by a high, white marble wall with four corner towers. The gateways are also in white marble. The Taj Mahal is a perfect example of Mughal architecture, with its symmetry, and its use of white marble, precious stones, and precious metals.",
+      "best time to visit": "The Taj Mahal is open from sunrise to sunset, but the best time to visit is from 6 AM to 10 AM and from 5 PM to 9 PM. The Taj Mahal is closed on Fridays. The best time to visit is in the early morning or late afternoon when the light is soft and the colors are more vibrant. The Taj Mahal is also illuminated at night, which is a sight to behold.",
+      "tickets": "Foreign tourists pay 1100 rupees (approximately $15) for entry, while Indian citizens pay 50 rupees. Entry to the mausoleum is free for children under 15 years of age. Photography inside the Taj Mahal is allowed, but flash photography is not permitted. Photography outside the mausoleum is allowed, but no drones are allowed. Photography is not allowed inside the mausoleum during prayer times."
     }
   }
 };
@@ -114,6 +128,13 @@ const mockResponses = {
       "参观马丘比丘的最佳时间是干季（5月至10月），尤其是清晨，此时不仅游客较少，还能欣赏到壮观的日出和云海。从库斯科可以乘坐火车和巴士到达，或选择徒步印加古道。",
       "马丘比丘最著名的景点包括太阳神庙、三窗神庙和守望者小屋，从守望者小屋可以拍摄到整个遗址的经典照片。登上瓦纳皮丘山可以从另一个角度俯瞰马丘比丘。",
       "这座古城见证了印加文明的辉煌，其精确的天文布局和与自然的和谐融合令人惊叹。尽管印加文明被西班牙征服者摧毁，马丘比丘因其隐蔽位置得以保存，成为了解印加文化的珍贵窗口。"
+    ],
+    "taj-mahal": [
+      "泰姬陵是位于印度阿格拉的标志性建筑，由莫卧儿皇帝沙贾汗于17世纪建造，以纪念他深爱的妻子慕塔兹·玛哈尔。",
+      "这座象牙白大理石陵墓是莫卧儿建筑的杰作，融合了波斯、伊斯兰和印度建筑风格，被联合国教科文组织列为世界文化遗产。",
+      "泰姬陵的设计体现了完美的对称性，主建筑坐落在一个大型花园中央，前方有一个长方形水池反映其倒影，四角各有一座小尖塔。",
+      "参观泰姬陵的最佳时间是10月至3月，尤其是在日出时分，此时阳光使白色大理石呈现出粉红色和金色的光芒。",
+      "泰姬陵不仅是一座陵墓，更是永恒爱情的象征。建筑内部装饰有精美的宝石镶嵌艺术和雕刻，大理石表面的花卉图案展示了印度工匠的卓越技艺。"
     ]
   },
   "English": {
@@ -144,6 +165,12 @@ const mockResponses = {
       "The best time to visit Machu Picchu is during the dry season (May to October), especially early morning when there are fewer tourists and you can witness spectacular sunrise and sea of clouds. It can be reached from Cusco by train and bus, or by hiking the Inca Trail.",
       "The most famous spots in Machu Picchu include the Intihuatana (Hitching Post of the Sun), the Temple of Three Windows, and the Guardhouse, which offers the classic postcard view of the entire site. Climbing Huayna Picchu provides an alternative perspective of the ancient city.",
       "This ancient city stands as a testament to the glory of the Inca civilization, with its precise astronomical layout and harmony with nature. Despite the destruction of Inca civilization by Spanish conquerors, Machu Picchu was preserved due to its hidden location, providing a precious window into Inca culture."
+    ],
+    "taj-mahal": [
+      "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned by Mughal Emperor Shah Jahan in 1632 to house the tomb of his favorite wife, Mumtaz Mahal. Construction of the Taj Mahal began in 1639 and was completed in 1653. The Taj Mahal is considered one of the finest examples of Mughal architecture and is widely recognized as "the jewel of Muslim art in India" and "the grand mausoleum of Agra".",
+      "The Taj Mahal is a large mausoleum consisting of a main central dome, surrounded by four smaller domes. The entire structure is covered in intricate, white marble inlay work. The mausoleum is surrounded by a high, white marble wall with four corner towers. The gateways are also in white marble. The Taj Mahal is a perfect example of Mughal architecture, with its symmetry, and its use of white marble, precious stones, and precious metals.",
+      "The Taj Mahal is open from sunrise to sunset, but the best time to visit is from 6 AM to 10 AM and from 5 PM to 9 PM. The Taj Mahal is closed on Fridays. The best time to visit is in the early morning or late afternoon when the light is soft and the colors are more vibrant. The Taj Mahal is also illuminated at night, which is a sight to behold.",
+      "Foreign tourists pay 1100 rupees (approximately $15) for entry, while Indian citizens pay 50 rupees. Entry to the mausoleum is free for children under 15 years of age. Photography inside the Taj Mahal is allowed, but flash photography is not permitted. Photography outside the mausoleum is allowed, but no drones are allowed. Photography is not allowed inside the mausoleum during prayer times."
     ]
   }
 };
@@ -153,13 +180,15 @@ function matchQuestion(message: string, landmark: string, language: string): str
   const lang = language.toLowerCase().includes("chinese") ? "Chinese" : "English";
   
   // 确定使用哪个地标的问答数据库
-  let landmarkKey: "great-wall" | "eiffel-tower" | "machu-picchu" | "default" = "default";
+  let landmarkKey: "great-wall" | "eiffel-tower" | "machu-picchu" | "taj-mahal" | "default" = "default";
   if (landmark.toLowerCase().includes("great wall") || landmark.toLowerCase().includes("长城")) {
     landmarkKey = "great-wall";
   } else if (landmark.toLowerCase().includes("eiffel") || landmark.toLowerCase().includes("埃菲尔")) {
     landmarkKey = "eiffel-tower";
   } else if (landmark.toLowerCase().includes("machu picchu") || landmark.toLowerCase().includes("马丘比丘")) {
     landmarkKey = "machu-picchu";
+  } else if (landmark.toLowerCase().includes("taj mahal") || landmark.toLowerCase().includes("泰姬陵")) {
+    landmarkKey = "taj-mahal";
   }
   
   // 获取该地标和语言的问答库
@@ -231,6 +260,8 @@ function getMockResponse(landmark: string, language: string, message: string, hi
     key = "eiffel-tower";
   } else if (landmark.toLowerCase().includes("machu picchu") || landmark.includes("马丘比丘")) {
     key = "machu-picchu";
+  } else if (landmark.toLowerCase().includes("taj mahal") || landmark.includes("泰姬陵")) {
+    key = "taj-mahal";
   } else {
     key = "default";
   }
@@ -293,6 +324,10 @@ function generateFollowUpResponse(context: string, message: string, landmark: st
       return "马丘比丘是印加文明最辉煌的见证，被誉为'云端之城'，是世界新七大奇迹之一和联合国教科文组织世界文化遗产。马丘比丘的布局体现了印加人对宇宙的理解和对自然的崇敬。太阳神庙（Intihuatana）是一块垂直的石柱，在特定日期（如夏至和冬至）能准确显示太阳的位置，被认为是古印加人的天文观测仪。三窗神庙的窗户朝向东方，据说代表印加人的起源地。整座城市的设计与周围的山脉和天体运行完美融合，体现了印加文明的高度发展。";
     }
     
+    if (landmark.toLowerCase().includes("taj mahal") || landmark.includes("泰姬陵")) {
+      return "泰姬陵是印度著名的象牙白大理石陵墓，位于北印度的阿格拉市。它由莫卧儿帝国的第五位皇帝沙贾汗于1631年至1653年间建造，是为了纪念他深爱的第三任妻子慕塔兹·玛哈尔（在生产第14个孩子时去世）。泰姬陵是世界文化遗产，也是世界新七大奇迹之一，被公认为是莫卧儿建筑的杰作，融合了波斯、土耳其、印度和伊斯兰建筑风格。";
+    }
+    
     return "这个景点还有很多值得探索的方面，包括当地的文化传统、美食特色以及周边的其他景点。您想了解哪方面的信息呢？";
   } else {
     if (context.includes("Wall")) {
@@ -313,6 +348,10 @@ function generateFollowUpResponse(context: string, message: string, landmark: st
     
     if (landmark.toLowerCase().includes("machu picchu")) {
       return "马丘比丘是印加文明最辉煌的见证，被誉为'云端之城'，是世界新七大奇迹之一和联合国教科文组织世界文化遗产。马丘比丘的布局体现了印加人对宇宙的理解和对自然的崇敬。太阳神庙（Intihuatana）是一块垂直的石柱，在特定日期（如夏至和冬至）能准确显示太阳的位置，被认为是古印加人的天文观测仪。三窗神庙的窗户朝向东方，据说代表印加人的起源地。整座城市的设计与周围的山脉和天体运行完美融合，体现了印加文明的高度发展。";
+    }
+    
+    if (landmark.toLowerCase().includes("taj mahal")) {
+      return "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned by Mughal Emperor Shah Jahan in 1632 to house the tomb of his favorite wife, Mumtaz Mahal. Construction of the Taj Mahal began in 1639 and was completed in 1653. The Taj Mahal is considered one of the finest examples of Mughal architecture and is widely recognized as "the jewel of Muslim art in India" and "the grand mausoleum of Agra".";
     }
     
     return "There are many more aspects of this landmark worth exploring, including local cultural traditions, culinary specialties, and other nearby attractions. What aspects would you like to know more about?";
@@ -483,6 +522,9 @@ function identifyLandmarkType(landmark: string): string | null {
   if (landmarkLower.includes("machu picchu") || landmarkLower.includes("马丘比丘")) {
     return "archaeological-site";
   }
+  if (landmarkLower.includes("taj mahal") || landmarkLower.includes("泰姬陵")) {
+    return "mausoleum";
+  }
   
   return null;
 }
@@ -627,6 +669,7 @@ function generateSpecificAnswer(keywords: string[], questionType: string, landma
   const isGreatWall = landmark.toLowerCase().includes("great wall") || landmark.toLowerCase().includes("长城");
   const isEiffelTower = landmark.toLowerCase().includes("eiffel") || landmark.toLowerCase().includes("埃菲尔");
   const isMachuPicchu = landmark.toLowerCase().includes("machu picchu") || landmark.toLowerCase().includes("马丘比丘");
+  const isTajMahal = landmark.toLowerCase().includes("taj mahal") || landmark.toLowerCase().includes("泰姬陵");
   
   // 查询详细介绍
   if (questionType === "general" && 
@@ -704,6 +747,27 @@ function generateSpecificAnswer(keywords: string[], questionType: string, landma
       return isChineseUI 
         ? "参观马丘比丘的最佳时间是干季（5月至10月），此时天气晴朗，降雨较少。6月和7月是旅游高峰期，游客最多。如果想避开人群，建议在5月初或10月底参观。雨季（11月至4月）景色更为翠绿，但有雨天的可能性较高。无论何时参观，清晨或傍晚时分的景色最为壮观，光线也更适合拍照。"
         : "The best time to visit Machu Picchu is during the dry season (May to October) when the weather is clear with little rainfall. June and July are peak tourism months with the most visitors. To avoid crowds, early May or late October are recommended. The rainy season (November to April) offers more lush greenery but has a higher chance of rain. Regardless of when you visit, the early morning or late afternoon offers the most spectacular views and lighting for photography.";
+    }
+  }
+  
+  if (isTajMahal) {
+    // 泰姬陵特定问题处理
+    if (questionType === "howto" && hasAnyKeyword(keywords, ["去", "到达", "交通", "transport", "怎么去"])) {
+      return isChineseUI 
+        ? "泰姬陵的交通方式多样。最常见的是从阿格拉乘坐火车到达阿格拉堡（泰姬陵所在地），然后步行前往。也可以选择参加旅行团或包车服务。强烈建议提前预订，特别是在旺季，因为游客较多。"
+        : "The Taj Mahal can be reached by train from Agra, or by joining a tour group or hiring a private car. It's advisable to book in advance, especially during peak tourist seasons, as the site can get very crowded.";
+    }
+    
+    if (hasAnyKeyword(keywords, ["票", "价格", "费用", "price", "ticket", "cost"])) {
+      return isChineseUI 
+        ? "外国游客的泰姬陵门票价格约为1100卢比（约15美元），印度公民仅需50卢比。参观陵墓内部需要额外付费。门票可以在入口处购买，也可以在官方网站上在线预订。购票时需要出示身份证件。为避免排队，建议提前在线购票或在较早时间到达。"
+        : "Foreign tourists pay 1100 rupees (approximately $15) for entry, while Indian citizens pay 50 rupees. Entry to the mausoleum is free for children under 15 years of age. Photography inside the Taj Mahal is allowed, but flash photography is not permitted. Photography outside the mausoleum is allowed, but no drones are allowed. Photography is not allowed inside the mausoleum during prayer times.";
+    }
+    
+    if (questionType === "when" && hasAnyKeyword(keywords, ["time", "时间", "季节", "season", "最佳", "best"])) {
+      return isChineseUI 
+        ? "参观泰姬陵的最佳时间是10月至3月期间，这时天气凉爽干燥。特别推荐在满月之夜或黎明时分参观，此时的光线会使白色大理石呈现出不同的色彩变化。避开星期五参观，因为这天泰姬陵对公众关闭（仅对穆斯林祈祷者开放）。旺季（11月至2月）游客较多，建议提前购票并早到以避开人群。"
+        : "The best time to visit the Taj Mahal is from October to March when the weather is cool and dry. It's especially recommended to visit during the full moon night or at dawn, when the white marble takes on different hues. It's closed on Fridays, and during peak tourist seasons, it's advisable to book tickets in advance and arrive early to avoid crowds.";
     }
   }
   
@@ -894,6 +958,46 @@ Recommended Spots:
 8. Sun Gate (Inti Punku): The endpoint of the Inca Trail, providing magnificent views of Machu Picchu, especially at sunrise.
 
 Travel Tips: Purchase entrance tickets in advance (especially during high season) as daily visitor numbers are limited. Visit in the early morning to avoid crowds and midday heat. Bring plenty of water and sun protection as UV radiation is intense at high altitudes. If you want to climb Huayna Picchu, you need to purchase additional tickets and book in advance. To respect this ancient site, do not touch or climb on the stone walls. Carry rain gear as mountain weather can change suddenly, even during the dry season.`;
+    }
+  } else if (landmark.toLowerCase().includes("taj mahal") || landmark.toLowerCase().includes("泰姬陵")) {
+    if (language.toLowerCase().includes("chinese")) {
+      return `泰姬陵是世界上最美丽的陵墓之一，也是印度最著名的建筑，位于北印度阿格拉市。
+
+历史背景：泰姬陵由莫卧儿帝国第五代皇帝沙贾汗于1631年至1653年间建造，目的是纪念他挚爱的第三任妻子慕塔兹·玛哈尔，她在生产第14个孩子时去世。这座建筑耗时22年，动用了20,000名工匠和1,000头大象运送材料。沙贾汗对妻子的挚爱使泰姬陵成为了永恒爱情的象征。建成后，沙贾汗计划在亚穆纳河对岸建造一座黑色大理石陵墓作为自己的陵寝，但他晚年被儿子奥朗则布囚禁在阿格拉堡，这个计划未能实现。最终沙贾汗死后与妻子合葬于泰姬陵。
+
+建筑奇迹：泰姬陵由洁白的大理石建造，主体建筑位于一个方形平台上，四角各有一座尖塔（高约40米）。中央的穹顶高达73米，呈洋葱形，是印度-伊斯兰建筑的特色。整个建筑严格对称，以达到完美平衡。大理石表面镶嵌着来自世界各地的28种半宝石，形成复杂的花卉和几何图案，展示了当时最高水平的镶嵌工艺。前方的长方形水池反射出泰姬陵的倒影，使其美感倍增。整个建筑群还包括红砂岩的大门、花园和附属建筑，形成一个完整的复合体。
+
+文化意义：泰姬陵被认为是莫卧儿建筑艺术的顶峰，也是伊斯兰艺术在印度的完美融合。它被联合国教科文组织列为世界文化遗产，并在2007年被评为世界新七大奇迹之一。泰姬陵不仅是印度最重要的文化象征之一，也代表着爱情、忠诚和永恒的主题。每年有数百万游客来此参观，它已成为印度最重要的旅游胜地。
+
+艺术精髓：泰姬陵内部的艺术装饰同样令人叹为观止。陵墓内部有精美的大理石屏风环绕，上面镶嵌着半宝石花朵图案，光线透过石板时会产生迷人的光影效果。建筑物内部还有精美的书法作品，主要是古兰经经文，由当时最著名的书法家Abdul Haq创作。泰姬陵的声学效果也非常出色，在圆顶下轻声细语可以被清晰地传递到30米外。
+
+推荐打卡点：
+1. 主陵墓大厅：参观沙贾汗和慕塔兹·玛哈尔的陵墓复制品（真正的墓穴位于地下，不对外开放）。
+2. 南门：最佳的拍摄角度，可以捕捉泰姬陵的完美对称和水池中的倒影。
+3. 月光花园：位于泰姬陵北侧的亚穆纳河岸，提供另一个角度欣赏泰姬陵。
+4. 梅赫塔布巴格（月光花园）：在满月夜晚，从这里可以欣赏到泰姬陵沐浴在月光下的壮丽景象。
+5. 泰姬陵博物馆：位于西门附近，展示了泰姬陵建造的历史文物和原始设计图。
+
+旅行贴士：日出时分（约6点）是最理想的参观时间，此时游客较少，且清晨的光线使白色大理石呈现出变幻的色彩，从粉红色到金色再到耀眼的白色。参观时需脱鞋或穿上提供的鞋套进入主陵墓。避开星期五参观，因为这天泰姬陵对公众关闭（仅对穆斯林祈祷者开放）。为减少环境污染对大理石的损害，机动车辆不得靠近泰姬陵，游客需乘坐电动车或步行前往。参观整个建筑群需要2-3小时。`;
+    } else {
+      return `The Taj Mahal is one of the most beautiful mausoleums in the world and India's most famous monument, located in Agra, northern India.
+
+Historical Background: The Taj Mahal was built between 1631 and 1653 by the fifth Mughal Emperor Shah Jahan to commemorate his beloved third wife, Mumtaz Mahal, who died while giving birth to their 14th child. The construction took 22 years, employed 20,000 artisans, and used 1,000 elephants to transport materials. Shah Jahan's deep love for his wife has made the Taj Mahal a symbol of eternal love. After its completion, Shah Jahan planned to build a black marble mausoleum across the Yamuna River as his own tomb, but he was imprisoned by his son Aurangzeb in Agra Fort in his later years, and this plan was never realized. Eventually, Shah Jahan was buried alongside his wife in the Taj Mahal after his death.
+
+Architectural Marvel: The Taj Mahal is built of pristine white marble, with the main structure situated on a square platform, with minarets (about 40 meters tall) at each corner. The central dome reaches a height of 73 meters and has an onion shape, characteristic of Indo-Islamic architecture. The entire building is strictly symmetrical to achieve perfect balance. The marble surfaces are inlaid with 28 types of semi-precious stones from around the world, forming complex floral and geometric patterns, showcasing the highest level of inlay craftsmanship of the time. The rectangular pool in front reflects the image of the Taj Mahal, enhancing its beauty. The entire complex also includes red sandstone gates, gardens, and auxiliary buildings, forming a complete compound.
+
+Cultural Significance: The Taj Mahal is considered the pinnacle of Mughal architectural art and the perfect blend of Islamic art in India. It is recognized as a UNESCO World Heritage Site and was named one of the New Seven Wonders of the World in 2007. The Taj Mahal is not only one of India's most important cultural symbols but also represents themes of love, devotion, and eternity. Millions of visitors come to see it each year, making it India's most important tourist destination.
+
+Artistic Essence: The artistic decorations inside the Taj Mahal are equally breathtaking. The tombs are surrounded by exquisite marble screens inlaid with semi-precious stone floral patterns, creating fascinating light effects when light passes through the panels. The interior also features beautiful calligraphy, mainly Quranic verses, created by the most famous calligrapher of the time, Abdul Haq. The Taj Mahal also has excellent acoustic properties, with whispers under the dome being clearly transmitted up to 30 meters away.
+
+Recommended Spots:
+1. Main Mausoleum Hall: Visit the replicas of Shah Jahan and Mumtaz Mahal's tombs (the actual tombs are underground and not open to the public).
+2. South Gate: The best angle for photography, capturing the perfect symmetry of the Taj Mahal and its reflection in the pool.
+3. Moonlight Garden: Located on the banks of the Yamuna River north of the Taj Mahal, offering another perspective to appreciate the monument.
+4. Mehtab Bagh (Moonlight Garden): On full moon nights, you can enjoy the magnificent view of the Taj Mahal bathed in moonlight from here.
+5. Taj Museum: Located near the Western Gate, displaying historical artifacts and original design drawings of the Taj Mahal's construction.
+
+Travel Tips: Sunrise (around 6 AM) is the ideal time to visit, as there are fewer tourists then, and the morning light causes the white marble to display changing colors, from pink to gold to brilliant white. Visitors must remove their shoes or wear provided shoe covers to enter the main mausoleum. Avoid visiting on Fridays when the Taj Mahal is closed to the public (open only to Muslim worshippers). To reduce environmental pollution damage to the marble, motor vehicles are not allowed near the Taj Mahal; visitors must take electric vehicles or walk. Allow 2-3 hours to visit the entire complex.`;
     }
   }
   

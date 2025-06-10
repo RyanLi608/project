@@ -4,7 +4,7 @@ import { getLandmarkInfo } from '@/lib/api/deepseek';
 // 定义类型
 type AspectKey = "历史" | "文化" | "建筑" | "Historical" | "Cultural" | "Architectural";
 type LanguageKey = "Chinese" | "English";
-type LandmarkKey = "Great Wall of China" | "Eiffel Tower" | "default";
+type LandmarkKey = "Great Wall of China" | "Eiffel Tower" | "Taj Mahal" | "default";
 
 interface LandmarkData {
   [landmark: string]: {
@@ -40,6 +40,18 @@ const mockData: LandmarkData = {
       "Architectural": "Standing 324 meters tall, the Eiffel Tower is made of 18,038 metallic parts held together by 2.5 million rivets, weighing approximately 10,100 tonnes. Its design fully considers wind resistance, using an open structure to reduce wind loads. The tower has three levels open to the public: restaurants on the first and second levels, and an observation deck offering panoramic views of Paris at the top. It is made of puddled iron and is repainted every seven years to prevent rust. During hot summer days, the tower can expand by about 15 centimeters due to thermal expansion."
     }
   },
+  "Taj Mahal": {
+    "Chinese": {
+      "历史": "泰姬陵是印度著名的象牙白大理石陵墓，位于北印度的阿格拉市。它由莫卧儿帝国的第五位皇帝沙贾汗于1631年至1653年间建造，是为了纪念他深爱的第三任妻子慕塔兹·玛哈尔（在生产第14个孩子时去世）。泰姬陵是世界文化遗产，也是世界新七大奇迹之一，被公认为是莫卧儿建筑的杰作，融合了波斯、土耳其、印度和伊斯兰建筑风格。",
+      "文化": "泰姬陵不仅是印度最重要的文化象征之一，也是永恒爱情的全球性象征。它代表了莫卧儿时期艺术和建筑的巅峰，展示了伊斯兰艺术在印度次大陆的融合与发展。泰姬陵每年吸引数百万游客，是印度旅游业的重要支柱。在印度文化中，它象征着纯洁、美丽和永恒的爱情，常常出现在文学、电影和音乐作品中。对于穆斯林信徒来说，它也是一个重要的朝圣地和祈祷场所。",
+      "建筑": "泰姬陵是一座由白色大理石建造的陵墓，坐落在四分之一平方公里的园林之中。建筑主体是一个对称的建筑，中央有一个巨大的圆顶（高约73米），四角各有一座小尖塔。整个建筑物矗立在一个高台上，前方是一个反映泰姬陵倒影的长方形水池。大理石表面镶嵌有数千颗宝石，形成精美的花卉和几何图案。建筑内部有精细的雕刻和镶嵌工艺，展示了当时最高水平的工艺技术。泰姬陵的设计遵循了完美的对称性，除了沙贾汗和慕塔兹的陵墓位置略有不同外，整个建筑从任何角度看都是对称的。"
+    },
+    "English": {
+      "Historical": "The Taj Mahal is an ivory-white marble mausoleum located in Agra, northern India. It was commissioned in 1631 by the Mughal emperor Shah Jahan to house the tomb of his favorite wife, Mumtaz Mahal, who died during childbirth. Construction was completed around 1653. The Taj Mahal is recognized as a UNESCO World Heritage Site and one of the New Seven Wonders of the World. It represents the peak of Mughal architecture, combining elements from Persian, Turkish, Indian, and Islamic architectural styles.",
+      "Cultural": "The Taj Mahal is not only India's most iconic cultural symbol but also a universal emblem of eternal love. It represents the pinnacle of art and architecture during the Mughal period, showcasing the integration and development of Islamic art in the Indian subcontinent. Attracting millions of visitors annually, it's a vital pillar of India's tourism industry. In Indian culture, it symbolizes purity, beauty, and everlasting love, frequently appearing in literature, film, and music. For Muslim devotees, it's also an important pilgrimage site and place of prayer.",
+      "Architectural": "The Taj Mahal is a white marble mausoleum situated within a 42-acre garden complex. The main structure features a symmetrical building with a large central dome (about 73 meters tall) and four smaller minarets at each corner. The entire structure stands on a raised platform, with a rectangular reflecting pool in front that mirrors the Taj's image. The marble surfaces are inlaid with thousands of semi-precious stones forming intricate floral and geometric patterns. The interior showcases delicate carvings and pietra dura work, demonstrating the highest level of craftsmanship of the time. The design follows perfect symmetry, with only the positions of Shah Jahan's and Mumtaz's tombs slightly differing, while the rest of the structure appears symmetrical from any angle."
+    }
+  },
   "default": {
     "Chinese": {
       "历史": "这个景点拥有丰富的历史背景，经历了多个时代的变迁和发展。它见证了当地的重要历史事件，并在不同时期发挥了重要作用。随着时间的推移，这个地方逐渐形成了独特的历史文化内涵，吸引着来自世界各地的游客前来探索和了解。",
@@ -65,6 +77,8 @@ function getMockData(landmark: string, aspect: string, language: string): string
     key = "Great Wall of China";
   } else if (normalizedName.includes("eiffel") || normalizedName.includes("埃菲尔")) {
     key = "Eiffel Tower";
+  } else if (normalizedName.includes("taj mahal") || normalizedName.includes("泰姬陵")) {
+    key = "Taj Mahal";
   }
   
   const langKey: LanguageKey = language.toLowerCase().includes("english") ? "English" : "Chinese";
