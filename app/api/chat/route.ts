@@ -49,7 +49,7 @@ const qaDatabase: LanguageQA = {
       "history": "The history of the Great Wall dates back to the 7th century BC during the Spring and Autumn and Warring States periods, when various states built walls for defense. After unifying China, Emperor Qin Shi Huang connected and strengthened northern walls, forming the first unified Great Wall. Most of what we see today was built during the Ming Dynasty (1368-1644) to defend against northern nomadic tribes.",
       "architecture": "The architectural features of the Great Wall include various defensive facilities such as wall structures, enemy towers, beacon towers, and passes. The wall typically measures 4-5 meters in width and 5-8 meters in height, constructed with stones, bricks, and rammed earth. The Great Wall adapts to local conditions, using different construction methods based on terrain features - some sections follow mountain ridges while others cross valleys.",
       "best time": "The best time to visit the Great Wall is during spring (April-May) and autumn (September-October) when the weather is pleasant and the scenery is beautiful. Spring offers blooming flowers while autumn provides colorful foliage. Summer (June-August) can be hot with more tourists, and winter (November-February) is cold but offers snow views. Avoid Chinese national holidays like National Day and Spring Festival when it gets extremely crowded.",
-      "worth visiting": "The Great Wall is absolutely worth visiting! As one of the Seven Wonders of the World, it offers not only impressive historical and architectural value but also breathtaking natural scenery. Standing on the Great Wall and looking out at the undulating mountains and winding wall is an incomparable experience. While climbing the Wall may require some physical effort, when you reach the higher sections and take in the magnificent panorama, all fatigue disappears. The Great Wall has different beauty in each season - wildflowers in spring, red leaves covering the mountains in autumn, and snow-covered spectacular views in winter. Whether you're a photography enthusiast or a history and culture lover, the Great Wall will give you an unforgettable experience."
+      "worth visiting": "The Great Wall is absolutely worth visiting! As one of the Seven Wonders of the World, it offers not only impressive historical and architectural value but also breathtaking natural scenery. Standing on the Great Wall and looking out at the undulating mountains and winding fortifications is an incomparable experience. While climbing the Wall may require some physical effort, when you reach the higher sections and take in the magnificent panorama, all fatigue disappears. The Great Wall has different beauty in each season - wildflowers in spring, red leaves covering the mountains in autumn, and snow-covered spectacular views in winter. Whether you're a photography enthusiast or a history and culture lover, the Great Wall will give you an unforgettable experience."
     },
     "eiffel-tower": {
       "ticket price": "Eiffel Tower ticket prices vary depending on the level you wish to visit and how you ascend: walking to the 2nd floor costs about €11, taking the elevator to the 2nd floor costs about €17, and going to the top by elevator costs about €26. Discounted rates are available for children, youth, and people with disabilities. It's recommended to purchase tickets online in advance to avoid queues.",
@@ -645,6 +645,82 @@ function hasAnyKeyword(keywords: string[], targetKeywords: string[]): boolean {
   );
 }
 
+// 检查是否是基本问候
+function isGreeting(message: string, landmark: string, language: string): string | null {
+  const lowerMessage = message.toLowerCase();
+  
+  // 中文问候检测
+  if (language.toLowerCase().includes("chinese")) {
+    if (lowerMessage.includes("你好") || lowerMessage.includes("早上好") || 
+        lowerMessage.includes("下午好") || lowerMessage.includes("晚上好") || 
+        lowerMessage.includes("嗨") || lowerMessage.includes("哈喽") ||
+        lowerMessage === "hi" || lowerMessage === "hello") {
+      return `你好！我是您的${landmark}旅行助手。有什么可以帮助您了解这个地方的吗？`;
+    }
+  } 
+  // 英文问候检测
+  else {
+    if (lowerMessage.includes("hello") || lowerMessage.includes("hi") || 
+        lowerMessage.includes("hey") || lowerMessage.includes("good morning") || 
+        lowerMessage.includes("good afternoon") || lowerMessage.includes("good evening") ||
+        lowerMessage.includes("greetings")) {
+      return `Hello! I'm your ${landmark} travel assistant. How can I help you learn about this place?`;
+    }
+  }
+  
+  return null;
+}
+
+// 检查是否是常见对话用语（感谢、再见等）
+function isCommonPhrase(message: string, landmark: string, language: string): string | null {
+  const lowerMessage = message.toLowerCase();
+  
+  // 中文对话用语检测
+  if (language.toLowerCase().includes("chinese")) {
+    // 感谢
+    if (lowerMessage.includes("谢谢") || lowerMessage.includes("感谢") || 
+        lowerMessage.includes("多谢") || lowerMessage.includes("thank")) {
+      return `不客气！很高兴能帮您了解${landmark}。如果您有更多问题，随时可以向我咨询。`;
+    }
+    
+    // 再见
+    if (lowerMessage.includes("再见") || lowerMessage.includes("拜拜") || 
+        lowerMessage.includes("回头见") || lowerMessage.includes("goodbye") || 
+        lowerMessage.includes("bye")) {
+      return `再见！祝您在${landmark}旅途愉快！如果之后还有问题，随时可以回来咨询。`;
+    }
+    
+    // 赞美或表达满意
+    if (lowerMessage.includes("做得好") || lowerMessage.includes("厉害") || 
+        lowerMessage.includes("不错") || lowerMessage.includes("很棒") || 
+        lowerMessage.includes("good job")) {
+      return "谢谢您的肯定！我会继续努力为您提供关于景点的优质信息和服务。";
+    }
+  }
+  // 英文对话用语检测
+  else {
+    // 感谢
+    if (lowerMessage.includes("thank") || lowerMessage.includes("thanks") || 
+        lowerMessage.includes("appreciate")) {
+      return `You're welcome! I'm glad I could help you learn about ${landmark}. Feel free to ask if you have any more questions.`;
+    }
+    
+    // 再见
+    if (lowerMessage.includes("goodbye") || lowerMessage.includes("bye") || 
+        lowerMessage.includes("see you") || lowerMessage.includes("farewell")) {
+      return `Goodbye! Enjoy your visit to ${landmark}! Feel free to come back if you have more questions later.`;
+    }
+    
+    // 赞美或表达满意
+    if (lowerMessage.includes("good job") || lowerMessage.includes("well done") || 
+        lowerMessage.includes("excellent") || lowerMessage.includes("great")) {
+      return "Thank you for your kind words! I'll continue to do my best to provide quality information about attractions and services.";
+    }
+  }
+  
+  return null;
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -656,6 +732,24 @@ export async function POST(request: NextRequest) {
         { error: '请提供消息和地标名称' },
         { status: 400 }
       );
+    }
+    
+    // 检查是否是简单问候
+    const greetingResponse = isGreeting(message, landmark, language || 'Chinese');
+    if (greetingResponse) {
+      return NextResponse.json({
+        answer: greetingResponse,
+        source: "greeting"
+      });
+    }
+    
+    // 检查是否是常见对话用语
+    const commonPhraseResponse = isCommonPhrase(message, landmark, language || 'Chinese');
+    if (commonPhraseResponse) {
+      return NextResponse.json({
+        answer: commonPhraseResponse,
+        source: "common_phrase"
+      });
     }
     
     // 智能处理流程
