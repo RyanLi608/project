@@ -116,11 +116,11 @@ const mockResponses = {
       "铁塔每晚都有灯光表演，每小时闪烁5分钟，非常壮观。"
     ],
     "default": [
-      "这是一个非常有趣的地方，拥有丰富的历史和文化。",
-      "最佳参观时间通常是春季和秋季，天气宜人且游客较少。",
-      "建议您参观时带上舒适的鞋子，因为可能需要大量步行。",
-      "当地有许多特色美食，非常值得品尝。",
-      "这里的日出和日落景色非常壮观，是摄影的绝佳时机。"
+      "这是一个非常有趣的地方，拥有丰富的历史和文化底蕴。当地的建筑风格独特，展示了当时的工艺技术和美学追求。游览时可以特别关注其中的历史细节和文化元素。",
+      "这个景点是当地文化的重要象征，见证了该地区的历史变迁和文明发展。它不仅具有建筑价值，还蕴含着深厚的文化内涵和历史故事，值得您深入了解。",
+      "最佳参观时间通常是春季和秋季，此时天气宜人且游客相对较少。建议您提前规划行程，错开旅游高峰期，可以获得更好的参观体验。早晨或傍晚时分光线最佳，也是拍摄的黄金时段。",
+      "来到这里，您不仅可以欣赏到壮丽的景观，还能体验当地的特色美食和传统文化活动。建议您参加一些导览服务，这样可以更深入地了解这个地方的历史背景和文化价值。",
+      "这个地方的日出和日落景色非常壮观，是摄影爱好者不容错过的时刻。周边还有许多值得探索的小景点，建议您预留足够的时间进行全面游览。穿着舒适的鞋子和衣物是必不可少的，因为可能需要大量步行。"
     ],
     "machu-picchu": [
       "马丘比丘是位于秘鲁的印加帝国古城，建于15世纪，于1911年被重新发现。它位于安第斯山脉海拔2,430米的山脊上，被联合国教科文组织列为世界文化遗产。",
@@ -153,11 +153,11 @@ const mockResponses = {
       "The tower features a spectacular light show every night, sparkling for 5 minutes every hour."
     ],
     "default": [
-      "This is a fascinating place with rich history and culture.",
-      "The best time to visit is usually spring and autumn when the weather is pleasant and there are fewer tourists.",
-      "It's recommended to wear comfortable shoes when visiting as there may be a lot of walking involved.",
-      "There are many local specialties worth trying in the area.",
-      "The sunrise and sunset views here are spectacular and perfect for photography."
+      "This is a fascinating place with a rich history and cultural heritage. The architecture here is unique, showcasing the craftsmanship and aesthetic pursuits of its time. Pay special attention to the historical details and cultural elements during your visit.",
+      "This landmark is an important symbol of local culture, bearing witness to the region's historical changes and civilizational development. It has not only architectural value but also contains profound cultural connotations and historical stories worth exploring in depth.",
+      "The best time to visit is typically during spring and autumn when the weather is pleasant and there are relatively fewer tourists. It's recommended to plan your trip in advance to avoid peak tourist seasons for a better experience. Early morning or evening offers the best lighting and are golden times for photography.",
+      "Here, you can not only appreciate the magnificent scenery but also experience local cuisine and traditional cultural activities. Consider joining guided tours to gain a deeper understanding of the historical background and cultural significance of this place.",
+      "The sunrise and sunset views here are spectacular and shouldn't be missed by photography enthusiasts. There are many small attractions worth exploring in the surrounding area, so it's advisable to allow enough time for a comprehensive visit. Comfortable shoes and clothing are essential as there may be a lot of walking involved."
     ],
     "machu-picchu": [
       "Machu Picchu is an ancient Inca city in Peru, built in the 15th century and rediscovered in 1911. It sits on a mountain ridge in the Andes at an elevation of 2,430 meters and is designated as a UNESCO World Heritage Site.",
@@ -790,6 +790,48 @@ function generateSpecificAnswer(keywords: string[], questionType: string, landma
         ? "参观马丘比丘的建议：1) 提前在官网购买门票，选择指定入场时间以避免长队；2) 考虑在非高峰时段参观，如早上开放时或晚上9点后；3) 如果体力允许，步行上二层可以节省等待电梯的时间，并欣赏不同的视角；4) 马丘比丘二层和顶层都有餐厅，但需要提前预订；5) 从Trocadéro广场观赏马丘比丘全景是拍照的最佳地点；6) 在日落时分参观，可以欣赏日落美景并看到马丘比丘亮灯；7) 带上双筒望远镜，从顶层可以看到更远的马丘比丘景色。"
         : "Recommendations for visiting Machu Picchu: 1) Purchase tickets in advance on the official website, choosing a specific entry time to avoid long queues; 2) Consider visiting during off-peak hours, such as early opening or after 9 PM; 3) If physically able, walking up to the 2nd floor can save time waiting for elevators and offers different perspectives; 4) There are restaurants on the 2nd floor and top level, but reservations are required; 5) Trocadéro Plaza offers the best vantage point for photographing the entire site; 6) Visit during sunset to enjoy the beautiful twilight views and see the site illumination; 7) Bring binoculars to see further Machu Picchu landmarks from the top level.";
     }
+  }
+  
+  // 关于最佳参观时间的问题
+  if (questionType === "when" || hasAnyKeyword(keywords, ["when", "time", "时间", "季节", "什么时候", "几月"])) {
+    return isChineseUI
+      ? "一般来说，参观景点的最佳时间是春季（3-5月）和秋季（9-11月），这时天气宜人，适合户外活动。夏季（6-8月）可能较热，但景色最为翠绿；冬季（12-2月）游客较少，但某些地区可能天气寒冷或有季节性关闭。建议避开当地主要节假日，因为那时游客会特别多。如果可能，选择工作日早上参观，通常人流较少，光线也适合拍照。"
+      : "Generally, the best times to visit landmarks are spring (March-May) and autumn (September-November) when the weather is pleasant for outdoor activities. Summer (June-August) may be hotter but offers the lushest scenery; winter (December-February) sees fewer tourists but some areas might be cold or have seasonal closures. It's advisable to avoid major local holidays when tourist numbers peak. If possible, visit on weekday mornings when crowds are typically thinner and lighting is good for photography.";
+  }
+  
+  // 关于交通方式的问题
+  if (questionType === "howto" && hasAnyKeyword(keywords, ["交通", "怎么去", "到达", "transport", "get there", "reaching"])) {
+    return isChineseUI
+      ? "前往景点的交通方式通常包括：1) 公共交通（地铁、公交车、火车等），这是经济且环保的选择；2) 出租车或网约车，提供门到门服务但价格较高；3) 租车自驾，灵活性高但需要了解当地交通规则；4) 旅游大巴，通常包含在旅行团套餐中；5) 步行或骑行，适合市区内距离较近的景点。建议提前查询目的地的交通信息，考虑距离、时间、预算和便利性，选择最适合您的方式。"
+      : "Transportation options to landmarks typically include: 1) Public transport (subway, bus, train), which is economical and environmentally friendly; 2) Taxis or ride-sharing services, offering door-to-door convenience at higher costs; 3) Car rentals for flexibility, though local traffic rules must be understood; 4) Tourist buses, often included in tour packages; 5) Walking or cycling for nearby attractions within urban areas. Research transportation information in advance, considering distance, time, budget, and convenience to choose the most suitable option for you.";
+  }
+  
+  // 关于摄影建议的问题
+  if (hasAnyKeyword(keywords, ["拍照", "摄影", "photo", "camera", "photography", "picture"])) {
+    return isChineseUI
+      ? "摄影建议：1) 最佳拍摄时间通常是早晨（日出后）和傍晚（日落前），这时光线柔和，色彩丰富；2) 避开人流高峰期，以减少照片中的游客；3) 寻找独特角度，不只拍摄经典位置；4) 使用三脚架可以在弱光条件下获得清晰照片；5) 考虑广角镜头捕捉宏伟场景，长焦镜头拍摄细节；6) 利用前景元素（如树木、花朵）增加照片层次感；7) 天气多变时别气馁，云雾可以增添照片氛围；8) 注意拍摄限制，某些场所可能禁止闪光灯或三脚架。"
+      : "Photography tips: 1) The best times for shooting are typically early morning (after sunrise) and early evening (before sunset) when lighting is soft and colors are rich; 2) Avoid peak visitor hours to reduce tourists in your shots; 3) Look for unique angles, not just classic viewpoints; 4) Use a tripod for sharper images in low light; 5) Consider wide-angle lenses for grand scenes and telephoto lenses for details; 6) Utilize foreground elements (like trees or flowers) to add depth; 7) Don't be discouraged by changing weather - clouds and mist can add atmosphere; 8) Be aware of photography restrictions, as some venues prohibit flash photography or tripods.";
+  }
+  
+  // 关于特色美食的问题
+  if (hasAnyKeyword(keywords, ["美食", "吃", "餐厅", "食物", "food", "eat", "cuisine", "restaurant"])) {
+    return isChineseUI
+      ? "在旅行中品尝当地美食是了解当地文化的重要方式。建议您：1) 研究当地特色菜肴，了解其历史和原料；2) 寻找当地人常去的餐馆，而非仅限于旅游区；3) 尝试街头小吃，它们通常最能体现当地风味；4) 参加美食之旅或烹饪课程，深入了解当地饮食文化；5) 访问当地市场，了解当地人的饮食习惯；6) 注意饮食卫生，选择干净、人气旺的餐厅；7) 尊重当地饮食习惯和禁忌；8) 保持开放心态，尝试新鲜事物。"
+      : "Sampling local cuisine while traveling is an essential way to understand the local culture. Recommendations: 1) Research local specialties, understanding their history and ingredients; 2) Look for restaurants frequented by locals, not just those in tourist areas; 3) Try street food, which often best represents local flavors; 4) Join food tours or cooking classes for deeper insights into local food culture; 5) Visit local markets to understand local eating habits; 6) Be mindful of food hygiene, choosing clean, popular establishments; 7) Respect local dietary customs and taboos; 8) Keep an open mind and be willing to try new things.";
+  }
+  
+  // 关于安全提示的问题
+  if (hasAnyKeyword(keywords, ["安全", "危险", "注意", "safe", "danger", "caution", "warning"])) {
+    return isChineseUI
+      ? "旅行安全提示：1) 研究目的地的安全状况，了解常见骗局和风险区域；2) 保管好贵重物品，使用酒店保险箱，携带防盗包；3) 保持警惕，特别是在拥挤场所和旅游热点；4) 携带必要的医疗用品和药物，了解当地医疗设施位置；5) 购买旅行保险，确保涵盖医疗紧急情况；6) 与家人朋友分享行程，定期保持联系；7) 注意交通安全，遵守当地交通规则；8) 尊重当地法律法规和文化习俗；9) 保存重要文件复印件和紧急联系电话；10) 关注天气预报和自然灾害警告。"
+      : "Travel safety tips: 1) Research destination safety, understanding common scams and risky areas; 2) Secure valuables, use hotel safes, and carry anti-theft bags; 3) Stay vigilant, especially in crowded places and tourist hotspots; 4) Bring necessary medical supplies and know the location of local medical facilities; 5) Purchase travel insurance covering medical emergencies; 6) Share your itinerary with family/friends and maintain regular contact; 7) Be mindful of traffic safety and follow local traffic rules; 8) Respect local laws, regulations, and cultural customs; 9) Keep copies of important documents and emergency contact numbers; 10) Stay informed about weather forecasts and natural disaster warnings.";
+  }
+  
+  // 关于预算和费用的问题
+  if (hasAnyKeyword(keywords, ["预算", "费用", "价格", "花费", "贵", "budget", "cost", "price", "expensive"])) {
+    return isChineseUI
+      ? "旅行预算建议：1) 门票费用：主要景点通常在50-300元人民币之间，考虑购买景点联票可能更经济；2) 住宿费用：从经济型旅馆（200-500元/晚）到豪华酒店（1000元以上/晚）不等，建议提前预订获取更优惠价格；3) 餐饮费用：当地小吃约20-50元/餐，普通餐厅50-150元/人，高档餐厅200元以上/人；4) 交通费用：公共交通经济实惠，出租车起步价通常10-20元；5) 购物和纪念品：预留总预算的10-20%；6) 额外活动：如特色表演或体验活动，根据类型约100-500元不等；7) 建议准备额外10-15%的预算作为应急资金。旅游旺季价格可能上浮20-30%。"
+      : "Travel budget advice: 1) Admission fees: Major attractions typically range from $10-50, consider attraction passes for better value; 2) Accommodation: From budget hostels ($30-80/night) to luxury hotels ($150+ per night), book in advance for better rates; 3) Dining: Local street food about $3-8/meal, regular restaurants $10-25/person, upscale dining $30+ per person; 4) Transportation: Public transit is economical, taxi base fares usually $2-5; 5) Shopping and souvenirs: Reserve 10-20% of your total budget; 6) Additional activities: Special performances or experiences range from $15-80 depending on type; 7) Keep an extra 10-15% of your budget for contingencies. Prices may increase by 20-30% during peak tourist seasons.";
   }
   
   // 未能匹配到具体问题类型和关键词

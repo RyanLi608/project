@@ -30,8 +30,8 @@ export function AIChat({ landmarkName }: AIChatProps) {
   // 初始化欢迎消息
   useEffect(() => {
     const welcomeMessage = language === "en" 
-      ? `Hello! I'm your AI guide for ${landmarkName}. Feel free to ask me anything about its history, architecture, interesting facts, recommended spots, or travel tips!`
-      : `你好！我是你的${landmarkName}AI导游。欢迎随时向我询问关于它的历史、建筑、有趣事实、推荐打卡点或旅行提示！`;
+      ? `Hello! I'm your AI guide for ${landmarkName}. I can provide detailed information about its history, architecture, cultural significance, and recommended spots to visit. Feel free to ask me anything about this fascinating place!`
+      : `你好！我是你的${landmarkName}AI导游。我可以为您提供关于这里的历史、建筑、文化意义以及推荐打卡点的详细信息。请随时向我询问关于这个迷人地方的任何问题！`;
       
     setMessages([
       {
@@ -162,14 +162,20 @@ export function AIChat({ landmarkName }: AIChatProps) {
           "What are the must-visit spots?",
           "Best time to visit?",
           "Interesting facts",
-          "Cultural significance"
+          "Cultural significance",
+          "Architecture features",
+          "How was it built?",
+          "Local customs and etiquette"
         ]
       : [
           "介绍一下这里的历史",
           "有哪些必打卡的景点？",
           "最佳参观时间是？",
           "有什么有趣的事实",
-          "这里的文化意义"
+          "这里的文化意义",
+          "建筑特色是什么？",
+          "它是如何建造的？",
+          "当地风俗和礼仪"
         ]
   ];
 
@@ -179,13 +185,19 @@ export function AIChat({ landmarkName }: AIChatProps) {
     setTimeout(() => sendMessage(), 100);
   };
 
-  // 格式化消息文本，支持换行
+  // 格式化消息文本，支持换行和段落
   const formatMessageText = (text: string) => {
-    return text.split('\n').map((line, i) => (
-      <span key={i}>
-        {line}
-        {i < text.split('\n').length - 1 && <br />}
-      </span>
+    // 识别段落并添加适当的间距
+    const paragraphs = text.split('\n\n');
+    return paragraphs.map((paragraph, pIndex) => (
+      <p key={pIndex} className={pIndex > 0 ? "mt-2" : ""}>
+        {paragraph.split('\n').map((line, i) => (
+          <span key={i}>
+            {line}
+            {i < paragraph.split('\n').length - 1 && <br />}
+          </span>
+        ))}
+      </p>
     ));
   };
 
@@ -212,43 +224,25 @@ export function AIChat({ landmarkName }: AIChatProps) {
                   className={`max-w-[80%] rounded-lg px-4 py-2 ${
                     message.role === "user"
                       ? "bg-primary text-primary-foreground"
-                      : message.id.includes("-error")
-                        ? "bg-destructive/10 border border-destructive/20"
-                        : "bg-muted"
+                      : "bg-muted"
                   }`}
                 >
                   <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xs font-medium">
+                      {message.role === "user"
+                        ? (language === "en" ? "You" : "你")
+                        : (language === "en" ? "AI Guide" : "AI导游")
+                      }
+                    </span>
                     {message.role === "user" ? (
-                      <>
-                        <span className="text-xs font-medium">
-                          {language === "en" ? "You" : "你"}
-                        </span>
-                        <User className="h-3 w-3" />
-                      </>
+                      <User className="h-3 w-3" />
                     ) : (
-                      <>
-                        <span className="text-xs font-medium">
-                          {language === "en" ? "AI Guide" : "AI导游"}
-                        </span>
-                        <Bot className="h-3 w-3" />
-                      </>
+                      <Bot className="h-3 w-3" />
                     )}
                   </div>
-                  {formatMessageText(message.content)}
-                  
-                  {message.id.includes("-error") && (
-                    <div className="mt-2">
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        onClick={retryLastMessage}
-                        className="flex items-center gap-1"
-                      >
-                        <RefreshCw className="h-3 w-3" />
-                        {language === "en" ? "Retry" : "重试"}
-                      </Button>
-                    </div>
-                  )}
+                  <div className="text-sm whitespace-pre-line">
+                    {formatMessageText(message.content)}
+                  </div>
                 </div>
               </div>
             ))}
