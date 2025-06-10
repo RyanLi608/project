@@ -71,11 +71,11 @@ const qaDatabase: LanguageQA = {
 const mockResponses = {
   "Chinese": {
     "great-wall": [
-      "长城是中国古代伟大的防御工程，也是世界文化遗产。",
-      "长城修建历史可以追溯到春秋战国时期，但现在我们看到的大部分长城是明朝时期修建的。",
-      "长城全长超过21,000公里，横跨中国北部多个省份。",
-      "八达岭长城是最受游客欢迎的一段，交通便利，设施完善。",
-      "长城不仅是军事防御工程，也是古代中国政治、军事、文化的象征。"
+      "长城是中国古代伟大的防御工程，也是世界文化遗产。修建历史可以追溯到公元前7世纪的春秋战国时期，秦始皇统一中国后连接并加固了北方的城墙。现存大部分长城是明朝（1368-1644年）修建的，全长超过21,000公里，横跨中国北部多个省份。",
+      "长城不仅是军事防御工程，也是古代中国政治、军事、文化的象征。它的建筑特点包括城墙、敌楼、烽火台和关隘等多种防御设施，墙体宽度通常在4-5米之间，高度为5-8米，由石块、砖块和夯土构成。",
+      "作为世界七大奇迹之一，长城代表了古代中国非凡的工程技术和军事智慧。八达岭是最受游客欢迎的一段，交通便利，设施完善；慕田峪保存完好，风景优美；金山岭是摄影胜地；司马台可以夜游。",
+      "参观长城的最佳时间是春季（4-5月）和秋季（9-10月），天气宜人，风景优美。游客可以选择徒步、缆车或索道等多种方式上长城，每个季节都能体验不同的美景：春季山花烂漫，秋季红叶满山，冬季则有壮观的雪景。",
+      "长城象征着中华民族的坚韧不拔和团结精神，被誉为中华文明的重要标志。虽然经历了数千年的风雨侵蚀，长城依然屹立不倒，向世人展示着中国古代工程建设的卓越成就和历史的沧桑变迁。"
     ],
     "eiffel-tower": [
       "埃菲尔铁塔是法国巴黎的标志性建筑，以设计师古斯塔夫·埃菲尔命名。",
@@ -94,11 +94,11 @@ const mockResponses = {
   },
   "English": {
     "great-wall": [
-      "The Great Wall is an ancient Chinese defensive project and a World Heritage site.",
-      "The construction of the Great Wall dates back to the Spring and Autumn and Warring States periods, but most of what we see today was built during the Ming Dynasty.",
-      "The Great Wall spans over 21,000 kilometers across northern China.",
-      "Badaling Great Wall is the most popular section among tourists, with convenient transportation and well-established facilities.",
-      "The Great Wall is not only a military defensive project but also a symbol of ancient Chinese politics, military, and culture."
+      "The Great Wall is an ancient Chinese defensive project and a World Heritage site. Its construction dates back to the 7th century BC during the Spring and Autumn and Warring States periods. After unifying China, Emperor Qin Shi Huang connected and strengthened the northern walls. Most of the existing Wall was built during the Ming Dynasty (1368-1644), spanning over 21,000 kilometers across northern China.",
+      "The Great Wall is not only a military defensive project but also a symbol of ancient Chinese politics, military strategy, and culture. Its architectural features include wall structures, enemy towers, beacon towers, and passes. The wall typically measures 4-5 meters in width and 5-8 meters in height, constructed with stones, bricks, and rammed earth.",
+      "As one of the Seven Wonders of the World, the Great Wall represents ancient China's extraordinary engineering and military wisdom. Badaling is the most popular section with excellent facilities; Mutianyu is well-preserved with beautiful scenery; Jinshanling is a photography paradise; and Simatai offers night tours.",
+      "The best time to visit the Great Wall is during spring (April-May) and autumn (September-October) when the weather is pleasant and the scenery is beautiful. Visitors can choose to hike, take cable cars, or use chairlifts to access the wall. Each season offers different views: spring blooms, autumn foliage, and winter snow landscapes.",
+      "The Great Wall symbolizes the perseverance and unity of the Chinese nation and is regarded as an important icon of Chinese civilization. Despite thousands of years of weathering, the Great Wall still stands, showcasing the remarkable achievements of ancient Chinese engineering and the vicissitudes of history."
     ],
     "eiffel-tower": [
       "The Eiffel Tower is an iconic landmark in Paris, France, named after its designer Gustave Eiffel.",
@@ -285,7 +285,7 @@ function generateSmartResponse(message: string, landmark: string, language: stri
   const questionType = analyzeQuestionType(message, isChineseUI);
   
   // 生成针对性回答
-  const specificAnswer = generateSpecificAnswer(keywords, questionType, landmark, isChineseUI);
+  const specificAnswer = generateSpecificAnswer(keywords, questionType, landmark, isChineseUI, message);
   if (specificAnswer) return specificAnswer;
   
   // 尝试生成分层回答
@@ -562,10 +562,19 @@ function generateCategoryResponse(category: string, keywords: string[], question
 }
 
 // 根据关键词和问题类型生成针对性回答
-function generateSpecificAnswer(keywords: string[], questionType: string, landmark: string, isChineseUI: boolean): string | null {
+function generateSpecificAnswer(keywords: string[], questionType: string, landmark: string, isChineseUI: boolean, message: string): string | null {
   // 对于不同地标的特殊处理
   const isGreatWall = landmark.toLowerCase().includes("great wall") || landmark.toLowerCase().includes("长城");
   const isEiffelTower = landmark.toLowerCase().includes("eiffel") || landmark.toLowerCase().includes("埃菲尔");
+  
+  // 查询详细介绍
+  if (questionType === "general" && 
+      (hasAnyKeyword(keywords, ["介绍", "简介", "了解", "认识", "introduction", "about", "info"]) || 
+       message.toLowerCase().includes("介绍一下") || 
+       message.toLowerCase().includes("tell me about"))) {
+    const introduction = getDetailedIntroduction(landmark, isChineseUI ? "Chinese" : "English");
+    if (introduction) return introduction;
+  }
   
   // 根据问题类型和关键词组合生成回答
   if (isGreatWall) {
@@ -716,6 +725,42 @@ function isCommonPhrase(message: string, landmark: string, language: string): st
         lowerMessage.includes("excellent") || lowerMessage.includes("great")) {
       return "Thank you for your kind words! I'll continue to do my best to provide quality information about attractions and services.";
     }
+  }
+  
+  return null;
+}
+
+// 增加专门用于详细介绍的响应
+function getDetailedIntroduction(landmark: string, language: string): string | null {
+  if (landmark.toLowerCase().includes("great wall") || landmark.toLowerCase().includes("长城")) {
+    if (language.toLowerCase().includes("chinese")) {
+      return `长城是中国古代最伟大的防御工程，也是世界文化遗产和世界新七大奇迹之一。
+
+历史渊源：长城的修建历史可以追溯到公元前7世纪的春秋战国时期，当时各国为了防御外敌入侵修建了各自的城墙。秦朝统一中国后，秦始皇连接并加固了北方的城墙，形成了第一版统一的长城。现在我们看到的大部分长城是明朝时期（1368-1644年）修建的，目的是防御北方游牧民族的入侵。
+
+规模与结构：长城全长超过21,000公里，横跨中国北部的河北、北京、天津、山西、陕西、内蒙古、甘肃、宁夏、辽宁、吉林等省区市。长城的建筑特点包括城墙、敌楼、烽火台和关隘等多种防御设施。墙体宽度通常在4-5米之间，高度为5-8米，由石块、砖块和夯土构成。长城因地制宜，根据地形特点采用不同的建筑方法，有的依山而建，有的跨越峡谷。
+
+文化意义：长城不仅是军事防御工程，也是古代中国政治、军事、文化的象征，反映了中国古代劳动人民的智慧和创造力。它见证了中国历史的变迁，是中华民族坚韧不拔和团结精神的象征。长城也是中国最重要的文化符号之一，在世界范围内代表着中国文化。
+
+著名段落：八达岭长城是最受欢迎的景点，设施完善且交通便利；慕田峪长城风景优美，人相对较少；金山岭长城保存完好，风景壮观；司马台长城有夜游项目，可以欣赏夜景。不同段落各有特色，提供了多样化的游览体验。
+
+旅游信息：参观长城的最佳时间是春季（4-5月）和秋季（9-10月），这时候天气宜人，风景优美。春季可以看到山花烂漫，秋季则有红叶点缀。夏季（6-8月）气温较高且游客众多，冬季（11-2月）则寒冷但有雪景。`;
+    } else {
+      return `The Great Wall is the most magnificent defensive project in ancient China, a UNESCO World Heritage Site, and one of the New Seven Wonders of the World.
+
+Historical Origins: The construction of the Great Wall dates back to the 7th century BC during the Spring and Autumn and Warring States periods, when various states built walls for defense. After Emperor Qin Shi Huang unified China, he connected and strengthened the northern walls, forming the first unified Great Wall. Most of what we see today was built during the Ming Dynasty (1368-1644) to defend against northern nomadic tribes.
+
+Scale and Structure: The Great Wall stretches over 21,000 kilometers across northern China, spanning provinces including Hebei, Beijing, Tianjin, Shanxi, Shaanxi, Inner Mongolia, Gansu, Ningxia, Liaoning, and Jilin. The architectural features of the Great Wall include various defensive facilities such as wall structures, enemy towers, beacon towers, and passes. The wall typically measures 4-5 meters in width and 5-8 meters in height, constructed with stones, bricks, and rammed earth. The Great Wall adapts to local conditions, using different construction methods based on terrain features.
+
+Cultural Significance: The Great Wall is not only a military defensive project but also a symbol of ancient Chinese politics, military strategy, and culture, reflecting the wisdom and creativity of ancient Chinese laborers. It has witnessed the changes in Chinese history and symbolizes the perseverance and unity of the Chinese nation. The Great Wall is also one of China's most important cultural symbols, representing Chinese culture worldwide.
+
+Famous Sections: Badaling is the most popular section with excellent facilities and easy access; Mutianyu has beautiful scenery with fewer crowds; Jinshanling is well-preserved with spectacular views; Simatai offers night tours to enjoy evening views. Different sections have their own characteristics, providing diverse visiting experiences.
+
+Travel Information: The best time to visit the Great Wall is during spring (April-May) and autumn (September-October) when the weather is pleasant and the scenery is beautiful. Spring offers blooming wildflowers, while autumn provides colorful foliage. Summer (June-August) can be hot with more tourists, and winter (November-February) is cold but offers spectacular snow views.`;
+    }
+  } else if (landmark.toLowerCase().includes("eiffel") || landmark.toLowerCase().includes("埃菲尔")) {
+    // 埃菲尔铁塔的详细介绍可以在这里添加
+    // ...
   }
   
   return null;
