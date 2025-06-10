@@ -9,6 +9,7 @@ interface QuestionAnswers {
 interface LandmarkQA {
   "great-wall": QuestionAnswers;
   "eiffel-tower": QuestionAnswers;
+  "machu-picchu": QuestionAnswers;
   "default": QuestionAnswers;
 }
 
@@ -152,7 +153,7 @@ function matchQuestion(message: string, landmark: string, language: string): str
   const lang = language.toLowerCase().includes("chinese") ? "Chinese" : "English";
   
   // 确定使用哪个地标的问答数据库
-  let landmarkKey: "great-wall" | "eiffel-tower" | "default" = "default";
+  let landmarkKey: "great-wall" | "eiffel-tower" | "machu-picchu" | "default" = "default";
   if (landmark.toLowerCase().includes("great wall") || landmark.toLowerCase().includes("长城")) {
     landmarkKey = "great-wall";
   } else if (landmark.toLowerCase().includes("eiffel") || landmark.toLowerCase().includes("埃菲尔")) {
