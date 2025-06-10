@@ -277,7 +277,7 @@ function generateFollowUpResponse(context: string, message: string, landmark: st
 }
 
 // 增强版的智能回复系统
-function generateSmartResponse(message: string, landmark: string, language: string): string {
+function generateSmartResponse(message: string, landmark: string, language: string): string | null {
   const isChineseUI = language.toLowerCase().includes("chinese");
   
   // 提取关键词和分析问题类型
@@ -287,6 +287,10 @@ function generateSmartResponse(message: string, landmark: string, language: stri
   // 生成针对性回答
   const specificAnswer = generateSpecificAnswer(keywords, questionType, landmark, isChineseUI);
   if (specificAnswer) return specificAnswer;
+  
+  // 尝试生成分层回答
+  const hierarchicalAnswer = generateHierarchicalResponse(message, landmark, language, keywords, questionType);
+  if (hierarchicalAnswer) return hierarchicalAnswer;
   
   // 如果无法生成针对性回答，使用原有的模拟数据
   return null;
@@ -299,7 +303,11 @@ function extractKeywords(message: string, isChineseUI: boolean): string[] {
                           "文化", "culture", "建筑", "architecture", "交通", "transport", "吃", "food", 
                           "餐厅", "restaurant", "住", "accommodation", "酒店", "hotel", "门票", "ticket", 
                           "开放", "opening", "时间", "time", "best", "最佳", "特色", "特点", "feature", 
-                          "建议", "推荐", "recommend", "天气", "weather", "拍照", "photo", "摄影", "photography"];
+                          "建议", "推荐", "recommend", "天气", "weather", "拍照", "photo", "摄影", "photography", 
+                          "安全", "safety", "语言", "language", "贵", "expensive", "便宜", "cheap", 
+                          "budget", "预算", "礼仪", "etiquette", "禁忌", "taboo", "tips", "攻略", 
+                          "活动", "activity", "events", "景点", "attraction", "儿童", "kids", "老人", "elderly", 
+                          "残障", "disability", "visa", "签证", "currency", "货币", "exchange", "兑换"];
   
   // 将消息转为小写并分词
   const lowerMessage = message.toLowerCase();
@@ -336,6 +344,21 @@ function analyzeQuestionType(message: string, isChineseUI: boolean): string {
     "comparison": isChineseUI 
       ? /(对比|比较|和|跟|与).+(哪个更|哪个好|区别|差异)/
       : /(compare|comparison|versus|vs|difference).+(which|better)/i,
+    "safety": isChineseUI
+      ? /(安全|危险|注意|小心).+(问题|事项|情况)/
+      : /(safe|dangerous|caution|careful).+(issue|situation|concern)/i,
+    "budget": isChineseUI
+      ? /(预算|花费|消费|开销).+(多少|大概|约)/
+      : /(budget|cost|expense|spend).+(how much|about|approximately)/i,
+    "family": isChineseUI
+      ? /(孩子|儿童|老人|家庭).+(适合|友好|推荐)/
+      : /(kids|children|elderly|family).+(suitable|friendly|recommend)/i,
+    "food": isChineseUI
+      ? /(吃|美食|餐厅|小吃|特色菜).+(推荐|有名|好吃)/
+      : /(eat|food|restaurant|snack|cuisine).+(recommend|famous|delicious)/i,
+    "culture": isChineseUI
+      ? /(文化|习俗|传统|礼仪|禁忌).+(了解|注意|避免)/
+      : /(culture|custom|tradition|etiquette|taboo).+(understand|note|avoid)/i,
   };
   
   // 检查问题是否匹配任一类型
@@ -347,6 +370,195 @@ function analyzeQuestionType(message: string, isChineseUI: boolean): string {
   
   // 默认问题类型
   return "general";
+}
+
+// 生成分层响应
+function generateHierarchicalResponse(message: string, landmark: string, language: string, keywords: string[], questionType: string): string | null {
+  const isChineseUI = language.toLowerCase().includes("chinese");
+  
+  // 特定地标识别
+  const landmarkType = identifyLandmarkType(landmark);
+  
+  // 如果能识别地标类型，生成特定类型地标的通用回答
+  if (landmarkType) {
+    const categoryAnswer = generateCategoryResponse(landmarkType, keywords, questionType, isChineseUI);
+    if (categoryAnswer) return categoryAnswer;
+  }
+  
+  // 通用旅游问题处理
+  if (questionType === "safety") {
+    return isChineseUI
+      ? "旅游安全是最重要的。建议您：1) 随身携带贵重物品并保管好；2) 在公共场所保持警惕，特别是在拥挤区域；3) 将重要文件复印件与原件分开存放；4) 记下紧急联系电话，包括当地警察和您国家的大使馆；5) 购买旅游保险；6) 注意天气变化并准备适当的装备；7) 尊重当地文化和规定；8) 避免单独前往偏远或危险区域。"
+      : "Travel safety is paramount. Recommendations: 1) Keep valuables with you and secure; 2) Stay vigilant in public places, especially crowded areas; 3) Keep copies of important documents separate from originals; 4) Note emergency contact numbers including local police and your country's embassy; 5) Purchase travel insurance; 6) Be aware of weather changes and prepare appropriate gear; 7) Respect local cultures and regulations; 8) Avoid going alone to remote or dangerous areas.";
+  }
+  
+  if (questionType === "budget") {
+    return isChineseUI
+      ? "旅行预算因个人偏好和旅行风格而异。一般来说，住宿占预算的最大部分，选择经济型酒店或青旅可以节省开支。其次是交通费用，提前预订机票和使用公共交通可以降低成本。餐饮方面，尝试当地小吃和在非旅游区的餐厅用餐更经济。门票方面，许多景点提供套票或特定日期的折扣。建议您在出发前研究目的地的消费水平，并为意外开支预留额外资金。"
+      : "Travel budgets vary by personal preference and travel style. Generally, accommodation takes the largest portion; choosing budget hotels or hostels can save expenses. Transportation is next; booking flights in advance and using public transit reduces costs. For dining, try local street food and restaurants outside tourist areas for better value. For attractions, many sites offer package deals or discounts on specific days. Research the cost of living at your destination before departure and reserve extra funds for unexpected expenses.";
+  }
+  
+  if (hasAnyKeyword(keywords, ["禁忌", "礼仪", "taboo", "etiquette", "respect", "尊重"])) {
+    return isChineseUI
+      ? "在旅行中尊重当地文化和礼仪非常重要。一般建议：1) 了解基本的当地问候语和感谢词；2) 参观宗教场所时着装得体，通常需要覆盖肩膀和膝盖；3) 在拍摄当地人照片前征得他们的同意；4) 了解当地的用餐礼仪，如使用餐具、小费习惯等；5) 熟悉常见手势的不同文化含义，避免无意冒犯；6) 遵守当地法律法规；7) 保持开放的心态和尊重的态度，即使遇到与自己文化差异较大的习俗。"
+      : "Respecting local cultures and etiquette is essential when traveling. General recommendations: 1) Learn basic local greetings and thank-you phrases; 2) Dress appropriately when visiting religious sites, typically covering shoulders and knees; 3) Ask permission before photographing local people; 4) Understand local dining etiquette such as utensil use and tipping customs; 5) Be aware of different cultural meanings for common gestures to avoid unintentional offense; 6) Obey local laws and regulations; 7) Maintain an open mind and respectful attitude, even when encountering customs significantly different from your own.";
+  }
+  
+  // 如果无法生成分层回答，返回null
+  return null;
+}
+
+// 识别地标类型
+function identifyLandmarkType(landmark: string): string | null {
+  const landmarkLower = landmark.toLowerCase();
+  
+  // 地标分类
+  if (landmarkLower.includes("great wall") || landmarkLower.includes("长城")) {
+    return "wall";
+  }
+  if (landmarkLower.includes("eiffel") || landmarkLower.includes("埃菲尔")) {
+    return "tower";
+  }
+  if (landmarkLower.includes("palace") || landmarkLower.includes("故宫") || landmarkLower.includes("宫殿")) {
+    return "palace";
+  }
+  if (landmarkLower.includes("temple") || landmarkLower.includes("寺") || landmarkLower.includes("庙")) {
+    return "temple";
+  }
+  if (landmarkLower.includes("museum") || landmarkLower.includes("博物馆")) {
+    return "museum";
+  }
+  if (landmarkLower.includes("mountain") || landmarkLower.includes("山")) {
+    return "mountain";
+  }
+  if (landmarkLower.includes("lake") || landmarkLower.includes("湖")) {
+    return "lake";
+  }
+  if (landmarkLower.includes("garden") || landmarkLower.includes("园") || landmarkLower.includes("公园")) {
+    return "garden";
+  }
+  
+  return null;
+}
+
+// 根据地标类别生成回答
+function generateCategoryResponse(category: string, keywords: string[], questionType: string, isChineseUI: boolean): string | null {
+  // 根据不同类型地标生成特定回答
+  switch (category) {
+    case "temple":
+      if (questionType === "howto" || hasAnyKeyword(keywords, ["参观", "visit", "礼仪", "etiquette"])) {
+        return isChineseUI
+          ? "参观寺庙时，请注意以下几点：1) 着装应保持得体，避免暴露的服装，通常应覆盖肩膀和膝盖；2) 进入主要殿堂前可能需要脱鞋；3) 保持安静，尊重正在祈祷的信徒；4) 有些寺庙不允许拍照，特别是室内，请先确认；5) 在佛像前不要指指点点或背对佛像拍照；6) 如有捐款箱，可随喜布施；7) 顺时针方向绕行佛塔或祈祷设施。"
+          : "When visiting temples, please note the following: 1) Dress modestly, avoiding revealing clothing; generally cover shoulders and knees; 2) You may need to remove shoes before entering main halls; 3) Keep quiet and respect worshippers; 4) Some temples prohibit photography, especially indoors - check before taking pictures; 5) Avoid pointing at or taking photos with your back to Buddha statues; 6) Donations are welcome but not required; 7) Walk clockwise around stupas or prayer facilities.";
+      }
+      
+      if (questionType === "when" || hasAnyKeyword(keywords, ["时间", "time", "开放", "open"])) {
+        return isChineseUI
+          ? "寺庙通常在早上开放，大多数从早上6点或8点开始，到下午5点或6点结束。一些寺庙在特定的宗教节日可能会有特殊的开放时间。参观寺庙的最佳时间是早上，此时通常比较安静，有更多的机会体验寺庙的宁静氛围。避免在主要宗教仪式或节日期间参观，除非您特别想体验这些活动。"
+          : "Temples typically open in the morning, most from 6 AM or 8 AM until 5 PM or 6 PM. Some temples may have special opening hours during specific religious festivals. The best time to visit temples is in the morning when they are usually quieter, offering more opportunity to experience the temple's peaceful atmosphere. Avoid visiting during major religious ceremonies or festivals unless you specifically want to experience these events.";
+      }
+      break;
+    
+    case "museum":
+      if (questionType === "howto" || hasAnyKeyword(keywords, ["参观", "visit", "技巧", "tips"])) {
+        return isChineseUI
+          ? "参观博物馆的建议：1) 提前查看博物馆官网，了解开放时间、门票价格及特别展览；2) 许多博物馆在特定日期或时段有免费或折扣入场；3) 考虑租用导览器或参加导览团，深入了解展品背景；4) 根据兴趣规划路线，不必强求看完所有展品；5) 避开周末和假日高峰时段；6) 遵守摄影规定，有些展品可能禁止拍照；7) 穿着舒适的鞋子，大型博物馆参观会有大量步行；8) 利用博物馆APP或地图规划参观路线。"
+          : "Museum visiting tips: 1) Check the official website in advance for opening hours, ticket prices, and special exhibitions; 2) Many museums offer free or discounted entry on specific dates or times; 3) Consider renting an audio guide or joining a guided tour for deeper insight; 4) Plan your route based on interests - you don't need to see everything; 5) Avoid peak times on weekends and holidays; 6) Follow photography rules as some exhibits may prohibit photos; 7) Wear comfortable shoes as large museums involve significant walking; 8) Use museum apps or maps to plan your visit route.";
+      }
+      
+      if (questionType === "when" || hasAnyKeyword(keywords, ["时间", "time", "开放", "open"])) {
+        return isChineseUI
+          ? "大多数博物馆在上午9点或10点开放，下午5点或6点关闭，每周一或周二通常是闭馆日。参观博物馆的最佳时间是工作日的上午，游客较少。许多博物馆在每月的特定日期或晚上提供免费入场。为了最佳体验，建议在开馆后不久或午餐时间参观，这时人流相对较少。"
+          : "Most museums open around 9 AM or 10 AM and close at 5 PM or 6 PM, with Monday or Tuesday typically being closure days. The best time to visit museums is weekday mornings when there are fewer visitors. Many museums offer free entry on specific dates each month or during evening hours. For the best experience, it's recommended to visit shortly after opening or during lunch hours when crowds are relatively smaller.";
+      }
+      break;
+    
+    case "palace":
+      if (questionType === "howto" || hasAnyKeyword(keywords, ["参观", "visit", "技巧", "tips"])) {
+        return isChineseUI
+          ? "参观宫殿的建议：1) 提前购买门票，避免长时间排队；2) 考虑聘请专业导游解说宫殿的历史和故事；3) 参观早晨或傍晚时段，避开中午人流高峰和炎热天气；4) 穿舒适的鞋子，宫殿面积通常很大；5) 阅读展示牌或使用导览器了解每个区域的历史意义；6) 注意保护古建筑，不要触摸文物或在墙壁上涂鸦；7) 拍照时注意是否有限制；8) 参观前了解宫殿布局，有针对性地游览。"
+          : "Recommendations for palace visits: 1) Purchase tickets in advance to avoid long queues; 2) Consider hiring a professional guide to explain the palace's history and stories; 3) Visit during morning or evening hours to avoid midday crowds and heat; 4) Wear comfortable shoes as palaces typically cover large areas; 5) Read display boards or use audio guides to understand the historical significance of each area; 6) Help preserve ancient architecture by not touching artifacts or writing on walls; 7) Be aware of photography restrictions; 8) Familiarize yourself with the palace layout before visiting for a more targeted tour.";
+      }
+      
+      if (hasAnyKeyword(keywords, ["历史", "history", "故事", "story"])) {
+        return isChineseUI
+          ? "宫殿通常承载着丰富的历史，是国家政治、文化和艺术的中心。这些宏伟建筑往往反映了当时的社会结构、权力分配和审美观念。宫殿的每个部分，从门厅到内室，从花园到仪式空间，都有其特定的功能和象征意义。历史上的宫殿不仅是统治者的居所，也是政府运作的场所，重要的国家仪式和外交活动也在此举行。宫殿建筑艺术通常代表了该时期的最高工艺水平，汇集了最优秀的工匠和艺术家的作品。"
+          : "Palaces typically carry rich histories, serving as centers of national politics, culture, and art. These magnificent structures often reflect the social structures, power distribution, and aesthetic concepts of their time. Each part of a palace, from entrance halls to inner chambers, gardens to ceremonial spaces, has specific functions and symbolic significance. Historically, palaces were not only residences for rulers but also venues for government operations, important state ceremonies, and diplomatic activities. Palace architecture usually represents the highest level of craftsmanship of its period, gathering works from the most skilled artisans and artists.";
+      }
+      break;
+       
+    case "mountain":
+      if (questionType === "howto" || hasAnyKeyword(keywords, ["爬山", "hiking", "climbing", "安全", "safety"])) {
+        return isChineseUI
+          ? "登山安全建议：1) 提前查看天气预报，避开恶劣天气；2) 穿着合适的登山鞋和分层衣物，以应对温度变化；3) 携带足够的水和高能量食物；4) 带上急救包、手电筒、地图和指南针；5) 告知他人您的行程计划；6) 沿着标记的小径行走，不要冒险走捷径；7) 了解自己的体能极限，不要过度疲劳；8) 携带手机，但不要依赖手机信号；9) 尊重自然环境，带走您的垃圾；10) 早出发早返回，避免在日落后仍在山上。"
+          : "Mountain safety recommendations: 1) Check weather forecasts in advance and avoid adverse conditions; 2) Wear appropriate hiking shoes and layered clothing to adapt to temperature changes; 3) Carry sufficient water and high-energy foods; 4) Pack a first aid kit, flashlight, map, and compass; 5) Inform others of your itinerary; 6) Stay on marked trails and avoid shortcuts; 7) Know your physical limits and avoid excessive fatigue; 8) Carry a mobile phone but don't rely on signal coverage; 9) Respect the natural environment and take your trash with you; 10) Start early and return early to avoid being on the mountain after sunset.";
+      }
+      
+      if (questionType === "when" || hasAnyKeyword(keywords, ["季节", "season", "最佳", "best", "时间", "time"])) {
+        return isChineseUI
+          ? "登山的最佳季节通常是春季和秋季，此时温度适中，降水较少。春季可以欣赏到山花盛开的美景，秋季则可以欣赏到红叶等秋色。夏季登山要注意防暑和防雷，冬季则需要特别注意保暖和冰雪路面带来的安全风险。每座山的最佳游览时间可能因地理位置和气候条件而异，建议在出发前查询特定山峰的最佳登山季节。一天中的最佳登山时间是清晨，可以避开午后的高温和突发性雷雨。"
+          : "The best seasons for mountain hiking are typically spring and autumn when temperatures are moderate and precipitation is less frequent. Spring offers views of blooming mountain flowers, while autumn provides beautiful fall foliage. For summer hiking, be cautious of heat and lightning; in winter, pay special attention to staying warm and the safety risks posed by icy conditions. The optimal visiting time for each mountain may vary depending on geographical location and climate conditions - research the best hiking season for your specific mountain before departing. The best time of day for hiking is early morning to avoid afternoon heat and sudden thunderstorms.";
+      }
+      break;
+      
+    case "lake":
+      if (hasAnyKeyword(keywords, ["活动", "activity", "可以做什么", "what to do"])) {
+        return isChineseUI
+          ? "湖泊通常提供多种休闲活动：1) 划船：包括划艇、皮划艇、帆船等；2) 钓鱼：许多湖泊拥有丰富的鱼类资源；3) 游泳：在允许的区域，夏季是理想的游泳时机；4) 徒步：环湖步道通常风景优美；5) 野餐：湖边是享用餐点的理想场所；6) 观鸟：湖泊吸引多种鸟类，是观鸟爱好者的天堂；7) 摄影：湖面倒映的景色和日出日落都是绝佳的摄影题材；8) 冬季活动：在寒冷地区，结冰的湖面可提供滑冰和冰钓机会。请务必遵守当地规定，有些活动可能需要特别许可或仅限于特定区域。"
+          : "Lakes typically offer various leisure activities: 1) Boating: including rowing, kayaking, sailing, etc.; 2) Fishing: many lakes have abundant fish resources; 3) Swimming: in permitted areas, summer is ideal for swimming; 4) Hiking: lakeside trails usually offer scenic views; 5) Picnicking: lakeshores are ideal spots for meals; 6) Bird watching: lakes attract various bird species, making them a paradise for bird enthusiasts; 7) Photography: lake reflections and sunrise/sunset scenes make excellent photographic subjects; 8) Winter activities: in cold regions, frozen lakes provide opportunities for ice skating and ice fishing. Always follow local regulations, as some activities may require special permits or are limited to specific areas.";
+      }
+      
+      if (questionType === "when" || hasAnyKeyword(keywords, ["季节", "season", "最佳", "best", "时间", "time"])) {
+        return isChineseUI
+          ? "参观湖泊的最佳时间取决于您想进行的活动和当地气候。一般而言，春季和秋季的温度适中，风景优美，是游览的理想季节。夏季适合游泳、划船等水上活动，但可能游客较多。冬季在某些地区，结冰的湖面提供独特的景观和活动，如冰钓和滑冰。早晨和傍晚是摄影的黄金时段，湖面常出现薄雾和绚丽的光线。避开雨季和极端天气是确保安全和舒适体验的关键。"
+          : "The best time to visit lakes depends on your desired activities and the local climate. Generally, spring and autumn offer moderate temperatures and beautiful scenery, making them ideal for sightseeing. Summer is suitable for swimming, boating, and other water activities, though it may be more crowded. In winter in some regions, frozen lakes provide unique landscapes and activities such as ice fishing and skating. Early morning and evening are golden hours for photography, when lakes often feature mist and spectacular lighting. Avoiding rainy seasons and extreme weather is key to ensuring a safe and comfortable experience.";
+      }
+      break;
+      
+    case "garden":
+      if (questionType === "when" || hasAnyKeyword(keywords, ["季节", "season", "最佳", "best", "时间", "time"])) {
+        return isChineseUI
+          ? "参观花园的最佳时间通常是春季(3-5月)和秋季(9-10月)，此时大多数植物处于最佳观赏状态。春季可以欣赏到各种花卉盛开的景象，而秋季则有美丽的秋叶和果实。不同花园可能有不同的特色季节，例如某些花园在樱花季或枫叶季特别出名。一天中的最佳参观时间是早上或傍晚，此时光线柔和，温度适宜，游客也相对较少。雨后参观也有独特的美感，花草更显鲜艳，空气清新。"
+          : "The best time to visit gardens is typically spring (March-May) and autumn (September-October) when most plants are in their prime viewing condition. Spring offers views of various flowers in bloom, while autumn features beautiful fall foliage and fruits. Different gardens may have different featured seasons - some are particularly famous during cherry blossom or maple leaf seasons. The best time of day to visit is morning or evening when the light is soft, temperatures are pleasant, and there are fewer visitors. Visiting after rain also offers a unique beauty with more vibrant plants and fresh air.";
+      }
+      
+      if (hasAnyKeyword(keywords, ["拍照", "摄影", "photo", "photography"])) {
+        return isChineseUI
+          ? "在花园拍摄的摄影技巧：1) 早晨和傍晚的'黄金时段'光线柔和，特别适合拍摄；2) 阴天也是拍花的好时机，柔和的光线减少了强烈的阴影；3) 使用宏观模式捕捉花朵的细节；4) 寻找有趣的构图，如通过拱门或树枝框架拍摄；5) 尝试不同的角度，包括低角度和高角度；6) 使用适当的景深突出主体；7) 寻找有趣的对比，如古老建筑与现代花卉；8) 带上三脚架以便在光线不足时稳定拍摄；9) 考虑季节性元素，如春季的花朵或秋季的落叶；10) 雨后拍摄可以捕捉到水珠点缀的花朵，效果特别动人。"
+          : "Photography tips for gardens: 1) The 'golden hours' of early morning and evening offer soft light that's perfect for shooting; 2) Overcast days are also good for flower photography as the soft light reduces harsh shadows; 3) Use macro mode to capture flower details; 4) Look for interesting compositions, such as shooting through archways or framing with branches; 5) Try different angles, including low and high perspectives; 6) Use appropriate depth of field to highlight your subject; 7) Look for interesting contrasts, like ancient architecture with modern flowers; 8) Bring a tripod for stability in low light; 9) Consider seasonal elements like spring blossoms or autumn leaves; 10) Shooting after rain can capture flowers adorned with water droplets, creating particularly moving effects.";
+      }
+      break;
+      
+    case "tower":
+      if (hasAnyKeyword(keywords, ["拍照", "摄影", "photo", "photography", "最佳", "best", "地点", "location"])) {
+        return isChineseUI
+          ? "拍摄塔楼的最佳位置包括：1) Trocadéro广场，提供塔的经典正面视角；2) 香榭丽舍大街远端，可以将塔与城市天际线一起构图；3) 塞纳河上的游船，可以拍摄到塔与河水的倒影；4) 蒙帕纳斯塔顶部，可以俯瞰整个巴黎与埃菲尔铁塔；5) 先贤祠附近，可以获得不同角度的视野；6) 夜晚拍摄时，铁塔每小时整点有五分钟闪烁灯光秀，是拍摄的绝佳时机；7) 日出和日落时分，光线柔和，适合捕捉塔的轮廓与天空的色彩变化。使用三脚架可以在弱光条件下获得稳定的照片。"
+          : "The best locations for photographing towers include: 1) Trocadéro Plaza, offering a classic frontal view of the tower; 2) The far end of the Champs-Élysées, allowing composition with the tower and city skyline together; 3) Seine River cruises, capturing the tower with its reflection in the water; 4) Top of Montparnasse Tower, providing an aerial view of Paris with the Eiffel Tower; 5) Near the Panthéon, offering different perspective views; 6) At night, the Eiffel Tower features a five-minute sparkling light show every hour on the hour, which is an excellent time for photography; 7) During sunrise and sunset, when soft light is ideal for capturing the tower's silhouette against changing sky colors. Using a tripod can help obtain stable photos in low light conditions.";
+      }
+      
+      if (questionType === "howto" && hasAnyKeyword(keywords, ["avoid", "queue", "line", "crowd", "避免", "排队", "人群", "拥挤"])) {
+        return isChineseUI
+          ? "避免埃菲尔铁塔排队的技巧：1) 提前在官网购买指定时间的电子门票；2) 考虑参加导览团，通常有专用入口；3) 选择较少人的日子，如工作日和非旅游旺季；4) 在开门时间或晚上8点后到达，这些时段通常人流较少；5) 如果没有预订票，可以考虑步行上到第二层而不是乘电梯，这个队伍通常较短；6) 从南塔柱(Pilier Sud)入口进入，而不是东塔柱(Pilier Est)，后者是团队入口，通常更拥挤；7) 使用巴黎通票(Paris Pass)或类似通票可以优先入场；8) 在铁塔的58号餐厅或Jules Verne餐厅预订餐位，可以使用专用电梯并避开主要排队区域。"
+          : "Tips to avoid queues at the Eiffel Tower: 1) Purchase timed e-tickets in advance on the official website; 2) Consider joining guided tours, which often have dedicated entrances; 3) Choose less crowded days such as weekdays and outside peak tourist seasons; 4) Arrive at opening time or after 8 PM, when crowds are typically smaller; 5) If tickets aren't pre-booked, consider walking up to the second floor rather than taking the elevator, as this queue is usually shorter; 6) Enter from the South Pillar (Pilier Sud) entrance rather than the East Pillar (Pilier Est), which is the group entrance and typically more crowded; 7) Use the Paris Pass or similar passes that offer priority access; 8) Book a table at the Tower's restaurant 58 Tour Eiffel or Jules Verne, which allows use of a dedicated elevator and bypasses the main queuing areas.";
+      }
+      break;
+      
+    case "wall":
+      if (hasAnyKeyword(keywords, ["家庭", "儿童", "老人", "适合", "family", "children", "elderly", "suitable"])) {
+        return isChineseUI
+          ? "带家庭参观长城的建议：1) 八达岭段最适合家庭，设施完善，地势相对平缓；2) 慕田峪段也很适合，有缆车可直达城墙，减少爬坡的体力消耗；3) 避开金山岭、箭扣等段落，这些地方较为陡峭，不适合老人和幼童；4) 带足防晒用品、水和零食，特别是夏季；5) 为孩子讲解长城的历史和故事，增加参观乐趣；6) 准备舒适的步行鞋，避免穿新鞋；7) 考虑使用儿童背带或轻便婴儿车，但注意某些台阶区域可能需要抱起孩子；8) 计划充足的休息时间，不要试图一次看太多；9) 早上出发，避开正午的高温和人流高峰；10) 考虑雇用导游，减轻规划负担并获得更丰富的解说。"
+          : "Recommendations for families visiting the Great Wall: 1) The Badaling section is most suitable for families with complete facilities and relatively gentle terrain; 2) The Mutianyu section is also appropriate, with cable cars directly to the wall, reducing climbing effort; 3) Avoid sections like Jinshanling and Jiankou, which are steeper and unsuitable for elderly people and young children; 4) Bring sufficient sun protection, water, and snacks, especially in summer; 5) Share the history and stories of the Great Wall with children to enhance their interest; 6) Prepare comfortable walking shoes and avoid new shoes; 7) Consider using a child carrier or lightweight stroller, but be aware that some stepped areas may require carrying children; 8) Plan for ample rest time and don't try to see too much in one visit; 9) Start in the morning to avoid midday heat and peak crowds; 10) Consider hiring a guide to reduce planning burden and get richer commentary.";
+      }
+      
+      if (hasAnyKeyword(keywords, ["保护", "修复", "环保", "保存", "conservation", "restoration", "preservation"])) {
+        return isChineseUI
+          ? "长城是世界文化遗产，但面临自然侵蚀、气候变化和过度旅游等保护挑战。中国政府和多个组织正在实施保护措施，包括：1) 建立监测系统，追踪长城的状况变化；2) 使用传统材料和技术进行修复，保持历史真实性；3) 限制游客数量，特别是在脆弱段落；4) 开展公众教育项目，提高保护意识；5) 招募长城保护志愿者；6) 制定严格的管理条例，防止不当开发和破坏行为。作为游客，您可以通过遵循指定路径、不在城墙上刻字或涂鸦、不带走砖石或文物、举报破坏行为等方式支持长城保护工作。"
+          : "The Great Wall, a World Heritage site, faces conservation challenges including natural erosion, climate change, and overtourism. The Chinese government and various organizations are implementing protection measures, including: 1) Establishing monitoring systems to track the Wall's changing conditions; 2) Using traditional materials and techniques for restoration to maintain historical authenticity; 3) Limiting visitor numbers, especially in vulnerable sections; 4) Conducting public education programs to raise awareness about conservation; 5) Recruiting Great Wall protection volunteers; 6) Developing strict management regulations to prevent inappropriate development and destructive behaviors. As a visitor, you can support conservation efforts by following designated paths, not carving or drawing graffiti on the wall, not taking bricks or artifacts, and reporting any destructive behavior.";
+      }
+      break;
+  }
+  
+  return null;
 }
 
 // 根据关键词和问题类型生成针对性回答
@@ -446,24 +658,34 @@ export async function POST(request: NextRequest) {
       );
     }
     
+    // 智能处理流程
+    let answer = null;
+    let responseSource = "unknown";
+    
     // 首先尝试使用智能回复系统生成答案
     const smartAnswer = generateSmartResponse(message, landmark, language || 'Chinese');
     if (smartAnswer) {
-      return NextResponse.json({ answer: smartAnswer });
+      answer = smartAnswer;
+      responseSource = "smart";
+    } else {
+      // 如果智能回复系统未能生成答案，尝试匹配问答数据库
+      const qaMatch = matchQuestion(message, landmark, language || 'Chinese');
+      if (qaMatch) {
+        answer = qaMatch;
+        responseSource = "qa";
+      } else {
+        // 使用模拟数据和后续对话处理
+        answer = getMockResponse(landmark, language || 'Chinese', message, history);
+        responseSource = "mock";
+      }
     }
     
-    // 如果智能回复系统未能生成答案，尝试匹配问答数据库
-    const qaMatch = matchQuestion(message, landmark, language || 'Chinese');
-    if (qaMatch) {
-      return NextResponse.json({ 
-        answer: qaMatch
-      });
-    }
+    // 日志记录，便于分析和改进系统（生产环境可以发送到分析系统）
+    console.log(`Query: "${message.substring(0, 50)}..." | Landmark: ${landmark} | Source: ${responseSource}`);
     
-    // 使用模拟数据
-    const mockAnswer = getMockResponse(landmark, language || 'Chinese', message, history);
     return NextResponse.json({ 
-      answer: mockAnswer
+      answer,
+      source: responseSource
     });
   } catch (error: any) {
     console.error('处理请求错误:', error);
