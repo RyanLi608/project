@@ -40,6 +40,14 @@ const qaDatabase: LanguageQA = {
       "门票": "不同景点的门票价格和购买方式各不相同。一般来说，许多热门景点都支持在线预订门票，这样可以避免排队并可能获得折扣。学生、老年人和儿童通常有优惠票价。建议在官方网站查询最新的门票信息。",
       "住宿": "住宿选择多样，从经济型旅馆到豪华酒店不等。建议根据预算、位置和个人喜好选择合适的住宿。旅游旺季最好提前预订。靠近主要景点的住宿通常价格较高但交通便利。",
       "美食": "各地都有其特色美食，品尝当地美食是了解文化的重要部分。建议尝试当地特色菜肴，可以通过旅游指南、在线评论或向当地人询问获得推荐。注意食品安全和个人饮食习惯。"
+    },
+    "machu-picchu": {
+      "历史": "马丘比丘是15世纪修建的印加帝国古城，位于秘鲁安第斯山脉的山脊上，海拔2,430米。它于1911年被美国探险家海勒姆·宾厄姆重新发现，此前这座城市对外界几乎完全未知。马丘比丘可能是为印加皇帝帕查库蒂建造的皇家庄园，于1450年左右建成，但在1572年西班牙征服者到来后，这座城市被遗弃。由于其隐蔽的位置，西班牙征服者从未发现马丘比丘，这使它成为少数保存完好的印加遗址之一。",
+      "文化意义": "马丘比丘被认为是印加文明最具象征性的杰作，展示了他们在城市规划、建筑和宗教仪式方面的卓越成就。它在1983年被联合国教科文组织列为世界文化遗产，2007年被评选为世界新七大奇迹之一。这座城市体现了印加人与自然和谐共存的理念，建筑与周围的山脉完美融合。马丘比丘的设计考虑了天文因素，某些建筑物在特定日期与太阳位置精确对齐。",
+      "建筑特点": "马丘比丘的建筑采用了印加特有的'干砌石'技术，石块之间没有使用任何砂浆，却能精确契合。城市分为农业区和城市区，包含约200个建筑，如宫殿、神庙、住宅和储藏室。其中最著名的建筑包括太阳神庙（Intihuatana）、三窗神庙和圣地。印加人在陡峭的山坡上建造了梯田系统，用于农业生产。整个城市设计还包括复杂的水利系统，即使在旱季也能提供充足的水源。",
+      "最佳参观时间": "参观马丘比丘的最佳时间是干季（5月至10月），此时天气晴朗，降雨较少。6月和7月是旅游高峰期，游客最多。如果想避开人群，建议在5月初或10月底参观。雨季（11月至4月）景色更为翠绿，但有雨天的可能性较高。无论何时参观，清晨或傍晚时分的景色最为壮观，光线也更适合拍照。",
+      "交通方式": "前往马丘比丘通常从库斯科开始。可以选择搭乘火车到达阿瓜斯卡连特斯镇（马丘比丘山脚下的小镇），然后乘坐巴士上山；或者参加徒步旅行，如著名的印加古道（需要提前数月预订）。印加古道全程约43公里，通常需要4天完成。无论选择哪种方式，都需要提前购买马丘比丘的入场券，因为每天的参观人数有限制。",
+      "推荐打卡点": "马丘比丘的必打卡景点包括：1) 守望者小屋（Guardhouse），这里可以俯瞰整个遗址，是拍摄经典照片的最佳位置；2) 太阳神庙（Intihuatana），这块垂直的石头被认为是古印加人的天文观测仪；3) 三窗神庙（Temple of Three Windows），其独特的梯形窗户朝向东方，据说代表印加人的起源地；4) 圣地（Sacred Plaza），城市的宗教中心；5) 瓦纳皮丘山（Huayna Picchu），爬上这座山可以从另一个角度俯瞰马丘比丘，但需要额外的门票；6) 印加桥，展示了印加人精湛的工程技术。"
     }
   },
   "English": {
@@ -63,6 +71,14 @@ const qaDatabase: LanguageQA = {
       "tickets": "Ticket prices and purchasing methods vary for different attractions. Generally, many popular sites support online ticket booking, which can help avoid queues and possibly get discounts. Students, seniors, and children usually have preferential ticket prices. It's advisable to check the latest ticket information on official websites.",
       "accommodation": "Accommodation options range from budget hostels to luxury hotels. It's recommended to choose suitable accommodation based on budget, location, and personal preferences. Booking in advance is advisable during peak tourist seasons. Accommodations close to major attractions are usually more expensive but offer convenient transportation.",
       "food": "Each place has its unique cuisine, and tasting local food is an important part of understanding the culture. It's recommended to try local specialties, which can be found through travel guides, online reviews, or by asking locals. Pay attention to food safety and personal dietary habits."
+    },
+    "machu-picchu": {
+      "history": "Machu Picchu is an ancient Inca city built in the 15th century, located on a mountain ridge in the Andes of Peru at an elevation of 2,430 meters. It was rediscovered by American explorer Hiram Bingham in 1911, having been largely unknown to the outside world before then. Machu Picchu was likely built as a royal estate for the Inca emperor Pachacuti around 1450, but was abandoned after the Spanish conquest in 1572. Due to its hidden location, the Spanish conquerors never discovered Machu Picchu, making it one of the few well-preserved Inca sites.",
+      "cultural significance": "Machu Picchu is considered the most iconic masterpiece of the Inca civilization, showcasing their excellence in urban planning, architecture, and religious ceremonies. It was designated a UNESCO World Heritage Site in 1983 and named one of the New Seven Wonders of the World in 2007. The city embodies the Inca philosophy of harmony with nature, with buildings seamlessly integrated into the surrounding mountains. The design of Machu Picchu incorporated astronomical considerations, with certain structures precisely aligned with the sun's position on specific dates.",
+      "architectural features": "Machu Picchu's architecture employs the distinctive Inca 'dry stone' technique, where blocks fit perfectly together without any mortar. The city is divided into agricultural and urban sectors, containing about 200 structures including palaces, temples, residences, and storerooms. Among the most famous structures are the Intihuatana (Hitching Post of the Sun), the Temple of Three Windows, and the Sacred District. The Incas built terraces on the steep slopes for agriculture. The entire city design also included a sophisticated water system that provided adequate water even during the dry season.",
+      "best time to visit": "The best time to visit Machu Picchu is during the dry season (May to October) when the weather is clear with little rainfall. June and July are peak tourism months with the most visitors. To avoid crowds, early May or late October are recommended. The rainy season (November to April) offers more lush greenery but has a higher chance of rain. Regardless of when you visit, the early morning or late afternoon offers the most spectacular views and lighting for photography.",
+      "transportation": "The journey to Machu Picchu typically begins in Cusco. You can take a train to Aguas Calientes (the town at the base of Machu Picchu), then a bus up the mountain; or participate in a trek such as the famous Inca Trail (which requires booking months in advance). The Inca Trail is approximately 43 kilometers long and typically takes 4 days to complete. Regardless of your chosen method, it's necessary to purchase Machu Picchu entrance tickets in advance as daily visitor numbers are limited.",
+      "recommended spots": "Must-visit spots in Machu Picchu include: 1) The Guardhouse, which offers a panoramic view of the entire site and is the best location for taking classic photos; 2) Intihuatana (Hitching Post of the Sun), a vertical stone believed to be an astronomical observatory of the ancient Incas; 3) Temple of Three Windows, with its unique trapezoidal windows facing east, said to represent the Inca's place of origin; 4) Sacred Plaza, the religious center of the city; 5) Huayna Picchu Mountain, which you can climb for an alternative view of Machu Picchu (requires an additional ticket); 6) The Inca Bridge, showcasing the Incas' engineering prowess."
     }
   }
 };
@@ -90,6 +106,13 @@ const mockResponses = {
       "建议您参观时带上舒适的鞋子，因为可能需要大量步行。",
       "当地有许多特色美食，非常值得品尝。",
       "这里的日出和日落景色非常壮观，是摄影的绝佳时机。"
+    ],
+    "machu-picchu": [
+      "马丘比丘是位于秘鲁的印加帝国古城，建于15世纪，于1911年被重新发现。它位于安第斯山脉海拔2,430米的山脊上，被联合国教科文组织列为世界文化遗产。",
+      "马丘比丘由约200个建筑物组成，包括神庙、宫殿、住宅和梯田。其建筑采用印加特有的干砌石技术，石块间无需砂浆却完美契合，展示了印加人非凡的建筑技艺。",
+      "参观马丘比丘的最佳时间是干季（5月至10月），尤其是清晨，此时不仅游客较少，还能欣赏到壮观的日出和云海。从库斯科可以乘坐火车和巴士到达，或选择徒步印加古道。",
+      "马丘比丘最著名的景点包括太阳神庙、三窗神庙和守望者小屋，从守望者小屋可以拍摄到整个遗址的经典照片。登上瓦纳皮丘山可以从另一个角度俯瞰马丘比丘。",
+      "这座古城见证了印加文明的辉煌，其精确的天文布局和与自然的和谐融合令人惊叹。尽管印加文明被西班牙征服者摧毁，马丘比丘因其隐蔽位置得以保存，成为了解印加文化的珍贵窗口。"
     ]
   },
   "English": {
@@ -113,6 +136,13 @@ const mockResponses = {
       "It's recommended to wear comfortable shoes when visiting as there may be a lot of walking involved.",
       "There are many local specialties worth trying in the area.",
       "The sunrise and sunset views here are spectacular and perfect for photography."
+    ],
+    "machu-picchu": [
+      "Machu Picchu is an ancient Inca city in Peru, built in the 15th century and rediscovered in 1911. It sits on a mountain ridge in the Andes at an elevation of 2,430 meters and is designated as a UNESCO World Heritage Site.",
+      "Machu Picchu consists of approximately 200 structures including temples, palaces, residences, and terraces. Its architecture uses the distinctive Inca dry stone technique where blocks fit perfectly without mortar, showcasing the Incas' extraordinary building skills.",
+      "The best time to visit Machu Picchu is during the dry season (May to October), especially early morning when there are fewer tourists and you can witness spectacular sunrise and sea of clouds. It can be reached from Cusco by train and bus, or by hiking the Inca Trail.",
+      "The most famous spots in Machu Picchu include the Intihuatana (Hitching Post of the Sun), the Temple of Three Windows, and the Guardhouse, which offers the classic postcard view of the entire site. Climbing Huayna Picchu provides an alternative perspective of the ancient city.",
+      "This ancient city stands as a testament to the glory of the Inca civilization, with its precise astronomical layout and harmony with nature. Despite the destruction of Inca civilization by Spanish conquerors, Machu Picchu was preserved due to its hidden location, providing a precious window into Inca culture."
     ]
   }
 };
@@ -127,6 +157,8 @@ function matchQuestion(message: string, landmark: string, language: string): str
     landmarkKey = "great-wall";
   } else if (landmark.toLowerCase().includes("eiffel") || landmark.toLowerCase().includes("埃菲尔")) {
     landmarkKey = "eiffel-tower";
+  } else if (landmark.toLowerCase().includes("machu picchu") || landmark.toLowerCase().includes("马丘比丘")) {
+    landmarkKey = "machu-picchu";
   }
   
   // 获取该地标和语言的问答库
@@ -196,6 +228,8 @@ function getMockResponse(landmark: string, language: string, message: string, hi
     key = "great-wall";
   } else if (landmark.toLowerCase().includes("eiffel") || landmark.includes("埃菲尔")) {
     key = "eiffel-tower";
+  } else if (landmark.toLowerCase().includes("machu picchu") || landmark.includes("马丘比丘")) {
+    key = "machu-picchu";
   } else {
     key = "default";
   }
@@ -254,6 +288,10 @@ function generateFollowUpResponse(context: string, message: string, landmark: st
       return "关于埃菲尔铁塔，还有一个有趣的事实是它每七年需要重新粉刷一次，大约需要60吨油漆。铁塔的设计考虑了风力阻力，在强风中可以摆动15厘米左右。铁塔顶层有香槟吧，可以一边品尝香槟一边欣赏巴黎全景。";
     }
     
+    if (landmark.toLowerCase().includes("machu picchu") || landmark.includes("马丘比丘")) {
+      return "马丘比丘是印加文明最辉煌的见证，被誉为'云端之城'，是世界新七大奇迹之一和联合国教科文组织世界文化遗产。马丘比丘的布局体现了印加人对宇宙的理解和对自然的崇敬。太阳神庙（Intihuatana）是一块垂直的石柱，在特定日期（如夏至和冬至）能准确显示太阳的位置，被认为是古印加人的天文观测仪。三窗神庙的窗户朝向东方，据说代表印加人的起源地。整座城市的设计与周围的山脉和天体运行完美融合，体现了印加文明的高度发展。";
+    }
+    
     return "这个景点还有很多值得探索的方面，包括当地的文化传统、美食特色以及周边的其他景点。您想了解哪方面的信息呢？";
   } else {
     if (context.includes("Wall")) {
@@ -270,6 +308,10 @@ function generateFollowUpResponse(context: string, message: string, landmark: st
     
     if (landmark.toLowerCase().includes("eiffel")) {
       return "Regarding the Eiffel Tower, another interesting fact is that it needs to be repainted every seven years, requiring about 60 tons of paint. The tower's design accounts for wind resistance and can sway up to 15 centimeters in strong winds. There's a champagne bar at the top where you can enjoy a glass while taking in the panoramic views of Paris.";
+    }
+    
+    if (landmark.toLowerCase().includes("machu picchu")) {
+      return "马丘比丘是印加文明最辉煌的见证，被誉为'云端之城'，是世界新七大奇迹之一和联合国教科文组织世界文化遗产。马丘比丘的布局体现了印加人对宇宙的理解和对自然的崇敬。太阳神庙（Intihuatana）是一块垂直的石柱，在特定日期（如夏至和冬至）能准确显示太阳的位置，被认为是古印加人的天文观测仪。三窗神庙的窗户朝向东方，据说代表印加人的起源地。整座城市的设计与周围的山脉和天体运行完美融合，体现了印加文明的高度发展。";
     }
     
     return "There are many more aspects of this landmark worth exploring, including local cultural traditions, culinary specialties, and other nearby attractions. What aspects would you like to know more about?";
@@ -437,6 +479,9 @@ function identifyLandmarkType(landmark: string): string | null {
   if (landmarkLower.includes("garden") || landmarkLower.includes("园") || landmarkLower.includes("公园")) {
     return "garden";
   }
+  if (landmarkLower.includes("machu picchu") || landmarkLower.includes("马丘比丘")) {
+    return "archaeological-site";
+  }
   
   return null;
 }
@@ -556,6 +601,20 @@ function generateCategoryResponse(category: string, keywords: string[], question
           : "The Great Wall, a World Heritage site, faces conservation challenges including natural erosion, climate change, and overtourism. The Chinese government and various organizations are implementing protection measures, including: 1) Establishing monitoring systems to track the Wall's changing conditions; 2) Using traditional materials and techniques for restoration to maintain historical authenticity; 3) Limiting visitor numbers, especially in vulnerable sections; 4) Conducting public education programs to raise awareness about conservation; 5) Recruiting Great Wall protection volunteers; 6) Developing strict management regulations to prevent inappropriate development and destructive behaviors. As a visitor, you can support conservation efforts by following designated paths, not carving or drawing graffiti on the wall, not taking bricks or artifacts, and reporting any destructive behavior.";
       }
       break;
+    
+    case "archaeological-site":
+      if (questionType === "howto" || hasAnyKeyword(keywords, ["参观", "visit", "技巧", "tips"])) {
+        return isChineseUI
+          ? "参观考古遗址的建议：1) 提前了解遗址的历史背景，增加参观体验；2) 穿着舒适的鞋子，因为通常需要大量步行；3) 带足够的水和防晒用品，许多遗址缺乏遮阳处；4) 考虑聘请当地导游，了解更深入的历史和文化背景；5) 尊重遗址，不要触摸或爬上古代结构；6) 提前购买门票，特别是热门景点可能限制每日游客数量；7) 在清晨或傍晚参观，避开正午的高温和人群；8) 带上双筒望远镜和相机，捕捉细节和全景；9) 关注天气预报，选择晴朗干燥的日子参观。"
+          : "Tips for visiting archaeological sites: 1) Learn about the site's historical context beforehand to enhance your experience; 2) Wear comfortable shoes as considerable walking is usually required; 3) Bring sufficient water and sun protection as many sites lack shade; 4) Consider hiring a local guide for deeper historical and cultural insights; 5) Respect the site by not touching or climbing on ancient structures; 6) Purchase tickets in advance, especially as popular sites may limit daily visitor numbers; 7) Visit during early morning or late afternoon to avoid midday heat and crowds; 8) Bring binoculars and a camera to capture details and panoramic views; 9) Check weather forecasts and choose clear, dry days for your visit.";
+      }
+      
+      if (hasAnyKeyword(keywords, ["保护", "conservation", "preservation"])) {
+        return isChineseUI
+          ? "考古遗址的保护面临多种挑战，包括自然侵蚀、气候变化、过度旅游和盗掘。保护措施通常包括：1) 限制游客数量和活动区域；2) 定期监测遗址状况；3) 使用与原始材料相符的传统技术进行修复；4) 建立缓冲区以保护周边环境；5) 开展公众教育项目；6) 实施严格的安全措施防止破坏和盗窃；7) 国际合作和专业知识交流。作为游客，您可以通过遵循指定路径、不触摸文物、不带走任何物品、举报可疑行为来支持保护工作。许多遗址还接受捐款用于持续的保护工作。"
+          : "Archaeological sites face numerous conservation challenges including natural erosion, climate change, overtourism, and looting. Preservation measures typically include: 1) Limiting visitor numbers and accessible areas; 2) Regular monitoring of site conditions; 3) Restoration using traditional techniques compatible with original materials; 4) Establishing buffer zones to protect surrounding environments; 5) Public education programs; 6) Implementing strict security measures against vandalism and theft; 7) International cooperation and expertise exchange. As a visitor, you can support conservation by following designated paths, not touching artifacts, not removing anything from the site, and reporting suspicious behavior. Many sites also accept donations for ongoing preservation work.";
+      }
+      break;
   }
   
   return null;
@@ -566,6 +625,7 @@ function generateSpecificAnswer(keywords: string[], questionType: string, landma
   // 对于不同地标的特殊处理
   const isGreatWall = landmark.toLowerCase().includes("great wall") || landmark.toLowerCase().includes("长城");
   const isEiffelTower = landmark.toLowerCase().includes("eiffel") || landmark.toLowerCase().includes("埃菲尔");
+  const isMachuPicchu = landmark.toLowerCase().includes("machu picchu") || landmark.toLowerCase().includes("马丘比丘");
   
   // 查询详细介绍
   if (questionType === "general" && 
@@ -625,6 +685,27 @@ function generateSpecificAnswer(keywords: string[], questionType: string, landma
     }
   }
   
+  if (isMachuPicchu) {
+    // 马丘比丘特定问题处理
+    if (questionType === "howto" && hasAnyKeyword(keywords, ["去", "到达", "交通", "transport", "怎么去"])) {
+      return isChineseUI 
+        ? "马丘比丘的交通方式多样。最常见的是从库斯科乘坐火车到达阿瓜斯卡连特斯镇（马丘比丘山脚下的小镇），然后乘坐巴士上山。也可以选择参加徒步旅行，如著名的印加古道（需要提前数月预订）。印加古道全程约43公里，通常需要4天完成。无论选择哪种方式，都需要提前购买马丘比丘的入场券，因为每天的参观人数有限制。"
+        : "Machu Picchu has multiple modes of transportation. The most common is by train from Cusco to Aguas Calientes (the town at the base of Machu Picchu), then a bus up the mountain. Alternatively, you can participate in a trek such as the famous Inca Trail (which requires booking months in advance). The Inca Trail is approximately 43 kilometers long and typically takes 4 days to complete. Regardless of your chosen method, it's necessary to purchase Machu Picchu entrance tickets in advance as daily visitor numbers are limited.";
+    }
+    
+    if (hasAnyKeyword(keywords, ["票", "价格", "费用", "price", "ticket", "cost"])) {
+      return isChineseUI 
+        ? "马丘比丘的门票价格根据您想要参观的景点和选择的上行方式而不同。通常，您需要提前在官网购买门票，以避免在现场排队。旺季时，门票价格可能会上涨。强烈建议您提前购买门票，以确保您能顺利参观。"
+        : "Machu Picchu ticket prices vary depending on which sites you want to visit and how you choose to ascend. Generally, you need to purchase tickets in advance on the official website to avoid long queues. During peak season, ticket prices may increase. It's strongly recommended to purchase tickets in advance to ensure you can visit without any issues.";
+    }
+    
+    if (questionType === "when" && hasAnyKeyword(keywords, ["time", "时间", "季节", "season", "最佳", "best"])) {
+      return isChineseUI 
+        ? "参观马丘比丘的最佳时间是干季（5月至10月），此时天气晴朗，降雨较少。6月和7月是旅游高峰期，游客最多。如果想避开人群，建议在5月初或10月底参观。雨季（11月至4月）景色更为翠绿，但有雨天的可能性较高。无论何时参观，清晨或傍晚时分的景色最为壮观，光线也更适合拍照。"
+        : "The best time to visit Machu Picchu is during the dry season (May to October) when the weather is clear with little rainfall. June and July are peak tourism months with the most visitors. To avoid crowds, early May or late October are recommended. The rainy season (November to April) offers more lush greenery but has a higher chance of rain. Regardless of when you visit, the early morning or late afternoon offers the most spectacular views and lighting for photography.";
+    }
+  }
+  
   // 通用问题处理
   if (questionType === "recommendation" || hasAnyKeyword(keywords, ["recommend", "suggestion", "推荐", "建议"])) {
     if (isGreatWall) {
@@ -637,6 +718,12 @@ function generateSpecificAnswer(keywords: string[], questionType: string, landma
       return isChineseUI
         ? "参观埃菲尔铁塔的建议：1) 提前在官网购买门票，选择指定入场时间以避免长队；2) 考虑在非高峰时段参观，如早上开放时或晚上9点后；3) 如果体力允许，步行上二层可以节省等待电梯的时间，并欣赏不同的视角；4) 铁塔二层和顶层都有餐厅，但需要提前预订；5) 从Trocadéro广场观赏铁塔全景是拍照的最佳地点；6) 在日落时分参观，可以欣赏日落美景并看到铁塔亮灯；7) 带上双筒望远镜，从顶层可以看到更远的巴黎景色。"
         : "Recommendations for visiting the Eiffel Tower: 1) Purchase tickets in advance on the official website, choosing a specific entry time to avoid long queues; 2) Consider visiting during off-peak hours, such as early opening or after 9 PM; 3) If physically able, walking up to the 2nd floor can save time waiting for elevators and offers different perspectives; 4) There are restaurants on the 2nd floor and top level, but reservations are required; 5) Trocadéro Plaza offers the best vantage point for photographing the entire tower; 6) Visit during sunset to enjoy the beautiful twilight views and see the tower illumination; 7) Bring binoculars to see further Paris landmarks from the top level.";
+    }
+    
+    if (isMachuPicchu) {
+      return isChineseUI
+        ? "参观马丘比丘的建议：1) 提前在官网购买门票，选择指定入场时间以避免长队；2) 考虑在非高峰时段参观，如早上开放时或晚上9点后；3) 如果体力允许，步行上二层可以节省等待电梯的时间，并欣赏不同的视角；4) 马丘比丘二层和顶层都有餐厅，但需要提前预订；5) 从Trocadéro广场观赏马丘比丘全景是拍照的最佳地点；6) 在日落时分参观，可以欣赏日落美景并看到马丘比丘亮灯；7) 带上双筒望远镜，从顶层可以看到更远的马丘比丘景色。"
+        : "Recommendations for visiting Machu Picchu: 1) Purchase tickets in advance on the official website, choosing a specific entry time to avoid long queues; 2) Consider visiting during off-peak hours, such as early opening or after 9 PM; 3) If physically able, walking up to the 2nd floor can save time waiting for elevators and offers different perspectives; 4) There are restaurants on the 2nd floor and top level, but reservations are required; 5) Trocadéro Plaza offers the best vantage point for photographing the entire site; 6) Visit during sunset to enjoy the beautiful twilight views and see the site illumination; 7) Bring binoculars to see further Machu Picchu landmarks from the top level.";
     }
   }
   
@@ -761,6 +848,52 @@ Travel Information: The best time to visit the Great Wall is during spring (Apri
   } else if (landmark.toLowerCase().includes("eiffel") || landmark.toLowerCase().includes("埃菲尔")) {
     // 埃菲尔铁塔的详细介绍可以在这里添加
     // ...
+  } else if (landmark.toLowerCase().includes("machu picchu") || landmark.toLowerCase().includes("马丘比丘")) {
+    if (language.toLowerCase().includes("chinese")) {
+      return `马丘比丘是印加文明最辉煌的见证，被誉为"云端之城"，是世界新七大奇迹之一和联合国教科文组织世界文化遗产。
+
+历史背景：马丘比丘建于15世纪中叶（约1450年），是印加帝国第九任皇帝帕查库蒂的皇家庄园。当西班牙征服者于1532年入侵印加帝国时，马丘比丘因其隐蔽的位置而未被发现，因此幸免于毁灭的命运。这座城市在被遗弃后，几个世纪内只有当地人知晓其存在，直到1911年美国探险家海勒姆·宾厄姆在当地向导的帮助下重新发现了它。宾厄姆最初误认为这里是印加人最后的避难所"维尔卡班巴"，后来的研究证明这一推测并不准确。
+
+建筑奇迹：马丘比丘展示了印加人卓越的建筑技艺和精湛的工程技术。整座城市建在陡峭的山脊上，包含约200个建筑物，分为农业区和城市区。建筑采用了印加特有的"干砌石"技术，石块间无需任何粘合剂却能精确咬合，即使经历了数百年的地震，大部分结构仍然完好无损。最令人惊叹的是，印加人在没有轮子和铁器的情况下，将巨大的石块运送到山顶并进行精确切割。城市还包括复杂的水利系统和梯田，展示了印加人先进的农业和水资源管理技术。
+
+文化意义：马丘比丘的布局体现了印加人对宇宙的理解和对自然的崇敬。太阳神庙（Intihuatana）是一块垂直的石柱，在特定日期（如夏至和冬至）能准确显示太阳的位置，被认为是古印加人的天文观测仪。三窗神庙的窗户朝向东方，据说代表印加人的起源地。整座城市的设计与周围的山脉和天体运行完美融合，体现了印加文明的高度发展。
+
+神秘传说：关于马丘比丘的用途，学者们有多种理论。最广泛接受的观点是它是帕查库蒂皇帝的皇家庄园，用于度假和举行宗教仪式。也有人认为它是圣女的避难所或天文观测站。印加文明没有文字记录，关于马丘比丘的许多知识都是通过考古发掘和口头传统推断的，这增添了它的神秘色彩。
+
+推荐打卡点：
+1. 守望者小屋（Guardhouse）：位于城市入口处的高处，提供整个遗址的全景，是拍摄经典马丘比丘照片的最佳位置。
+2. 太阳神庙（Intihuatana）：这块垂直的石头被称为"日晷石"，是印加人用来观测天文现象的仪器。
+3. 三窗神庙（Temple of Three Windows）：其独特的梯形窗户据说代表印加人的起源地。
+4. 圣地（Sacred Plaza）：城市的宗教中心，包括主神庙和祭司住所。
+5. 瓦纳皮丘山（Huayna Picchu）：这座陡峭的山峰位于马丘比丘背后，登顶后可以俯瞰整个遗址，但需要额外的门票，且每天限制人数。
+6. 印加桥：展示了印加人精湛的工程技术，是古代进入城市的秘密通道之一。
+7. 月亮神庙（Temple of the Moon）：位于瓦纳皮丘山的背面，是一个鲜为人知但非常壮观的洞穴神庙。
+8. 太阳门（Sun Gate）：印加古道的终点，提供马丘比丘的壮丽景色，特别是在日出时分。
+
+旅行贴士：提前购买入场券（尤其是旺季），每天游客数量有限制。清晨参观可避开人群和中午的高温。带足够的水和防晒用品，高海拔地区紫外线强烈。如果想登瓦纳皮丘山，需要额外购票并提前预订。为尊重这一古迹，不要触摸或爬上遗址的石墙。携带雨具，即使在干季，山区天气也可能突变。`;
+    } else {
+      return `Machu Picchu is the most glorious testament to the Inca civilization, known as the "City in the Clouds," and is one of the New Seven Wonders of the World and a UNESCO World Heritage Site.
+
+Historical Background: Machu Picchu was built in the mid-15th century (around 1450) as a royal estate for the ninth Inca emperor Pachacuti. When Spanish conquistadors invaded the Inca Empire in 1532, Machu Picchu remained undiscovered due to its hidden location, thus escaping destruction. After being abandoned, the city was known only to locals for centuries until American explorer Hiram Bingham rediscovered it in 1911 with the help of a local guide. Bingham initially mistook it for Vilcabamba, the last refuge of the Incas, but later research proved this theory incorrect.
+
+Architectural Marvel: Machu Picchu showcases the Incas' extraordinary architectural skill and engineering prowess. The entire city was built on a steep ridge, containing approximately 200 structures divided into agricultural and urban sectors. The buildings feature the distinctive Inca "dry stone" technique, where blocks fit perfectly together without any mortar, and despite centuries of earthquakes, most structures remain intact. Most amazingly, the Incas transported enormous stone blocks to the mountaintop and cut them with precision without the use of wheels or iron tools. The city also includes complex water systems and terraces, demonstrating the Incas' advanced agricultural and water management techniques.
+
+Cultural Significance: The layout of Machu Picchu reflects the Incas' understanding of the cosmos and reverence for nature. The Intihuatana (Hitching Post of the Sun) is a vertical stone pillar that accurately shows the position of the sun on specific dates (such as solstices) and is believed to be an astronomical observatory of the ancient Incas. The Temple of Three Windows faces east, supposedly representing the origin place of the Incas. The entire city's design harmoniously integrates with the surrounding mountains and celestial movements, reflecting the high development of Inca civilization.
+
+Mysterious Legends: Scholars have multiple theories about the purpose of Machu Picchu. The most widely accepted view is that it served as Emperor Pachacuti's royal retreat for vacation and religious ceremonies. Others believe it was a sanctuary for sacred women or an astronomical observatory. Since the Inca civilization had no written records, much of what we know about Machu Picchu is inferred through archaeological excavations and oral traditions, adding to its mystique.
+
+Recommended Spots:
+1. The Guardhouse: Located at a high point near the city entrance, offering a panoramic view of the entire site and the best spot for classic Machu Picchu photographs.
+2. Intihuatana (Hitching Post of the Sun): This vertical stone, known as the "sundial stone," was used by the Incas to observe astronomical phenomena.
+3. Temple of Three Windows: Its unique trapezoidal windows are said to represent the origin place of the Incas.
+4. Sacred Plaza: The religious center of the city, including the Main Temple and the Priest's House.
+5. Huayna Picchu Mountain: This steep peak behind Machu Picchu offers a bird's-eye view of the entire site when climbed, but requires an additional ticket and has daily visitor limits.
+6. Inca Bridge: Showcasing the Incas' engineering prowess, it was one of the secret entrances to the city.
+7. Temple of the Moon: Located on the far side of Huayna Picchu, it's a lesser-known but spectacular cave temple.
+8. Sun Gate (Inti Punku): The endpoint of the Inca Trail, providing magnificent views of Machu Picchu, especially at sunrise.
+
+Travel Tips: Purchase entrance tickets in advance (especially during high season) as daily visitor numbers are limited. Visit in the early morning to avoid crowds and midday heat. Bring plenty of water and sun protection as UV radiation is intense at high altitudes. If you want to climb Huayna Picchu, you need to purchase additional tickets and book in advance. To respect this ancient site, do not touch or climb on the stone walls. Carry rain gear as mountain weather can change suddenly, even during the dry season.`;
+    }
   }
   
   return null;
