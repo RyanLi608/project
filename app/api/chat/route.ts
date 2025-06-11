@@ -90,7 +90,7 @@ const qaDatabase: LanguageQA = {
       "recommended spots": "Must-visit spots in Machu Picchu include: 1) The Guardhouse, which offers a panoramic view of the entire site and is the best location for taking classic photos; 2) Intihuatana (Hitching Post of the Sun), a vertical stone believed to be an astronomical observatory of the ancient Incas; 3) Temple of Three Windows, with its unique trapezoidal windows facing east, said to represent the Inca's place of origin; 4) Sacred Plaza, the religious center of the city; 5) Huayna Picchu Mountain, which you can climb for an alternative view of Machu Picchu (requires an additional ticket); 6) The Inca Bridge, showcasing the Incas' engineering prowess."
     },
     "taj-mahal": {
-      "history": "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned by Mughal Emperor Shah Jahan in 1632 to house the tomb of his favorite wife, Mumtaz Mahal. Construction of the Taj Mahal began in 1639 and was completed in 1653. The Taj Mahal is considered one of the finest examples of Mughal architecture and is widely recognized as "the jewel of Muslim art in India" and "the grand mausoleum of Agra".",
+      "history": "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned by Mughal Emperor Shah Jahan in 1632 to house the tomb of his favorite wife, Mumtaz Mahal. Construction of the Taj Mahal began in 1639 and was completed in 1653. The Taj Mahal is considered one of the finest examples of Mughal architecture and is widely recognized as 'the jewel of Muslim art in India' and 'the grand mausoleum of Agra'.",
       "architecture": "The Taj Mahal is a large mausoleum consisting of a main central dome, surrounded by four smaller domes. The entire structure is covered in intricate, white marble inlay work. The mausoleum is surrounded by a high, white marble wall with four corner towers. The gateways are also in white marble. The Taj Mahal is a perfect example of Mughal architecture, with its symmetry, and its use of white marble, precious stones, and precious metals.",
       "best time to visit": "The Taj Mahal is open from sunrise to sunset, but the best time to visit is from 6 AM to 10 AM and from 5 PM to 9 PM. The Taj Mahal is closed on Fridays. The best time to visit is in the early morning or late afternoon when the light is soft and the colors are more vibrant. The Taj Mahal is also illuminated at night, which is a sight to behold.",
       "tickets": "Foreign tourists pay 1100 rupees (approximately $15) for entry, while Indian citizens pay 50 rupees. Entry to the mausoleum is free for children under 15 years of age. Photography inside the Taj Mahal is allowed, but flash photography is not permitted. Photography outside the mausoleum is allowed, but no drones are allowed. Photography is not allowed inside the mausoleum during prayer times."
@@ -167,7 +167,7 @@ const mockResponses = {
       "This ancient city stands as a testament to the glory of the Inca civilization, with its precise astronomical layout and harmony with nature. Despite the destruction of Inca civilization by Spanish conquerors, Machu Picchu was preserved due to its hidden location, providing a precious window into Inca culture."
     ],
     "taj-mahal": [
-      "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned by Mughal Emperor Shah Jahan in 1632 to house the tomb of his favorite wife, Mumtaz Mahal. Construction of the Taj Mahal began in 1639 and was completed in 1653. The Taj Mahal is considered one of the finest examples of Mughal architecture and is widely recognized as "the jewel of Muslim art in India" and "the grand mausoleum of Agra".",
+      "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned by Mughal Emperor Shah Jahan in 1632 to house the tomb of his favorite wife, Mumtaz Mahal. Construction of the Taj Mahal began in 1639 and was completed in 1653. The Taj Mahal is considered one of the finest examples of Mughal architecture and is widely recognized as 'the jewel of Muslim art in India' and 'the grand mausoleum of Agra'.",
       "The Taj Mahal is a large mausoleum consisting of a main central dome, surrounded by four smaller domes. The entire structure is covered in intricate, white marble inlay work. The mausoleum is surrounded by a high, white marble wall with four corner towers. The gateways are also in white marble. The Taj Mahal is a perfect example of Mughal architecture, with its symmetry, and its use of white marble, precious stones, and precious metals.",
       "The Taj Mahal is open from sunrise to sunset, but the best time to visit is from 6 AM to 10 AM and from 5 PM to 9 PM. The Taj Mahal is closed on Fridays. The best time to visit is in the early morning or late afternoon when the light is soft and the colors are more vibrant. The Taj Mahal is also illuminated at night, which is a sight to behold.",
       "Foreign tourists pay 1100 rupees (approximately $15) for entry, while Indian citizens pay 50 rupees. Entry to the mausoleum is free for children under 15 years of age. Photography inside the Taj Mahal is allowed, but flash photography is not permitted. Photography outside the mausoleum is allowed, but no drones are allowed. Photography is not allowed inside the mausoleum during prayer times."
@@ -351,7 +351,7 @@ function generateFollowUpResponse(context: string, message: string, landmark: st
     }
     
     if (landmark.toLowerCase().includes("taj mahal")) {
-      return "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned by Mughal Emperor Shah Jahan in 1632 to house the tomb of his favorite wife, Mumtaz Mahal. Construction of the Taj Mahal began in 1639 and was completed in 1653. The Taj Mahal is considered one of the finest examples of Mughal architecture and is widely recognized as "the jewel of Muslim art in India" and "the grand mausoleum of Agra".";
+      return "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned by Mughal Emperor Shah Jahan in 1632 to house the tomb of his favorite wife, Mumtaz Mahal. Construction of the Taj Mahal began in 1639 and was completed in 1653. The Taj Mahal is considered one of the finest examples of Mughal architecture and is widely recognized as 'the jewel of Muslim art in India' and 'the grand mausoleum of Agra'.";
     }
     
     return "There are many more aspects of this landmark worth exploring, including local cultural traditions, culinary specialties, and other nearby attractions. What aspects would you like to know more about?";
@@ -973,7 +973,7 @@ Travel Information: The best time to visit the Great Wall is during spring (Apri
 3. 三窗神庙（Temple of Three Windows）：其独特的梯形窗户据说代表印加人的起源地。
 4. 圣地（Sacred Plaza）：城市的宗教中心，包括主神庙和祭司住所。
 5. 瓦纳皮丘山（Huayna Picchu）：这座陡峭的山峰位于马丘比丘背后，登顶后可以俯瞰整个遗址，但需要额外的门票，且每天限制人数。
-6. 印加桥：展示了印加人精湛的工程技术，是古代进入城市的秘密通道之一。
+6. 印加桥，展示了印加人精湛的工程技术。
 7. 月亮神庙（Temple of the Moon）：位于瓦纳皮丘山的背面，是一个鲜为人知但非常壮观的洞穴神庙。
 8. 太阳门（Sun Gate）：印加古道的终点，提供马丘比丘的壮丽景色，特别是在日出时分。
 
@@ -995,7 +995,7 @@ Recommended Spots:
 3. Temple of Three Windows: Its unique trapezoidal windows are said to represent the origin place of the Incas.
 4. Sacred Plaza: The religious center of the city, including the Main Temple and the Priest's House.
 5. Huayna Picchu Mountain: This steep peak behind Machu Picchu offers a bird's-eye view of the entire site when climbed, but requires an additional ticket and has daily visitor limits.
-6. Inca Bridge: Showcasing the Incas' engineering prowess, it was one of the secret entrances to the city.
+6. The Inca Bridge: Showcasing the Incas' engineering prowess, it was one of the secret entrances to the city.
 7. Temple of the Moon: Located on the far side of Huayna Picchu, it's a lesser-known but spectacular cave temple.
 8. Sun Gate (Inti Punku): The endpoint of the Inca Trail, providing magnificent views of Machu Picchu, especially at sunrise.
 
