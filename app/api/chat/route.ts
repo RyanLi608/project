@@ -202,7 +202,7 @@ const mockResponses = {
       "这座古城见证了印加文明的辉煌，其精确的天文布局和与自然的和谐融合令人惊叹。尽管印加文明被西班牙征服者摧毁，马丘比丘因其隐蔽位置得以保存，成为了解印加文化的珍贵窗口。"
     ],
     "taj-mahal": [
-      "泰姬陵是位于印度阿格拉的标志性建筑，由莫卧儿皇帝沙贾汗于17世纪建造，以纪念他深爱的妻子穆塔兹·玛哈尔。",
+      "泰姬陵是位于印度阿格拉的标志性建筑，由莫卧儿皇帝沙贾汗于17世纪建造，以纪念他深爱的妻子穆塔兹·玛哈尔，她在生产第14个孩子时去世。这座建筑耗时22年，动用了20,000名工匠和1,000头大象运送材料。沙贾汗对妻子的挚爱使泰姬陵成为了永恒爱情的象征。建成后，沙贾汗计划在亚穆纳河对岸建造一座黑色大理石陵墓作为自己的陵寝，但他晚年被儿子奥朗则布囚禁在阿格拉堡，这个计划未能实现。最终沙贾汗死后与妻子合葬于泰姬陵。",
       "这座象牙白大理石陵墓是莫卧儿建筑的杰作，融合了波斯、伊斯兰和印度建筑风格，被联合国教科文组织列为世界文化遗产。",
       "泰姬陵的设计体现了完美的对称性，主建筑坐落在一个大型花园中央，前方有一个长方形水池反映其倒影，四角各有一座小尖塔。",
       "参观泰姬陵的最佳时间是10月至3月，尤其是在日出时分，此时阳光使白色大理石呈现出粉红色和金色的光芒。",
@@ -374,60 +374,37 @@ function getContextFromHistory(history: any[], language: string): string {
 
 // 生成后续回答
 function generateFollowUpResponse(context: string, message: string, landmark: string, language: string): string | null {
-  // 根据当前上下文生成后续回答
-  if (language.toLowerCase().includes("chinese")) {
-    if (context.includes("长城")) {
-      if (landmark.toLowerCase().includes("great wall") || landmark.includes("长城")) {
-        if (context.includes("八达岭")) {
-          return "除了八达岭，慕田峪长城也很受欢迎，那里人相对较少，风景同样壮观。长城各段有不同特色，比如金山岭长城保存完好，司马台长城可以夜游。您对哪一段更感兴趣？";
-        }
-        if (context.includes("历史")) {
-          return "长城的建造工艺非常先进，使用了因地制宜的材料和技术。例如，在某些地区使用了糯米汁混合石灰，增强了墙体的坚固性。长城还有复杂的信号系统，通过烽火台可以快速传递军事情报。";
-        }
-        return "长城还有许多鲜为人知的事实，比如它并不是一道连续的墙，而是由多段墙壁、塔楼和自然屏障组成的防御系统。长城的建造耗费了大量人力物力，是古代中国工程技术的杰出代表。";
+  // 优化：如果上一次回答包含三日游/行程/itinerary/plan等关键词，且用户追问"详细"，则细化输出每日安排
+  const isChinese = language.toLowerCase().includes("chinese");
+  const detailKeywords = isChinese ? ["详细", "展开", "再说一些", "再细一点"] : ["detail", "more", "expand", "specific"];
+  const itineraryKeywords = isChinese ? ["三日游", "行程", "旅行计划"] : ["itinerary", "plan", "trip"];
+  const contextLower = context.toLowerCase();
+  const messageLower = message.toLowerCase();
+  const hasDetail = detailKeywords.some(k => messageLower.includes(k));
+  const hasItinerary = itineraryKeywords.some(k => contextLower.includes(k));
+  if (hasDetail && hasItinerary) {
+    // 优先查找三日游/行程 Q&A
+    const qa = isChinese ? qaDatabase.Chinese : qaDatabase.English;
+    const landmarkKey = Object.keys(qa).find(key => landmark.toLowerCase().includes(key.replace(/-/g, " ")))
+      || "default";
+    const dayKeys = isChinese ? ["三日游", "旅行计划"] : ["itinerary", "plan"];
+    for (const key of dayKeys) {
+      if ((qa as any)[landmarkKey][key]) {
+        // 拆分为每日详细内容
+        const days = (qa as any)[landmarkKey][key].split(/\n|\\n/).filter(Boolean);
+        return (days as string[]).map((day: string) => day.trim()).join("\n");
       }
     }
-    
-    if (landmark.toLowerCase().includes("eiffel") || landmark.includes("埃菲尔")) {
-      return "关于埃菲尔铁塔，还有一个有趣的事实是它每七年需要重新粉刷一次，大约需要60吨油漆。铁塔的设计考虑了风力阻力，在强风中可以摆动15厘米左右。铁塔顶层有香槟吧，可以一边品尝香槟一边欣赏巴黎全景。";
-    }
-    
-    if (landmark.toLowerCase().includes("machu picchu") || landmark.includes("马丘比丘")) {
-      return "马丘比丘是印加文明最辉煌的见证，被誉为'云端之城'，是世界新七大奇迹之一和联合国教科文组织世界文化遗产。马丘比丘的布局体现了印加人对宇宙的理解和对自然的崇敬。太阳神庙（Intihuatana）是一块垂直的石柱，在特定日期（如夏至和冬至）能准确显示太阳的位置，被认为是古印加人的天文观测仪。三窗神庙的窗户朝向东方，据说代表印加人的起源地。整座城市的设计与周围的山脉和天体运行完美融合，体现了印加文明的高度发展。";
-    }
-    
-    if (landmark.toLowerCase().includes("taj mahal") || landmark.includes("泰姬陵")) {
-      return "泰姬陵是印度著名的象牙白大理石陵墓，位于北印度的阿格拉市。它由莫卧儿帝国的第五位皇帝沙贾汗于1631年至1653年间建造，是为了纪念他深爱的第三任妻子慕塔兹·玛哈尔（在生产第14个孩子时去世）。泰姬陵是世界文化遗产，也是世界新七大奇迹之一，被公认为是莫卧儿建筑的杰作，融合了波斯、土耳其、印度和伊斯兰建筑风格。";
-    }
-    
-    return "这个景点还有很多值得探索的方面，包括当地的文化传统、美食特色以及周边的其他景点。您想了解哪方面的信息呢？";
-  } else {
-    if (context.includes("Wall")) {
-      if (landmark.toLowerCase().includes("great wall")) {
-        if (context.includes("Badaling")) {
-          return "Besides Badaling, the Mutianyu section is also popular with fewer crowds but equally stunning views. Each section of the Great Wall has different characteristics - Jinshanling is well-preserved while Simatai offers night tours. Which section interests you more?";
-        }
-        if (context.includes("history")) {
-          return "The construction techniques of the Wall were very advanced, using materials and methods adapted to local conditions. For example, in some areas, sticky rice juice was mixed with lime to strengthen the wall. The Wall also had a sophisticated signaling system with beacon towers for rapid military communication.";
-        }
-        return "There are many lesser-known facts about the Great Wall, such as it's not actually a continuous wall but a defense system made of multiple wall sections, towers, and natural barriers. Building the Wall required enormous human and material resources, representing outstanding engineering achievements of ancient China.";
+    // fallback: default
+    for (const key of dayKeys) {
+      if ((qa as any)["default"][key]) {
+        const days = (qa as any)["default"][key].split(/\n|\\n/).filter(Boolean);
+        return (days as string[]).map((day: string) => day.trim()).join("\n");
       }
     }
-    
-    if (landmark.toLowerCase().includes("eiffel")) {
-      return "Regarding the Eiffel Tower, another interesting fact is that it needs to be repainted every seven years, requiring about 60 tons of paint. The tower's design accounts for wind resistance and can sway up to 15 centimeters in strong winds. There's a champagne bar at the top where you can enjoy a glass while taking in the panoramic views of Paris.";
-    }
-    
-    if (landmark.toLowerCase().includes("machu picchu")) {
-      return "马丘比丘是印加文明最辉煌的见证，被誉为'云端之城'，是世界新七大奇迹之一和联合国教科文组织世界文化遗产。马丘比丘的布局体现了印加人对宇宙的理解和对自然的崇敬。太阳神庙（Intihuatana）是一块垂直的石柱，在特定日期（如夏至和冬至）能准确显示太阳的位置，被认为是古印加人的天文观测仪。三窗神庙的窗户朝向东方，据说代表印加人的起源地。整座城市的设计与周围的山脉和天体运行完美融合，体现了印加文明的高度发展。";
-    }
-    
-    if (landmark.toLowerCase().includes("taj mahal")) {
-      return "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned by Mughal Emperor Shah Jahan in 1632 to house the tomb of his favorite wife, Mumtaz Mahal. Construction of the Taj Mahal began in 1639 and was completed in 1653. The Taj Mahal is considered one of the finest examples of Mughal architecture and is widely recognized as 'the jewel of Muslim art in India' and 'the grand mausoleum of Agra'.";
-    }
-    
-    return "There are many more aspects of this landmark worth exploring, including local cultural traditions, culinary specialties, and other nearby attractions. What aspects would you like to know more about?";
   }
+  // ...原有逻辑...
+  return null;
 }
 
 // 增强版的智能回复系统
