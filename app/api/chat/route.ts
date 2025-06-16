@@ -266,6 +266,26 @@ function matchQuestion(message: string, landmark: string, language: string): str
   // 获取该地标和语言的问答库
   const qa = qaDatabase[lang][landmarkKey];
   
+  // 增强：优先识别行程/计划/三天/几天/路线/安排等关键词
+  const planKeywords = lang === "Chinese"
+    ? ["计划", "行程", "三天", "几天", "路线", "安排"]
+    : ["itinerary", "plan", "trip", "days"];
+  const planKeys = lang === "Chinese" ? ["三日游", "旅行计划"] : ["itinerary", "plan"];
+  if (planKeywords.some(k => message.includes(k))) {
+    for (const key of planKeys) {
+      if ((qa as any)[key]) {
+        return (qa as any)[key];
+      }
+    }
+    // fallback: default
+    const defaultQA = qaDatabase[lang]["default"];
+    for (const key of planKeys) {
+      if ((defaultQA as any)[key]) {
+        return (defaultQA as any)[key];
+      }
+    }
+  }
+  
   // 获取所有问题关键词
   const questions = Object.keys(qa);
   
