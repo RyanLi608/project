@@ -34,7 +34,10 @@ const qaDatabase: LanguageQA = {
       "特色活动": "1) 八达岭：可以体验滑道下山；2) 慕田峪：有缆车和滑道；3) 司马台：可以夜游长城，欣赏夜景；4) 金山岭：适合摄影爱好者，日出日落景色壮观。",
       "周边景点": "长城周边有许多值得游览的景点：1) 八达岭附近有野生动物园；2) 慕田峪附近有红螺寺；3) 司马台附近有古北水镇；4) 金山岭附近有承德避暑山庄。",
       "文化意义": "长城不仅是中国古代伟大的防御工程，也是中华民族坚韧不拔精神的象征。它见证了中国的历史变迁，是中华文明的重要标志。1987年，长城被联合国教科文组织列入《世界文化遗产名录》。",
-      "有趣事实": "1) 长城从太空中用肉眼是看不见的；2) 一些段落使用的砂浆中包含糯米，这有助于其耐久性；3) 长城不是一条连续的墙，而是由多个段落组成；4) 建造长城时使用了大量的人力，据说有超过100万人参与建设；5) 长城的建造持续了2000多年，跨越多个朝代。"
+      "有趣事实": "1) 长城从太空中用肉眼是看不见的；2) 一些段落使用的砂浆中包含糯米，这有助于其耐久性；3) 长城不是一条连续的墙，而是由多个段落组成；4) 建造长城时使用了大量的人力，据说有超过100万人参与建设；5) 长城的建造持续了2000多年，跨越多个朝代。",
+      "好玩": "长城绝对值得一游！不仅能感受壮丽的历史建筑，还能欣赏到壮观的自然风光。无论是徒步、摄影还是了解中国文化，都会有非常棒的体验。登上长城，远眺群山，令人心旷神怡。",
+      "值得去": "长城是中国历史和文化的象征，无论是本地游客还是外国朋友，都强烈推荐亲自体验一次。每一段长城都有独特的魅力，绝对不虚此行。",
+      "推荐": "非常推荐！长城不仅有丰富的历史故事，还有壮丽的风景，是亲子、朋友、情侣出游的绝佳选择。"
     },
     "eiffel-tower": {
       "历史": "埃菲尔铁塔由工程师古斯塔夫·埃菲尔设计，于1887年开始建造，1889年完工，作为1889年世界博览会的入口拱门，同时庆祝法国大革命100周年。铁塔最初只是临时建筑，计划存在20年后拆除，但因其对无线电通信的价值而得以保留。在建造时，许多艺术家和知识分子抗议这座'怪物'会破坏巴黎的美感，而如今它已成为巴黎的象征。",
@@ -46,7 +49,10 @@ const qaDatabase: LanguageQA = {
       "特色活动": "1) 在铁塔餐厅用餐：58 Tour Eiffel（一层）和Le Jules Verne（二层）提供精致法餐；2) 香槟吧：顶层有香槟吧，可以边品酒边欣赏巴黎全景；3) 灯光秀：每晚整点有5分钟的灯光表演；4) 季节性活动：夏季有户外音乐会，冬季有溜冰场。",
       "周边景点": "埃菲尔铁塔周边有许多著名景点：1) 战神广场：铁塔前的绿地公园；2) 塞纳河：可以乘坐游船；3) 夏乐宫：可以拍摄铁塔全景；4) 荣军院：拿破仑陵墓所在地；5) 奥赛博物馆：印象派艺术收藏。",
       "文化意义": "埃菲尔铁塔是法国最重要的文化象征之一，代表着工业革命时期的工程成就和艺术创新。它出现在无数电影、绘画和文学作品中，成为全球文化中的标志性形象。铁塔每年吸引约700万游客，是世界上参观人数最多的收费景点之一。",
-      "有趣事实": "1) 铁塔每七年需要重新粉刷一次，使用约60吨油漆；2) 铁塔在强风中最多可以摇摆15厘米；3) 铁塔在建造时是当时世界上最高的建筑物；4) 铁塔的设计考虑了热胀冷缩，夏季会增高约15厘米；5) 铁塔的建造只用了2年2个月零5天，比预期提前完成。"
+      "有趣事实": "1) 铁塔每七年需要重新粉刷一次，使用约60吨油漆；2) 铁塔在强风中最多可以摇摆15厘米；3) 铁塔在建造时是当时世界上最高的建筑物；4) 铁塔的设计考虑了热胀冷缩，夏季会增高约15厘米；5) 铁塔的建造只用了2年2个月零5天，比预期提前完成。",
+      "好玩": "埃菲尔铁塔是巴黎最具标志性的景点，无论白天还是夜晚都非常值得一看。登塔俯瞰巴黎全景，体验浪漫氛围，是每个游客的必打卡之地。",
+      "值得去": "强烈推荐参观埃菲尔铁塔！不仅能感受法国的浪漫，还能拍出美丽的照片。夜晚的灯光秀尤其令人难忘。",
+      "推荐": "无论是第一次来巴黎还是多次造访，埃菲尔铁塔都是必去之地。建议提前购票，体验登塔的乐趣。"
     },
     "default": {
       "天气": "目前没有实时天气数据，但一般来说，参观景点最好查看当地的天气预报，并做好相应准备。春秋季节通常天气较为宜人，夏季可能较热，冬季则可能较冷。建议携带适合季节的衣物和防晒、防雨装备。",
@@ -65,7 +71,10 @@ const qaDatabase: LanguageQA = {
       "特色活动": "1) 观看日出：清晨在太阳神庙欣赏日出；2) 徒步探索：可以徒步到太阳门或印加桥；3) 摄影：不同时段的光线都很适合拍照；4) 参观博物馆：了解马丘比丘的历史和文化；5) 体验当地文化：在阿瓜斯卡连特斯体验传统市场。",
       "周边景点": "马丘比丘周边值得游览的地方：1) 库斯科古城：印加帝国古都；2) 圣谷：印加农业遗址；3) 奥扬泰坦博：保存完好的印加小镇；4) 彩虹山：彩色山脉景观；5) 马拉斯盐田：千年盐田遗址。",
       "文化意义": "马丘比丘是印加文明的杰出代表，展现了印加人在建筑、工程和天文方面的卓越成就。它被联合国教科文组织列为世界文化遗产，是南美洲最重要的考古遗址之一。马丘比丘的建筑布局反映了印加人对宇宙的认知，是研究印加文明的重要窗口。",
-      "有趣事实": "1) 马丘比丘的建造没有使用轮子或金属工具；2) 遗址的石头建筑可以抵抗地震；3) 马丘比丘的梯田系统可以种植多种作物；4) 遗址的排水系统至今仍在工作；5) 马丘比丘的建造时间比埃及金字塔晚，但同样令人惊叹。"
+      "有趣事实": "1) 马丘比丘的建造没有使用轮子或金属工具；2) 遗址的石头建筑可以抵抗地震；3) 马丘比丘的梯田系统可以种植多种作物；4) 遗址的排水系统至今仍在工作；5) 马丘比丘的建造时间比埃及金字塔晚，但同样令人惊叹。",
+      "好玩": "马丘比丘充满神秘色彩，是探险和历史爱好者的天堂。登上遗址俯瞰安第斯山脉，仿佛穿越时空，非常震撼。",
+      "值得去": "马丘比丘是南美最值得一去的世界遗产之一，无论是风景还是文化体验都令人难忘。强烈推荐！",
+      "推荐": "推荐给喜欢自然、历史和徒步的朋友。马丘比丘的日出和云海美景令人终生难忘。"
     },
     "taj-mahal": {
       "历史": "泰姬陵建于1632年至1653年，是莫卧儿皇帝沙贾汗为纪念其爱妻穆塔兹·玛哈尔而建造的陵墓。这座建筑由来自印度、波斯、土耳其和欧洲的2万多名工匠共同建造，使用了来自印度和亚洲各地的珍贵材料。泰姬陵的建造展现了莫卧儿王朝的鼎盛时期，融合了伊斯兰、波斯和印度建筑风格。",
@@ -77,7 +86,10 @@ const qaDatabase: LanguageQA = {
       "特色活动": "1) 观看日出：清晨在泰姬陵欣赏日出；2) 月光游览：在满月之夜参观（需要提前预订）；3) 摄影：不同时段的光线都很适合拍照；4) 参观博物馆：了解泰姬陵的历史；5) 体验当地文化：在阿格拉体验传统市场。",
       "周边景点": "泰姬陵周边值得游览的地方：1) 阿格拉堡：莫卧儿王朝的皇宫；2) 法塔赫布尔西格里：莫卧儿古城；3) 伊蒂马德-乌德-道拉陵：'小泰姬陵'；4) 阿克巴陵：莫卧儿皇帝陵墓；5) 阿格拉市场：传统手工艺品市场。",
       "文化意义": "泰姬陵是印度最著名的建筑之一，被誉为'世界七大奇迹'之一。它象征着永恒的爱情，展现了莫卧儿王朝的艺术成就。泰姬陵的建筑风格影响了印度次大陆的许多建筑，是印度伊斯兰建筑的典范。",
-      "有趣事实": "1) 泰姬陵的白色大理石会随光线变化呈现不同颜色；2) 陵墓的四个尖塔略微向外倾斜，以防地震时倒塌；3) 建造泰姬陵花费了约3,200万卢比；4) 陵墓的装饰使用了来自世界各地的珍贵宝石；5) 泰姬陵每年吸引约800万游客。"
+      "有趣事实": "1) 泰姬陵的白色大理石会随光线变化呈现不同颜色；2) 陵墓的四个尖塔略微向外倾斜，以防地震时倒塌；3) 建造泰姬陵花费了约3,200万卢比；4) 陵墓的装饰使用了来自世界各地的珍贵宝石；5) 泰姬陵每年吸引约800万游客。",
+      "好玩": "泰姬陵不仅建筑精美，更有动人的爱情故事。亲临现场会被它的壮丽和浪漫氛围深深打动。",
+      "值得去": "泰姬陵是印度最值得参观的景点之一，无论白天还是月夜都美得令人窒息。强烈推荐亲自体验。",
+      "推荐": "非常推荐！泰姬陵的美超乎想象，是情侣、家庭和摄影爱好者的理想目的地。"
     }
   },
   "English": {
@@ -93,13 +105,17 @@ const qaDatabase: LanguageQA = {
       "activities": "1) Badaling: Experience the toboggan slide down; 2) Mutianyu: Cable car and slide available; 3) Simatai: Night tours available; 4) Jinshanling: Perfect for photography, especially at sunrise and sunset.",
       "nearby attractions": "Many attractions near the Great Wall: 1) Badaling Wildlife World near Badaling; 2) Hongluo Temple near Mutianyu; 3) Gubei Water Town near Simatai; 4) Chengde Mountain Resort near Jinshanling.",
       "cultural significance": "The Great Wall is not only an ancient defensive project but also a symbol of Chinese perseverance. It has witnessed China's historical changes and is an important symbol of Chinese civilization. In 1987, it was listed as a UNESCO World Heritage Site.",
-      "fun facts": "1) The Great Wall is not visible from space with the naked eye; 2) Some sections used sticky rice in the mortar for durability; 3) The wall is not continuous but consists of multiple sections; 4) Over 1 million people were involved in its construction; 5) Construction spanned over 2,000 years across multiple dynasties."
+      "fun facts": "1) The Great Wall is not visible from space with the naked eye; 2) Some sections used sticky rice in the mortar for durability; 3) The wall is not continuous but consists of multiple sections; 4) Over 1 million people were involved in its construction; 5) Construction spanned over 2,000 years across multiple dynasties.",
+      "worth visiting": "The Great Wall is absolutely worth visiting! It's not only a marvel of ancient engineering but also offers breathtaking views. Whether you love hiking, history, or photography, you'll have an unforgettable experience.",
+      "recommend": "Highly recommended! The Great Wall is a must-see for anyone visiting China. Each section has its own unique charm and is sure to impress."
     },
     "eiffel-tower": {
       "ticket price": "Eiffel Tower ticket prices vary depending on the level you wish to visit and how you ascend: walking to the 2nd floor costs about €11, taking the elevator to the 2nd floor costs about €17, and going to the top by elevator costs about €26. Discounted rates are available for children, youth, and people with disabilities. It's recommended to purchase tickets online in advance to avoid queues.",
       "history": "The Eiffel Tower was designed by engineer Gustave Eiffel and was constructed between 1887 and 1889. It served as the entrance arch for the 1889 World's Fair and celebrated the centennial of the French Revolution. Initially meant as a temporary structure to be dismantled after 20 years, it was kept due to its value for radio communications. During its construction, many artists and intellectuals protested that this 'monster' would ruin Paris's aesthetics, yet today it has become the symbol of the city.",
       "best time to visit": "The best time to visit the Eiffel Tower is during spring (April-June) and fall (September-October) when there are fewer tourists and the weather is pleasant. Visiting at night allows you to enjoy Paris's evening views and the tower's hourly light show. To avoid crowds, it's best to go early in the morning when it opens or after 9 PM. Weekends and summer are the busiest periods.",
-      "height": "The Eiffel Tower stands 324 meters (1,063 feet) tall, including its antenna, making it the tallest structure in Paris. It has three levels open to visitors: the first floor at 57 meters (187 feet), the second floor at 115 meters (377 feet), and the top floor at 276 meters (906 feet). When completed in 1889, it was the tallest building in the world until the Chrysler Building in New York took that title in 1930."
+      "height": "The Eiffel Tower stands 324 meters (1,063 feet) tall, including its antenna, making it the tallest structure in Paris. It has three levels open to visitors: the first floor at 57 meters (187 feet), the second floor at 115 meters (377 feet), and the top floor at 276 meters (906 feet). When completed in 1889, it was the tallest building in the world until the Chrysler Building in New York took that title in 1930.",
+      "worth visiting": "The Eiffel Tower is a must-visit in Paris! The view from the top is stunning, and the atmosphere is truly romantic. Don't miss the sparkling lights at night!",
+      "recommend": "Definitely recommended for all visitors to Paris. It's an iconic experience and perfect for photos, couples, and families alike."
     },
     "default": {
       "weather": "There is no real-time weather data available, but generally, it's best to check the local weather forecast before visiting attractions and prepare accordingly. Spring and autumn usually offer pleasant weather, summer can be hot, and winter might be cold. It's advisable to bring season-appropriate clothing and sun/rain protection.",
@@ -114,13 +130,17 @@ const qaDatabase: LanguageQA = {
       "architectural features": "Machu Picchu's architecture employs the distinctive Inca 'dry stone' technique, where blocks fit perfectly together without any mortar. The city is divided into agricultural and urban sectors, containing about 200 structures including palaces, temples, residences, and storerooms. Among the most famous structures are the Intihuatana (Hitching Post of the Sun), the Temple of Three Windows, and the Sacred District. The Incas built terraces on the steep slopes for agriculture. The entire city design also included a sophisticated water system that provided adequate water even during the dry season.",
       "best time to visit": "The best time to visit Machu Picchu is during the dry season (May to October) when the weather is clear with little rainfall. June and July are peak tourism months with the most visitors. To avoid crowds, early May or late October are recommended. The rainy season (November to April) offers more lush greenery but has a higher chance of rain. Regardless of when you visit, the early morning or late afternoon offers the most spectacular views and lighting for photography.",
       "transportation": "The journey to Machu Picchu typically begins in Cusco. You can take a train to Aguas Calientes (the town at the base of Machu Picchu), then a bus up the mountain; or participate in a trek such as the famous Inca Trail (which requires booking months in advance). The Inca Trail is approximately 43 kilometers long and typically takes 4 days to complete. Regardless of your chosen method, it's necessary to purchase Machu Picchu entrance tickets in advance as daily visitor numbers are limited.",
-      "recommended spots": "Must-visit spots in Machu Picchu include: 1) The Guardhouse, which offers a panoramic view of the entire site and is the best location for taking classic photos; 2) Intihuatana (Hitching Post of the Sun), a vertical stone believed to be an astronomical observatory of the ancient Incas; 3) Temple of Three Windows, with its unique trapezoidal windows facing east, said to represent the Inca's place of origin; 4) Sacred Plaza, the religious center of the city; 5) Huayna Picchu Mountain, which you can climb for an alternative view of Machu Picchu (requires an additional ticket); 6) The Inca Bridge, showcasing the Incas' engineering prowess."
+      "recommended spots": "Must-visit spots in Machu Picchu include: 1) The Guardhouse, which offers a panoramic view of the entire site and is the best location for taking classic photos; 2) Intihuatana (Hitching Post of the Sun), a vertical stone believed to be an astronomical observatory of the ancient Incas; 3) Temple of Three Windows, with its unique trapezoidal windows facing east, said to represent the Inca's place of origin; 4) Sacred Plaza, the religious center of the city; 5) Huayna Picchu Mountain, which you can climb for an alternative view of Machu Picchu (requires an additional ticket); 6) The Inca Bridge, showcasing the Incas' engineering prowess.",
+      "worth visiting": "Machu Picchu is a magical place full of mystery and adventure. The scenery is breathtaking, and the sense of history is overwhelming. A must for explorers!",
+      "recommend": "Highly recommended for nature lovers, history buffs, and hikers. Watching the sunrise over Machu Picchu is a once-in-a-lifetime experience."
     },
     "taj-mahal": {
       "history": "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned by Mughal Emperor Shah Jahan in 1631 to house the tomb of his favorite wife, Mumtaz Mahal. Construction of the Taj Mahal began in 1639 and was completed in 1653. The Taj Mahal is considered one of the finest examples of Mughal architecture and is widely recognized as 'the jewel of Muslim art in India' and 'the grand mausoleum of Agra'.",
       "architecture": "The Taj Mahal is a large mausoleum consisting of a main central dome, surrounded by four smaller domes. The entire structure is covered in intricate, white marble inlay work. The mausoleum is surrounded by a high, white marble wall with four corner towers. The gateways are also in white marble. The Taj Mahal is a perfect example of Mughal architecture, with its symmetry, and its use of white marble, precious stones, and precious metals.",
       "best time to visit": "The Taj Mahal is open from sunrise to sunset, but the best time to visit is from 6 AM to 10 AM and from 5 PM to 9 PM. The Taj Mahal is closed on Fridays. The best time to visit is in the early morning or late afternoon when the light is soft and the colors are more vibrant. The Taj Mahal is also illuminated at night, which is a sight to behold.",
-      "tickets": "Foreign tourists pay 1100 rupees (approximately $15) for entry, while Indian citizens pay 50 rupees. Entry to the mausoleum is free for children under 15 years of age. Photography inside the Taj Mahal is allowed, but flash photography is not permitted. Photography outside the mausoleum is allowed, but no drones are allowed. Photography is not allowed inside the mausoleum during prayer times."
+      "tickets": "Foreign tourists pay 1100 rupees (approximately $15) for entry, while Indian citizens pay 50 rupees. Entry to the mausoleum is free for children under 15 years of age. Photography inside the Taj Mahal is allowed, but flash photography is not permitted. Photography outside the mausoleum is allowed, but no drones are allowed. Photography is not allowed inside the mausoleum during prayer times.",
+      "worth visiting": "The Taj Mahal is one of the most beautiful monuments in the world. Its beauty and the love story behind it are truly moving. Absolutely worth a visit!",
+      "recommend": "Strongly recommended! The Taj Mahal is breathtaking at any time of day and is a perfect destination for couples, families, and photographers."
     }
   }
 };
