@@ -59,7 +59,10 @@ const qaDatabase: LanguageQA = {
       "交通": "关于交通方式，通常有公共交通（地铁、公交车）、出租车、租车或参加旅游团等选择。建议根据您的具体行程和预算选择合适的交通方式。提前规划路线可以节省时间和精力。",
       "门票": "不同景点的门票价格和购买方式各不相同。一般来说，许多热门景点都支持在线预订门票，这样可以避免排队并可能获得折扣。学生、老年人和儿童通常有优惠票价。建议在官方网站查询最新的门票信息。",
       "住宿": "住宿选择多样，从经济型旅馆到豪华酒店不等。建议根据预算、位置和个人喜好选择合适的住宿。旅游旺季最好提前预订。靠近主要景点的住宿通常价格较高但交通便利。",
-      "美食": "各地都有其特色美食，品尝当地美食是了解文化的重要部分。建议尝试当地特色菜肴，可以通过旅游指南、在线评论或向当地人询问获得推荐。注意食品安全和个人饮食习惯。"
+      "美食": "各地都有其特色美食，品尝当地美食是了解文化的重要部分。建议尝试当地特色菜肴，可以通过旅游指南、在线评论或向当地人询问获得推荐。注意食品安全和个人饮食习惯。",
+      "好玩": "这个景点非常有趣，无论是历史、文化还是自然风光，都能带来独特的体验。强烈推荐亲自去感受一下！",
+      "值得去": "绝对值得一去！每个景点都有其独特的魅力和故事，亲身体验会有不一样的收获。",
+      "推荐": "非常推荐！无论是和家人、朋友还是独自旅行，这里都能留下美好回忆。"
     },
     "machu-picchu": {
       "历史": "马丘比丘建于15世纪，是印加帝国最著名的遗址之一。它由印加皇帝帕查库特克下令建造，作为皇家庄园和宗教圣地。这座古城在西班牙征服时期被遗弃，直到1911年才被美国探险家海勒姆·宾厄姆重新发现。马丘比丘的建造展现了印加人卓越的工程技术和天文知识，其建筑布局与天文现象完美对应。",
@@ -122,7 +125,9 @@ const qaDatabase: LanguageQA = {
       "transportation": "For transportation, options typically include public transit (subway, buses), taxis, car rentals, or joining tour groups. It's recommended to choose suitable transportation based on your specific itinerary and budget. Planning routes in advance can save time and energy.",
       "tickets": "Ticket prices and purchasing methods vary for different attractions. Generally, many popular sites support online ticket booking, which can help avoid queues and possibly get discounts. Students, seniors, and children usually have preferential ticket prices. It's advisable to check the latest ticket information on official websites.",
       "accommodation": "Accommodation options range from budget hostels to luxury hotels. It's recommended to choose suitable accommodation based on budget, location, and personal preferences. Booking in advance is advisable during peak tourist seasons. Accommodations close to major attractions are usually more expensive but offer convenient transportation.",
-      "food": "Each place has its unique cuisine, and tasting local food is an important part of understanding the culture. It's recommended to try local specialties, which can be found through travel guides, online reviews, or by asking locals. Pay attention to food safety and personal dietary habits."
+      "food": "Each place has its unique cuisine, and tasting local food is an important part of understanding the culture. It's recommended to try local specialties, which can be found through travel guides, online reviews, or by asking locals. Pay attention to food safety and personal dietary habits.",
+      "worth visiting": "This attraction is definitely worth visiting! Whether for its history, culture, or scenery, you'll have a unique and memorable experience.",
+      "recommend": "Highly recommended! Every landmark has its own charm and story—seeing it in person is always rewarding."
     },
     "machu-picchu": {
       "history": "Machu Picchu is an ancient Inca city built in the 15th century, located on a mountain ridge in the Andes of Peru at an elevation of 2,430 meters. It was rediscovered by American explorer Hiram Bingham in 1911, having been largely unknown to the outside world before then. Machu Picchu was likely built as a royal estate for the Inca emperor Pachacuti around 1450, but was abandoned after the Spanish conquest in 1572. Due to its hidden location, the Spanish conquerors never discovered Machu Picchu, making it one of the few well-preserved Inca sites.",
@@ -214,7 +219,7 @@ const mockResponses = {
       "This ancient city stands as a testament to the glory of the Inca civilization, with its precise astronomical layout and harmony with nature. Despite the destruction of Inca civilization by Spanish conquerors, Machu Picchu was preserved due to its hidden location, providing a precious window into Inca culture."
     ],
     "taj-mahal": [
-      "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned by Mughal Emperor Shah Jahan in 1632 to house the tomb of his favorite wife, Mumtaz Mahal. Construction of the Taj Mahal began in 1639 and was completed in 1653. The Taj Mahal is considered one of the finest examples of Mughal architecture and is widely recognized as 'the jewel of Muslim art in India' and 'the grand mausoleum of Agra'.",
+      "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned by Mughal Emperor Shah Jahan in 1631 to house the tomb of his favorite wife, Mumtaz Mahal. Construction of the Taj Mahal began in 1639 and was completed in 1653. The Taj Mahal is considered one of the finest examples of Mughal architecture and is widely recognized as 'the jewel of Muslim art in India' and 'the grand mausoleum of Agra'.",
       "The Taj Mahal is a large mausoleum consisting of a main central dome, surrounded by four smaller domes. The entire structure is covered in intricate, white marble inlay work. The mausoleum is surrounded by a high, white marble wall with four corner towers. The gateways are also in white marble. The Taj Mahal is a perfect example of Mughal architecture, with its symmetry, and its use of white marble, precious stones, and precious metals.",
       "The Taj Mahal is open from sunrise to sunset, but the best time to visit is from 6 AM to 10 AM and from 5 PM to 9 PM. The Taj Mahal is closed on Fridays. The best time to visit is in the early morning or late afternoon when the light is soft and the colors are more vibrant. The Taj Mahal is also illuminated at night, which is a sight to behold.",
       "Foreign tourists pay 1100 rupees (approximately $15) for entry, while Indian citizens pay 50 rupees. Entry to the mausoleum is free for children under 15 years of age. Photography inside the Taj Mahal is allowed, but flash photography is not permitted. Photography outside the mausoleum is allowed, but no drones are allowed. Photography is not allowed inside the mausoleum during prayer times."
