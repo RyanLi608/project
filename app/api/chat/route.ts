@@ -28,13 +28,25 @@ const qaDatabase: LanguageQA = {
       "历史": "长城的历史可以追溯到公元前7世纪的春秋战国时期，当时各国为了防御外敌入侵修建了各自的城墙。秦朝统一中国后，秦始皇连接并加固了北方的城墙，形成了第一版统一的长城。现在我们看到的大部分长城是明朝时期（1368-1644年）修建的，目的是防御北方游牧民族的入侵。",
       "建筑特点": "长城的建筑特点包括城墙、敌楼、烽火台和关隘等多种防御设施。墙体宽度通常在4-5米之间，高度为5-8米，由石块、砖块和夯土构成。长城因地制宜，根据地形特点采用不同的建筑方法，有的依山而建，有的跨越峡谷。砖石结构与当地自然环境完美融合，展示了古代建筑师的智慧。",
       "最佳时间": "参观长城的最佳时间是春季（4-5月）和秋季（9-10月），这时候天气宜人，风景优美。春季可以看到山花烂漫，秋季则有红叶点缀。夏季（6-8月）气温较高且游客众多，冬季（11-2月）则寒冷但有雪景。建议避开中国的法定假日如国庆节、春节等，那时游客特别多。",
-      "好玩": "长城绝对值得一游！作为世界七大奇迹之一，它不仅有着壮观的历史和建筑价值，还能让您领略到令人惊叹的自然风景。登上长城，远眺连绵起伏的山脉和蜿蜒曲折的城墙，那种感受是无与伦比的。虽然爬长城可能会有些体力消耗，但当您到达高处欣赏到那壮丽的全景时，所有的疲惫都会烟消云散。每个季节的长城都有不同的美，春季有野花盛开，秋季有红叶满山，冬季则有银装素裹的壮观景象。无论是摄影爱好者还是历史文化爱好者，长城都能带给您难忘的体验。"
+      "交通": "前往长城有多种交通方式：1) 公共交通：从北京市区可以乘坐877路公交车到八达岭，或乘坐916路到慕田峪；2) 旅游大巴：各大旅行社都有长城一日游项目；3) 自驾：可以导航到各个长城景区，都有停车场；4) 包车：适合多人出行，可以灵活安排时间。",
+      "门票": "不同段落的长城门票价格不同：八达岭约40元，慕田峪约45元，金山岭约50元，司马台约40元。学生、老人和儿童有优惠票价。建议提前在网上预订门票，可以避免排队。",
+      "注意事项": "1) 穿着舒适的运动鞋，避免穿高跟鞋或新鞋；2) 带足饮用水和简单零食；3) 夏季注意防晒，冬季注意保暖；4) 准备相机记录美景；5) 遵守景区规定，不要攀爬危险区域；6) 注意保护环境，不要乱扔垃圾。",
+      "特色活动": "1) 八达岭：可以体验滑道下山；2) 慕田峪：有缆车和滑道；3) 司马台：可以夜游长城，欣赏夜景；4) 金山岭：适合摄影爱好者，日出日落景色壮观。",
+      "周边景点": "长城周边有许多值得游览的景点：1) 八达岭附近有野生动物园；2) 慕田峪附近有红螺寺；3) 司马台附近有古北水镇；4) 金山岭附近有承德避暑山庄。",
+      "文化意义": "长城不仅是中国古代伟大的防御工程，也是中华民族坚韧不拔精神的象征。它见证了中国的历史变迁，是中华文明的重要标志。1987年，长城被联合国教科文组织列入《世界文化遗产名录》。",
+      "有趣事实": "1) 长城从太空中用肉眼是看不见的；2) 一些段落使用的砂浆中包含糯米，这有助于其耐久性；3) 长城不是一条连续的墙，而是由多个段落组成；4) 建造长城时使用了大量的人力，据说有超过100万人参与建设；5) 长城的建造持续了2000多年，跨越多个朝代。"
     },
     "eiffel-tower": {
-      "票价": "埃菲尔铁塔的票价根据参观层数和上塔方式不同而异：步行至二层票价约为11欧元，电梯至二层约为17欧元，电梯至顶层约为26欧元。儿童、青少年和残障人士有优惠票价。建议提前在官网购票以避免排队。",
       "历史": "埃菲尔铁塔由工程师古斯塔夫·埃菲尔设计，于1887年开始建造，1889年完工，作为1889年世界博览会的入口拱门，同时庆祝法国大革命100周年。铁塔最初只是临时建筑，计划存在20年后拆除，但因其对无线电通信的价值而得以保留。在建造时，许多艺术家和知识分子抗议这座'怪物'会破坏巴黎的美感，而如今它已成为巴黎的象征。",
-      "最佳参观时间": "参观埃菲尔铁塔的最佳时间是春季（4-6月）和秋季（9-10月），这时游客相对较少，天气也比较宜人。晚上参观可以欣赏到巴黎的夜景和铁塔每小时的灯光秀。如果想避开人群，建议早上开门时或晚上9点后前往。周末和夏季是最繁忙的时段。",
-      "高度": "埃菲尔铁塔高324米（包括天线），是巴黎最高的建筑物。它有三层对游客开放：第一层在57米高处，第二层在115米高处，顶层在276米高处。1889年建成时，它是世界上最高的建筑物，直到1930年纽约的克莱斯勒大厦建成才失去这一称号。"
+      "建筑特点": "埃菲尔铁塔高324米，由18,038块金属部件和250万个铆钉组成，总重量约10,100吨。它的设计充分考虑了风力阻力，使用开放式结构减少风阻。铁塔分为三层对公众开放：第一层和第二层有餐厅，顶层有观景台提供巴黎全景。铁塔使用普德尔钢材料，每七年重漆一次以防锈蚀。夏季高温时，铁塔会因热膨胀而增高约15厘米。",
+      "最佳参观时间": "参观埃菲尔铁塔的最佳时间是清晨（9点前）或傍晚（日落时分），这时游客较少且光线最佳。夏季（6-8月）游客最多，建议提前在网上预订门票。冬季（11-2月）游客较少，但天气较冷。铁塔全年开放，但开放时间随季节变化，建议提前查看官网。",
+      "交通": "前往埃菲尔铁塔有多种方式：1) 地铁：6号线或9号线到Trocadéro站；2) 公交车：42、69、82、87路；3) 观光巴士：巴黎观光巴士有专门站点；4) 出租车：可以直接到达铁塔附近；5) 步行：从塞纳河畔或香榭丽舍大街步行也很方便。",
+      "门票": "埃菲尔铁塔门票价格：电梯到顶层约26欧元，电梯到二层约17欧元，楼梯到二层约10欧元。学生、老人和儿童有优惠票价。建议提前在网上预订门票，可以避免排队。门票包含参观所有开放楼层。",
+      "注意事项": "1) 提前在网上预订门票可以节省排队时间；2) 参观高峰期（夏季和节假日）建议提前2-3天订票；3) 顶层观景台在恶劣天气可能关闭；4) 安检严格，大件行李需要寄存；5) 铁塔上有餐厅和纪念品商店；6) 建议携带相机，但注意保护设备。",
+      "特色活动": "1) 在铁塔餐厅用餐：58 Tour Eiffel（一层）和Le Jules Verne（二层）提供精致法餐；2) 香槟吧：顶层有香槟吧，可以边品酒边欣赏巴黎全景；3) 灯光秀：每晚整点有5分钟的灯光表演；4) 季节性活动：夏季有户外音乐会，冬季有溜冰场。",
+      "周边景点": "埃菲尔铁塔周边有许多著名景点：1) 战神广场：铁塔前的绿地公园；2) 塞纳河：可以乘坐游船；3) 夏乐宫：可以拍摄铁塔全景；4) 荣军院：拿破仑陵墓所在地；5) 奥赛博物馆：印象派艺术收藏。",
+      "文化意义": "埃菲尔铁塔是法国最重要的文化象征之一，代表着工业革命时期的工程成就和艺术创新。它出现在无数电影、绘画和文学作品中，成为全球文化中的标志性形象。铁塔每年吸引约700万游客，是世界上参观人数最多的收费景点之一。",
+      "有趣事实": "1) 铁塔每七年需要重新粉刷一次，使用约60吨油漆；2) 铁塔在强风中最多可以摇摆15厘米；3) 铁塔在建造时是当时世界上最高的建筑物；4) 铁塔的设计考虑了热胀冷缩，夏季会增高约15厘米；5) 铁塔的建造只用了2年2个月零5天，比预期提前完成。"
     },
     "default": {
       "天气": "目前没有实时天气数据，但一般来说，参观景点最好查看当地的天气预报，并做好相应准备。春秋季节通常天气较为宜人，夏季可能较热，冬季则可能较冷。建议携带适合季节的衣物和防晒、防雨装备。",
@@ -44,19 +56,28 @@ const qaDatabase: LanguageQA = {
       "美食": "各地都有其特色美食，品尝当地美食是了解文化的重要部分。建议尝试当地特色菜肴，可以通过旅游指南、在线评论或向当地人询问获得推荐。注意食品安全和个人饮食习惯。"
     },
     "machu-picchu": {
-      "历史": "马丘比丘是15世纪修建的印加帝国古城，位于秘鲁安第斯山脉的山脊上，海拔2,430米。它于1911年被美国探险家海勒姆·宾厄姆重新发现，此前这座城市对外界几乎完全未知。马丘比丘可能是为印加皇帝帕查库蒂建造的皇家庄园，于1450年左右建成，但在1572年西班牙征服者到来后，这座城市被遗弃。由于其隐蔽的位置，西班牙征服者从未发现马丘比丘，这使它成为少数保存完好的印加遗址之一。",
-      "文化意义": "马丘比丘被认为是印加文明最具象征性的杰作，展示了他们在城市规划、建筑和宗教仪式方面的卓越成就。它在1983年被联合国教科文组织列为世界文化遗产，2007年被评选为世界新七大奇迹之一。这座城市体现了印加人与自然和谐共存的理念，建筑与周围的山脉完美融合。马丘比丘的设计考虑了天文因素，某些建筑物在特定日期与太阳位置精确对齐。",
-      "建筑特点": "马丘比丘的建筑采用了印加特有的'干砌石'技术，石块之间没有使用任何砂浆，却能精确契合。城市分为农业区和城市区，包含约200个建筑，如宫殿、神庙、住宅和储藏室。其中最著名的建筑包括太阳神庙（Intihuatana）、三窗神庙和圣地。印加人在陡峭的山坡上建造了梯田系统，用于农业生产。整个城市设计还包括复杂的水利系统，即使在旱季也能提供充足的水源。",
-      "最佳参观时间": "参观马丘比丘的最佳时间是干季（5月至10月），此时天气晴朗，降雨较少。6月和7月是旅游高峰期，游客最多。如果想避开人群，建议在5月初或10月底参观。雨季（11月至4月）景色更为翠绿，但有雨天的可能性较高。无论何时参观，清晨或傍晚时分的景色最为壮观，光线也更适合拍照。",
-      "交通方式": "前往马丘比丘通常从库斯科开始。可以选择搭乘火车到达阿瓜斯卡连特斯镇（马丘比丘山脚下的小镇），然后乘坐巴士上山；或者参加徒步旅行，如著名的印加古道（需要提前数月预订）。印加古道全程约43公里，通常需要4天完成。无论选择哪种方式，都需要提前购买马丘比丘的入场券，因为每天的参观人数有限制。",
-      "推荐打卡点": "马丘比丘的必打卡景点包括：1) 守望者小屋（Guardhouse），这里可以俯瞰整个遗址，是拍摄经典照片的最佳位置；2) 太阳神庙（Intihuatana），这块垂直的石头被认为是古印加人的天文观测仪；3) 三窗神庙（Temple of Three Windows），其独特的梯形窗户朝向东方，据说代表印加人的起源地；4) 圣地（Sacred Plaza），城市的宗教中心；5) 瓦纳皮丘山（Huayna Picchu），爬上这座山可以从另一个角度俯瞰马丘比丘，但需要额外的门票；6) 印加桥，展示了印加人精湛的工程技术。"
+      "历史": "马丘比丘建于15世纪，是印加帝国最著名的遗址之一。它由印加皇帝帕查库特克下令建造，作为皇家庄园和宗教圣地。这座古城在西班牙征服时期被遗弃，直到1911年才被美国探险家海勒姆·宾厄姆重新发现。马丘比丘的建造展现了印加人卓越的工程技术和天文知识，其建筑布局与天文现象完美对应。",
+      "建筑特点": "马丘比丘建在海拔2,430米的山脊上，占地约13平方公里。遗址分为农业区、城市区和宗教区，包含约200座建筑。建筑采用印加特有的巨石建造技术，石块之间完美契合，无需使用灰浆。最著名的建筑包括太阳神庙、三窗神庙和主神庙。整个遗址的排水系统设计精巧，至今仍在发挥作用。",
+      "最佳参观时间": "参观马丘比丘的最佳时间是5-9月的旱季，这时天气晴朗，视野最佳。建议清晨（6-7点）到达，可以避开游客高峰，欣赏日出。雨季（10-4月）虽然游客较少，但天气多变，山路湿滑。每天限流2,500名游客，建议提前3-6个月预订门票。",
+      "交通": "前往马丘比丘的主要方式：1) 从库斯科乘坐火车到阿瓜斯卡连特斯，再转乘巴士；2) 徒步印加古道（需要4天）；3) 从库斯科包车到奥扬泰坦博，再转乘火车。建议提前预订交通票，特别是旺季。从阿瓜斯卡连特斯到马丘比丘的巴士每15分钟一班，车程约30分钟。",
+      "门票": "马丘比丘门票价格：成人约152索尔（约40美元），学生和儿童有优惠。门票分为不同时段，建议选择清晨时段。如果计划徒步印加古道，需要额外购买徒步许可证。门票必须提前在网上预订，现场不售票。",
+      "注意事项": "1) 必须提前在网上预订门票；2) 建议聘请导游讲解；3) 准备防晒、防雨装备；4) 穿着舒适的登山鞋；5) 携带足够的水和零食；6) 注意高原反应，建议提前适应海拔；7) 遵守遗址保护规定，不要触摸或攀爬建筑。",
+      "特色活动": "1) 观看日出：清晨在太阳神庙欣赏日出；2) 徒步探索：可以徒步到太阳门或印加桥；3) 摄影：不同时段的光线都很适合拍照；4) 参观博物馆：了解马丘比丘的历史和文化；5) 体验当地文化：在阿瓜斯卡连特斯体验传统市场。",
+      "周边景点": "马丘比丘周边值得游览的地方：1) 库斯科古城：印加帝国古都；2) 圣谷：印加农业遗址；3) 奥扬泰坦博：保存完好的印加小镇；4) 彩虹山：彩色山脉景观；5) 马拉斯盐田：千年盐田遗址。",
+      "文化意义": "马丘比丘是印加文明的杰出代表，展现了印加人在建筑、工程和天文方面的卓越成就。它被联合国教科文组织列为世界文化遗产，是南美洲最重要的考古遗址之一。马丘比丘的建筑布局反映了印加人对宇宙的认知，是研究印加文明的重要窗口。",
+      "有趣事实": "1) 马丘比丘的建造没有使用轮子或金属工具；2) 遗址的石头建筑可以抵抗地震；3) 马丘比丘的梯田系统可以种植多种作物；4) 遗址的排水系统至今仍在工作；5) 马丘比丘的建造时间比埃及金字塔晚，但同样令人惊叹。"
     },
     "taj-mahal": {
-      "历史": "泰姬陵是印度著名的象牙白大理石陵墓，位于北印度的阿格拉市。它由莫卧儿帝国的第五位皇帝沙贾汗于1631年至1653年间建造，是为了纪念他深爱的第三任妻子慕塔兹·玛哈尔（在生产第14个孩子时去世）。泰姬陵是世界文化遗产，也是世界新七大奇迹之一，被公认为是莫卧儿建筑的杰作，融合了波斯、土耳其、印度和伊斯兰建筑风格。",
-      "建筑特点": "泰姬陵是一座由白色大理石建造的陵墓，坐落在四分之一平方公里的园林之中。建筑主体是一个对称的建筑，中央有一个巨大的圆顶（高约73米），四角各有一座小尖塔。整个建筑物矗立在一个高台上，前方是一个反映泰姬陵倒影的长方形水池。大理石表面镶嵌有数千颗宝石，形成精美的花卉和几何图案。建筑内部有精细的雕刻和镶嵌工艺，展示了当时最高水平的工艺技术。",
-      "最佳参观时间": "参观泰姬陵的最佳时间是10月至3月期间，这时天气凉爽干燥。特别推荐在满月之夜或黎明时分参观，此时的光线会使白色大理石呈现出不同的色彩变化。避开星期五参观，因为这天泰姬陵对公众关闭（仅对穆斯林祈祷者开放）。旺季（11月至2月）游客较多，建议提前购票并早到以避开人群。",
-      "门票": "外国游客的泰姬陵门票价格约为1100卢比（约15美元），印度公民仅需50卢比。参观陵墓内部需要额外付费。门票可以在入口处购买，也可以在官方网站上在线预订。购票时需要出示身份证件。为避免排队，建议提前在线购票或在较早时间到达。",
-      "有趣事实": "泰姬陵的建造耗时22年，动用了2万名工人和1000头大象。建筑材料来自印度和亚洲各地，包括从中国、阿富汗和斯里兰卡运来的宝石。据传说，沙贾汗计划在亚穆纳河对岸建造一座黑色大理石陵墓作为自己的陵墓，但这个计划因他被儿子废黜而未能实现。泰姬陵的设计师仍然存在争议，可能是乌斯塔德·艾哈迈德·拉霍里或波斯建筑师乌斯塔德·伊萨。"
+      "历史": "泰姬陵建于1632年至1653年，是莫卧儿皇帝沙贾汗为纪念其爱妻穆塔兹·玛哈尔而建造的陵墓。这座建筑由来自印度、波斯、土耳其和欧洲的2万多名工匠共同建造，使用了来自印度和亚洲各地的珍贵材料。泰姬陵的建造展现了莫卧儿王朝的鼎盛时期，融合了伊斯兰、波斯和印度建筑风格。",
+      "建筑特点": "泰姬陵主体建筑高73米，由白色大理石建造，镶嵌着28种宝石和半宝石。建筑群包括主陵墓、清真寺、招待所和花园，占地约17公顷。陵墓的四个立面完全对称，每个立面都有巨大的拱门。建筑表面装饰着精美的几何图案和花卉纹样，展现了精湛的雕刻技艺。",
+      "最佳参观时间": "参观泰姬陵的最佳时间是10月至3月，这时天气凉爽宜人。建议在日出时分（6:00-7:00）或日落时分（17:00-18:00）参观，这时光线最适合拍照，游客也较少。周五不对外开放，因为这是穆斯林祈祷日。",
+      "交通": "前往泰姬陵的主要方式：1) 从德里乘坐火车到阿格拉（约2-3小时）；2) 从德里乘坐高速公路巴士（约4-5小时）；3) 包车或参加旅行团；4) 从阿格拉机场乘坐出租车（约30分钟）。从阿格拉市区到泰姬陵可以乘坐电动三轮车或出租车。",
+      "门票": "泰姬陵门票价格：外国游客约1,100卢比（约15美元），印度游客约50卢比。门票包含参观主陵墓和周边建筑。建议提前在网上预订门票，可以避免排队。门票价格在日出和日落时段会更高。",
+      "注意事项": "1) 进入陵墓需要脱鞋或穿鞋套；2) 禁止携带食物、饮料和大型相机；3) 需要遵守着装要求，建议穿着得体；4) 安检严格，大件行李需要寄存；5) 建议聘请导游讲解；6) 注意保护环境，不要乱扔垃圾。",
+      "特色活动": "1) 观看日出：清晨在泰姬陵欣赏日出；2) 月光游览：在满月之夜参观（需要提前预订）；3) 摄影：不同时段的光线都很适合拍照；4) 参观博物馆：了解泰姬陵的历史；5) 体验当地文化：在阿格拉体验传统市场。",
+      "周边景点": "泰姬陵周边值得游览的地方：1) 阿格拉堡：莫卧儿王朝的皇宫；2) 法塔赫布尔西格里：莫卧儿古城；3) 伊蒂马德-乌德-道拉陵：'小泰姬陵'；4) 阿克巴陵：莫卧儿皇帝陵墓；5) 阿格拉市场：传统手工艺品市场。",
+      "文化意义": "泰姬陵是印度最著名的建筑之一，被誉为'世界七大奇迹'之一。它象征着永恒的爱情，展现了莫卧儿王朝的艺术成就。泰姬陵的建筑风格影响了印度次大陆的许多建筑，是印度伊斯兰建筑的典范。",
+      "有趣事实": "1) 泰姬陵的白色大理石会随光线变化呈现不同颜色；2) 陵墓的四个尖塔略微向外倾斜，以防地震时倒塌；3) 建造泰姬陵花费了约3,200万卢比；4) 陵墓的装饰使用了来自世界各地的珍贵宝石；5) 泰姬陵每年吸引约800万游客。"
     }
   },
   "English": {
@@ -64,9 +85,15 @@ const qaDatabase: LanguageQA = {
       "best section": "Badaling is the most popular section with excellent facilities and easy access; Mutianyu has beautiful scenery with fewer crowds; Jinshanling is well-preserved with spectacular views; Simatai offers night tours to enjoy evening views. Depending on your fitness level and time, Badaling or Mutianyu are recommended for first-time visitors.",
       "length": "The Great Wall stretches over 21,000 kilometers (13,000 miles) across northern China, spanning provinces including Beijing, Hebei, Tianjin, Shanxi, Shaanxi, Inner Mongolia, Gansu, Ningxia, Liaoning, and Jilin. It is the longest man-made structure in the world.",
       "history": "The history of the Great Wall dates back to the 7th century BC during the Spring and Autumn and Warring States periods, when various states built walls for defense. After unifying China, Emperor Qin Shi Huang connected and strengthened northern walls, forming the first unified Great Wall. Most of what we see today was built during the Ming Dynasty (1368-1644) to defend against northern nomadic tribes.",
-      "architecture": "The architectural features of the Great Wall include various defensive facilities such as wall structures, enemy towers, beacon towers, and passes. The wall typically measures 4-5 meters in width and 5-8 meters in height, constructed with stones, bricks, and rammed earth. The Great Wall adapts to local conditions, using different construction methods based on terrain features - some sections follow mountain ridges while others cross valleys.",
-      "best time": "The best time to visit the Great Wall is during spring (April-May) and autumn (September-October) when the weather is pleasant and the scenery is beautiful. Spring offers blooming flowers while autumn provides colorful foliage. Summer (June-August) can be hot with more tourists, and winter (November-February) is cold but offers snow views. Avoid Chinese national holidays like National Day and Spring Festival when it gets extremely crowded.",
-      "worth visiting": "The Great Wall is absolutely worth visiting! As one of the Seven Wonders of the World, it offers not only impressive historical and architectural value but also breathtaking natural scenery. Standing on the Great Wall and looking out at the undulating mountains and winding fortifications is an incomparable experience. While climbing the Wall may require some physical effort, when you reach the higher sections and take in the magnificent panorama, all fatigue disappears. The Great Wall has different beauty in each season - wildflowers in spring, red leaves covering the mountains in autumn, and snow-covered spectacular views in winter. Whether you're a photography enthusiast or a history and culture lover, the Great Wall will give you an unforgettable experience."
+      "architecture": "The Great Wall features various defensive structures including walls, watchtowers, beacon towers, and passes. The wall typically measures 4-5 meters in width and 5-8 meters in height, constructed with stones, bricks, and rammed earth. The wall adapts to local terrain, with sections built along mountain ridges and across valleys, showcasing ancient Chinese architectural wisdom.",
+      "best time": "The best time to visit is spring (April-May) and autumn (September-October), when the weather is pleasant and the scenery is beautiful. Spring offers blooming wildflowers, while autumn provides colorful foliage. Summer (June-August) can be hot and crowded, while winter (November-February) is cold but offers spectacular snow views. Avoid Chinese national holidays like National Day and Spring Festival.",
+      "transportation": "There are several ways to reach the Great Wall: 1) Public transport: Take bus 877 to Badaling or 916 to Mutianyu from Beijing; 2) Tour buses: Many travel agencies offer day trips; 3) Self-driving: Navigate to any section, all have parking facilities; 4) Private car: Ideal for groups, offering flexible timing.",
+      "tickets": "Ticket prices vary by section: Badaling around ¥40, Mutianyu ¥45, Jinshanling ¥50, Simatai ¥40. Discounts available for students, seniors, and children. Advance online booking recommended to avoid queues.",
+      "tips": "1) Wear comfortable sports shoes, avoid high heels or new shoes; 2) Bring sufficient water and snacks; 3) Use sun protection in summer, warm clothing in winter; 4) Bring a camera for photos; 5) Follow safety rules, avoid dangerous areas; 6) Protect the environment, no littering.",
+      "activities": "1) Badaling: Experience the toboggan slide down; 2) Mutianyu: Cable car and slide available; 3) Simatai: Night tours available; 4) Jinshanling: Perfect for photography, especially at sunrise and sunset.",
+      "nearby attractions": "Many attractions near the Great Wall: 1) Badaling Wildlife World near Badaling; 2) Hongluo Temple near Mutianyu; 3) Gubei Water Town near Simatai; 4) Chengde Mountain Resort near Jinshanling.",
+      "cultural significance": "The Great Wall is not only an ancient defensive project but also a symbol of Chinese perseverance. It has witnessed China's historical changes and is an important symbol of Chinese civilization. In 1987, it was listed as a UNESCO World Heritage Site.",
+      "fun facts": "1) The Great Wall is not visible from space with the naked eye; 2) Some sections used sticky rice in the mortar for durability; 3) The wall is not continuous but consists of multiple sections; 4) Over 1 million people were involved in its construction; 5) Construction spanned over 2,000 years across multiple dynasties."
     },
     "eiffel-tower": {
       "ticket price": "Eiffel Tower ticket prices vary depending on the level you wish to visit and how you ascend: walking to the 2nd floor costs about €11, taking the elevator to the 2nd floor costs about €17, and going to the top by elevator costs about €26. Discounted rates are available for children, youth, and people with disabilities. It's recommended to purchase tickets online in advance to avoid queues.",
@@ -90,7 +117,7 @@ const qaDatabase: LanguageQA = {
       "recommended spots": "Must-visit spots in Machu Picchu include: 1) The Guardhouse, which offers a panoramic view of the entire site and is the best location for taking classic photos; 2) Intihuatana (Hitching Post of the Sun), a vertical stone believed to be an astronomical observatory of the ancient Incas; 3) Temple of Three Windows, with its unique trapezoidal windows facing east, said to represent the Inca's place of origin; 4) Sacred Plaza, the religious center of the city; 5) Huayna Picchu Mountain, which you can climb for an alternative view of Machu Picchu (requires an additional ticket); 6) The Inca Bridge, showcasing the Incas' engineering prowess."
     },
     "taj-mahal": {
-      "history": "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned by Mughal Emperor Shah Jahan in 1632 to house the tomb of his favorite wife, Mumtaz Mahal. Construction of the Taj Mahal began in 1639 and was completed in 1653. The Taj Mahal is considered one of the finest examples of Mughal architecture and is widely recognized as 'the jewel of Muslim art in India' and 'the grand mausoleum of Agra'.",
+      "history": "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned by Mughal Emperor Shah Jahan in 1631 to house the tomb of his favorite wife, Mumtaz Mahal. Construction of the Taj Mahal began in 1639 and was completed in 1653. The Taj Mahal is considered one of the finest examples of Mughal architecture and is widely recognized as 'the jewel of Muslim art in India' and 'the grand mausoleum of Agra'.",
       "architecture": "The Taj Mahal is a large mausoleum consisting of a main central dome, surrounded by four smaller domes. The entire structure is covered in intricate, white marble inlay work. The mausoleum is surrounded by a high, white marble wall with four corner towers. The gateways are also in white marble. The Taj Mahal is a perfect example of Mughal architecture, with its symmetry, and its use of white marble, precious stones, and precious metals.",
       "best time to visit": "The Taj Mahal is open from sunrise to sunset, but the best time to visit is from 6 AM to 10 AM and from 5 PM to 9 PM. The Taj Mahal is closed on Fridays. The best time to visit is in the early morning or late afternoon when the light is soft and the colors are more vibrant. The Taj Mahal is also illuminated at night, which is a sight to behold.",
       "tickets": "Foreign tourists pay 1100 rupees (approximately $15) for entry, while Indian citizens pay 50 rupees. Entry to the mausoleum is free for children under 15 years of age. Photography inside the Taj Mahal is allowed, but flash photography is not permitted. Photography outside the mausoleum is allowed, but no drones are allowed. Photography is not allowed inside the mausoleum during prayer times."
@@ -724,7 +751,7 @@ function generateSpecificAnswer(keywords: string[], questionType: string, landma
     
     if (questionType === "when" && hasAnyKeyword(keywords, ["time", "时间", "季节", "season", "最佳", "best"])) {
       return isChineseUI 
-        ? "参观埃菲尔铁塔的最佳时间是春季(4-6月)和秋季(9-10月)，此时天气宜人且游客相对较少。铁塔的开放时间通常是早上9:30至晚上11:45，但夏季会延长至午夜12:45。要想避开人群，建议在开门时或晚上9点后前往。日落时分是最受欢迎的时段，可以欣赏巴黎的黄昏美景和铁塔亮灯。每个整点，铁塔会有五分钟的闪烁灯光秀，非常壮观，尤其是在夜晚。"
+        ? "参观埃菲尔铁塔的最佳时间是清晨（9点前）或傍晚（日落时分），这时游客较少且光线最佳。夏季（6-8月）游客最多，建议提前在网上预订门票。冬季（11-2月）游客较少，但天气较冷。铁塔全年开放，但开放时间随季节变化，建议提前查看官网。"
         : "The best time to visit the Eiffel Tower is during spring (April-June) and fall (September-October) when the weather is pleasant and there are fewer tourists. The tower is typically open from 9:30 AM to 11:45 PM, with extended hours until 12:45 AM in summer. To avoid crowds, it's best to go right when it opens or after 9 PM. Sunset is the most popular time as you can enjoy Paris's twilight views and see the tower illumination. Every hour on the hour after sunset, the tower features a five-minute sparkling light show that is spectacular, especially at night.";
     }
   }
