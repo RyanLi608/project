@@ -37,7 +37,11 @@ const qaDatabase: LanguageQA = {
       "有趣事实": "1) 长城从太空中用肉眼是看不见的；2) 一些段落使用的砂浆中包含糯米，这有助于其耐久性；3) 长城不是一条连续的墙，而是由多个段落组成；4) 建造长城时使用了大量的人力，据说有超过100万人参与建设；5) 长城的建造持续了2000多年，跨越多个朝代。",
       "好玩": "长城绝对值得一游！不仅能感受壮丽的历史建筑，还能欣赏到壮观的自然风光。无论是徒步、摄影还是了解中国文化，都会有非常棒的体验。登上长城，远眺群山，令人心旷神怡。",
       "值得去": "长城是中国历史和文化的象征，无论是本地游客还是外国朋友，都强烈推荐亲自体验一次。每一段长城都有独特的魅力，绝对不虚此行。",
-      "推荐": "非常推荐！长城不仅有丰富的历史故事，还有壮丽的风景，是亲子、朋友、情侣出游的绝佳选择。"
+      "推荐": "非常推荐！长城不仅有丰富的历史故事，还有壮丽的风景，是亲子、朋友、情侣出游的绝佳选择。",
+      "三日游": "长城及北京周边三日游建议：\n第1天：游览八达岭长城，下午参观明十三陵，晚上可体验北京烤鸭。\n第2天：游览慕田峪长城，顺路参观红螺寺或雁栖湖，晚上可在怀柔品尝农家菜。\n第3天：游览金山岭或司马台长城，体验原始风光，下午返回市区或前往古北水镇休闲。",
+      "旅行计划": "长城三天行程推荐：\nDay1：八达岭长城+明十三陵；\nDay2：慕田峪长城+红螺寺/雁栖湖；\nDay3：金山岭/司马台长城+古北水镇。每段长城风格不同，建议根据体力和兴趣选择。",
+      "itinerary": "Great Wall & Beijing 3-day itinerary:\nDay 1: Visit Badaling Great Wall, Ming Tombs, and enjoy Peking duck in the evening.\nDay 2: Explore Mutianyu Great Wall, Hongluo Temple or Yanqi Lake, and have local cuisine in Huairou.\nDay 3: Hike Jinshanling or Simatai Great Wall, experience the wild scenery, and relax at Gubei Water Town.",
+      "plan": "3-day Great Wall trip suggestion:\nDay 1: Badaling + Ming Tombs;\nDay 2: Mutianyu + Hongluo Temple/Yanqi Lake;\nDay 3: Jinshanling/Simatai + Gubei Water Town. Choose sections based on your interests and fitness."
     },
     "eiffel-tower": {
       "历史": "埃菲尔铁塔由工程师古斯塔夫·埃菲尔设计，于1887年开始建造，1889年完工，作为1889年世界博览会的入口拱门，同时庆祝法国大革命100周年。铁塔最初只是临时建筑，计划存在20年后拆除，但因其对无线电通信的价值而得以保留。在建造时，许多艺术家和知识分子抗议这座'怪物'会破坏巴黎的美感，而如今它已成为巴黎的象征。",
@@ -52,7 +56,11 @@ const qaDatabase: LanguageQA = {
       "有趣事实": "1) 铁塔每七年需要重新粉刷一次，使用约60吨油漆；2) 铁塔在强风中最多可以摇摆15厘米；3) 铁塔在建造时是当时世界上最高的建筑物；4) 铁塔的设计考虑了热胀冷缩，夏季会增高约15厘米；5) 铁塔的建造只用了2年2个月零5天，比预期提前完成。",
       "好玩": "埃菲尔铁塔是巴黎最具标志性的景点，无论白天还是夜晚都非常值得一看。登塔俯瞰巴黎全景，体验浪漫氛围，是每个游客的必打卡之地。",
       "值得去": "强烈推荐参观埃菲尔铁塔！不仅能感受法国的浪漫，还能拍出美丽的照片。夜晚的灯光秀尤其令人难忘。",
-      "推荐": "无论是第一次来巴黎还是多次造访，埃菲尔铁塔都是必去之地。建议提前购票，体验登塔的乐趣。"
+      "推荐": "无论是第一次来巴黎还是多次造访，埃菲尔铁塔都是必去之地。建议提前购票，体验登塔的乐趣。",
+      "三日游": "巴黎三日游建议：\n第1天：参观埃菲尔铁塔、塞纳河游船、战神广场，晚上欣赏铁塔灯光秀。\n第2天：游览卢浮宫、协和广场、香榭丽舍大街、凯旋门。\n第3天：参观奥赛博物馆、圣心大教堂、蒙马特高地，体验巴黎咖啡馆文化。",
+      "旅行计划": "埃菲尔铁塔及巴黎三天行程推荐：\nDay1：埃菲尔铁塔+塞纳河游船+战神广场；\nDay2：卢浮宫+香榭丽舍大街+凯旋门；\nDay3：奥赛博物馆+蒙马特高地+圣心大教堂。",
+      "itinerary": "Paris 3-day itinerary:\nDay 1: Eiffel Tower, Seine River cruise, Champ de Mars, and enjoy the night light show.\nDay 2: Louvre Museum, Place de la Concorde, Champs-Élysées, Arc de Triomphe.\nDay 3: Orsay Museum, Montmartre, Sacré-Cœur, and Parisian café culture.",
+      "plan": "Eiffel Tower & Paris 3-day trip suggestion:\nDay 1: Eiffel Tower + Seine River + Champ de Mars;\nDay 2: Louvre + Champs-Élysées + Arc de Triomphe;\nDay 3: Orsay Museum + Montmartre + Sacré-Cœur."
     },
     "default": {
       "天气": "目前没有实时天气数据，但一般来说，参观景点最好查看当地的天气预报，并做好相应准备。春秋季节通常天气较为宜人，夏季可能较热，冬季则可能较冷。建议携带适合季节的衣物和防晒、防雨装备。",
@@ -62,7 +70,11 @@ const qaDatabase: LanguageQA = {
       "美食": "各地都有其特色美食，品尝当地美食是了解文化的重要部分。建议尝试当地特色菜肴，可以通过旅游指南、在线评论或向当地人询问获得推荐。注意食品安全和个人饮食习惯。",
       "好玩": "这个景点非常有趣，无论是历史、文化还是自然风光，都能带来独特的体验。强烈推荐亲自去感受一下！",
       "值得去": "绝对值得一去！每个景点都有其独特的魅力和故事，亲身体验会有不一样的收获。",
-      "推荐": "非常推荐！无论是和家人、朋友还是独自旅行，这里都能留下美好回忆。"
+      "推荐": "非常推荐！无论是和家人、朋友还是独自旅行，这里都能留下美好回忆。",
+      "三日游": "三天旅行建议：\n第1天：参观主要景点及周边博物馆，了解历史文化。\n第2天：体验当地特色美食和市场，参观自然风光或公园。\n第3天：参加特色活动或短途游，购买纪念品，享受休闲时光。",
+      "旅行计划": "三天行程推荐：\nDay1：核心景点+博物馆；\nDay2：美食+自然景观；\nDay3：特色活动+购物+休闲。可根据兴趣灵活调整。",
+      "itinerary": "3-day travel suggestion:\nDay 1: Visit main attractions and museums to learn about history and culture.\nDay 2: Experience local food and markets, visit natural scenery or parks.\nDay 3: Join special activities or short trips, shop for souvenirs, and enjoy leisure time.",
+      "plan": "3-day itinerary suggestion:\nDay 1: Core attractions + museums;\nDay 2: Food + nature;\nDay 3: Special activities + shopping + leisure. Adjust flexibly based on your interests."
     },
     "machu-picchu": {
       "历史": "马丘比丘建于15世纪，是印加帝国最著名的遗址之一。它由印加皇帝帕查库特克下令建造，作为皇家庄园和宗教圣地。这座古城在西班牙征服时期被遗弃，直到1911年才被美国探险家海勒姆·宾厄姆重新发现。马丘比丘的建造展现了印加人卓越的工程技术和天文知识，其建筑布局与天文现象完美对应。",
@@ -77,7 +89,11 @@ const qaDatabase: LanguageQA = {
       "有趣事实": "1) 马丘比丘的建造没有使用轮子或金属工具；2) 遗址的石头建筑可以抵抗地震；3) 马丘比丘的梯田系统可以种植多种作物；4) 遗址的排水系统至今仍在工作；5) 马丘比丘的建造时间比埃及金字塔晚，但同样令人惊叹。",
       "好玩": "马丘比丘充满神秘色彩，是探险和历史爱好者的天堂。登上遗址俯瞰安第斯山脉，仿佛穿越时空，非常震撼。",
       "值得去": "马丘比丘是南美最值得一去的世界遗产之一，无论是风景还是文化体验都令人难忘。强烈推荐！",
-      "推荐": "推荐给喜欢自然、历史和徒步的朋友。马丘比丘的日出和云海美景令人终生难忘。"
+      "推荐": "推荐给喜欢自然、历史和徒步的朋友。马丘比丘的日出和云海美景令人终生难忘。",
+      "三日游": "马丘比丘及周边三日游建议：\n第1天：库斯科市区观光，适应高原气候，参观太阳神庙、库斯科大教堂。\n第2天：乘火车前往阿瓜斯卡连特斯，下午可泡温泉，晚上休息。\n第3天：清晨乘巴士上山，游览马丘比丘遗址，推荐请导游讲解，下午返回库斯科。",
+      "旅行计划": "马丘比丘三天行程推荐：\nDay1：库斯科市区游览；\nDay2：火车到阿瓜斯卡连特斯，泡温泉；\nDay3：清晨游览马丘比丘，下午返回库斯科。",
+      "itinerary": "Machu Picchu & surroundings 3-day itinerary:\nDay 1: Explore Cusco city, acclimate to altitude, visit Qorikancha and Cusco Cathedral.\nDay 2: Take train to Aguas Calientes, enjoy hot springs, rest in the evening.\nDay 3: Early bus to Machu Picchu, guided tour, return to Cusco in the afternoon.",
+      "plan": "3-day Machu Picchu trip suggestion:\nDay 1: Cusco city tour;\nDay 2: Train to Aguas Calientes, hot springs;\nDay 3: Early visit to Machu Picchu, return to Cusco."
     },
     "taj-mahal": {
       "历史": "泰姬陵建于1632年至1653年，是莫卧儿皇帝沙贾汗为纪念其爱妻穆塔兹·玛哈尔而建造的陵墓。这座建筑由来自印度、波斯、土耳其和欧洲的2万多名工匠共同建造，使用了来自印度和亚洲各地的珍贵材料。泰姬陵的建造展现了莫卧儿王朝的鼎盛时期，融合了伊斯兰、波斯和印度建筑风格。",
@@ -92,7 +108,11 @@ const qaDatabase: LanguageQA = {
       "有趣事实": "1) 泰姬陵的白色大理石会随光线变化呈现不同颜色；2) 陵墓的四个尖塔略微向外倾斜，以防地震时倒塌；3) 建造泰姬陵花费了约3,200万卢比；4) 陵墓的装饰使用了来自世界各地的珍贵宝石；5) 泰姬陵每年吸引约800万游客。",
       "好玩": "泰姬陵不仅建筑精美，更有动人的爱情故事。亲临现场会被它的壮丽和浪漫氛围深深打动。",
       "值得去": "泰姬陵是印度最值得参观的景点之一，无论白天还是月夜都美得令人窒息。强烈推荐亲自体验。",
-      "推荐": "非常推荐！泰姬陵的美超乎想象，是情侣、家庭和摄影爱好者的理想目的地。"
+      "推荐": "非常推荐！泰姬陵的美超乎想象，是情侣、家庭和摄影爱好者的理想目的地。",
+      "三日游": "阿格拉及泰姬陵三日游建议：\n第1天：参观泰姬陵，下午游览阿格拉堡，晚上可体验当地美食。\n第2天：游览法塔赫布尔西格里古城和伊蒂马德-乌德-道拉陵。\n第3天：参观阿克巴陵和阿格拉市场，体验印度手工艺。",
+      "旅行计划": "泰姬陵三天行程推荐：\nDay1：泰姬陵+阿格拉堡；\nDay2：法塔赫布尔西格里+小泰姬陵；\nDay3：阿克巴陵+阿格拉市场。",
+      "itinerary": "Agra & Taj Mahal 3-day itinerary:\nDay 1: Visit Taj Mahal, Agra Fort, and enjoy local cuisine.\nDay 2: Explore Fatehpur Sikri and Itimad-ud-Daulah (Baby Taj).\nDay 3: Visit Akbar's Tomb and Agra markets, experience Indian handicrafts.",
+      "plan": "3-day Taj Mahal trip suggestion:\nDay 1: Taj Mahal + Agra Fort;\nDay 2: Fatehpur Sikri + Baby Taj;\nDay 3: Akbar's Tomb + Agra markets."
     }
   },
   "English": {
@@ -182,7 +202,7 @@ const mockResponses = {
       "这座古城见证了印加文明的辉煌，其精确的天文布局和与自然的和谐融合令人惊叹。尽管印加文明被西班牙征服者摧毁，马丘比丘因其隐蔽位置得以保存，成为了解印加文化的珍贵窗口。"
     ],
     "taj-mahal": [
-      "泰姬陵是位于印度阿格拉的标志性建筑，由莫卧儿皇帝沙贾汗于17世纪建造，以纪念他深爱的妻子慕塔兹·玛哈尔。",
+      "泰姬陵是位于印度阿格拉的标志性建筑，由莫卧儿皇帝沙贾汗于17世纪建造，以纪念他深爱的妻子穆塔兹·玛哈尔。",
       "这座象牙白大理石陵墓是莫卧儿建筑的杰作，融合了波斯、伊斯兰和印度建筑风格，被联合国教科文组织列为世界文化遗产。",
       "泰姬陵的设计体现了完美的对称性，主建筑坐落在一个大型花园中央，前方有一个长方形水池反映其倒影，四角各有一座小尖塔。",
       "参观泰姬陵的最佳时间是10月至3月，尤其是在日出时分，此时阳光使白色大理石呈现出粉红色和金色的光芒。",
