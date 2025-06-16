@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { PopularDestinations } from "@/components/popular-destinations";
 import { AIChat } from "@/components/ai-chat";
-import { useLandmarkInfo, useAudioNarration } from "@/hooks/useDeepSeekAPI";
+import { useLandmarkInfo } from "@/hooks/useDeepSeekAPI";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useLanguage } from "@/lib/language-context";
 import { destinationTranslations, DestinationKey } from "@/lib/translations";
@@ -35,8 +35,6 @@ interface DestinationPageProps {
 
 export default function DestinationPage({ params }: DestinationPageProps) {
   const { id } = params;
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentAudio, setCurrentAudio] = useState<HTMLAudioElement | null>(null);
   const { language, t } = useLanguage();
   const selectedLanguage = language === "en" ? "English" : "Chinese";
   
@@ -47,13 +45,6 @@ export default function DestinationPage({ params }: DestinationPageProps) {
     isLoading: isLandmarkLoading,
     fetchLandmarkInfo
   } = useLandmarkInfo();
-  
-  const {
-    data: narrationData,
-    error: narrationError,
-    isLoading: isNarrationLoading,
-    fetchAudioNarration
-  } = useAudioNarration();
   
   // 辅助函数，用于获取翻译
   const getTranslation = (key: string) => {
@@ -128,38 +119,6 @@ export default function DestinationPage({ params }: DestinationPageProps) {
     fetchLandmarkInfo(destinationData.name, selectedLanguage);
   }, [destinationData.name, selectedLanguage]);
   
-  // Handle audio playback
-  const toggleAudio = async () => {
-    if (isPlaying && currentAudio) {
-      currentAudio.pause();
-      setIsPlaying(false);
-      setCurrentAudio(null);
-      return;
-    }
-    
-    try {
-      // Fetch narration data if not available
-      if (!narrationData) {
-        await fetchAudioNarration(destinationData.name, language === "en" ? 'Historical Background' : '历史背景', selectedLanguage);
-      }
-      
-      // Use text-to-speech API (simple TTS simulation here)
-      const utterance = new SpeechSynthesisUtterance(narrationData || (language === "en" ? 'Sorry, no audio data available' : '抱歉，没有可用的音频数据'));
-      utterance.lang = language === "en" ? 'en-US' : 'zh-CN';
-      speechSynthesis.speak(utterance);
-      
-      setIsPlaying(true);
-      
-      // Listen for end of speech event
-      utterance.onend = () => {
-        setIsPlaying(false);
-      };
-    } catch (error) {
-      console.error('Audio playback failed:', error);
-      setIsPlaying(false);
-    }
-  };
-
   // Parse and format API response data
   const parseApiData = () => {
     if (!landmarkData) return {
@@ -225,27 +184,6 @@ export default function DestinationPage({ params }: DestinationPageProps) {
                 {isLandmarkLoading ? (language === "en" ? 'Loading...' : '加载中...') : parsedData.description}
               </p>
             </div>
-            <Button
-              size="lg"
-              onClick={toggleAudio}
-              variant={isPlaying ? "secondary" : "default"}
-              className="rounded-full flex gap-2 items-center"
-              disabled={isNarrationLoading}
-            >
-              {isNarrationLoading ? (
-                <>
-                  <Loader2 className="h-5 w-5 animate-spin" /> {language === "en" ? 'Loading...' : '加载中...'}
-                </>
-              ) : isPlaying ? (
-                <>
-                  <VolumeX className="h-5 w-5" /> {t("stopNarration")}
-                </>
-              ) : (
-                <>
-                  <Volume2 className="h-5 w-5" /> {t("listen")}
-                </>
-              )}
-            </Button>
           </div>
         </div>
       </section>

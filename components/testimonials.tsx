@@ -15,7 +15,6 @@ const testimonials = [
     avatar: "https://randomuser.me/api/portraits/women/32.jpg",
     rating: 5,
     testimonial: "LandmarkAI transformed my trip to Paris! The historical insights about the Eiffel Tower were fascinating and helped me appreciate the landmark in a whole new light.",
-    testimonialCn: "LandmarkAI让我的巴黎之旅焕然一新！关于埃菲尔铁塔的历史见解非常吸引人，帮助我以全新的视角欣赏这个地标。"
   },
   {
     id: 2,
@@ -26,7 +25,6 @@ const testimonials = [
     avatar: "https://randomuser.me/api/portraits/men/75.jpg",
     rating: 5,
     testimonial: "Being able to listen to the history of landmarks in my native language made traveling so much more enjoyable. The audio narrations are clear and informative.",
-    testimonialCn: "能够用我的母语聆听地标的历史让旅行变得更加愉快。语音讲解清晰且信息丰富。"
   },
   {
     id: 3,
@@ -37,7 +35,6 @@ const testimonials = [
     avatar: "https://randomuser.me/api/portraits/women/63.jpg",
     rating: 4,
     testimonial: "The trip planner feature is incredible! It helped me create the perfect 5-day itinerary for Rome with a great balance of historical sites and local experiences.",
-    testimonialCn: "行程规划功能非常棒！它帮助我为罗马创建了完美的5天行程，在历史遗迹和当地体验之间取得了很好的平衡。"
   },
   {
     id: 4,
@@ -48,7 +45,6 @@ const testimonials = [
     avatar: "https://randomuser.me/api/portraits/men/52.jpg",
     rating: 5,
     testimonial: "I love how this app makes history come alive. The detailed stories behind each landmark really enhanced my visit to the Great Wall of China.",
-    testimonialCn: "我喜欢这个应用如何让历史栩栩如生。每个地标背后的详细故事真正提升了我游览中国长城的体验。"
   }
 ];
 
@@ -115,7 +111,7 @@ export function Testimonials() {
               </div>
 
               <p className="text-sm">
-                {language === "en" ? testimonial.testimonial : testimonial.testimonialCn}
+                {testimonial.testimonial}
               </p>
             </div>
           ))}

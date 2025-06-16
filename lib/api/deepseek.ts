@@ -278,20 +278,4 @@ Please use a clear format and structure for easy reading and understanding. The 
       error: errorMessage
     };
   }
-}
-
-// 获取语音导览内容的函数
-export async function getAudioNarration(landmark: string, aspect: string, language: string = 'Chinese') {
-  try {
-    const prompt = `请专门讲解${landmark}的${aspect}方面的内容，用${language}语言表达，使内容更适合语音导览。
-内容应该清晰、生动且富有教育意义，长度适中，易于聆听理解。`;
-
-    return await requestAIResponse(prompt, language);
-  } catch (error) {
-    const errorMessage = handleApiError(error);
-    return {
-      success: false,
-      error: errorMessage
-    };
-  }
 } 

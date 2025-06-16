@@ -28,8 +28,6 @@ export const translations = {
     // 特性卡片
     multiLanguage: "Multi-Language Support",
     multiLanguageDesc: "Explore content in 6 languages - Chinese, English, Korean, Japanese, Spanish, and German.",
-    audioNarration: "Audio Narration",
-    audioNarrationDesc: "Listen to historical narratives with our AI voice technology for an immersive experience.",
     conversationalGuides: "Conversational Guides",
     conversationalGuidesDesc: "Enjoy personalized, engaging explanations that bring attractions to life with rich context.",
     
@@ -70,9 +68,6 @@ export const translations = {
     
     // 景点页面
     loading: "Loading...",
-    listen: "Listen to Guide",
-    stopNarration: "Stop Narration",
-    errorFetching: "Error fetching data:",
     overview: "Overview",
     history: "History",
     highlights: "Highlights",
@@ -152,8 +147,6 @@ export const translations = {
     // 特性卡片
     multiLanguage: "多语言支持",
     multiLanguageDesc: "提供6种语言的内容 - 中文、英文、韩文、日文、西班牙文和德文。",
-    audioNarration: "语音讲解",
-    audioNarrationDesc: "通过我们的AI语音技术聆听历史叙述，获得沉浸式体验。",
     conversationalGuides: "对话式指南",
     conversationalGuidesDesc: "享受个性化、引人入胜的解说，让景点栩栩如生。",
     
@@ -194,9 +187,6 @@ export const translations = {
     
     // 景点页面
     loading: "加载中...",
-    listen: "听语音讲解",
-    stopNarration: "停止讲解",
-    errorFetching: "获取数据失败：",
     overview: "概览",
     history: "历史",
     highlights: "亮点",

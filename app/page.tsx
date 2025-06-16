@@ -204,31 +204,7 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Feature 2 */}
-            <div className="bg-card rounded-lg p-8 shadow-sm border border-border/50 hover:border-primary/20 transition-all hover:shadow-md">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="w-6 h-6 text-primary"
-                >
-                  <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
-                  <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                  <line x1="12" x2="12" y1="19" y2="22" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">{t("audioNarration")}</h3>
-              <p className="text-muted-foreground">
-                {t("audioNarrationDesc")}
-              </p>
-            </div>
-
-            {/* Feature 3 */}
+            {/* Feature 2 (原Feature 3，前移) */}
             <div className="bg-card rounded-lg p-8 shadow-sm border border-border/50 hover:border-primary/20 transition-all hover:shadow-md">
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                 <svg
