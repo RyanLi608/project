@@ -80,33 +80,29 @@ export default function DestinationPage({ params }: DestinationPageProps) {
            // 未预定义景点使用默认图片
            "https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&w=1920",
     travelInfo: {
-      bestTime: id === "great-wall" ? "4月至6月，9月至11月" :
-                id === "eiffel-tower" ? "5月至9月" :
-                id === "taj-mahal" ? "10月至3月" :
-                id === "machu-picchu" ? "5月至9月" :
-                id === "pyramids" ? "10月至4月" :
-                // 未预定义景点的最佳旅行时间
+      bestTime: id === "great-wall" ? (language === "en" ? "April to June, September to November" : "4月至6月，9月至11月") :
+                id === "eiffel-tower" ? (language === "en" ? "May to September" : "5月至9月") :
+                id === "taj-mahal" ? (language === "en" ? "October to March" : "10月至3月") :
+                id === "machu-picchu" ? (language === "en" ? "May to September" : "5月至9月") :
+                id === "pyramids" ? (language === "en" ? "October to April" : "10月至4月") :
                 language === "en" ? "Varies by location" : "因地点而异",
-      duration: id === "great-wall" ? "大多数段落需要3-4小时" :
-                id === "eiffel-tower" ? "1-2小时" :
-                id === "taj-mahal" ? "2-3小时" :
-                id === "machu-picchu" ? "3-4小时" :
-                id === "pyramids" ? "2-3小时" :
-                // 未预定义景点的参观时长
+      duration: id === "great-wall" ? (language === "en" ? "3-4 hours for most sections" : "大多数段落需要3-4小时") :
+                id === "eiffel-tower" ? (language === "en" ? "1-2 hours" : "1-2小时") :
+                id === "taj-mahal" ? (language === "en" ? "2-3 hours" : "2-3小时") :
+                id === "machu-picchu" ? (language === "en" ? "3-4 hours" : "3-4小时") :
+                id === "pyramids" ? (language === "en" ? "2-3 hours" : "2-3小时") :
                 language === "en" ? "Depends on specific location" : "取决于具体地点",
-      entryFee: id === "great-wall" ? "根据不同段落40-60元" :
-                id === "eiffel-tower" ? "17-26欧元" :
-                id === "taj-mahal" ? "外国游客1100卢比" :
-                id === "machu-picchu" ? "45-65美元" :
-                id === "pyramids" ? "200埃及镑" :
-                // 未预定义景点的入场费
+      entryFee: id === "great-wall" ? (language === "en" ? "¥40-60 depending on section" : "根据不同段落40-60元") :
+                id === "eiffel-tower" ? (language === "en" ? "€17-26" : "17-26欧元") :
+                id === "taj-mahal" ? (language === "en" ? "₹1100 for foreigners" : "外国游客1100卢比") :
+                id === "machu-picchu" ? (language === "en" ? "$45-65" : "45-65美元") :
+                id === "pyramids" ? (language === "en" ? "LE200" : "200埃及镑") :
                 language === "en" ? "Varies by location" : "因地点而异",
-      openingHours: id === "great-wall" ? "上午7:30至下午5:30（因段落而异）" :
-                    id === "eiffel-tower" ? "上午9:00至晚上11:45" :
-                    id === "taj-mahal" ? "日出至日落（周五闭馆）" :
-                    id === "machu-picchu" ? "上午6:00至下午5:30" :
-                    id === "pyramids" ? "上午8:00至下午5:00" :
-                    // 未预定义景点的开放时间
+      openingHours: id === "great-wall" ? (language === "en" ? "7:30 AM - 5:30 PM (varies by section)" : "上午7:30至下午5:30（因段落而异）") :
+                    id === "eiffel-tower" ? (language === "en" ? "9:00 AM - 11:45 PM" : "上午9:00至晚上11:45") :
+                    id === "taj-mahal" ? (language === "en" ? "Sunrise to sunset (closed on Fridays)" : "日出至日落（周五闭馆）") :
+                    id === "machu-picchu" ? (language === "en" ? "6:00 AM - 5:30 PM" : "上午6:00至下午5:30") :
+                    id === "pyramids" ? (language === "en" ? "8:00 AM - 5:00 PM" : "上午8:00至下午5:00") :
                     language === "en" ? "Varies by location" : "因地点而异"
     }
   };
