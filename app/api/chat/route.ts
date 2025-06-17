@@ -11,6 +11,7 @@ interface LandmarkQA {
   "eiffel-tower": QuestionAnswers;
   "machu-picchu": QuestionAnswers;
   "taj-mahal": QuestionAnswers;
+  "pyramids": QuestionAnswers;
   "default": QuestionAnswers;
 }
 
@@ -62,20 +63,6 @@ const qaDatabase: LanguageQA = {
       "itinerary": "Paris 3-day itinerary:\nDay 1: Eiffel Tower, Seine River cruise, Champ de Mars, and enjoy the night light show.\nDay 2: Louvre Museum, Place de la Concorde, Champs-Élysées, Arc de Triomphe.\nDay 3: Orsay Museum, Montmartre, Sacré-Cœur, and Parisian café culture.",
       "plan": "Eiffel Tower & Paris 3-day trip suggestion:\nDay 1: Eiffel Tower + Seine River + Champ de Mars;\nDay 2: Louvre + Champs-Élysées + Arc de Triomphe;\nDay 3: Orsay Museum + Montmartre + Sacré-Cœur."
     },
-    "default": {
-      "天气": "目前没有实时天气数据，但一般来说，参观景点最好查看当地的天气预报，并做好相应准备。春秋季节通常天气较为宜人，夏季可能较热，冬季则可能较冷。建议携带适合季节的衣物和防晒、防雨装备。",
-      "交通": "关于交通方式，通常有公共交通（地铁、公交车）、出租车、租车或参加旅游团等选择。建议根据您的具体行程和预算选择合适的交通方式。提前规划路线可以节省时间和精力。",
-      "门票": "不同景点的门票价格和购买方式各不相同。一般来说，许多热门景点都支持在线预订门票，这样可以避免排队并可能获得折扣。学生、老年人和儿童通常有优惠票价。建议在官方网站查询最新的门票信息。",
-      "住宿": "住宿选择多样，从经济型旅馆到豪华酒店不等。建议根据预算、位置和个人喜好选择合适的住宿。旅游旺季最好提前预订。靠近主要景点的住宿通常价格较高但交通便利。",
-      "美食": "各地都有其特色美食，品尝当地美食是了解文化的重要部分。建议尝试当地特色菜肴，可以通过旅游指南、在线评论或向当地人询问获得推荐。注意食品安全和个人饮食习惯。",
-      "好玩": "这个景点非常有趣，无论是历史、文化还是自然风光，都能带来独特的体验。强烈推荐亲自去感受一下！",
-      "值得去": "绝对值得一去！每个景点都有其独特的魅力和故事，亲身体验会有不一样的收获。",
-      "推荐": "非常推荐！无论是和家人、朋友还是独自旅行，这里都能留下美好回忆。",
-      "三日游": "三天旅行建议：\n第1天：参观主要景点及周边博物馆，了解历史文化。\n第2天：体验当地特色美食和市场，参观自然风光或公园。\n第3天：参加特色活动或短途游，购买纪念品，享受休闲时光。",
-      "旅行计划": "三天行程推荐：\nDay1：核心景点+博物馆；\nDay2：美食+自然景观；\nDay3：特色活动+购物+休闲。可根据兴趣灵活调整。",
-      "itinerary": "3-day travel suggestion:\nDay 1: Visit main attractions and museums to learn about history and culture.\nDay 2: Experience local food and markets, visit natural scenery or parks.\nDay 3: Join special activities or short trips, shop for souvenirs, and enjoy leisure time.",
-      "plan": "3-day itinerary suggestion:\nDay 1: Core attractions + museums;\nDay 2: Food + nature;\nDay 3: Special activities + shopping + leisure. Adjust flexibly based on your interests."
-    },
     "machu-picchu": {
       "历史": "马丘比丘建于15世纪，是印加帝国最著名的遗址之一。它由印加皇帝帕查库特克下令建造，作为皇家庄园和宗教圣地。这座古城在西班牙征服时期被遗弃，直到1911年才被美国探险家海勒姆·宾厄姆重新发现。马丘比丘的建造展现了印加人卓越的工程技术和天文知识，其建筑布局与天文现象完美对应。",
       "建筑特点": "马丘比丘建在海拔2,430米的山脊上，占地约13平方公里。遗址分为农业区、城市区和宗教区，包含约200座建筑。建筑采用印加特有的巨石建造技术，石块之间完美契合，无需使用灰浆。最著名的建筑包括太阳神庙、三窗神庙和主神庙。整个遗址的排水系统设计精巧，至今仍在发挥作用。",
@@ -113,6 +100,21 @@ const qaDatabase: LanguageQA = {
       "旅行计划": "泰姬陵三天行程推荐：\nDay1：泰姬陵+阿格拉堡；\nDay2：法塔赫布尔西格里+小泰姬陵；\nDay3：阿克巴陵+阿格拉市场。",
       "itinerary": "Agra & Taj Mahal 3-day itinerary:\nDay 1: Visit Taj Mahal, Agra Fort, and enjoy local cuisine.\nDay 2: Explore Fatehpur Sikri and Itimad-ud-Daulah (Baby Taj).\nDay 3: Visit Akbar's Tomb and Agra markets, experience Indian handicrafts.",
       "plan": "3-day Taj Mahal trip suggestion:\nDay 1: Taj Mahal + Agra Fort;\nDay 2: Fatehpur Sikri + Baby Taj;\nDay 3: Akbar's Tomb + Agra markets."
+    },
+    "pyramids": {
+      "历史": "埃及金字塔的历史可以追溯到古埃及第三王朝时期（约公元前2686年-前2613年）。最著名的吉萨金字塔群建于第四王朝（约公元前2613年-前2494年），由胡夫金字塔、哈夫拉金字塔和门卡乌拉金字塔组成。这些金字塔是为了作为法老的陵墓而建造的，体现了古埃及人对来世生活的信仰。",
+      "建筑特点": "金字塔采用了精确的几何结构和高超的建筑技术。以胡夫金字塔为例，原始高度为146.5米，底边长230米，由230万块平均重2.5吨的石块建造而成。金字塔的四个面完全对称，精确地朝向东南西北四个方向，体现了古埃及人的天文知识和数学技术。内部设计包括多个通道、墓室和通风系统。",
+      "最佳时间": "参观金字塔的最佳时间是10月至4月，这时候天气较为凉爽。清晨和傍晚不仅温度适宜，还能欣赏到日出日落时金字塔的壮丽景象。夏季（5月至9月）气温可达40度以上，不建议在正午时分参观。",
+      "交通": "到达吉萨金字塔群的方式：1) 从开罗市区乘坐地铁和公交车；2) 参加旅行团一日游；3) 乘坐出租车或优步；4) 租车自驾。建议选择早晨出发，避开交通高峰期。",
+      "门票": "金字塔景区门票约200埃及镑，进入金字塔内部需要额外购票。学生持有效证件可享受优惠。建议提前在官网或通过旅行社购买门票，旺季时排队可能较长。",
+      "注意事项": "1) 准备防晒用品和足够的水；2) 穿着舒适的步行鞋；3) 尊重当地文化，注意着装；4) 进入金字塔内部需要额外付费；5) 注意防止中暑，避免正午参观；6) 请勿攀爬金字塔或触摸文物。",
+      "特色活动": "1) 骑骆驼游览金字塔群；2) 参观狮身人面像声光秀；3) 探索太阳船博物馆；4) 在附近的餐厅享用特色美食；5) 参加考古导览活动。",
+      "周边景点": "金字塔周边值得游览的景点：1) 狮身人面像；2) 太阳船博物馆；3) 开罗埃及博物馆；4) 萨拉丁城堡；5) 哈利利市场。",
+      "文化意义": "金字塔不仅是古埃及文明的杰出代表，也是人类建筑史上的重要里程碑。它们展示了古埃及人在建筑、数学、天文等领域的卓越成就，也反映了古埃及人对生死和永恒的独特理解。金字塔是世界上现存最古老的世界奇迹，见证了人类文明的发展历程。",
+      "有趣事实": "1) 胡夫金字塔曾是世界上最高的人造建筑，保持这一纪录长达3800多年；2) 金字塔的建造精确度令人惊叹，四个底角的误差不超过1度；3) 金字塔内部温度常年保持在20度左右；4) 建造大金字塔据估计用了20年时间，动用了10-20万名工人；5) 金字塔的石块之间没有使用砂浆，全靠精确的切割和巨大的重量保持稳定。",
+      "好玩": "金字塔是一个充满神秘和震撼的地方，亲眼目睹这些巨大建筑的壮观场面会让人终生难忘。",
+      "值得去": "金字塔绝对值得一游！它不仅是建筑奇迹，更是了解古代文明的窗口。",
+      "推荐": "强烈推荐！金字塔是世界上最重要的古迹之一，无论是历史价值还是视觉震撼都无与伦比。"
     }
   },
   "English": {
@@ -252,7 +254,7 @@ function matchQuestion(message: string, landmark: string, language: string): str
   const lang = language.toLowerCase().includes("chinese") ? "Chinese" : "English";
   
   // 确定使用哪个地标的问答数据库
-  let landmarkKey: "great-wall" | "eiffel-tower" | "machu-picchu" | "taj-mahal" | "default" = "default";
+  let landmarkKey: "great-wall" | "eiffel-tower" | "machu-picchu" | "taj-mahal" | "default" | "pyramids" = "default";
   if (landmark.toLowerCase().includes("great wall") || landmark.toLowerCase().includes("长城")) {
     landmarkKey = "great-wall";
   } else if (landmark.toLowerCase().includes("eiffel") || landmark.toLowerCase().includes("埃菲尔")) {
@@ -261,6 +263,8 @@ function matchQuestion(message: string, landmark: string, language: string): str
     landmarkKey = "machu-picchu";
   } else if (landmark.toLowerCase().includes("taj mahal") || landmark.toLowerCase().includes("泰姬陵")) {
     landmarkKey = "taj-mahal";
+  } else if (landmark.toLowerCase().includes("pyramids") || landmark.toLowerCase().includes("金字塔")) {
+    landmarkKey = "pyramids";
   }
   
   // 获取该地标和语言的问答库
@@ -354,6 +358,8 @@ function getMockResponse(landmark: string, language: string, message: string, hi
     key = "machu-picchu";
   } else if (landmark.toLowerCase().includes("taj mahal") || landmark.includes("泰姬陵")) {
     key = "taj-mahal";
+  } else if (landmark.toLowerCase().includes("pyramids") || landmark.toLowerCase().includes("金字塔")) {
+    key = "pyramids";
   } else {
     key = "default";
   }
@@ -739,6 +745,7 @@ function generateSpecificAnswer(keywords: string[], questionType: string, landma
   const isEiffelTower = landmark.toLowerCase().includes("eiffel") || landmark.toLowerCase().includes("埃菲尔");
   const isMachuPicchu = landmark.toLowerCase().includes("machu picchu") || landmark.toLowerCase().includes("马丘比丘");
   const isTajMahal = landmark.toLowerCase().includes("taj mahal") || landmark.toLowerCase().includes("泰姬陵");
+  const isPyramids = landmark.toLowerCase().includes("pyramids") || landmark.toLowerCase().includes("金字塔");
   
   // 查询详细介绍
   if (questionType === "general" && 
@@ -772,7 +779,7 @@ function generateSpecificAnswer(keywords: string[], questionType: string, landma
     
     if (hasAnyKeyword(keywords, ["哪里", "section", "段", "which", "best", "最好"])) {
       return isChineseUI 
-        ? "长城有多个不同特色的段落可供参观：八达岭是最受欢迎的段落，设施完善，交通便利，但游客较多；慕田峪保存完好，景色优美，有缆车可乘坐，游客相对较少；金山岭风景壮观，是摄影爱好者的天堂；司马台可以夜游，有独特的体验；箭扣长城则是徒步爱好者的挑战，风景原始但难度较大。根据您的体力、时间和偏好，八达岭和慕田峪是首次游客的最佳选择。"
+        ? "长城有多个不同特色的段落可供参观：八达岭是最受欢迎的段落，设施完善，交通便利，但游客较多；慕田峪保存完好，景色优美，有缆车可乘坐，游客相对较少；金山岭是摄影胜地；司马台可以夜游，有独特的体验；箭扣长城则是徒步爱好者的挑战，风景原始但难度较大。根据您的体力、时间和偏好，八达岭和慕田峪是首次游客的最佳选择。"
         : "The Great Wall has several distinctive sections for visitors: Badaling is the most popular with excellent facilities and easy access, but it's often crowded; Mutianyu is well-preserved with beautiful scenery, cable car access, and fewer tourists; Jinshanling offers spectacular views and is a paradise for photographers; Simatai provides night tours for a unique experience; Jiankou is challenging for hiking enthusiasts with pristine views but higher difficulty. Depending on your fitness level, time, and preferences, Badaling and Mutianyu are the best choices for first-time visitors.";
     }
   }
@@ -837,6 +844,27 @@ function generateSpecificAnswer(keywords: string[], questionType: string, landma
       return isChineseUI 
         ? "参观泰姬陵的最佳时间是10月至3月期间，这时天气凉爽干燥。特别推荐在满月之夜或黎明时分参观，此时的光线会使白色大理石呈现出不同的色彩变化。避开星期五参观，因为这天泰姬陵对公众关闭（仅对穆斯林祈祷者开放）。旺季（11月至2月）游客较多，建议提前购票并早到以避开人群。"
         : "The best time to visit the Taj Mahal is from October to March when the weather is cool and dry. It's especially recommended to visit during the full moon night or at dawn, when the white marble takes on different hues. It's closed on Fridays, and during peak tourist seasons, it's advisable to book tickets in advance and arrive early to avoid crowds.";
+    }
+  }
+  
+  if (isPyramids) {
+    // 金字塔特定问题处理
+    if (questionType === "howto" && hasAnyKeyword(keywords, ["去", "到达", "交通", "transport", "怎么去"])) {
+      return isChineseUI 
+        ? "到达金字塔群的方式：1) 从开罗市区乘坐地铁和公交车；2) 参加旅行团一日游；3) 乘坐出租车或优步；4) 租车自驾。建议选择早晨出发，避开交通高峰期。"
+        : "The most convenient way to visit the Pyramids is by taking the subway or buses from Cairo city center. You can also join a day trip with a local tour operator, or take a taxi or Uber to Giza. It's recommended to start early in the morning to avoid traffic congestion.";
+    }
+    
+    if (hasAnyKeyword(keywords, ["票", "价格", "费用", "price", "ticket", "cost"])) {
+      return isChineseUI 
+        ? "金字塔景区门票约200埃及镑，进入金字塔内部需要额外购票。学生持有效证件可享受优惠。建议提前在官网或通过旅行社购买门票，旺季时排队可能较长。"
+        : "The entrance fee to the Pyramids is 200 Egyptian pounds. Photography inside the pyramids is allowed, but you need to buy an additional ticket. Students with valid ID can get a discount. It's recommended to purchase tickets in advance on the official website or through a travel agency. The queues can be long during peak tourist seasons.";
+    }
+    
+    if (questionType === "when" && hasAnyKeyword(keywords, ["time", "时间", "季节", "season", "最佳", "best"])) {
+      return isChineseUI 
+        ? "参观金字塔的最佳时间是10月至4月，这时候天气较为凉爽。清晨和傍晚不仅温度适宜，还能欣赏到日出日落时金字塔的壮丽景象。夏季（5月至9月）气温可达40度以上，不建议在正午时分参观。"
+        : "The best time to visit the Pyramids is from October to April when the weather is cooler. Visiting in the early morning or late afternoon offers the best lighting for photography. It's not recommended to visit during the hottest part of the day, especially in the midday sun.";
     }
   }
   
@@ -1109,6 +1137,53 @@ Recommended Spots:
 5. Taj Museum: Located near the Western Gate, displaying historical artifacts and original design drawings of the Taj Mahal's construction.
 
 Travel Tips: Sunrise (around 6 AM) is the ideal time to visit, as there are fewer tourists then, and the morning light causes the white marble to display changing colors, from pink to gold to brilliant white. Visitors must remove their shoes or wear provided shoe covers to enter the main mausoleum. Avoid visiting on Fridays when the Taj Mahal is closed to the public (open only to Muslim worshippers). To reduce environmental pollution damage to the marble, motor vehicles are not allowed near the Taj Mahal; visitors must take electric vehicles or walk. Allow 2-3 hours to visit the entire complex.`;
+    }
+  } else if (landmark.toLowerCase().includes("pyramids") || landmark.toLowerCase().includes("金字塔")) {
+    if (language.toLowerCase().includes("chinese")) {
+      return `埃及金字塔的历史可以追溯到古埃及第三王朝时期（约公元前2686年-前2613年）。最著名的吉萨金字塔群建于第四王朝（约公元前2613年-前2494年），由胡夫金字塔、哈夫拉金字塔和门卡乌拉金字塔组成。这些金字塔是为了作为法老的陵墓而建造的，体现了古埃及人对来世生活的信仰。
+
+建筑特点：金字塔采用了精确的几何结构和高超的建筑技术。以胡夫金字塔为例，原始高度为146.5米，底边长230米，由230万块平均重2.5吨的石块建造而成。金字塔的四个面完全对称，精确地朝向东南西北四个方向，体现了古埃及人的天文知识和数学技术。内部设计包括多个通道、墓室和通风系统。
+
+最佳时间：参观金字塔的最佳时间是10月至4月，这时候天气较为凉爽。清晨和傍晚不仅温度适宜，还能欣赏到日出日落时金字塔的壮丽景象。夏季（5月至9月）气温可达40度以上，不建议在正午时分参观。
+
+交通：到达吉萨金字塔群的方式：1) 从开罗市区乘坐地铁和公交车；2) 参加旅行团一日游；3) 乘坐出租车或优步；4) 租车自驾。建议选择早晨出发，避开交通高峰期。
+
+门票：金字塔景区门票约200埃及镑，进入金字塔内部需要额外购票。学生持有效证件可享受优惠。建议提前在官网或通过旅行社购买门票，旺季时排队可能较长。
+
+注意事项：1) 准备防晒用品和足够的水；2) 穿着舒适的步行鞋；3) 尊重当地文化，注意着装；4) 进入金字塔内部需要额外付费；5) 注意防止中暑，避免正午参观；6) 请勿攀爬金字塔或触摸文物。
+
+特色活动：1) 骑骆驼游览金字塔群；2) 参观狮身人面像声光秀；3) 探索太阳船博物馆；4) 在附近的餐厅享用特色美食；5) 参加考古导览活动。
+
+周边景点：金字塔周边值得游览的景点：1) 狮身人面像；2) 太阳船博物馆；3) 开罗埃及博物馆；4) 萨拉丁城堡；5) 哈利利市场。
+
+文化意义：金字塔不仅是古埃及文明的杰出代表，也是人类建筑史上的重要里程碑。它们展示了古埃及人在建筑、数学、天文等领域的卓越成就，也反映了古埃及人对生死和永恒的独特理解。金字塔是世界上现存最古老的世界奇迹，见证了人类文明的发展历程。
+
+有趣事实：1) 胡夫金字塔曾是世界上最高的人造建筑，保持这一纪录长达3800多年；2) 金字塔的建造精确度令人惊叹，四个底角的误差不超过1度；3) 金字塔内部温度常年保持在20度左右；4) 建造大金字塔据估计用了20年时间，动用了10-20万名工人；5) 金字塔的石块之间没有使用砂浆，全靠精确的切割和巨大的重量保持稳定。
+
+好玩：金字塔是一个充满神秘和震撼的地方，亲眼目睹这些巨大建筑的壮观场面会让人终生难忘。
+
+值得去：金字塔绝对值得一游！它不仅是建筑奇迹，更是了解古代文明的窗口。
+
+推荐：强烈推荐！金字塔是世界上最重要的古迹之一，无论是历史价值还是视觉震撼都无与伦比。`;
+    } else {
+      return `The Pyramids of Giza are one of the most iconic landmarks in Egypt and a symbol of ancient Egyptian civilization. They are located on the outskirts of Cairo, about 10 kilometers from the city center. The three main pyramids, Khufu (Great Pyramid), Khafre (Second Pyramid), and Menkaure (Third Pyramid), were built during the reign of the Pharaohs Cheops, Khafre, and Menkaure, respectively.
+
+Architecture: The pyramids are constructed using a series of limestone blocks, some weighing up to 80 tons. They are aligned with the cardinal points of the compass and feature a high degree of precision in their construction. The pyramids' internal passages and chambers are designed to hold the pharaoh's treasures and provide a path for the pharaoh's journey to the afterlife.
+
+Best Time to Visit: The best time to visit the Pyramids is from sunrise to sunset, but the early morning hours between 6 AM and 8 AM are particularly popular for photography. The weather is cooler at this time, and the light is softer, creating a beautiful backdrop for photographs.
+
+Getting There: The Pyramids are easily accessible by car or taxi from Cairo. It's recommended to start your visit early in the morning to avoid the crowds and heat of the day.
+
+Tickets: The entrance fee to the Pyramids is 200 Egyptian pounds. Photography inside the pyramids is allowed, but you need to buy an additional ticket. Students with valid ID can get a discount. It's recommended to purchase tickets in advance on the official website or through a travel agency. The queues can be long during peak tourist seasons.
+
+Tips:
+1. Bring water and wear comfortable shoes. The pyramids are spread out over a large area, and you'll need to walk a significant distance to see all three pyramids.
+2. Respect the local culture and dress modestly.
+3. Be aware of pickpockets in crowded areas.
+4. Consider hiring a guide to learn more about the history and significance of the pyramids.
+5. The area around the pyramids is filled with vendors selling souvenirs and offering camel rides. Be prepared to negotiate prices.
+6. If you're interested in the history of the pyramids, consider visiting the nearby Museum of Egyptian Antiquities.
+7. The Pyramids are surrounded by a large desert landscape, and you can enjoy a camel ride or a quad bike tour in the surrounding area.`;
     }
   }
   
