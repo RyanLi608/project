@@ -115,6 +115,20 @@ const qaDatabase: LanguageQA = {
       "好玩": "金字塔是一个充满神秘和震撼的地方，亲眼目睹这些巨大建筑的壮观场面会让人终生难忘。",
       "值得去": "金字塔绝对值得一游！它不仅是建筑奇迹，更是了解古代文明的窗口。",
       "推荐": "强烈推荐！金字塔是世界上最重要的古迹之一，无论是历史价值还是视觉震撼都无与伦比。"
+    },
+    "default": {
+      "天气": "目前没有实时天气数据，但一般来说，参观景点最好查看当地的天气预报，并做好相应准备。春秋季节通常天气较为宜人，夏季可能较热，冬季则可能较冷。建议携带适合季节的衣物和防晒、防雨装备。",
+      "交通": "关于交通方式，通常有公共交通（地铁、公交车）、出租车、租车或参加旅游团等选择。建议根据您的具体行程和预算选择合适的交通方式。提前规划路线可以节省时间和精力。",
+      "门票": "不同景点的门票价格和购买方式各不相同。一般来说，许多热门景点都支持在线预订门票，这样可以避免排队并可能获得折扣。学生、老年人和儿童通常有优惠票价。建议在官方网站查询最新的门票信息。",
+      "住宿": "住宿选择多样，从经济型旅馆到豪华酒店不等。建议根据预算、位置和个人喜好选择合适的住宿。旅游旺季最好提前预订。靠近主要景点的住宿通常价格较高但交通便利。",
+      "美食": "各地都有其特色美食，品尝当地美食是了解文化的重要部分。建议尝试当地特色菜肴，可以通过旅游指南、在线评论或向当地人询问获得推荐。注意食品安全和个人饮食习惯。",
+      "好玩": "这个景点非常有趣，无论是历史、文化还是自然风光，都能带来独特的体验。强烈推荐亲自去感受一下！",
+      "值得去": "绝对值得一去！每个景点都有其独特的魅力和故事，亲身体验会有不一样的收获。",
+      "推荐": "非常推荐！无论是和家人、朋友还是独自旅行，这里都能留下美好回忆。",
+      "三日游": "三天旅行建议：\n第1天：参观主要景点及周边博物馆，了解历史文化。\n第2天：体验当地特色美食和市场，参观自然风光或公园。\n第3天：参加特色活动或短途游，购买纪念品，享受休闲时光。",
+      "旅行计划": "三天行程推荐：\nDay1：核心景点+博物馆；\nDay2：美食+自然景观；\nDay3：特色活动+购物+休闲。可根据兴趣灵活调整。",
+      "itinerary": "3-day travel suggestion:\nDay 1: Visit main attractions and museums to learn about history and culture.\nDay 2: Experience local food and markets, visit natural scenery or parks.\nDay 3: Join special activities or short trips, shop for souvenirs, and enjoy leisure time.",
+      "plan": "3-day itinerary suggestion:\nDay 1: Core attractions + museums;\nDay 2: Food + nature;\nDay 3: Special activities + shopping + leisure. Adjust flexibly based on your interests."
     }
   },
   "English": {
@@ -142,15 +156,6 @@ const qaDatabase: LanguageQA = {
       "worth visiting": "The Eiffel Tower is a must-visit in Paris! The view from the top is stunning, and the atmosphere is truly romantic. Don't miss the sparkling lights at night!",
       "recommend": "Definitely recommended for all visitors to Paris. It's an iconic experience and perfect for photos, couples, and families alike."
     },
-    "default": {
-      "weather": "There is no real-time weather data available, but generally, it's best to check the local weather forecast before visiting attractions and prepare accordingly. Spring and autumn usually offer pleasant weather, summer can be hot, and winter might be cold. It's advisable to bring season-appropriate clothing and sun/rain protection.",
-      "transportation": "For transportation, options typically include public transit (subway, buses), taxis, car rentals, or joining tour groups. It's recommended to choose suitable transportation based on your specific itinerary and budget. Planning routes in advance can save time and energy.",
-      "tickets": "Ticket prices and purchasing methods vary for different attractions. Generally, many popular sites support online ticket booking, which can help avoid queues and possibly get discounts. Students, seniors, and children usually have preferential ticket prices. It's advisable to check the latest ticket information on official websites.",
-      "accommodation": "Accommodation options range from budget hostels to luxury hotels. It's recommended to choose suitable accommodation based on budget, location, and personal preferences. Booking in advance is advisable during peak tourist seasons. Accommodations close to major attractions are usually more expensive but offer convenient transportation.",
-      "food": "Each place has its unique cuisine, and tasting local food is an important part of understanding the culture. It's recommended to try local specialties, which can be found through travel guides, online reviews, or by asking locals. Pay attention to food safety and personal dietary habits.",
-      "worth visiting": "This attraction is definitely worth visiting! Whether for its history, culture, or scenery, you'll have a unique and memorable experience.",
-      "recommend": "Highly recommended! Every landmark has its own charm and story—seeing it in person is always rewarding."
-    },
     "machu-picchu": {
       "history": "Machu Picchu is an ancient Inca city built in the 15th century, located on a mountain ridge in the Andes of Peru at an elevation of 2,430 meters. It was rediscovered by American explorer Hiram Bingham in 1911, having been largely unknown to the outside world before then. Machu Picchu was likely built as a royal estate for the Inca emperor Pachacuti around 1450, but was abandoned after the Spanish conquest in 1572. Due to its hidden location, the Spanish conquerors never discovered Machu Picchu, making it one of the few well-preserved Inca sites.",
       "cultural significance": "Machu Picchu is considered the most iconic masterpiece of the Inca civilization, showcasing their excellence in urban planning, architecture, and religious ceremonies. It was designated a UNESCO World Heritage Site in 1983 and named one of the New Seven Wonders of the World in 2007. The city embodies the Inca philosophy of harmony with nature, with buildings seamlessly integrated into the surrounding mountains. The design of Machu Picchu incorporated astronomical considerations, with certain structures precisely aligned with the sun's position on specific dates.",
@@ -168,6 +173,41 @@ const qaDatabase: LanguageQA = {
       "tickets": "Foreign tourists pay 1100 rupees (approximately $15) for entry, while Indian citizens pay 50 rupees. Entry to the mausoleum is free for children under 15 years of age. Photography inside the Taj Mahal is allowed, but flash photography is not permitted. Photography outside the mausoleum is allowed, but no drones are allowed. Photography is not allowed inside the mausoleum during prayer times.",
       "worth visiting": "The Taj Mahal is one of the most beautiful monuments in the world. Its beauty and the love story behind it are truly moving. Absolutely worth a visit!",
       "recommend": "Strongly recommended! The Taj Mahal is breathtaking at any time of day and is a perfect destination for couples, families, and photographers."
+    },
+    "pyramids": {
+      "history": "Egyptian pyramids are one of the most iconic landmarks in Egypt and a symbol of ancient Egyptian civilization. They are located on the outskirts of Cairo, about 10 kilometers from the city center. The three main pyramids, Khufu (Great Pyramid), Khafre (Second Pyramid), and Menkaure (Third Pyramid), were built during the reign of the Pharaohs Cheops, Khafre, and Menkaure, respectively.
+
+Architecture: The pyramids are constructed using a series of limestone blocks, some weighing up to 80 tons. They are aligned with the cardinal points of the compass and feature a high degree of precision in their construction. The pyramids' internal passages and chambers are designed to hold the pharaoh's treasures and provide a path for the pharaoh's journey to the afterlife.
+
+Best Time to Visit: The best time to visit the Pyramids is from sunrise to sunset, but the early morning hours between 6 AM and 8 AM are particularly popular for photography. The weather is cooler at this time, and the light is softer, creating a beautiful backdrop for photographs.
+
+Getting There: The Pyramids are easily accessible by car or taxi from Cairo. It's recommended to start your visit early in the morning to avoid the crowds and heat of the day.
+
+Tickets: The entrance fee to the Pyramids is 200 Egyptian pounds. Photography inside the pyramids is allowed, but you need to buy an additional ticket. Students with valid ID can get a discount. It's recommended to purchase tickets in advance on the official website or through a travel agency. The queues can be long during peak tourist seasons.
+
+Tips:
+1. Bring water and wear comfortable shoes. The pyramids are spread out over a large area, and you'll need to walk a significant distance to see all three pyramids.
+2. Respect the local culture and dress modestly.
+3. Be aware of pickpockets in crowded areas.
+4. Consider hiring a guide to learn more about the history and significance of the pyramids.
+5. The area around the pyramids is filled with vendors selling souvenirs and offering camel rides. Be prepared to negotiate prices.
+6. If you're interested in the history of the pyramids, consider visiting the nearby Museum of Egyptian Antiquities.
+7. The Pyramids are surrounded by a large desert landscape, and you can enjoy a camel ride or a quad bike tour in the surrounding area.",
+      "recommend": "Highly recommended! The Pyramids are a must-see in Egypt. They are not only a testament to the engineering prowess of the ancient Egyptians but also a symbol of their religious beliefs and the power of the pharaohs."
+    },
+    "default": {
+      "weather": "Real-time weather data is not available, but generally, it's best to check the local weather forecast before visiting attractions and prepare accordingly. Spring and autumn usually have pleasant weather, summer can be hot, and winter can be cold. It's recommended to bring appropriate clothing and sun/rain protection gear.",
+      "transportation": "For transportation, there are usually options like public transit (subway, bus), taxis, car rentals, or joining tour groups. It's recommended to choose a suitable mode of transportation based on your specific itinerary and budget. Planning routes in advance can save time and energy.",
+      "tickets": "Ticket prices and purchasing methods vary for different attractions. In general, many popular attractions support online ticket booking, which can avoid queuing and possibly get discounts. Students, seniors, and children usually have discounted ticket prices. It's recommended to check the latest ticket information on the official website.",
+      "accommodation": "Accommodation options vary from budget hostels to luxury hotels. It's recommended to choose suitable accommodation based on budget, location, and personal preferences. It's best to book in advance during peak tourist seasons. Accommodations close to major attractions are usually more expensive but convenient for transportation.",
+      "food": "Each place has its own specialty cuisine, and tasting local food is an important part of understanding the culture. It's recommended to try local specialty dishes, which can be found through travel guides, online reviews, or by asking locals. Pay attention to food safety and personal dietary habits.",
+      "fun": "This attraction is very interesting, whether it's history, culture, or natural scenery, it brings a unique experience. Highly recommended to experience it in person!",
+      "worth visiting": "Absolutely worth a visit! Each attraction has its own unique charm and story, and experiencing it in person will give you a different gain.",
+      "recommend": "Highly recommended! Whether with family, friends, or traveling alone, it will leave beautiful memories.",
+      "three-day tour": "Three-day travel suggestion:\nDay 1: Visit main attractions and surrounding museums to learn about history and culture.\nDay 2: Experience local specialty food and markets, visit natural scenery or parks.\nDay 3: Participate in special activities or short trips, buy souvenirs, and enjoy leisure time.",
+      "travel plan": "Three-day itinerary recommendation:\nDay 1: Core attractions + museums;\nDay 2: Food + natural scenery;\nDay 3: Special activities + shopping + leisure. Can be flexibly adjusted according to interests.",
+      "itinerary": "3-day travel suggestion:\nDay 1: Visit main attractions and museums to learn about history and culture.\nDay 2: Experience local food and markets, visit natural scenery or parks.\nDay 3: Join special activities or short trips, shop for souvenirs, and enjoy leisure time.",
+      "plan": "3-day itinerary suggestion:\nDay 1: Core attractions + museums;\nDay 2: Food + nature;\nDay 3: Special activities + shopping + leisure. Adjust flexibly based on your interests."
     }
   }
 };
