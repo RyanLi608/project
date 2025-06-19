@@ -89,83 +89,62 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Video/Image */}
-        <div className="absolute inset-0 z-0">
-          <div
-            className="absolute inset-0 bg-black/40 z-10"
-            style={{ mixBlendMode: "normal" }}
-          />
-          <Image
-            src="https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&w=1920"
-            alt="World landmarks"
-            fill
-            style={{ objectFit: "cover", objectPosition: "center" }}
-            priority
-            quality={100}
-          />
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background z-10" />
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+          <div className="absolute top-0 w-full h-[500px] bg-gradient-to-b from-primary/10 to-transparent" />
+          <div className="absolute bottom-0 w-full h-[500px] bg-gradient-to-t from-background to-transparent" />
         </div>
-
-        {/* Content */}
-        <div className="container relative z-20 px-4 sm:px-6 max-w-5xl mx-auto text-center">
-          <div 
-            className={cn(
-              "transition-all duration-700 transform",
-              isScrolled ? "opacity-0 translate-y-10" : "opacity-100 translate-y-0"
-            )}
-          >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
+        
+        <div className="container relative z-20">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
               {t("heroTitle")}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8">
               {t("heroSubtitle")}
             </p>
-          </div>
-
-          <form 
-            onSubmit={handleSearch}
-            className={cn(
-              "max-w-2xl mx-auto transition-all duration-500",
-              isScrolled ? "opacity-0 translate-y-10" : "opacity-100 translate-y-0"
-            )}
-          >
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-              <Input
-                type="text"
-                placeholder={t("searchPlaceholder")}
-                className="w-full pl-10 py-6 text-lg rounded-full bg-background/90 backdrop-blur-sm border border-border/50 shadow-lg focus:ring-2 focus:ring-primary/50"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-              <Button 
-                type="submit" 
-                className="absolute right-1.5 top-1/2 transform -translate-y-1/2 rounded-full px-4 py-6"
+            
+            <div className="relative max-w-2xl mx-auto">
+              <form
+                onSubmit={handleSearch}
+                className="flex items-center bg-card border border-border/50 rounded-full p-1 pl-6 shadow-lg focus-within:ring-2 focus-within:ring-primary/20"
               >
-                {t("exploreButton")} <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+                <Search className="h-5 w-5 text-muted-foreground mr-2" />
+                <input
+                  type="text"
+                  placeholder={t("searchPlaceholder")}
+                  className="flex-1 bg-transparent border-0 focus:outline-none focus:ring-0 text-foreground placeholder:text-muted-foreground"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <Button type="submit" size="sm" className="rounded-full">
+                  {t("exploreButton")}
+                </Button>
+              </form>
+              
+              <div className="absolute -bottom-12 left-0 right-0 flex justify-center gap-4 text-sm text-muted-foreground">
+                <span>{language === "en" ? "Popular:" : "热门:"}</span>
+                <div className="flex gap-3">
+                  {["Great Wall", "Eiffel Tower", "Taj Mahal"].map((term) => (
+                    <button
+                      key={term}
+                      className="hover:text-primary transition-colors"
+                      onClick={() => {
+                        setSearchQuery(term);
+                        // 手动创建一个事件对象
+                        const event = { preventDefault: () => {} } as React.FormEvent;
+                        handleSearch(event);
+                      }}
+                    >
+                      {term}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
-          </form>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <svg 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            xmlns="http://www.w3.org/2000/svg"
-            className="text-white"
-          >
-            <path 
-              d="M12 5V19M12 19L19 12M12 19L5 12" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-            />
-          </svg>
+          </div>
         </div>
       </section>
 

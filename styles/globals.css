@@ -27,25 +27,25 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 217.2 91.2% 59.8%;
+    --background: 230 35% 7%;
+    --foreground: 210 40% 98%;
+    --card: 230 35% 9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 230 35% 9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 100% 65%;
     --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 230 35% 15%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
+    --muted: 230 35% 15%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 210 100% 65%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --border: 230 35% 15%;
+    --input: 230 35% 15%;
+    --ring: 210 100% 65%;
   }
 }
 
@@ -56,4 +56,32 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* 添加背景网格图案 */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* 添加高级感的渐变效果 */
+.bg-gradient-premium {
+  background: linear-gradient(135deg, 
+    rgba(32, 41, 57, 0.8) 0%,
+    rgba(17, 24, 39, 0.9) 100%);
+}
+
+/* 添加霓虹灯效果 */
+.text-glow {
+  text-shadow: 0 0 10px rgba(79, 209, 255, 0.5),
+               0 0 20px rgba(79, 209, 255, 0.3);
+}
+
+/* 添加模糊玻璃效果 */
+.glass-effect {
+  backdrop-filter: blur(8px);
+  background: rgba(17, 24, 39, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 } 

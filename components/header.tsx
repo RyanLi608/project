@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -64,20 +65,27 @@ export default function Header() {
 
   return (
     <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
+      className={`sticky top-0 z-50 w-full transition-all duration-200 ${
         isScrolled
-          ? "bg-background/90 backdrop-blur-md py-2 shadow-sm"
-          : "bg-transparent py-4"
-      )}
+          ? "bg-background/80 backdrop-blur-md shadow-sm"
+          : "bg-transparent"
+      }`}
     >
-      <div className="container flex items-center justify-between">
-        <Link
-          href="/"
-          className="text-2xl font-bold tracking-tight transition-colors"
-        >
-          Landmark<span className="text-primary">AI</span>
-        </Link>
+      <div className="container flex h-16 items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center space-x-2">
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
+            <span className="font-playfair text-xl font-bold tracking-wider bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
+              LandmarkAI
+            </span>
+          </Link>
+        </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
