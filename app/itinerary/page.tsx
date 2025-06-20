@@ -17,7 +17,8 @@ import {
   CreditCard, 
   Calendar,
   Plane,
-  Hotel
+  Hotel,
+  Upload
 } from "lucide-react";
 import { useItineraryGenerator } from "@/hooks/useDeepSeekAPI";
 import { useLanguage } from "@/lib/language-context";
@@ -39,6 +40,7 @@ export default function ItineraryPage() {
   const [date, setDate] = useState<Date>();
   const [budgetRange, setBudgetRange] = useState([2000]); // 默认预算2000
   const [openSuggestions, setOpenSuggestions] = useState(false);
+  const fileInputRef = React.useRef<HTMLInputElement>(null);
   
   const { isLoading, error, generateItinerary } = useItineraryGenerator();
   const { language, t } = useLanguage();
@@ -279,6 +281,59 @@ ${days > 2 ? `## 第3天
     setBudgetRange([2000]);
   };
 
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const content = e.target?.result as string;
+      if (content) {
+        parseAndSetItineraryData(content);
+      }
+    };
+    reader.readAsText(file);
+    // Reset file input to allow uploading the same file again
+    event.target.value = "";
+  };
+
+  const parseAndSetItineraryData = (content: string) => {
+    const lines = content.split('\n');
+    lines.forEach(line => {
+      const [rawKey, ...valueParts] = line.split(':');
+      if (!rawKey || valueParts.length === 0) return;
+      
+      const key = rawKey.trim().toLowerCase();
+      const value = valueParts.join(':').trim();
+
+      if (key.includes('destination') || key.includes('目的地')) {
+        setDestination(value);
+      } else if (key.includes('days') || key.includes('天数')) {
+        const numDays = parseInt(value, 10);
+        if (!isNaN(numDays) && numDays >= 1 && numDays <= 14) {
+          setDays(numDays);
+        }
+      } else if (key.includes('budget') || key.includes('预算')) {
+        const amount = parseInt(value.replace(/[^0-9]/g, ''), 10);
+        if (!isNaN(amount) && amount >= 500 && amount <= 10000) {
+          setBudgetRange([amount]);
+        }
+      } else if (key.includes('preferences') || key.includes('偏好')) {
+        const uploadedPrefIds = value.split(',').map(p => p.trim().toLowerCase());
+        const validPrefIds = preferences.map(p => p.id);
+        const newSelectedPreferences = uploadedPrefIds.filter(id => validPrefIds.includes(id));
+        if (newSelectedPreferences.length > 0) {
+          setSelectedPreferences(newSelectedPreferences);
+        }
+      } else if (key.includes('date') || key.includes('日期')) {
+        const parsedDate = new Date(value);
+        if (!isNaN(parsedDate.getTime()) && parsedDate >= new Date()) {
+          setDate(parsedDate);
+        }
+      }
+    });
+  };
+
   // 格式化预算显示
   const formatBudget = (value: number) => {
     return language === "en" 
@@ -301,7 +356,13 @@ ${days > 2 ? `## 第3天
             {/* Itinerary Generation Form */}
             <Card className={`${generatedItinerary ? 'md:col-span-4' : 'md:col-span-8 md:col-start-3'} h-fit`}>
               <CardHeader>
-                <CardTitle>{t("createItinerary")}</CardTitle>
+                <div className="flex justify-between items-center">
+                  <CardTitle>{t("createItinerary")}</CardTitle>
+                  <Button variant="outline" size="sm" onClick={() => fileInputRef.current?.click()}>
+                    <Upload className="mr-2 h-4 w-4" />
+                    {language === "en" ? "Upload Plan" : "上传计划"}
+                  </Button>
+                </div>
                 <CardDescription>
                   {t("formDescription")}
                 </CardDescription>
@@ -310,48 +371,16 @@ ${days > 2 ? `## 第3天
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
                     <Label htmlFor="destination">{t("destination")}</Label>
-                    <Popover open={openSuggestions} onOpenChange={setOpenSuggestions}>
-                      <PopoverTrigger asChild>
-                        <Button variant="outline" role="combobox" className="w-full justify-between" type="button">
-                          <div className="flex items-center gap-2">
-                            <MapPin className="h-4 w-4" />
-                            {destination ? 
-                              <span>{destination}</span> : 
-                              <span className="text-muted-foreground">{t("destinationPlaceholder")}</span>
-                            }
-                          </div>
-                          <CalendarIcon className="ml-auto h-4 w-4 shrink-0 opacity-50" />
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent className="p-0 w-full min-w-[240px]" align="start" side="bottom" sideOffset={5}>
-                        <Command>
-                          <CommandInput 
-                            placeholder={language === "en" ? "Search destinations..." : "搜索目的地..."}
-                            value={destination}
-                            onValueChange={setDestination}
-                            className="h-9"
-                          />
-                          <CommandEmpty>
-                            {language === "en" ? "No destinations found." : "未找到目的地。"}
-                          </CommandEmpty>
-                          <CommandGroup className="max-h-[200px] overflow-auto">
-                            {popularDestinations.map((dest) => (
-                              <CommandItem
-                                key={dest.value}
-                                value={dest.value}
-                                onSelect={(value) => {
-                                  setDestination(value);
-                                  setOpenSuggestions(false);
-                                }}
-                              >
-                                <MapPin className="mr-2 h-4 w-4" />
-                                {dest.label}
-                              </CommandItem>
-                            ))}
-                          </CommandGroup>
-                        </Command>
-                      </PopoverContent>
-                    </Popover>
+                    <div className="relative">
+                      <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                      <Input
+                        id="destination"
+                        placeholder={t("destinationPlaceholder")}
+                        value={destination}
+                        onChange={(e) => setDestination(e.target.value)}
+                        className="pl-10"
+                      />
+                    </div>
                   </div>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -439,6 +468,13 @@ ${days > 2 ? `## 第3天
                     </div>
                   </div>
                   
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={handleFileUpload}
+                    className="hidden"
+                    accept=".txt"
+                  />
                   <div className="pt-2 space-x-2 flex">
                     <Button 
                       type="submit" 
