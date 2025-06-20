@@ -75,4 +75,4 @@ const USE_DEEPSEEK = true; // 改为true即可使用DeepSeek API
 
 ## 许可证
 
-MIT 
+MIT # 触发Vercel部署
