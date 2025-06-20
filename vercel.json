@@ -1,1 +1,19 @@
-{"version":2,"public":false,"github":{"enabled":true,"autoAlias":true,"silent":false,"autoJobCancelation":true}}
+{
+  "version": 2,
+  "public": false,
+  "github": {
+    "enabled": true,
+    "autoAlias": true,
+    "silent": false,
+    "autoJobCancelation": true
+  },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "framework": "nextjs"
+}
