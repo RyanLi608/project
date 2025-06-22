@@ -5,7 +5,7 @@ import { generateItinerary } from '@/lib/api/deepseek';
 function generateMockItinerary(destination: string, days: number, preferences: string[], language: string = 'Chinese') {
   const isEnglish = language.toLowerCase().includes('english');
   
-  // 根据目的地生成不同的模拟数据
+  // 北京行程
   if (destination === '北京' || destination.toLowerCase().includes('beijing')) {
     if (isEnglish) {
       return `# Beijing ${days}-Day Cultural History Tour
@@ -22,7 +22,7 @@ This ${days}-day Beijing journey focuses on cultural and historical exploration,
   * Don't miss: Hall of Supreme Harmony, Palace of Heavenly Purity, Imperial Garden
 
 ### Afternoon (12:30-17:00)
-- 12:30-14:00: Lunch at Siji Minfu Restaurant (四季民福) near the east gate of the Forbidden City
+- 12:30-14:00: Lunch at Siji Minfu Restaurant near the east gate of the Forbidden City
   * Recommended dishes: Peking Duck (288 CNY), Imperial Court dishes
 - 14:00-14:30: Walk or take a short taxi to Jingshan Park (10 CNY entrance)
 - 14:30-16:00: Climb Jingshan Hill for panoramic views of the Forbidden City
@@ -50,7 +50,7 @@ This ${days}-day Beijing journey focuses on cultural and historical exploration,
 ### Evening (17:30-21:00)
 - 17:30-18:30: Return to hotel to freshen up
 - 18:30-20:00: Beijing Kung Fu Show at Red Theater (tickets: 180-380 CNY)
-- 20:00-21:00: Dinner at Dadong Duck Restaurant (大董烤鸭店)
+- 20:00-21:00: Dinner at Dadong Duck Restaurant
   * Signature dish: Superlean Roast Duck
 
 ## Day 3: Temple of Heaven and Hutongs
@@ -62,7 +62,7 @@ This ${days}-day Beijing journey focuses on cultural and historical exploration,
   * Morning tai chi with locals in the park
 
 ### Afternoon (12:00-17:00)
-- 12:00-13:30: Lunch at Li Qun Roast Duck Restaurant (利群烤鸭店)
+- 12:00-13:30: Lunch at Li Qun Roast Duck Restaurant
 - 13:30-14:00: Travel to Nanluoguxiang Hutong by subway Line 6 to Nanluoguxiang Station
 - 14:00-16:30: Hutong tour in Nanluoguxiang and Houhai area
   * Optional: Rickshaw tour (approximately 150 CNY per hour)
