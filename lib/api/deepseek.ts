@@ -251,23 +251,27 @@ ${extraInfo ? extraInfo + '\n' : ''}
 
 2. 每天的详细安排：
    - 明确具体的景点名称，而不是笼统的"参观景点"
-   - 每个景点的具体游览时间（例如：9:00-11:30）
+   - 每个景点的具体游览时间（例如：9:00-11:30）和门票价格
    - 景点之间的具体交通方式（如地铁2号线、出租车、步行10分钟等）
-   - 具体餐厅推荐（包括餐厅名称和特色菜品）
+   - 具体餐厅推荐（包括餐厅名称、位置、特色菜品及价格）
    - 详细的活动描述，而不是简单的"自由活动"
    - 合理安排每天的行程，考虑景点之间的距离和游览时间
+   - 对于每个景点，提供1-2个不容错过的特色或体验
 
 3. 住宿建议：
    - 根据预算提供2-3个具体的酒店或住宿区域推荐
-   - 说明酒店的大致价格区间和特点
+   - 说明酒店的大致价格区间、特点和位置优势
+   - 提供酒店的网站或预订方式
 
 4. 实用信息：
-   - 必备物品清单
-   - 交通卡/景点通票等信息
+   - 必备物品清单（针对${destination}的特点）
+   - 交通卡/景点通票等信息和价格
    - 重要景点的开放时间和门票价格
    - 当地特色体验活动的预订建议
+   - 紧急联系方式或医疗设施信息
+   - 天气提示和最佳穿着建议
 
-请确保行程安排合理可行，节奏适中，既能充分体验${destination}的特色，又不会过于紧凑疲惫。针对${preferencesText}的偏好，请特别突出相关的景点和体验。`
+请确保行程安排合理可行，节奏适中，既能充分体验${destination}的特色，又不会过于紧凑疲惫。针对${preferencesText}的偏好，请特别突出相关的景点和体验。提供的信息要尽可能准确，包括实际的餐厅名称、景点门票、交通方式和费用等。`
       : `Please design a detailed ${daysText} travel itinerary for ${destination}. Traveler preferences: ${preferences.join(', ')}.
 ${extraInfo ? extraInfo + '\n' : ''}
 Please provide the following with clear formatting and specific, practical content:
@@ -276,23 +280,27 @@ Please provide the following with clear formatting and specific, practical conte
 
 2. Detailed Daily Schedule:
    - Specify exact attraction names, not just general "visit attractions"
-   - Concrete visiting times for each site (e.g., 9:00-11:30)
+   - Concrete visiting times for each site (e.g., 9:00-11:30) and entrance fees
    - Specific transportation methods between attractions (subway line 2, taxi, 10-minute walk, etc.)
-   - Specific restaurant recommendations (including restaurant names and signature dishes)
+   - Specific restaurant recommendations (including restaurant names, locations, signature dishes and prices)
    - Detailed activity descriptions, not just "free time"
    - Arrange each day's itinerary reasonably, considering distances between attractions and visiting times
+   - For each attraction, provide 1-2 must-see features or experiences
 
 3. Accommodation Suggestions:
    - Provide 2-3 specific hotel recommendations or areas based on budget
-   - Indicate approximate price ranges and features of hotels
+   - Indicate approximate price ranges, features, and location advantages of hotels
+   - Provide hotel websites or booking methods
 
 4. Practical Information:
-   - Essential items checklist
-   - Information on transportation cards/attraction passes
+   - Essential items checklist (specific to ${destination})
+   - Information on transportation cards/attraction passes and their prices
    - Opening hours and ticket prices for major attractions
    - Booking recommendations for local experience activities
+   - Emergency contact information or medical facilities
+   - Weather tips and best clothing suggestions
 
-Please ensure the itinerary is reasonable and feasible, with a moderate pace that allows thoroughly experiencing ${destination}'s features without being too hectic or tiring. For the preferences of ${preferences.join(', ')}, please particularly highlight relevant attractions and experiences.`;
+Please ensure the itinerary is reasonable and feasible, with a moderate pace that allows thoroughly experiencing ${destination}'s features without being too hectic or tiring. For the preferences of ${preferences.join(', ')}, please particularly highlight relevant attractions and experiences. Provide information that is as accurate as possible, including actual restaurant names, attraction tickets, transportation methods and costs.`;
 
     return await requestAIResponse(prompt, language);
   } catch (error) {

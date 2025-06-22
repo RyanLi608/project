@@ -11,196 +11,328 @@ function generateMockItinerary(destination: string, days: number, preferences: s
       return `# Beijing ${days}-Day Cultural History Tour
 
 ## Itinerary Overview
-This ${days}-day Beijing journey focuses on cultural and historical exploration, taking you through the city's most iconic imperial sites, ancient alleyways, and cultural landmarks. You'll experience the grandeur of the Forbidden City, walk along the majestic Great Wall, and immerse yourself in local life through hutong tours and authentic cuisine.
+This ${days}-day Beijing journey focuses on cultural and historical exploration, taking you through the city's most iconic imperial sites, ancient alleyways, and cultural landmarks. You'll experience the grandeur of the Forbidden City, walk along the majestic Great Wall, and immerse yourself in local life through hutong tours and authentic cuisine. This carefully planned itinerary balances must-see attractions with authentic local experiences, allowing you to truly appreciate Beijing's 3,000-year history.
 
 ## Day 1: Imperial Beijing
 ### Morning (8:00-12:00)
 - 8:00-8:30: Hotel breakfast
-- 8:30-9:00: Travel to Tiananmen Square by subway Line 1 (Exit A at Tiananmen East Station)
+- 8:30-9:00: Travel to Tiananmen Square by subway Line 1 (Exit A at Tiananmen East Station, ¥3)
 - 9:00-10:00: Explore Tiananmen Square, the world's largest public square
-- 10:00-12:30: Visit the Forbidden City (entrance fee: 60 CNY Apr-Oct, 40 CNY Nov-Mar)
-  * Don't miss: Hall of Supreme Harmony, Palace of Heavenly Purity, Imperial Garden
+  * Don't miss: The daily flag-raising ceremony if you start early (times vary seasonally)
+  * Photo opportunity: The Monument to the People's Heroes at the center of the square
+- 10:00-12:30: Visit the Forbidden City (entrance fee: ¥60 Apr-Oct, ¥40 Nov-Mar)
+  * Must-see: Hall of Supreme Harmony, Palace of Heavenly Purity, Imperial Garden
+  * Insider tip: Rent an audio guide (¥40) or download the Palace Museum app for detailed explanations
 
 ### Afternoon (12:30-17:00)
-- 12:30-14:00: Lunch at Siji Minfu Restaurant near the east gate of the Forbidden City
-  * Recommended dishes: Peking Duck (288 CNY), Imperial Court dishes
-- 14:00-14:30: Walk or take a short taxi to Jingshan Park (10 CNY entrance)
+- 12:30-14:00: Lunch at Siji Minfu Restaurant near the east gate of the Forbidden City (5 Dengshikou West Street)
+  * Recommended dishes: Peking Duck (¥288), Imperial Court dishes (¥88-168), Kung Pao Chicken (¥68)
+  * Reservation recommended: +86-10-65259288
+- 14:00-14:30: Walk or take a short taxi (about ¥15) to Jingshan Park (¥10 entrance)
 - 14:30-16:00: Climb Jingshan Hill for panoramic views of the Forbidden City
-- 16:00-17:00: Visit the Drum and Bell Towers (combined ticket: 30 CNY)
+  * Best photo spot: The pavilion at the highest point for a complete view of the Forbidden City
+- 16:00-17:00: Visit the Drum and Bell Towers (combined ticket: ¥30)
+  * Experience: Catch the drum performance at the Drum Tower (performances at 09:30, 10:30, 11:30, 13:30, 14:30, 15:30, 16:30)
 
 ### Evening (17:00-21:00)
-- 17:00-18:00: Travel to Wangfujing Street by subway Line 1
-- 18:00-19:30: Dinner at Donghuamen Night Market or Quanjude Roast Duck Restaurant
+- 17:00-18:00: Travel to Wangfujing Street by subway Line 1 (¥3)
+- 18:00-19:30: Dinner at Donghuamen Night Market or Quanjude Roast Duck Restaurant (Wangfujing Branch)
+  * At Quanjude: Signature roast duck (¥298 for whole duck, serves 2-3 people)
+  * Duck comes with traditional accompaniments and demonstration of carving technique
 - 19:30-21:00: Shopping and exploring Wangfujing Street
-- 21:00: Return to hotel by taxi (approximately 30 CNY)
+  * Visit: Beijing Foreign Languages Bookstore and traditional Chinese goods at Wuyutai Tea Shop
+- 21:00: Return to hotel by taxi (approximately ¥30)
 
 ## Day 2: The Great Wall and Olympic Park
 ### Morning (7:30-13:00)
 - 7:30-8:00: Hotel breakfast
-- 8:00-10:00: Travel to Mutianyu Great Wall by pre-booked private transfer or tour bus
-- 10:00-13:00: Explore Mutianyu Great Wall (entrance: 45 CNY, cable car: 100 CNY round trip)
-  * Tip: Take the cable car up and toboggan down for a unique experience
+- 8:00-10:00: Travel to Mutianyu Great Wall by pre-booked private transfer (¥400 round trip) or tour bus (¥150)
+  * Booking tip: Ask your hotel concierge to arrange transportation or book through Klook/GetYourGuide
+- 10:00-13:00: Explore Mutianyu Great Wall (entrance: ¥45, cable car: ¥100 round trip or ¥80 up + ¥80 toboggan down)
+  * Must-visit sections: Watchtowers 14-23 offer the best views and photo opportunities
+  * Insider tip: Take the cable car up and toboggan down for a unique experience
+  * Difficulty level: Moderate, wear comfortable shoes and bring water
 
 ### Afternoon (13:00-17:30)
-- 13:00-14:00: Lunch at the Schoolhouse Restaurant near Mutianyu
-  * Recommended: Fresh trout and local specialties
+- 13:00-14:00: Lunch at the Schoolhouse Restaurant near Mutianyu (Huairou District)
+  * Recommended: Fresh rainbow trout (¥128), homemade pizza (¥88), and local specialties (¥60-120)
+  * Setting: Converted schoolhouse with garden seating and Great Wall views
 - 14:00-15:30: Return to Beijing city
-- 15:30-17:30: Visit the Olympic Park, see the Bird's Nest (80 CNY to enter) and Water Cube (30 CNY)
+- 15:30-17:30: Visit the Olympic Park, see the Bird's Nest (¥80 to enter) and Water Cube (¥30)
+  * Photo opportunity: The Olympic Torch and the five Olympic rings
+  * Evening light show starts at 19:00 (April-October)
 
 ### Evening (17:30-21:00)
-- 17:30-18:30: Return to hotel to freshen up
-- 18:30-20:00: Beijing Kung Fu Show at Red Theater (tickets: 180-380 CNY)
-- 20:00-21:00: Dinner at Dadong Duck Restaurant
-  * Signature dish: Superlean Roast Duck
+- 17:30-18:30: Return to hotel to freshen up (subway Line 8 from Olympic Park to your area, ¥3-5)
+- 18:30-20:00: Beijing Kung Fu Show at Red Theater (tickets: ¥180-380)
+  * Address: 44 Xingfu Street, Dongcheng District
+  * Booking tip: Book 2-3 days in advance through your hotel or online
+- 20:00-21:00: Dinner at Dadong Duck Restaurant (Dongsi 10th Alley Branch)
+  * Signature dish: Superlean Roast Duck (¥298 per duck)
+  * Other specialties: Crispy duck skin with sugar (¥28), duck soup (¥38)
+  * Reservation essential: +86-10-65822892
 
 ## Day 3: Temple of Heaven and Hutongs
 ### Morning (8:00-12:00)
 - 8:00-8:30: Hotel breakfast
-- 8:30-9:00: Travel to Temple of Heaven by subway Line 5
-- 9:00-11:30: Visit Temple of Heaven Park (entrance: 35 CNY)
+- 8:30-9:00: Travel to Temple of Heaven by subway Line 5 (Tiantandongmen Station, Exit A, ¥3)
+- 9:00-11:30: Visit Temple of Heaven Park (entrance: ¥35 for all inclusive ticket)
   * Highlights: Hall of Prayer for Good Harvests, Echo Wall, Imperial Vault of Heaven
-  * Morning tai chi with locals in the park
+  * Morning tai chi with locals in the park (east side, 8:00-9:30)
+  * Photography tip: The triple-gabled Hall of Prayer is most photogenic in morning light
 
 ### Afternoon (12:00-17:00)
-- 12:00-13:30: Lunch at Li Qun Roast Duck Restaurant
+- 12:00-13:30: Lunch at Li Qun Roast Duck Restaurant (11 Beixiangfeng Hutong, Zhengyi Road)
+  * A hidden gem with authentic Beijing duck (¥198 per duck)
+  * Side dishes: Sweet bean sauce pancakes (¥15), duck liver (¥38)
 - 13:30-14:00: Travel to Nanluoguxiang Hutong by subway Line 6 to Nanluoguxiang Station
 - 14:00-16:30: Hutong tour in Nanluoguxiang and Houhai area
-  * Optional: Rickshaw tour (approximately 150 CNY per hour)
-  * Visit Prince Gong's Mansion (70 CNY entrance)
-- 16:30-17:00: Tea ceremony at traditional teahouse
+  * Optional: Rickshaw tour (approximately ¥150 per hour)
+  * Visit Prince Gong's Mansion (¥70 entrance)
+  * Shopping: Traditional crafts and modern designs in boutique shops
+  * Experience: Try traditional snacks like tanghulu (candied fruit, ¥10) and yogurt (¥5)
+- 16:30-17:00: Tea ceremony at traditional teahouse (Wuhao Teahouse recommended, ¥100-150 per person)
+  * Learn about different Chinese tea varieties and proper brewing techniques
 
 ### Evening (17:00-21:00)
-- 17:00-18:30: Boat ride on Houhai Lake (80 CNY per hour)
-- 18:30-20:00: Farewell dinner at TRB Hutong or The Orchid restaurant
+- 17:00-18:30: Boat ride on Houhai Lake (¥80 per hour)
+  * Best time: Sunset for beautiful lighting on the water
+- 18:30-20:00: Farewell dinner at TRB Hutong (23 Songzhusi Temple, Shatan Beijie) or The Orchid restaurant
+  * TRB Hutong: Fine dining in a restored temple setting (set menu ¥428-688)
+  * The Orchid: Fusion cuisine in boutique hotel (¥200-300 per person)
+  * Reservation required 2-3 days in advance
 - 20:00-21:00: Evening stroll around the illuminated Houhai area
-- 21:00: Return to hotel
+  * Visit: Houhai Bar Street for live music and lakeside ambiance
+- 21:00: Return to hotel by taxi (approximately ¥30-40)
 
 ## Accommodation Suggestions
-Based on a budget of around $100-150 per night:
-1. **Pentahotel Beijing** - Modern hotel near subway stations, approximately $120/night
-2. **RedWall Garden Hotel** - Traditional courtyard hotel in hutong area, approximately $140/night
-3. **Novotel Beijing Xin Qiao** - Convenient downtown location, approximately $100/night
+Based on a budget of around ¥600-1000 per night:
+
+1. **Pentahotel Beijing**
+   * Price: ¥650-850/night
+   * Location: East 2nd Ring Road, near Chongwenmen subway station
+   * Features: Modern design, 24-hour gym, games room, restaurant and bar
+   * Advantages: Walking distance to Wangfujing, easy subway access to major attractions
+   * Website: www.pentahotels.com/beijing
+
+2. **RedWall Garden Hotel**
+   * Price: ¥880-1200/night
+   * Location: 41 Shijia Hutong, Dongcheng District
+   * Features: Traditional courtyard hotel in quiet hutong area, Chinese garden
+   * Advantages: Authentic Beijing experience, walking distance to Forbidden City
+   * Website: www.redwall-garden-hotel-beijing.com
+
+3. **Novotel Beijing Xin Qiao**
+   * Price: ¥550-750/night
+   * Location: 1 Chongwenmen West Street
+   * Features: International brand hotel, multiple restaurants, business center
+   * Advantages: Convenient downtown location, subway access, shopping nearby
+   * Website: www.accorhotels.com/beijing-xinqiao
 
 ## Practical Information
 ### Essential Items:
-- Comfortable walking shoes
+- Comfortable walking shoes (especially for Great Wall and hutong exploration)
 - Passport (required for hotel check-in and some attractions)
 - Cash (many smaller vendors don't accept foreign credit cards)
 - Power adapter (China uses 220V, type A and I plugs)
 - VPN service (if you need access to Google, Facebook, etc.)
+- Pollution mask (check air quality index before your trip)
+- Hand sanitizer and tissues (public restrooms may not provide)
 
 ### Transportation:
-- Beijing Subway: Purchase a rechargeable Transportation Smart Card (20 CNY deposit)
-- Airport Express: 25 CNY from airport to city center
-- Taxi from Airport: Approximately 100-120 CNY to central Beijing
+- Beijing Subway: Purchase a rechargeable Transportation Smart Card (¥20 deposit + amount you add)
+- Airport Express: ¥25 from airport to city center (runs 6:30-22:30)
+- Taxi from Airport: Approximately ¥100-120 to central Beijing (30-45 minutes)
+- DiDi app: China's equivalent to Uber, English version available
+- Subway operating hours: 5:00-23:00 (varies by line)
 
 ### Major Attractions Opening Hours:
 - Forbidden City: 8:30-17:00 (Apr-Oct), 8:30-16:30 (Nov-Mar), closed Mondays
 - Great Wall at Mutianyu: 7:30-18:00 (Apr-Oct), 8:00-17:00 (Nov-Mar)
 - Temple of Heaven: 6:00-22:00 (park), 8:00-17:30 (historical buildings)
+- Prince Gong's Mansion: 8:30-17:00, last entry 16:30
 
 ### Booking Tips:
-- Book Forbidden City tickets online 10 days in advance through the official website
-- Consider hiring an English-speaking guide for the Great Wall visit
+- Book Forbidden City tickets online 10 days in advance through the official website (avoid scalpers)
+- Consider hiring an English-speaking guide for the Great Wall visit (¥400-600 per day)
 - Beijing opera or acrobatics show tickets can be purchased through your hotel concierge
+- Most museums are closed on Mondays for maintenance
+
+### Emergency Information:
+- Tourist Police: 110 (English service available)
+- Medical Emergency: 120
+- International SOS Beijing Clinic: +86-10-64629112 (24-hour service with English-speaking staff)
+- Beijing United Family Hospital: +86-10-59277000 (Western-standard medical care)
+
+### Weather Tips:
+- Spring (Mar-May): 10-25°C, occasional sandstorms, light jacket recommended
+- Summer (Jun-Aug): 25-35°C, humid with afternoon thunderstorms, light clothing and umbrella
+- Autumn (Sep-Nov): 15-25°C, clear skies, light layers recommended
+- Winter (Dec-Feb): -5-5°C, dry and cold, heavy coat, gloves and hat essential
 
 Enjoy your cultural and historical journey through Beijing!`;
     } else {
       return `# 北京${days}天文化历史之旅
 
 ## 行程概述
-这个${days}天的北京之旅专注于文化和历史探索，带您游览北京最具标志性的皇家遗址、古老胡同和文化地标。您将体验紫禁城的宏伟，漫步在雄伟的长城上，并通过胡同游览和品尝正宗美食深入体验当地生活。
+这个${days}天的北京之旅专注于文化和历史探索，带您游览北京最具标志性的皇家遗址、古老胡同和文化地标。您将体验紫禁城的宏伟，漫步在雄伟的长城上，并通过胡同游览和品尝正宗美食深入体验当地生活。此精心规划的行程平衡了必游景点与地道体验，让您真正领略北京3000年的历史底蕴和现代魅力。
 
 ## 第1天：皇家北京
 ### 上午（8:00-12:00）
 - 8:00-8:30：酒店早餐
-- 8:30-9:00：乘坐地铁1号线前往天安门广场（天安门东站A出口）
+- 8:30-9:00：乘坐地铁1号线前往天安门广场（天安门东站A出口，票价3元）
 - 9:00-10:00：探索天安门广场，世界上最大的公共广场
+  * 不容错过：如果您早起，可以观看升旗仪式（时间随季节变化）
+  * 摄影点：广场中心的人民英雄纪念碑
 - 10:00-12:30：参观紫禁城（门票：4月-10月60元，11月-3月40元）
-  * 不容错过：太和殿、乾清宫、御花园
+  * 必看景点：太和殿、乾清宫、御花园
+  * 内部提示：租用语音导览器（40元）或下载故宫博物院APP获取详细解说
 
 ### 下午（12:30-17:00）
-- 12:30-14:00：在紫禁城东门附近的四季民福餐厅午餐
-  * 推荐菜品：北京烤鸭（288元），宫廷菜
-- 14:00-14:30：步行或乘坐短程出租车前往景山公园（门票10元）
+- 12:30-14:00：在紫禁城东门附近的四季民福餐厅午餐（地址：灯市口西街5号）
+  * 推荐菜品：北京烤鸭（288元），宫廷菜（88-168元），宫保鸡丁（68元）
+  * 建议提前预订：010-65259288
+- 14:00-14:30：步行或乘坐短程出租车（约15元）前往景山公园（门票10元）
 - 14:30-16:00：登景山俯瞰紫禁城全景
+  * 最佳拍摄点：最高处的亭子，可以完整俯瞰紫禁城布局
 - 16:00-17:00：参观钟鼓楼（联票：30元）
+  * 体验：欣赏鼓楼的击鼓表演（表演时间：09:30、10:30、11:30、13:30、14:30、15:30、16:30）
 
 ### 晚上（17:00-21:00）
-- 17:00-18:00：乘坐地铁1号线前往王府井大街
-- 18:00-19:30：在东华门夜市或全聚德烤鸭店晚餐
+- 17:00-18:00：乘坐地铁1号线前往王府井大街（票价3元）
+- 18:00-19:30：在东华门夜市或全聚德烤鸭店（王府井店）晚餐
+  * 全聚德特色：招牌烤鸭（298元/只，可供2-3人享用）
+  * 包含传统配菜和现场片鸭表演
 - 19:30-21:00：在王府井大街购物和探索
+  * 推荐：北京外文书店和吴裕泰茶叶店购买传统中国商品
 - 21:00：乘坐出租车返回酒店（约30元）
 
 ## 第2天：长城和奥林匹克公园
 ### 上午（7:30-13:00）
 - 7:30-8:00：酒店早餐
-- 8:00-10:00：乘坐预订的私人接送或旅游巴士前往慕田峪长城
-- 10:00-13:00：探索慕田峪长城（门票：45元，缆车：往返100元）
-  * 小贴士：乘坐缆车上山，滑道下山，体验独特
+- 8:00-10:00：乘坐预订的私人接送（往返400元）或旅游巴士（150元）前往慕田峪长城
+  * 预订提示：可请酒店礼宾部安排交通或通过Klook/GetYourGuide预订
+- 10:00-13:00：探索慕田峪长城（门票：45元，缆车：往返100元或上行80元+滑道下行80元）
+  * 必游段落：14-23号敌楼提供最佳景观和拍照机会
+  * 内部提示：乘坐缆车上山，滑道下山，体验独特
+  * 难度级别：中等，穿舒适的鞋子并带水
 
 ### 下午（13:00-17:30）
-- 13:00-14:00：在慕田峪附近的Schoolhouse餐厅午餐
-  * 推荐：新鲜鳟鱼和当地特色菜
+- 13:00-14:00：在慕田峪附近的Schoolhouse餐厅午餐（怀柔区）
+  * 推荐：新鲜虹鳟鱼（128元），自制披萨（88元），当地特色菜（60-120元）
+  * 环境：改建的学校，有花园座位和长城景观
 - 14:00-15:30：返回北京市区
 - 15:30-17:30：参观奥林匹克公园，鸟巢（进入门票80元）和水立方（30元）
+  * 拍照机会：奥运火炬和五环标志
+  * 晚间灯光秀从19:00开始（4月-10月）
 
 ### 晚上（17:30-21:00）
-- 17:30-18:30：返回酒店休息
+- 17:30-18:30：返回酒店休息（从奥林匹克公园乘坐地铁8号线，票价3-5元）
 - 18:30-20:00：在红剧场观看北京功夫表演（票价：180-380元）
-- 20:00-21:00：在大董烤鸭店晚餐
-  * 招牌菜：超瘦烤鸭
+  * 地址：东城区幸福街44号
+  * 预订提示：提前2-3天通过酒店或在线预订
+- 20:00-21:00：在大董烤鸭店（东四十条店）晚餐
+  * 招牌菜：超瘦烤鸭（298元/只）
+  * 其他特色：香酥鸭皮蘸白糖（28元），鸭汤（38元）
+  * 必须预订：010-65822892
 
 ## 第3天：天坛和胡同
 ### 上午（8:00-12:00）
 - 8:00-8:30：酒店早餐
-- 8:30-9:00：乘坐地铁5号线前往天坛
-- 9:00-11:30：参观天坛公园（门票：35元）
+- 8:30-9:00：乘坐地铁5号线前往天坛（天坛东门站A出口，票价3元）
+- 9:00-11:30：参观天坛公园（门票：35元全包票）
   * 亮点：祈年殿、回音壁、皇穹宇
-  * 在公园与当地人一起晨练太极
+  * 在公园东侧与当地人一起晨练太极（8:00-9:30）
+  * 摄影提示：三重檐的祈年殿在晨光中最为上镜
 
 ### 下午（12:00-17:00）
-- 12:00-13:30：在利群烤鸭店午餐
+- 12:00-13:30：在利群烤鸭店午餐（北翔凤胡同11号，正义路）
+  * 地道北京烤鸭老店（198元/只）
+  * 配菜：甜面酱饼（15元），鸭肝（38元）
 - 13:30-14:00：乘坐地铁6号线到南锣鼓巷站
 - 14:00-16:30：南锣鼓巷和后海区域胡同游
   * 可选：人力车游览（约150元/小时）
   * 参观恭王府（门票70元）
-- 16:30-17:00：在传统茶馆体验茶道
+  * 购物：在精品店购买传统工艺品和现代设计产品
+  * 体验：品尝传统小吃如糖葫芦（10元）和酸奶（5元）
+- 16:30-17:00：在传统茶馆体验茶道（推荐吾好茶馆，100-150元/人）
+  * 了解不同中国茶叶品种和正确的冲泡技巧
 
 ### 晚上（17:00-21:00）
 - 17:00-18:30：后海泛舟（80元/小时）
-- 18:30-20:00：在TRB胡同或The Orchid餐厅享用告别晚餐
+  * 最佳时间：日落时分，水面上的光线最美
+- 18:30-20:00：在TRB胡同（地址：什刹海前街23号嵩祝寺）或The Orchid餐厅享用告别晚餐
+  * TRB胡同：在修复的寺庙环境中享用精致餐点（套餐428-688元）
+  * The Orchid：精品酒店中的融合料理（200-300元/人）
+  * 需提前2-3天预订
 - 20:00-21:00：漫步于灯火通明的后海区域
-- 21:00：返回酒店
+  * 推荐：后海酒吧街，欣赏现场音乐和湖边氛围
+- 21:00：乘出租车返回酒店（约30-40元）
 
 ## 住宿建议
 基于每晚约600-1000元的预算：
-1. **北京五环酒店（Pentahotel Beijing）** - 靠近地铁站的现代酒店，约800元/晚
-2. **红墙花园酒店（RedWall Garden Hotel）** - 胡同区域的传统四合院酒店，约950元/晚
-3. **北京新侨诺富特酒店（Novotel Beijing Xin Qiao）** - 便利的市中心位置，约680元/晚
+
+1. **北京五环酒店（Pentahotel Beijing）**
+   * 价格：650-850元/晚
+   * 位置：东二环路，靠近崇文门地铁站
+   * 特点：现代设计，24小时健身房，游戏室，餐厅和酒吧
+   * 优势：步行可达王府井，地铁便捷通达主要景点
+   * 网站：www.pentahotels.com/beijing
+
+2. **红墙花园酒店（RedWall Garden Hotel）**
+   * 价格：880-1200元/晚
+   * 位置：东城区史家胡同41号
+   * 特点：胡同区域的传统四合院酒店，中式花园
+   * 优势：真实北京体验，步行可达故宫
+   * 网站：www.redwall-garden-hotel-beijing.com
+
+3. **北京新侨诺富特酒店（Novotel Beijing Xin Qiao）**
+   * 价格：550-750元/晚
+   * 位置：崇文门西大街1号
+   * 特点：国际品牌酒店，多个餐厅，商务中心
+   * 优势：便利的市中心位置，地铁通达，周边购物便利
+   * 网站：www.accorhotels.com/beijing-xinqiao
 
 ## 实用信息
 ### 必备物品：
-- 舒适的步行鞋
+- 舒适的步行鞋（尤其是长城和胡同探索）
 - 护照（酒店入住和部分景点需要）
 - 现金（许多小商贩不接受外国信用卡）
 - 电源适配器（中国使用220V，A型和I型插头）
 - VPN服务（如果您需要访问谷歌、脸书等）
+- 防霾口罩（出行前查看空气质量指数）
+- 洗手液和纸巾（公共卫生间可能不提供）
 
 ### 交通：
-- 北京地铁：购买可充值的交通一卡通（押金20元）
-- 机场快线：从机场到市中心25元
-- 机场出租车：到北京市中心约100-120元
+- 北京地铁：购买可充值的交通一卡通（押金20元+您充值的金额）
+- 机场快线：从机场到市中心25元（运营时间6:30-22:30）
+- 机场出租车：到北京市中心约100-120元（30-45分钟）
+- 滴滴出行APP：中国版Uber，有英文版
+- 地铁运营时间：5:00-23:00（各线路略有不同）
 
 ### 主要景点开放时间：
 - 紫禁城：8:30-17:00（4月-10月），8:30-16:30（11月-3月），周一闭馆
 - 慕田峪长城：7:30-18:00（4月-10月），8:00-17:00（11月-3月）
 - 天坛：6:00-22:00（公园），8:00-17:30（历史建筑）
+- 恭王府：8:30-17:00，16:30停止入场
 
 ### 预订提示：
-- 通过官方网站提前10天在线预订紫禁城门票
-- 考虑为长城游览雇佣英语导游
+- 通过官方网站提前10天在线预订紫禁城门票（避免黄牛）
+- 考虑为长城游览雇佣英语导游（400-600元/天）
 - 京剧或杂技表演门票可通过酒店礼宾部购买
+- 大多数博物馆在周一闭馆维护
+
+### 紧急联系信息：
+- 旅游警察：110（提供英语服务）
+- 医疗急救：120
+- 北京国际救援中心诊所：010-64629112（24小时服务，有英语工作人员）
+- 北京和睦家医院：010-59277000（西方标准医疗服务）
+
+### 天气提示：
+- 春季（3-5月）：10-25°C，偶有沙尘暴，建议携带轻薄外套
+- 夏季（6-8月）：25-35°C，潮湿多雷阵雨，轻便衣物和雨伞
+- 秋季（9-11月）：15-25°C，晴朗天空，建议轻便层叠穿着
+- 冬季（12-2月）：-5-5°C，干燥寒冷，必备厚外套、手套和帽子
 
 祝您在北京的文化历史之旅愉快！`;
     }
