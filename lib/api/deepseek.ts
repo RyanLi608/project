@@ -245,30 +245,54 @@ export async function generateItinerary(
     const prompt = language === 'Chinese'
       ? `请为${destination}设计一个${daysText}的详细旅行行程。旅行者偏好：${preferencesText}。
 ${extraInfo ? extraInfo + '\n' : ''}
-请提供以下内容：
-1. 行程概述：简要描述此次旅行的亮点和特色
-2. 每天的详细安排，包括：
-   - 上午、下午和晚上的活动安排
-   - 推荐的景点、餐厅和体验活动
-   - 交通方式建议
-   - 时间安排（大致的游览时长）
-3. 如有提供预算信息，请根据预算提供相应的住宿、餐饮和活动建议
-4. 如有提供出发日期，请考虑季节性因素和当地节日
+请提供以下内容，格式要清晰，内容要具体实用：
 
-请使用清晰的格式和结构，以便于阅读和理解。行程应该合理可行，节奏适中，既能体验目的地特色，又不会过于紧凑疲惫。`
+1. 行程概述：简要描述此次旅行的亮点和特色（100字左右）
+
+2. 每天的详细安排：
+   - 明确具体的景点名称，而不是笼统的"参观景点"
+   - 每个景点的具体游览时间（例如：9:00-11:30）
+   - 景点之间的具体交通方式（如地铁2号线、出租车、步行10分钟等）
+   - 具体餐厅推荐（包括餐厅名称和特色菜品）
+   - 详细的活动描述，而不是简单的"自由活动"
+   - 合理安排每天的行程，考虑景点之间的距离和游览时间
+
+3. 住宿建议：
+   - 根据预算提供2-3个具体的酒店或住宿区域推荐
+   - 说明酒店的大致价格区间和特点
+
+4. 实用信息：
+   - 必备物品清单
+   - 交通卡/景点通票等信息
+   - 重要景点的开放时间和门票价格
+   - 当地特色体验活动的预订建议
+
+请确保行程安排合理可行，节奏适中，既能充分体验${destination}的特色，又不会过于紧凑疲惫。针对${preferencesText}的偏好，请特别突出相关的景点和体验。`
       : `Please design a detailed ${daysText} travel itinerary for ${destination}. Traveler preferences: ${preferences.join(', ')}.
 ${extraInfo ? extraInfo + '\n' : ''}
-Please include the following:
-1. Itinerary overview: Briefly describe the highlights and features of this trip
-2. Detailed daily arrangements, including:
-   - Morning, afternoon, and evening activities
-   - Recommended attractions, restaurants, and experiences
-   - Transportation suggestions
-   - Timing (approximate duration for sightseeing)
-3. If budget information is provided, please suggest appropriate accommodations, dining, and activities accordingly
-4. If a departure date is provided, please consider seasonal factors and local festivals
+Please provide the following with clear formatting and specific, practical content:
 
-Please use a clear format and structure for easy reading and understanding. The itinerary should be reasonable and feasible, with a moderate pace that allows experiencing the destination's features without being too hectic or tiring.`;
+1. Itinerary Overview: Briefly describe the highlights and features of this trip (about 100 words)
+
+2. Detailed Daily Schedule:
+   - Specify exact attraction names, not just general "visit attractions"
+   - Concrete visiting times for each site (e.g., 9:00-11:30)
+   - Specific transportation methods between attractions (subway line 2, taxi, 10-minute walk, etc.)
+   - Specific restaurant recommendations (including restaurant names and signature dishes)
+   - Detailed activity descriptions, not just "free time"
+   - Arrange each day's itinerary reasonably, considering distances between attractions and visiting times
+
+3. Accommodation Suggestions:
+   - Provide 2-3 specific hotel recommendations or areas based on budget
+   - Indicate approximate price ranges and features of hotels
+
+4. Practical Information:
+   - Essential items checklist
+   - Information on transportation cards/attraction passes
+   - Opening hours and ticket prices for major attractions
+   - Booking recommendations for local experience activities
+
+Please ensure the itinerary is reasonable and feasible, with a moderate pace that allows thoroughly experiencing ${destination}'s features without being too hectic or tiring. For the preferences of ${preferences.join(', ')}, please particularly highlight relevant attractions and experiences.`;
 
     return await requestAIResponse(prompt, language);
   } catch (error) {
