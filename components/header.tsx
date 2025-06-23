@@ -74,13 +74,6 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center space-x-2">
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={40}
-              height={40}
-              className="rounded-full"
-            />
             <span className="font-playfair text-xl font-bold tracking-wider bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
               LandmarkAI
             </span>
