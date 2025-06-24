@@ -388,7 +388,7 @@ export function useItineraryGenerator() {
         setError(error.message || '生成行程时出错');
         setIsLoading(false);
         
-        // 不再返回模拟数据，而是抛出错误让调用者处理
+        // 直接抛出错误，不返回模拟数据
         throw error;
       }
     },

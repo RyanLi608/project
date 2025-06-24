@@ -107,8 +107,18 @@ export default function ItineraryPage() {
     
     // 生成行程
     try {
+      console.log('提交行程生成请求:', {
+        destination,
+        days,
+        preferences: preferenceLabels,
+        budget: budgetRange[0],
+        date: date ? format(date, 'yyyy-MM-dd') : null
+      });
+      
       const extraInfo = [budgetInfo, dateInfo].filter(Boolean).join('. ');
       const result = await generateItinerary(destination, days, preferenceLabels, extraInfo);
+      
+      console.log('行程生成结果:', result ? '成功' : '失败');
       
       if (result) {
         setGeneratedItinerary(result);
@@ -120,13 +130,18 @@ export default function ItineraryPage() {
           });
         }, 100);
       } else {
-        // 如果没有返回结果，显示错误信息
+        // 显示错误信息
         console.error('没有返回行程数据');
         alert(language === "en" ? "Failed to generate itinerary. Please try again." : "生成行程失败，请重试。");
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('行程生成错误:', error);
-      alert(language === "en" ? "An error occurred while generating the itinerary. Please try again." : "生成行程时发生错误，请重试。");
+      // 显示更详细的错误信息
+      const errorMessage = error.message || '未知错误';
+      console.error('错误详情:', errorMessage);
+      alert(language === "en" 
+        ? `An error occurred while generating the itinerary: ${errorMessage}` 
+        : `生成行程时发生错误: ${errorMessage}`);
     }
   };
   

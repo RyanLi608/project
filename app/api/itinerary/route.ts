@@ -597,7 +597,7 @@ Enjoy your cultural exploration of Bangkok!`;
 基于每晚约2,000-3,000泰铢的预算：
 
 1. **Centre Point Silom**
-   * 价格：2,500-3,000泰铢/晚
+   * 价格：2,500-3,000 THB/night
    * 位置：靠近湄南河，Saphan Taksin BTS站
    * 特点：屋顶泳池，健身中心，带小厨房的宽敞客房
    * 优势：方便前往河流渡轮、BTS空铁和夜市
@@ -865,93 +865,93 @@ Enjoy your journey through ${destination}!`;
 - 11:00-12:00: Return to Bangkok city
 
 ### Afternoon (12:00-17:00)
-- 12:00-13:30: Lunch at Thipsamai, famous for Pad Thai (100-150 THB)
-- 13:30-15:00: Visit the Golden Mount (Wat Saket) (entrance fee: 50 THB)
-  * Climb 318 steps for panoramic city views
-  * Ring the bells at the top for good luck
-- 15:00-17:00: Explore Chatuchak Weekend Market (if visiting on Friday afternoon, Saturday or Sunday)
-  * One of the world's largest weekend markets with over 15,000 stalls
-  * Shop for clothing, crafts, art, antiques, and souvenirs
-  * Alternative (weekdays): Visit MBK Center or Terminal 21 shopping malls
+- 12:00-13:30：在著名的Thipsamai餐厅享用泰式炒河粉午餐（100-150泰铢）
+- 13:30-15:00：参观金山寺（Wat Saket）（门票：50泰铢）
+  * 攀登318级台阶，欣赏全景城市景观
+  * 在顶部敲响铃铛，祈求好运
+- 15:00-17:00：探索恰图恰周末市场（如果在周五下午、周六或周日参观）
+  * 世界上最大的周末市场之一，拥有15,000多个摊位
+  * 购买服装、工艺品、艺术品、古董和纪念品
+  * 替代选择（工作日）：参观MBK中心或Terminal 21购物中心
 
 ### Evening (17:00-21:00)
-- 17:00-18:30: Return to hotel to rest and freshen up
-- 18:30-19:00: Travel to Asiatique The Riverfront by taxi or shuttle boat from Sathorn Pier
-- 19:00-21:00: Farewell dinner at one of the riverside restaurants
-  * Recommended: Baan Khanitha (400-600 THB per person)
-  * Try Thai classics like Massaman curry, Tom Yum soup, and mango sticky rice
-- 21:00: Optional river cruise or return to hotel
+- 17:00-18:30：返回酒店休息
+- 18:30-19:00：乘出租车或从沙通码头乘坐接驳船前往Asiatique河滨夜市
+- 19:00-21:00：在河畔餐厅享用告别晚餐
+  * 推荐：Baan Khanitha（每人400-600泰铢）
+  * 尝试泰国经典菜肴，如玛萨曼咖喱、冬阴功汤和芒果糯米饭
+- 21:00：可选择夜游湄南河或返回酒店
 
-## Accommodation Suggestions
-Based on a budget of approximately 2,000-3,000 THB per night:
+## 住宿建议
+基于每晚约2,000-3,000泰铢的预算：
 
 1. **Centre Point Silom**
-   * Price: 2,500-3,000 THB/night
-   * Location: Near Chao Phraya River, Saphan Taksin BTS station
-   * Features: Rooftop pool, fitness center, spacious rooms with kitchenette
-   * Advantages: Easy access to river ferries, BTS Skytrain, and night markets
-   * Website: www.centrepoint.com/silom
+   * 价格：2,500-3,000 THB/night
+   * 位置：靠近湄南河，Saphan Taksin BTS站
+   * 特点：屋顶泳池，健身中心，带小厨房的宽敞客房
+   * 优势：方便前往河流渡轮、BTS空铁和夜市
+   * 网站：www.centrepoint.com/silom
 
-2. **Shanghai Mansion Bangkok**
-   * Price: 2,200-2,800 THB/night
-   * Location: Heart of Chinatown (Yaowarat)
-   * Features: Boutique hotel with Chinese-inspired decor, jazz bar, spa
-   * Advantages: Authentic neighborhood, great for food lovers
-   * Website: www.shanghaimansion.com
+2. **上海大厦曼谷酒店（Shanghai Mansion Bangkok）**
+   * 价格：2,200-2,800泰铢/晚
+   * 位置：唐人街（耀华力）中心
+   * 特点：中国风格装饰的精品酒店，爵士酒吧，水疗中心
+   * 优势：地道的社区氛围，适合美食爱好者
+   * 网站：www.shanghaimansion.com
 
-3. **Amara Bangkok**
-   * Price: 2,000-2,500 THB/night
-   * Location: Silom business district
-   * Features: Rooftop infinity pool, modern design, fitness center
-   * Advantages: Walking distance to Patpong Night Market, Silom nightlife
-   * Website: www.amarahotels.com/bangkok
+3. **阿玛拉曼谷酒店（Amara Bangkok）**
+   * 价格：2,000-2,500泰铢/晚
+   * 位置：暹罗商业区
+   * 特点：屋顶无边泳池，现代设计，健身中心
+   * 优势：步行可达帕蓬夜市，暹罗夜生活区
+   * 网站：www.amarahotels.com/bangkok
 
-## Practical Information
-### Essential Items:
-- Comfortable, lightweight clothing (Thailand is hot year-round)
-- Modest clothing for temple visits (shoulders and knees must be covered)
-- Comfortable walking shoes
-- Hat, sunglasses, and sunscreen
-- Umbrella or raincoat during rainy season (May-October)
-- Mosquito repellent
-- Small denominations of Thai Baht for street vendors and taxis
+## 实用信息
+### 必备物品：
+- 舒适、轻便的衣物（泰国全年炎热）
+- 参观寺庙的得体服装（肩膀和膝盖必须遮盖）
+- 舒适的步行鞋
+- 帽子、太阳镜和防晒霜
+- 雨季（5月-10月）期间的雨伞或雨衣
+- 驱蚊剂
+- 小面额泰铢用于街头小贩和出租车
 
-### Transportation:
-- BTS Skytrain: Fast and convenient for traveling around central Bangkok (20-60 THB per trip)
-- MRT Subway: Connects with BTS and reaches areas not served by Skytrain (16-42 THB per trip)
-- Taxis: Insist on meter usage (flag fall 35 THB + distance)
-- Tuk-tuks: Negotiate price before riding (typically 100-200 THB for short trips)
-- Grab app: Thailand's equivalent to Uber, convenient and often cheaper than street taxis
-- River boats: Chao Phraya Express Boat (15-40 THB) connects many tourist sites along the river
+### 交通：
+- BTS空铁：快速便捷的曼谷中心区交通工具（每程20-60泰铢）
+- MRT地铁：与BTS连接，到达空铁不覆盖的区域（每程16-42泰铢）
+- 出租车：坚持使用计价器（起步价35泰铢+里程费）
+- 嘟嘟车：乘坐前协商价格（短途通常100-200泰铢）
+- Grab应用：泰国版Uber，方便且通常比街头出租车便宜
+- 河船：湄南河快船（15-40泰铢）连接河沿岸的许多旅游景点
 
-### Major Attractions Opening Hours:
-- Grand Palace and Wat Phra Kaew: 8:30-15:30 daily
-- Wat Pho: 8:00-18:30 daily
-- Wat Arun: 8:00-18:00 daily
-- Jim Thompson House: 9:00-18:00 daily
-- Chatuchak Weekend Market: Fri 18:00-24:00, Sat-Sun 9:00-18:00
+### 主要景点开放时间：
+- 大皇宫和玉佛寺：每日8:30-15:30
+- 卧佛寺：每日8:00-18:30
+- 黎明寺：每日8:00-18:00
+- 吉姆·汤普森之家：每日9:00-18:00
+- 恰图恰周末市场：周五18:00-24:00，周六至周日9:00-18:00
 
-### Cultural Tips:
-- Remove shoes before entering temples and private homes
-- Never touch a Thai person's head or point your feet at people or Buddha images
-- The Royal Family is highly revered; always show respect when discussing Thai royalty
-- Smile and remain calm in all situations - losing your temper is considered very inappropriate
-- Tipping is not mandatory but appreciated (10% in restaurants if service charge not included)
+### 文化提示：
+- 进入寺庙和私人住宅前脱鞋
+- 切勿触摸泰国人的头部或用脚指向人或佛像
+- 泰国王室备受尊崇；讨论泰国王室时始终表示尊重
+- 在所有情况下保持微笑和冷静 - 发脾气被认为是非常不恰当的
+- 小费不是强制性的，但会受到赞赏（如果餐厅未包含服务费，给10%小费）
 
-### Health and Safety:
-- Drink only bottled water
-- Use caution with street food - choose busy stalls with high turnover
-- Apply mosquito repellent, especially at dawn and dusk
-- Tourist Police: 1155 (English-speaking officers)
-- Emergency medical service: 1669
-- Bumrungrad International Hospital: +66-2-066-8888 (English-speaking staff)
+### 健康与安全：
+- 只饮用瓶装水
+- 谨慎食用街头小吃 - 选择顾客多、周转率高的摊位
+- 使用驱蚊剂，尤其是在黎明和黄昏时分
+- 旅游警察：1155（会说英语的警官）
+- 紧急医疗服务：1669
+- 曼谷国际医院：+66-2-066-8888（英语服务）
 
-### Weather Information:
-- Hot season (March-May): 33-40°C, very humid
-- Rainy season (June-October): 25-33°C, afternoon downpours
-- Cool season (November-February): 20-32°C, most comfortable time to visit
+### 天气信息：
+- 热季（3月-5月）：33-40°C，非常潮湿
+- 雨季（6月-10月）：25-33°C，下午暴雨
+- 凉季（11月-2月）：20-32°C，最舒适的旅行时间
 
-Enjoy your cultural exploration of Bangkok!`;
+祝您在曼谷的文化探索之旅愉快！`;
     }
   }
 }
@@ -961,7 +961,16 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { destination, days, preferences, extraInfo, language } = body;
 
+    console.log('收到行程生成请求:', {
+      destination,
+      days,
+      preferences,
+      language,
+      extraInfoLength: extraInfo?.length || 0
+    });
+
     if (!destination || !days || !preferences) {
+      console.error('请求参数不完整');
       return NextResponse.json(
         { error: '缺少必要参数：目的地、天数或偏好' },
         { status: 400 }
@@ -969,6 +978,7 @@ export async function POST(request: NextRequest) {
     }
 
     try {
+      console.log('调用generateItinerary函数...');
       const result = await generateItinerary(
         destination,
         days,
@@ -977,18 +987,30 @@ export async function POST(request: NextRequest) {
         language || 'Chinese'
       );
       
+      console.log('generateItinerary结果:', {
+        success: result?.success,
+        hasData: !!result?.data,
+        error: result?.error
+      });
+      
       if (result && result.success && result.data) {
+        console.log('成功生成行程，返回数据');
         return NextResponse.json({ data: result.data });
       } else {
-        // 返回模拟数据
-        const mockData = generateMockItinerary(destination, days, preferences, language || 'Chinese');
-        return NextResponse.json({ data: mockData });
+        // 返回错误信息而不是模拟数据
+        console.error('生成行程失败:', result?.error);
+        return NextResponse.json(
+          { error: result?.error || '生成行程失败' },
+          { status: 500 }
+        );
       }
-    } catch (apiError) {
+    } catch (apiError: any) {
       console.error('API service error:', apiError);
-      // 返回模拟数据
-      const mockData = generateMockItinerary(destination, days, preferences, language || 'Chinese');
-      return NextResponse.json({ data: mockData });
+      // 返回错误信息而不是模拟数据
+      return NextResponse.json(
+        { error: `生成行程时发生服务错误: ${apiError.message || '未知错误'}` },
+        { status: 500 }
+      );
     }
   } catch (error: any) {
     console.error('API route error:', error);

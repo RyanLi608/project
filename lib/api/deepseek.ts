@@ -13,10 +13,17 @@ const DEEPSEEK_MODEL = 'Qwen/QwQ-32B';
 const USE_DEEPSEEK = process.env.USE_DEEPSEEK === 'true';
 
 // 始终使用模拟数据（无论API密钥是否配置）
-const USE_MOCK_DATA = true; // 修改为强制使用模拟数据
+const USE_MOCK_DATA = process.env.USE_MOCK_DATA === 'true' || false; // 从环境变量读取，默认为false
 
 // 获取当前配置
 export const getCurrentConfig = () => {
+  // 添加调试日志
+  console.log('Environment Variables Status:');
+  console.log('OPENAI_API_KEY:', OPENAI_API_KEY ? '已设置' : '未设置');
+  console.log('DEEPSEEK_API_KEY:', DEEPSEEK_API_KEY ? '已设置' : '未设置');
+  console.log('USE_DEEPSEEK:', USE_DEEPSEEK);
+  console.log('USE_MOCK_DATA:', USE_MOCK_DATA);
+  
   if (USE_DEEPSEEK) {
     return {
       apiKey: DEEPSEEK_API_KEY,
@@ -144,6 +151,7 @@ const generateMockData = (landmarkName: string, language: string = 'Chinese') =>
 async function requestAIResponse(prompt: string, language: string = 'Chinese') {
   // 如果API密钥未配置，使用模拟数据
   if (USE_MOCK_DATA) {
+    console.log('使用模拟数据，因为USE_MOCK_DATA=true');
     return {
       success: true,
       data: generateMockData(prompt, language)
@@ -151,8 +159,14 @@ async function requestAIResponse(prompt: string, language: string = 'Chinese') {
   }
   
   const config = getCurrentConfig();
+  console.log('API配置:', {
+    apiUrl: config.apiUrl,
+    model: config.model,
+    apiKeyExists: !!config.apiKey,
+  });
   
   try {
+    console.log('正在调用API...', config.apiUrl);
     const response = await axios.post(
       config.apiUrl,
       {
@@ -172,11 +186,13 @@ async function requestAIResponse(prompt: string, language: string = 'Chinese') {
       }
     );
 
+    console.log('API调用成功');
     return {
       success: true,
       data: response.data.choices[0].message.content
     };
   } catch (error) {
+    console.log('API调用失败:', error);
     const errorMessage = handleApiError(error);
     return {
       success: false,
