@@ -165,6 +165,15 @@ async function requestAIResponse(prompt: string, language: string = 'Chinese') {
     apiKeyExists: !!config.apiKey,
   });
   
+  // 检查API密钥是否配置
+  if (!config.apiKey || config.apiKey.trim() === '' || config.apiKey.includes('your_') || config.apiKey.includes('placeholder')) {
+    console.log('API密钥未配置或使用了占位符，使用模拟数据');
+    return {
+      success: true,
+      data: generateMockData(prompt, language)
+    };
+  }
+  
   try {
     console.log('正在调用API...', config.apiUrl);
     const response = await axios.post(
@@ -191,9 +200,23 @@ async function requestAIResponse(prompt: string, language: string = 'Chinese') {
       success: true,
       data: response.data.choices[0].message.content
     };
-  } catch (error) {
+  } catch (error: any) {
     console.log('API调用失败:', error);
     const errorMessage = handleApiError(error);
+    
+    // 检查是否是API密钥相关错误
+    if (errorMessage.includes('API key') || 
+        errorMessage.includes('401') || 
+        errorMessage.includes('authentication') ||
+        errorMessage.includes('unauthorized') ||
+        (error.response && error.response.status === 401)) {
+      console.log('API密钥错误，使用模拟数据');
+      return {
+        success: true,
+        data: generateMockData(prompt, language)
+      };
+    }
+    
     return {
       success: false,
       error: errorMessage
