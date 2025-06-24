@@ -120,30 +120,13 @@ export default function ItineraryPage() {
           });
         }, 100);
       } else {
-        // 如果没有返回结果，创建一个基本的模拟数据
+        // 如果没有返回结果，显示错误信息
         console.error('没有返回行程数据');
-        const mockItinerary = createBasicMockItinerary(destination, days, preferenceLabels);
-        setGeneratedItinerary(mockItinerary);
-        
-        setTimeout(() => {
-          window.scrollTo({
-            top: document.getElementById('itinerary-result')?.offsetTop || 0,
-            behavior: 'smooth',
-          });
-        }, 100);
+        alert(language === "en" ? "Failed to generate itinerary. Please try again." : "生成行程失败，请重试。");
       }
     } catch (error) {
       console.error('行程生成错误:', error);
-      // 创建基本的模拟行程数据
-      const mockItinerary = createBasicMockItinerary(destination, days, preferenceLabels);
-      setGeneratedItinerary(mockItinerary);
-      
-      setTimeout(() => {
-        window.scrollTo({
-          top: document.getElementById('itinerary-result')?.offsetTop || 0,
-          behavior: 'smooth',
-        });
-      }, 100);
+      alert(language === "en" ? "An error occurred while generating the itinerary. Please try again." : "生成行程时发生错误，请重试。");
     }
   };
   

@@ -388,9 +388,8 @@ export function useItineraryGenerator() {
         setError(error.message || '生成行程时出错');
         setIsLoading(false);
         
-        // 发生错误时使用模拟数据
-        const langKey = language === 'en' ? 'English' : 'Chinese';
-        return mockData.itinerary[langKey](destination, days, preferences);
+        // 不再返回模拟数据，而是抛出错误让调用者处理
+        throw error;
       }
     },
     [language]
