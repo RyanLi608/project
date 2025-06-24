@@ -210,14 +210,14 @@ Enjoy your cultural and historical journey through Beijing!`;
 ## 第2天：长城和奥林匹克公园
 ### 上午（7:30-13:00）
 - 7:30-8:00：酒店早餐
-- 8:00-10:00：乘坐预订的私人接送（往返400元）或旅游巴士（150元）前往慕田峪长城
-  * 预订提示：可请酒店礼宾部安排交通或通过Klook/GetYourGuide预订
-- 10:00-13:00：探索慕田峪长城（门票：45元，缆车：往返100元或上行80元+滑道下行80元）
-  * 必游段落：14-23号敌楼提供最佳景观和拍照机会
-  * 内部提示：乘坐缆车上山，滑道下山，体验独特
-  * 难度级别：中等，穿舒适的鞋子并带水
+- 8:00-10:00：Travel to Mutianyu Great Wall by pre-booked private transfer (¥400 round trip) or tour bus (¥150)
+  * Booking tip: Ask your hotel concierge to arrange transportation or book through Klook/GetYourGuide
+- 10:00-13:00：Explore Mutianyu Great Wall (entrance: ¥45, cable car: ¥100 round trip or ¥80 up + ¥80 toboggan down)
+  * Must-visit sections: Watchtowers 14-23 offer the best views and photo opportunities
+  * Insider tip: Take the cable car up and toboggan down for a unique experience
+  * Difficulty level: Moderate, wear comfortable shoes and bring water
 
-### 下午（13:00-17:30）
+### Afternoon (13:00-17:30)
 - 13:00-14:00：在慕田峪附近的Schoolhouse餐厅午餐（怀柔区）
   * 推荐：新鲜虹鳟鱼（128元），自制披萨（88元），当地特色菜（60-120元）
   * 环境：改建的学校，有花园座位和长城景观
@@ -226,7 +226,7 @@ Enjoy your cultural and historical journey through Beijing!`;
   * 拍照机会：奥运火炬和五环标志
   * 晚间灯光秀从19:00开始（4月-10月）
 
-### 晚上（17:30-21:00）
+### Evening (17:30-21:00)
 - 17:30-18:30：返回酒店休息（从奥林匹克公园乘坐地铁8号线，票价3-5元）
 - 18:30-20:00：在红剧场观看北京功夫表演（票价：180-380元）
   * 地址：东城区幸福街44号
@@ -245,7 +245,7 @@ Enjoy your cultural and historical journey through Beijing!`;
   * 在公园东侧与当地人一起晨练太极（8:00-9:30）
   * 摄影提示：三重檐的祈年殿在晨光中最为上镜
 
-### 下午（12:00-17:00）
+### Afternoon (12:00-17:00)
 - 12:00-13:30：在利群烤鸭店午餐（北翔凤胡同11号，正义路）
   * 地道北京烤鸭老店（198元/只）
   * 配菜：甜面酱饼（15元），鸭肝（38元）
@@ -258,7 +258,7 @@ Enjoy your cultural and historical journey through Beijing!`;
 - 16:30-17:00：在传统茶馆体验茶道（推荐吾好茶馆，100-150元/人）
   * 了解不同中国茶叶品种和正确的冲泡技巧
 
-### 晚上（17:00-21:00）
+### Evening (17:00-21:00)
 - 17:00-18:30：后海泛舟（80元/小时）
   * 最佳时间：日落时分，水面上的光线最美
 - 18:30-20:00：在TRB胡同（地址：什刹海前街23号嵩祝寺）或The Orchid餐厅享用告别晚餐
@@ -286,12 +286,12 @@ Enjoy your cultural and historical journey through Beijing!`;
    * 优势：真实北京体验，步行可达故宫
    * 网站：www.redwall-garden-hotel-beijing.com
 
-3. **北京新侨诺富特酒店（Novotel Beijing Xin Qiao）**
-   * 价格：550-750元/晚
-   * 位置：崇文门西大街1号
-   * 特点：国际品牌酒店，多个餐厅，商务中心
-   * 优势：便利的市中心位置，地铁通达，周边购物便利
-   * 网站：www.accorhotels.com/beijing-xinqiao
+3. **Novotel Beijing Xin Qiao**
+   * Price: ¥550-750/night
+   * Location: 1 Chongwenmen West Street
+   * Features: International brand hotel, multiple restaurants, business center
+   * Advantages: Convenient downtown location, subway access, shopping nearby
+   * Website: www.accorhotels.com/beijing-xinqiao
 
 ## 实用信息
 ### 必备物品：
@@ -304,37 +304,365 @@ Enjoy your cultural and historical journey through Beijing!`;
 - 洗手液和纸巾（公共卫生间可能不提供）
 
 ### 交通：
-- 北京地铁：购买可充值的交通一卡通（押金20元+您充值的金额）
-- 机场快线：从机场到市中心25元（运营时间6:30-22:30）
-- 机场出租车：到北京市中心约100-120元（30-45分钟）
-- 滴滴出行APP：中国版Uber，有英文版
-- 地铁运营时间：5:00-23:00（各线路略有不同）
+- Beijing Subway: Purchase a rechargeable Transportation Smart Card (¥20 deposit + amount you add)
+- Airport Express: ¥25 from airport to city center (runs 6:30-22:30)
+- Taxi from Airport: Approximately ¥100-120 to central Beijing (30-45 minutes)
+- DiDi app: China's equivalent to Uber, English version available
+- Subway operating hours: 5:00-23:00 (varies by line)
 
-### 主要景点开放时间：
-- 紫禁城：8:30-17:00（4月-10月），8:30-16:30（11月-3月），周一闭馆
-- 慕田峪长城：7:30-18:00（4月-10月），8:00-17:00（11月-3月）
-- 天坛：6:00-22:00（公园），8:00-17:30（历史建筑）
-- 恭王府：8:30-17:00，16:30停止入场
+### Major Attractions Opening Hours:
+- Forbidden City: 8:30-17:00 (Apr-Oct), 8:30-16:30 (Nov-Mar), closed Mondays
+- Great Wall at Mutianyu: 7:30-18:00 (Apr-Oct), 8:00-17:00 (Nov-Mar)
+- Temple of Heaven: 6:00-22:00 (park), 8:00-17:30 (historical buildings)
+- Prince Gong's Mansion: 8:30-17:00, last entry 16:30
 
-### 预订提示：
-- 通过官方网站提前10天在线预订紫禁城门票（避免黄牛）
-- 考虑为长城游览雇佣英语导游（400-600元/天）
-- 京剧或杂技表演门票可通过酒店礼宾部购买
-- 大多数博物馆在周一闭馆维护
+### Booking Tips:
+- Book Forbidden City tickets online 10 days in advance through the official website (avoid scalpers)
+- Consider hiring an English-speaking guide for the Great Wall visit (¥400-600 per day)
+- Beijing opera or acrobatics show tickets can be purchased through your hotel concierge
+- Most museums are closed on Mondays for maintenance
 
-### 紧急联系信息：
-- 旅游警察：110（提供英语服务）
-- 医疗急救：120
-- 北京国际救援中心诊所：010-64629112（24小时服务，有英语工作人员）
-- 北京和睦家医院：010-59277000（西方标准医疗服务）
+### Emergency Information:
+- Tourist Police: 110 (English service available)
+- Medical Emergency: 120
+- International SOS Beijing Clinic: +86-10-64629112 (24-hour service with English-speaking staff)
+- Beijing United Family Hospital: +86-10-59277000 (Western-standard medical care)
 
-### 天气提示：
-- 春季（3-5月）：10-25°C，偶有沙尘暴，建议携带轻薄外套
-- 夏季（6-8月）：25-35°C，潮湿多雷阵雨，轻便衣物和雨伞
-- 秋季（9-11月）：15-25°C，晴朗天空，建议轻便层叠穿着
-- 冬季（12-2月）：-5-5°C，干燥寒冷，必备厚外套、手套和帽子
+### Weather Tips:
+- Spring (Mar-May): 10-25°C, occasional sandstorms, light jacket recommended
+- Summer (Jun-Aug): 25-35°C, humid with afternoon thunderstorms, light clothing and umbrella
+- Autumn (Sep-Nov): 15-25°C, clear skies, light layers recommended
+- Winter (Dec-Feb): -5-5°C, dry and cold, heavy coat, gloves and hat essential
 
 祝您在北京的文化历史之旅愉快！`;
+    }
+  } 
+  // 曼谷行程
+  else if (destination === '曼谷' || destination.toLowerCase().includes('bangkok') || destination.toLowerCase().includes('manggu')) {
+    if (isEnglish) {
+      return `# Bangkok ${days}-Day Cultural History Tour
+
+## Itinerary Overview
+This ${days}-day Bangkok journey focuses on cultural and historical exploration, taking you through the city's most iconic temples, palaces, and cultural landmarks. You'll experience the grandeur of the Grand Palace, explore ancient temples like Wat Pho and Wat Arun, and immerse yourself in local life through markets and authentic cuisine. This carefully planned itinerary balances must-see attractions with authentic local experiences, allowing you to truly appreciate Bangkok's rich cultural heritage.
+
+## Day 1: Historic Bangkok
+### Morning (8:00-12:00)
+- 8:00-8:30: Hotel breakfast
+- 8:30-9:00: Travel to the Grand Palace by taxi or tuk-tuk (approximately 100-150 THB depending on your hotel location)
+- 9:00-12:00: Explore the Grand Palace and Wat Phra Kaew (Temple of the Emerald Buddha)
+  * Entrance fee: 500 THB
+  * Must-see: Emerald Buddha, Chakri Maha Prasat Hall, Dusit Maha Prasat Throne Hall
+  * Insider tip: Arrive early to avoid crowds and heat; proper dress code required (no shorts, sleeveless shirts)
+
+### Afternoon (12:00-17:00)
+- 12:00-13:30: Lunch at Roti-Mataba near Phra Athit Pier
+  * Recommended dishes: Mataba (stuffed pancake, 60-80 THB), Thai curries (80-120 THB)
+  * Local favorite for over 60 years
+- 13:30-14:00: Short walk to Wat Pho (Temple of the Reclining Buddha)
+- 14:00-15:30: Visit Wat Pho (entrance fee: 200 THB)
+  * Highlight: 46-meter long reclining Buddha covered in gold leaf
+  * Don't miss: Traditional Thai massage at the Wat Pho Massage School (400-500 THB for 1 hour)
+- 15:30-16:00: Cross the Chao Phraya River by ferry to Wat Arun (ferry cost: 4 THB)
+- 16:00-17:00: Explore Wat Arun (Temple of Dawn) (entrance fee: 100 THB)
+  * Climb the central prang (tower) for panoramic river views
+  * Note the intricate floral mosaics made from Chinese porcelain
+
+### Evening (17:00-21:00)
+- 17:00-18:00: Return across the river and travel to Chinatown (Yaowarat)
+- 18:00-20:00: Dinner and street food tour in Chinatown
+  * Must-try: Seafood at T & K Seafood (300-500 THB per person)
+  * Street food options: Oyster omelets (80 THB), grilled squid (100 THB), mango sticky rice (80-100 THB)
+- 20:00-21:00: Evening walk through the illuminated streets of Chinatown
+- 21:00: Return to hotel by taxi (approximately 100-150 THB)
+
+## Day 2: Cultural Immersion
+### Morning (8:00-12:30)
+- 8:00-8:30: Hotel breakfast
+- 8:30-9:30: Travel to Jim Thompson House by taxi or BTS Skytrain to National Stadium station
+- 9:30-11:30: Tour of Jim Thompson House (entrance fee: 200 THB, includes guided tour)
+  * Learn about the American businessman who revitalized Thai silk industry
+  * Admire his collection of Southeast Asian art and traditional Thai houses
+- 11:30-12:30: Visit Bangkok Art and Culture Centre (free admission)
+  * Contemporary art exhibitions featuring Thai and international artists
+  * Browse the craft shops and art bookstores
+
+### Afternoon (12:30-17:30)
+- 12:30-13:30: Lunch at Som Tam Nua in Siam Square
+  * Recommended: Papaya salad (80 THB), grilled chicken (120 THB), sticky rice (30 THB)
+- 13:30-15:30: Shopping and cultural exploration at Siam Paragon and Siam Discovery
+  * Visit Thai Craft Museum on 4th floor of Siam Discovery
+  * Shop for high-quality Thai crafts and designer items
+- 15:30-17:30: Boat tour through Bangkok's canals (khlongs) (approximately 1,000 THB for a private long-tail boat)
+  * Glimpse local life along the waterways
+  * Photo opportunities of stilt houses and floating vendors
+
+### Evening (17:30-21:30)
+- 17:30-19:00: Return to hotel to freshen up
+- 19:00-21:00: Thai cultural performance and dinner at Sala Rim Naam (Mandarin Oriental) or Silom Village
+  * Traditional dance performances while enjoying Royal Thai cuisine
+  * Price range: 1,500-2,500 THB per person
+- 21:00-21:30: Return to hotel
+
+## Day 3: Markets and Local Life
+### Morning (7:00-12:00)
+- 7:00-8:00: Early breakfast at hotel
+- 8:00-9:00: Travel to Damnoen Saduak Floating Market (book a tour or hire a taxi for the day, approximately 2,000-3,000 THB)
+- 9:00-11:00: Explore the floating market
+  * Take a boat ride through the canals (150-200 THB per person)
+  * Shop for souvenirs, fresh fruits, and local snacks
+  * Photography tip: Best light and fewer tourists in the early morning
+- 11:00-12:00: Return to Bangkok city
+
+### Afternoon (12:00-17:00)
+- 12:00-13:30: Lunch at Thipsamai, famous for Pad Thai (100-150 THB)
+- 13:30-15:00: Visit the Golden Mount (Wat Saket) (entrance fee: 50 THB)
+  * Climb 318 steps for panoramic city views
+  * Ring the bells at the top for good luck
+- 15:00-17:00: Explore Chatuchak Weekend Market (if visiting on Friday afternoon, Saturday or Sunday)
+  * One of the world's largest weekend markets with over 15,000 stalls
+  * Shop for clothing, crafts, art, antiques, and souvenirs
+  * Alternative (weekdays): Visit MBK Center or Terminal 21 shopping malls
+
+### Evening (17:00-21:00)
+- 17:00-18:30: Return to hotel to rest and freshen up
+- 18:30-19:00: Travel to Asiatique The Riverfront by taxi or shuttle boat from Sathorn Pier
+- 19:00-21:00: Farewell dinner at one of the riverside restaurants
+  * Recommended: Baan Khanitha (400-600 THB per person)
+  * Try Thai classics like Massaman curry, Tom Yum soup, and mango sticky rice
+- 21:00: Optional river cruise or return to hotel
+
+## Accommodation Suggestions
+Based on a budget of approximately 2,000-3,000 THB per night:
+
+1. **Centre Point Silom**
+   * Price: 2,500-3,000 THB/night
+   * Location: Near Chao Phraya River, Saphan Taksin BTS station
+   * Features: Rooftop pool, fitness center, spacious rooms with kitchenette
+   * Advantages: Easy access to river ferries, BTS Skytrain, and night markets
+   * Website: www.centrepoint.com/silom
+
+2. **Shanghai Mansion Bangkok**
+   * Price: 2,200-2,800 THB/night
+   * Location: Heart of Chinatown (Yaowarat)
+   * Features: Boutique hotel with Chinese-inspired decor, jazz bar, spa
+   * Advantages: Authentic neighborhood, great for food lovers
+   * Website: www.shanghaimansion.com
+
+3. **Amara Bangkok**
+   * Price: 2,000-2,500 THB/night
+   * Location: Silom business district
+   * Features: Rooftop infinity pool, modern design, fitness center
+   * Advantages: Walking distance to Patpong Night Market, Silom nightlife
+   * Website: www.amarahotels.com/bangkok
+
+## Practical Information
+### Essential Items:
+- Comfortable, lightweight clothing (Thailand is hot year-round)
+- Modest clothing for temple visits (shoulders and knees must be covered)
+- Comfortable walking shoes
+- Hat, sunglasses, and sunscreen
+- Umbrella or raincoat during rainy season (May-October)
+- Mosquito repellent
+- Small denominations of Thai Baht for street vendors and taxis
+
+### Transportation:
+- BTS Skytrain: Fast and convenient for traveling around central Bangkok (20-60 THB per trip)
+- MRT Subway: Connects with BTS and reaches areas not served by Skytrain (16-42 THB per trip)
+- Taxis: Insist on meter usage (flag fall 35 THB + distance)
+- Tuk-tuks: Negotiate price before riding (typically 100-200 THB for short trips)
+- Grab app: Thailand's equivalent to Uber, convenient and often cheaper than street taxis
+- River boats: Chao Phraya Express Boat (15-40 THB) connects many tourist sites along the river
+
+### Major Attractions Opening Hours:
+- Grand Palace and Wat Phra Kaew: 8:30-15:30 daily
+- Wat Pho: 8:00-18:30 daily
+- Wat Arun: 8:00-18:00 daily
+- Jim Thompson House: 9:00-18:00 daily
+- Chatuchak Weekend Market: Fri 18:00-24:00, Sat-Sun 9:00-18:00
+
+### Cultural Tips:
+- Remove shoes before entering temples and private homes
+- Never touch a Thai person's head or point your feet at people or Buddha images
+- The Royal Family is highly revered; always show respect when discussing Thai royalty
+- Smile and remain calm in all situations - losing your temper is considered very inappropriate
+- Tipping is not mandatory but appreciated (10% in restaurants if service charge not included)
+
+### Health and Safety:
+- Drink only bottled water
+- Use caution with street food - choose busy stalls with high turnover
+- Apply mosquito repellent, especially at dawn and dusk
+- Tourist Police: 1155 (English-speaking officers)
+- Emergency medical service: 1669
+- Bumrungrad International Hospital: +66-2-066-8888 (English-speaking staff)
+
+### Weather Information:
+- Hot season (March-May): 33-40°C, very humid
+- Rainy season (June-October): 25-33°C, afternoon downpours
+- Cool season (November-February): 20-32°C, most comfortable time to visit
+
+Enjoy your cultural exploration of Bangkok!`;
+    } else {
+      return `# 曼谷${days}天文化历史之旅
+
+## 行程概述
+这个${days}天的曼谷之旅专注于文化和历史探索，带您游览曼谷最具标志性的寺庙、宫殿和文化地标。您将体验大皇宫的宏伟，探索卧佛寺和黎明寺等古老寺庙，并通过市场和正宗美食深入体验当地生活。此精心规划的行程平衡了必游景点与地道体验，让您真正领略曼谷丰富的文化遗产。
+
+## 第1天：历史曼谷
+### 上午（8:00-12:00）
+- 8:00-8:30：酒店早餐
+- 8:30-9:00：乘坐出租车或嘟嘟车前往大皇宫（根据酒店位置，约100-150泰铢）
+- 9:00-12:00：探索大皇宫和玉佛寺（卧佛寺）
+  * 门票：500泰铢
+  * 必看：玉佛、柴克里玛哈普拉萨宫、都斯特玛哈普拉萨宫
+  * 内部提示：早点到达以避开人群和高温；需遵守着装规定（不允许穿短裤、无袖上衣）
+
+### 下午（12:00-17:00）
+- 12:00-13:30：在帕亚提码头附近的Roti-Mataba餐厅午餐
+  * 推荐菜品：Mataba（馅饼，60-80泰铢），泰式咖喱（80-120泰铢）
+  * 当地人喜爱的老店，有60多年历史
+- 13:30-14:00：步行前往卧佛寺
+- 14:00-15:30：参观卧佛寺（门票：200泰铢）
+  * 亮点：46米长的镀金卧佛
+  * 不容错过：在卧佛寺按摩学校体验传统泰式按摩（400-500泰铢/小时）
+- 15:30-16:00：乘坐渡轮横渡湄南河前往黎明寺（船票：4泰铢）
+- 16:00-17:00：探索黎明寺（门票：100泰铢）
+  * 攀登中央塔楼，欣赏全景河景
+  * 欣赏由中国瓷器制成的精美花卉马赛克
+
+### 晚上（17:00-21:00）
+- 17:00-18:00：返回河对岸，前往唐人街（耀华力）
+- 18:00-20:00：在唐人街享用晚餐和街头美食之旅
+  * 必尝：T & K海鲜餐厅的海鲜（每人300-500泰铢）
+  * 街头小吃：蚝煎（80泰铢），烤鱿鱼（100泰铢），芒果糯米饭（80-100泰铢）
+- 20:00-21:00：漫步于灯火通明的唐人街
+- 21:00：乘出租车返回酒店（约100-150泰铢）
+
+## 第2天：文化沉浸
+### 上午（8:00-12:30）
+- 8:00-8:30：酒店早餐
+- 8:30-9:30：乘出租车或BTS空铁前往吉姆·汤普森之家（National Stadium站）
+- 9:30-11:30：参观吉姆·汤普森之家（门票：200泰铢，含导览）
+  * 了解这位振兴泰国丝绸产业的美国商人
+  * 欣赏他收藏的东南亚艺术品和传统泰式房屋
+- 11:30-12:30：参观曼谷艺术文化中心（免费入场）
+  * 展示泰国和国际艺术家作品的当代艺术展览
+  * 浏览手工艺品商店和艺术书店
+
+### 下午（12:30-17:30）
+- 12:30-13:30：在暹罗广场的Som Tam Nua餐厅午餐
+  * 推荐：青木瓜沙拉（80泰铢），烤鸡（120泰铢），糯米饭（30泰铢）
+- 13:30-15:30：在暹罗百丽宫和暹罗发现中心购物和文化探索
+  * 参观暹罗发现中心4楼的泰国工艺博物馆
+  * 购买高品质泰国工艺品和设计师商品
+- 15:30-17:30：乘船游览曼谷运河（私人长尾船约1,000泰铢）
+  * 一瞥水道沿岸的当地生活
+  * 高脚屋和水上小贩的拍照机会
+
+### 晚上（17:30-21:30）
+- 17:30-19:00：返回酒店休息
+- 19:00-21:00：在Sala Rim Naam（文华东方酒店）或Silom Village欣赏泰国文化表演和晚餐
+  * 享用皇家泰国美食的同时观看传统舞蹈表演
+  * 价格范围：每人1,500-2,500泰铢
+- 21:00-21:30：返回酒店
+
+## 第3天：市场和当地生活
+### 上午（7:00-12:00）
+- 7:00-8:00：酒店早餐
+- 8:00-9:00：前往丹嫩沙多水上市场（预订旅游团或包出租车一天，约2,000-3,000泰铢）
+- 9:00-11:00：探索水上市场
+  * 乘船游览运河（每人150-200泰铢）
+  * 购买纪念品、新鲜水果和当地小吃
+  * 摄影提示：清晨光线最佳，游客也较少
+- 11:00-12:00：返回曼谷市区
+
+### 下午（12:00-17:00）
+- 12:00-13:30：在著名的Thipsamai餐厅享用泰式炒河粉午餐（100-150泰铢）
+- 13:30-15:00：参观金山寺（Wat Saket）（门票：50泰铢）
+  * 攀登318级台阶，欣赏全景城市景观
+  * 在顶部敲响铃铛，祈求好运
+- 15:00-17:00：探索恰图恰周末市场（如果在周五下午、周六或周日参观）
+  * 世界上最大的周末市场之一，拥有15,000多个摊位
+  * 购买服装、工艺品、艺术品、古董和纪念品
+  * 替代选择（工作日）：参观MBK中心或Terminal 21购物中心
+
+### 晚上（17:00-21:00）
+- 17:00-18:30：返回酒店休息
+- 18:30-19:00：乘出租车或从沙通码头乘坐接驳船前往Asiatique河滨夜市
+- 19:00-21:00：在河畔餐厅享用告别晚餐
+  * 推荐：Baan Khanitha（每人400-600泰铢）
+  * 尝试泰国经典菜肴，如玛萨曼咖喱、冬阴功汤和芒果糯米饭
+- 21:00：可选择夜游湄南河或返回酒店
+
+## 住宿建议
+基于每晚约2,000-3,000泰铢的预算：
+
+1. **Centre Point Silom**
+   * 价格：2,500-3,000泰铢/晚
+   * 位置：靠近湄南河，Saphan Taksin BTS站
+   * 特点：屋顶泳池，健身中心，带小厨房的宽敞客房
+   * 优势：方便前往河流渡轮、BTS空铁和夜市
+   * 网站：www.centrepoint.com/silom
+
+2. **上海大厦曼谷酒店（Shanghai Mansion Bangkok）**
+   * 价格：2,200-2,800泰铢/晚
+   * 位置：唐人街（耀华力）中心
+   * 特点：中国风格装饰的精品酒店，爵士酒吧，水疗中心
+   * 优势：地道的社区氛围，适合美食爱好者
+   * 网站：www.shanghaimansion.com
+
+3. **阿玛拉曼谷酒店（Amara Bangkok）**
+   * 价格：2,000-2,500泰铢/晚
+   * 位置：暹罗商业区
+   * 特点：屋顶无边泳池，现代设计，健身中心
+   * 优势：步行可达帕蓬夜市，暹罗夜生活区
+   * 网站：www.amarahotels.com/bangkok
+
+## 实用信息
+### 必备物品：
+- 舒适、轻便的衣物（泰国全年炎热）
+- 参观寺庙的得体服装（肩膀和膝盖必须遮盖）
+- 舒适的步行鞋
+- 帽子、太阳镜和防晒霜
+- 雨季（5月-10月）期间的雨伞或雨衣
+- 驱蚊剂
+- 小面额泰铢用于街头小贩和出租车
+
+### 交通：
+- BTS空铁：快速便捷的曼谷中心区交通工具（每程20-60泰铢）
+- MRT地铁：与BTS连接，到达空铁不覆盖的区域（每程16-42泰铢）
+- 出租车：坚持使用计价器（起步价35泰铢+里程费）
+- 嘟嘟车：乘坐前协商价格（短途通常100-200泰铢）
+- Grab应用：泰国版Uber，方便且通常比街头出租车便宜
+- 河船：湄南河快船（15-40泰铢）连接河沿岸的许多旅游景点
+
+### 主要景点开放时间：
+- 大皇宫和玉佛寺：每日8:30-15:30
+- 卧佛寺：每日8:00-18:30
+- 黎明寺：每日8:00-18:00
+- 吉姆·汤普森之家：每日9:00-18:00
+- 恰图恰周末市场：周五18:00-24:00，周六至周日9:00-18:00
+
+### 文化提示：
+- 进入寺庙和私人住宅前脱鞋
+- 切勿触摸泰国人的头部或用脚指向人或佛像
+- 泰国王室备受尊崇；讨论泰国王室时始终表示尊重
+- 在所有情况下保持微笑和冷静 - 发脾气被认为是非常不恰当的
+- 小费不是强制性的，但会受到赞赏（如果餐厅未包含服务费，给10%小费）
+
+### 健康与安全：
+- 只饮用瓶装水
+- 谨慎食用街头小吃 - 选择顾客多、周转率高的摊位
+- 使用驱蚊剂，尤其是在黎明和黄昏时分
+- 旅游警察：1155（会说英语的警官）
+- 紧急医疗服务：1669
+- 曼谷国际医院：+66-2-066-8888（英语服务）
+
+### 天气信息：
+- 热季（3月-5月）：33-40°C，非常潮湿
+- 雨季（6月-10月）：25-33°C，下午暴雨
+- 凉季（11月-2月）：20-32°C，最舒适的旅行时间
+
+祝您在曼谷的文化探索之旅愉快！`;
     }
   } else {
     // 默认模拟数据，适用于其他目的地
@@ -499,103 +827,131 @@ Enjoy your journey through ${destination}!`;
 - 20:30-21:30：沿河滨长廊晚间散步
 
 ## 第2天：自然地标与文化体验
-### 上午（7:30-12:30）
-- 7:30-8:15：酒店早餐
-- 8:15-9:00：乘坐203路公交前往山景观点（每30分钟一班）
-- 9:00-12:00：风景步道徒步
-  * 中等难度，3.5公里环线
-  * 从峰顶点可欣赏全景城市景观
-  * 游客中心有地图和饮水站
-
-### 下午（12:30-17:30）
-- 12:30-13:30：在山公园野餐午餐（从酒店预订或自带）
-- 13:30-14:15：乘坐203路公交返回市区
-- 14:30-17:00：工匠工作坊体验
-  * 地点：文化中心（主街15号）
-  * 传统工艺工作坊（每人200元，含材料）
-  * 需提前预订：culturalcenter.com
-
-### 晚上（17:30-22:00）
-- 17:30-19:00：在酒店休息
-- 19:00-21:30：文化晚餐表演
-  * 地点：传统剧院（剧院路25号）
-  * 票价：300元，包含3道菜晚餐
-  * 演出19:30开始，提前30分钟到达
-- 21:30-22:00：乘出租车返回酒店（约70-100元）
-
-${days > 2 ? `## 第3天：海岸探索
 ### 上午（8:00-12:30）
-- 8:00-8:45：酒店早餐
-- 8:45-9:30：乘坐5号电车前往港口区
-- 9:30-12:00：港口游船之旅
-  * 出发点：主码头（3号码头）
-  * 时长：2小时
-  * 费用：每人240元
-  * 亮点：海岸风光，海洋野生动物观赏
+- 8:00-8:30：酒店早餐
+- 8:30-9:30：Travel to Jim Thompson House by taxi or BTS Skytrain to National Stadium station
+- 9:30-11:30：Tour of Jim Thompson House (entrance fee: 200 THB, includes guided tour)
+  * Learn about the American businessman who revitalized Thai silk industry
+  * Admire his collection of Southeast Asian art and traditional Thai houses
+- 11:30-12:30: Visit Bangkok Art and Culture Centre (free admission)
+  * Contemporary art exhibitions featuring Thai and international artists
+  * Browse the craft shops and art bookstores
 
-### 下午（12:30-17:30）
-- 12:30-14:00：在"渔人码头"享用海鲜午餐
-  * 必尝：当日新鲜捕获（170-200元）
-  * 户外座位，可欣赏港口景色
-- 14:00-17:00：海滩时光和水上活动
-  * 金沙滩（从餐厅步行15分钟）
-  * 可选：皮划艇租赁（140元/小时）或浮潜之旅（280元）
-  * 海滩设施：更衣室，淋浴，沙滩椅租赁
+### Afternoon (12:30-17:30)
+- 12:30-13:30: Lunch at Som Tam Nua in Siam Square
+  * Recommended: Papaya salad (80 THB), grilled chicken (120 THB), sticky rice (30 THB)
+- 13:30-15:30: Shopping and cultural exploration at Siam Paragon and Siam Discovery
+  * Visit Thai Craft Museum on 4th floor of Siam Discovery
+  * Shop for high-quality Thai crafts and designer items
+- 15:30-17:30: Boat tour through Bangkok's canals (khlongs) (approximately 1,000 THB for a private long-tail boat)
+  * Glimpse local life along the waterways
+  * Photo opportunities of stilt houses and floating vendors
 
-### 晚上（17:30-21:30）
-- 17:30-18:30：返回酒店整理
-- 18:30-20:30：在"空中景观餐厅"享用日落晚餐
-  * 地点：大楼20层
-  * 必须预订：+86-123-4567-8920
-  * 推荐：厨师品尝菜单（400元）
-- 20:30-21:30：在屋顶酒廊享用夜间饮品` : ''}
+### Evening (17:30-21:30)
+- 17:30-19:00: Return to hotel to freshen up
+- 19:00-21:00: Thai cultural performance and dinner at Sala Rim Naam (Mandarin Oriental) or Silom Village
+  * Traditional dance performances while enjoying Royal Thai cuisine
+  * Price range: 1,500-2,500 THB per person
+- 21:00-21:30: Return to hotel
 
-## 住宿建议
-基于您每晚约600-1000元的预算：
+## Day 3: Markets and Local Life
+### Morning (7:00-12:00)
+- 7:00-8:00: Early breakfast at hotel
+- 8:00-9:00: Travel to Damnoen Saduak Floating Market (book a tour or hire a taxi for the day, approximately 2,000-3,000 THB)
+- 9:00-11:00: Explore the floating market
+  * Take a boat ride through the canals (150-200 THB per person)
+  * Shop for souvenirs, fresh fruits, and local snacks
+  * Photography tip: Best light and fewer tourists in the early morning
+- 11:00-12:00: Return to Bangkok city
 
-1. **中央舒适酒店**
-   * 800元/晚，含早餐
-   * 位于市中心，步行5分钟到主广场
-   * 设施：免费WiFi，游泳池，健身中心
-   * 网站：centralcomfort.com
+### Afternoon (12:00-17:00)
+- 12:00-13:30: Lunch at Thipsamai, famous for Pad Thai (100-150 THB)
+- 13:30-15:00: Visit the Golden Mount (Wat Saket) (entrance fee: 50 THB)
+  * Climb 318 steps for panoramic city views
+  * Ring the bells at the top for good luck
+- 15:00-17:00: Explore Chatuchak Weekend Market (if visiting on Friday afternoon, Saturday or Sunday)
+  * One of the world's largest weekend markets with over 15,000 stalls
+  * Shop for clothing, crafts, art, antiques, and souvenirs
+  * Alternative (weekdays): Visit MBK Center or Terminal 21 shopping malls
 
-2. **河畔精品客栈**
-   * 950元/晚
-   * 位于迷人的历史建筑，可欣赏河景
-   * 提供免费下午茶
-   * 网站：riversideboutique.com
+### Evening (17:00-21:00)
+- 17:00-18:30: Return to hotel to rest and freshen up
+- 18:30-19:00: Travel to Asiatique The Riverfront by taxi or shuttle boat from Sathorn Pier
+- 19:00-21:00: Farewell dinner at one of the riverside restaurants
+  * Recommended: Baan Khanitha (400-600 THB per person)
+  * Try Thai classics like Massaman curry, Tom Yum soup, and mango sticky rice
+- 21:00: Optional river cruise or return to hotel
 
-3. **现代城市套房**
-   * 650元/晚
-   * 带厨房的自助式公寓
-   * 适合长期住宿
-   * 网站：moderncitysuites.com
+## Accommodation Suggestions
+Based on a budget of approximately 2,000-3,000 THB per night:
 
-## 实用信息
-### 必备物品：
-- 舒适的步行鞋
-- 适合天气的衣物（查看天气预报）
-- 防晒霜和帽子
-- 电源适配器
-- 当地货币（一些小商贩不接受卡）
+1. **Centre Point Silom**
+   * Price: 2,500-3,000 THB/night
+   * Location: Near Chao Phraya River, Saphan Taksin BTS station
+   * Features: Rooftop pool, fitness center, spacious rooms with kitchenette
+   * Advantages: Easy access to river ferries, BTS Skytrain, and night markets
+   * Website: www.centrepoint.com/silom
 
-### 交通：
-- 城市通行证：170元，3天无限次公共交通
-- 可在机场、主火车站和旅游信息中心购买
-- 从机场到市中心的出租车：约240元
+2. **Shanghai Mansion Bangkok**
+   * Price: 2,200-2,800 THB/night
+   * Location: Heart of Chinatown (Yaowarat)
+   * Features: Boutique hotel with Chinese-inspired decor, jazz bar, spa
+   * Advantages: Authentic neighborhood, great for food lovers
+   * Website: www.shanghaimansion.com
 
-### 主要景点开放时间：
-- 国家博物馆：10:00-18:00，周一闭馆
-- 圣玛丽大教堂：每日9:00-17:00
-- 山公园：日出至日落
-- 文化中心：周二至周日10:00-20:00
+3. **Amara Bangkok**
+   * Price: 2,000-2,500 THB/night
+   * Location: Silom business district
+   * Features: Rooftop infinity pool, modern design, fitness center
+   * Advantages: Walking distance to Patpong Night Market, Silom nightlife
+   * Website: www.amarahotels.com/bangkok
 
-### 预订提示：
-- 文化晚餐表演至少提前3天预订
-- 国家博物馆在线提供折扣票
-- 考虑山公园导览游以获得更丰富的体验
+## Practical Information
+### Essential Items:
+- Comfortable, lightweight clothing (Thailand is hot year-round)
+- Modest clothing for temple visits (shoulders and knees must be covered)
+- Comfortable walking shoes
+- Hat, sunglasses, and sunscreen
+- Umbrella or raincoat during rainy season (May-October)
+- Mosquito repellent
+- Small denominations of Thai Baht for street vendors and taxis
 
-祝您在${destination}的旅程愉快！`;
+### Transportation:
+- BTS Skytrain: Fast and convenient for traveling around central Bangkok (20-60 THB per trip)
+- MRT Subway: Connects with BTS and reaches areas not served by Skytrain (16-42 THB per trip)
+- Taxis: Insist on meter usage (flag fall 35 THB + distance)
+- Tuk-tuks: Negotiate price before riding (typically 100-200 THB for short trips)
+- Grab app: Thailand's equivalent to Uber, convenient and often cheaper than street taxis
+- River boats: Chao Phraya Express Boat (15-40 THB) connects many tourist sites along the river
+
+### Major Attractions Opening Hours:
+- Grand Palace and Wat Phra Kaew: 8:30-15:30 daily
+- Wat Pho: 8:00-18:30 daily
+- Wat Arun: 8:00-18:00 daily
+- Jim Thompson House: 9:00-18:00 daily
+- Chatuchak Weekend Market: Fri 18:00-24:00, Sat-Sun 9:00-18:00
+
+### Cultural Tips:
+- Remove shoes before entering temples and private homes
+- Never touch a Thai person's head or point your feet at people or Buddha images
+- The Royal Family is highly revered; always show respect when discussing Thai royalty
+- Smile and remain calm in all situations - losing your temper is considered very inappropriate
+- Tipping is not mandatory but appreciated (10% in restaurants if service charge not included)
+
+### Health and Safety:
+- Drink only bottled water
+- Use caution with street food - choose busy stalls with high turnover
+- Apply mosquito repellent, especially at dawn and dusk
+- Tourist Police: 1155 (English-speaking officers)
+- Emergency medical service: 1669
+- Bumrungrad International Hospital: +66-2-066-8888 (English-speaking staff)
+
+### Weather Information:
+- Hot season (March-May): 33-40°C, very humid
+- Rainy season (June-October): 25-33°C, afternoon downpours
+- Cool season (November-February): 20-32°C, most comfortable time to visit
+
+Enjoy your cultural exploration of Bangkok!`;
     }
   }
 }
