@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { generateItinerary } from '@/lib/api/deepseek';
 
+export const runtime = 'edge'; // 添加运行时配置
+
 // 添加模拟数据生成函数
 function generateMockItinerary(destination: string, days: number, preferences: string[], language: string = 'Chinese') {
   const isEnglish = language.toLowerCase().includes('english');
