@@ -118,6 +118,27 @@ export const translations = {
     // 错误页面
     somethingWentWrong: "Something Went Wrong",
     errorOccurred: "An unexpected error occurred. Please try again later.",
+    
+    // 关于页面
+    aboutUsDescription: "We're revolutionizing how people experience and learn about the world's most iconic destinations through AI-powered storytelling and historical context.",
+    ourMission: "Our Mission",
+    missionDescription1: "At LandmarkAI, we're on a mission to make cultural and historical information about the world's landmarks accessible to everyone, regardless of language barriers or geographical constraints.",
+    missionDescription2: "We believe that understanding the stories behind landmarks enriches travel experiences and fosters a deeper appreciation for global heritage. By leveraging AI technology, we provide immersive, accurate, and engaging content that brings these stories to life.",
+    ourVision: "Our Vision",
+    visionDescription1: "We envision a world where everyone can access rich, contextual information about any landmark or cultural site instantly, breaking down language barriers and democratizing knowledge.",
+    visionDescription2: "Through technological innovation and a commitment to accuracy, we're building the most comprehensive and user-friendly global tourism platform that connects people with the world's wonders in meaningful ways.",
+    howItWorks: "How LandmarkAI Works",
+    searchLandmark: "Search Any Landmark",
+    searchLandmarkDesc: "Simply type the name of any landmark or attraction you're interested in learning about.",
+    getAIContent: "Get AI-Generated Content",
+    getAIContentDesc: "Our AI generates comprehensive, engaging information about the landmark, including history and key highlights.",
+    experienceAudio: "Experience Through Audio",
+    experienceAudioDesc: "Listen to the information with our natural-sounding voice narration for an immersive experience.",
+    ourTeam: "The Team Behind LandmarkAI",
+    teamMember: "Team Member",
+    position: "Position",
+    getInTouch: "Get in Touch",
+    contactDescription: "Have questions about LandmarkAI? We'd love to hear from you!"
   },
   zh: {
     // 导航
@@ -237,6 +258,27 @@ export const translations = {
     // 错误页面
     somethingWentWrong: "出现了问题",
     errorOccurred: "发生了意外错误。请稍后再试。",
+    
+    // 关于页面
+    aboutUsDescription: "我们正在通过AI驱动的故事讲述和历史背景，革新人们体验和了解世界最具标志性目的地的方式。",
+    ourMission: "我们的使命",
+    missionDescription1: "在LandmarkAI，我们的使命是让世界各地的地标文化和历史信息对每个人都可访问，无论语言障碍或地理限制。",
+    missionDescription2: "我们相信，了解地标背后的故事丰富了旅行体验，并培养对全球遗产的更深入理解。通过利用AI技术，我们提供沉浸式、准确和引人入胜的内容，使这些故事栩栩如生。",
+    ourVision: "我们的愿景",
+    visionDescription1: "我们设想一个世界，每个人都可以即时获取关于任何地标或文化遗址的丰富、有背景的信息，打破语言障碍并使知识民主化。",
+    visionDescription2: "通过技术创新和对准确性的承诺，我们正在构建最全面和用户友好的全球旅游平台，以有意义的方式将人们与世界奇观连接起来。",
+    howItWorks: "LandmarkAI如何工作",
+    searchLandmark: "搜索任何地标",
+    searchLandmarkDesc: "只需输入您感兴趣的任何地标或景点的名称即可了解相关信息。",
+    getAIContent: "获取AI生成内容",
+    getAIContentDesc: "我们的AI生成关于地标的全面、引人入胜的信息，包括历史和主要亮点。",
+    experienceAudio: "通过音频体验",
+    experienceAudioDesc: "通过我们自然的语音叙述聆听信息，获得沉浸式体验。",
+    ourTeam: "LandmarkAI背后的团队",
+    teamMember: "团队成员",
+    position: "职位",
+    getInTouch: "联系我们",
+    contactDescription: "对LandmarkAI有疑问？我们很乐意听取您的意见！"
   }
 }; 
 
