@@ -157,7 +157,22 @@ export const translations = {
     stayUpdated: "Stay Updated",
     newsletterDesc: "Subscribe to our newsletter to receive the latest travel guides and updates about new destinations.",
     subscribe: "Subscribe",
-    enterEmail: "Enter your email"
+    enterEmail: "Enter your email",
+    
+    // 旅行指南卡片内容
+    italyGuideTitle: "Ultimate Guide to Italy's Historical Sites",
+    italyGuideExcerpt: "Explore the ancient wonders and Renaissance masterpieces throughout Italy.",
+    asiaTemplesTitle: "Ancient Temples of Southeast Asia",
+    asiaTemplesExcerpt: "Discover the spiritual and architectural marvels of temples across Southeast Asia.",
+    americanMonumentsTitle: "American Monuments and Memorials",
+    americanMonumentsExcerpt: "A journey through the most significant historical monuments in the United States.",
+    africaWondersTitle: "Natural and Historical Wonders of Africa",
+    africaWondersExcerpt: "From ancient Egyptian temples to the majestic landscapes of the savanna.",
+    travelExpert: "Travel Expert",
+    historyBuff: "History Buff",
+    cultureWriter: "Culture Writer",
+    safariGuide: "Safari Guide",
+    minRead: "min read"
   },
   zh: {
     // 导航
@@ -316,7 +331,22 @@ export const translations = {
     stayUpdated: "保持更新",
     newsletterDesc: "订阅我们的通讯，接收最新的旅行指南和新目的地的更新。",
     subscribe: "订阅",
-    enterEmail: "输入您的邮箱"
+    enterEmail: "输入您的邮箱",
+
+    // 旅行指南卡片内容
+    italyGuideTitle: "Ultimate Guide to Italy's Historical Sites",
+    italyGuideExcerpt: "Explore the ancient wonders and Renaissance masterpieces throughout Italy.",
+    asiaTemplesTitle: "Ancient Temples of Southeast Asia",
+    asiaTemplesExcerpt: "Discover the spiritual and architectural marvels of temples across Southeast Asia.",
+    americanMonumentsTitle: "American Monuments and Memorials",
+    americanMonumentsExcerpt: "A journey through the most significant historical monuments in the United States.",
+    africaWondersTitle: "Natural and Historical Wonders of Africa",
+    africaWondersExcerpt: "From ancient Egyptian temples to the majestic landscapes of the savanna.",
+    travelExpert: "Travel Expert",
+    historyBuff: "History Buff",
+    cultureWriter: "Culture Writer",
+    safariGuide: "Safari Guide",
+    minRead: "min read"
   }
 }; 
 

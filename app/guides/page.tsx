@@ -10,52 +10,53 @@ import { Input } from "@/components/ui/input";
 import { Clock, Calendar, User, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 
-const travelGuides = [
-  {
-    id: "italy-guide",
-    title: "Ultimate Guide to Italy's Historical Sites",
-    excerpt: "Explore the ancient wonders and Renaissance masterpieces throughout Italy.",
-    image: "https://images.pexels.com/photos/1797158/pexels-photo-1797158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    author: "Travel Expert",
-    date: "May 15, 2025",
-    readTime: "8 min read",
-    category: "Europe"
-  },
-  {
-    id: "asia-temples",
-    title: "Ancient Temples of Southeast Asia",
-    excerpt: "Discover the spiritual and architectural marvels of temples across Southeast Asia.",
-    image: "https://images.pexels.com/photos/1482931/pexels-photo-1482931.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    author: "History Buff",
-    date: "April 3, 2025",
-    readTime: "12 min read",
-    category: "Asia"
-  },
-  {
-    id: "american-monuments",
-    title: "American Monuments and Memorials",
-    excerpt: "A journey through the most significant historical monuments in the United States.",
-    image: "https://images.pexels.com/photos/1486577/pexels-photo-1486577.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    author: "Culture Writer",
-    date: "March 22, 2025",
-    readTime: "10 min read",
-    category: "North America"
-  },
-  {
-    id: "africa-wonders",
-    title: "Natural and Historical Wonders of Africa",
-    excerpt: "From ancient Egyptian temples to the majestic landscapes of the savanna.",
-    image: "https://images.pexels.com/photos/60013/desert-dry-dehydrated-dried-60013.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    author: "Safari Guide",
-    date: "February 18, 2025",
-    readTime: "15 min read",
-    category: "Africa"
-  },
-];
-
 export default function GuidesPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
+  // 动态旅行指南数据，根据当前语言显示不同内容
+  const travelGuides = [
+    {
+      id: "italy-guide",
+      title: language === 'zh' ? "意大利历史遗迹终极指南" : "Ultimate Guide to Italy's Historical Sites",
+      excerpt: language === 'zh' ? "探索意大利各地的古代奇观和文艺复兴杰作。" : "Explore the ancient wonders and Renaissance masterpieces throughout Italy.",
+      image: "https://images.pexels.com/photos/1797158/pexels-photo-1797158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      author: language === 'zh' ? "旅行专家" : "Travel Expert",
+      date: "May 15, 2025",
+      readTime: language === 'zh' ? "8 分钟阅读" : "8 min read",
+      category: language === 'zh' ? "欧洲" : "Europe"
+    },
+    {
+      id: "asia-temples",
+      title: language === 'zh' ? "东南亚古庙" : "Ancient Temples of Southeast Asia",
+      excerpt: language === 'zh' ? "探索东南亚寺庙的精神和建筑奇观。" : "Discover the spiritual and architectural marvels of temples across Southeast Asia.",
+      image: "https://images.pexels.com/photos/1482931/pexels-photo-1482931.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      author: language === 'zh' ? "历史爱好者" : "History Buff",
+      date: "April 3, 2025",
+      readTime: language === 'zh' ? "12 分钟阅读" : "12 min read",
+      category: language === 'zh' ? "亚洲" : "Asia"
+    },
+    {
+      id: "american-monuments",
+      title: language === 'zh' ? "美国纪念碑与纪念馆" : "American Monuments and Memorials",
+      excerpt: language === 'zh' ? "一次穿越美国最重要历史纪念碑的旅程。" : "A journey through the most significant historical monuments in the United States.",
+      image: "https://images.pexels.com/photos/1486577/pexels-photo-1486577.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      author: language === 'zh' ? "文化作家" : "Culture Writer",
+      date: "March 22, 2025",
+      readTime: language === 'zh' ? "10 分钟阅读" : "10 min read",
+      category: language === 'zh' ? "北美洲" : "North America"
+    },
+    {
+      id: "africa-wonders",
+      title: language === 'zh' ? "非洲自然与历史奇观" : "Natural and Historical Wonders of Africa",
+      excerpt: language === 'zh' ? "从古埃及神庙到壮丽的草原景观。" : "From ancient Egyptian temples to the majestic landscapes of the savanna.",
+      image: "https://images.pexels.com/photos/60013/desert-dry-dehydrated-dried-60013.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      author: language === 'zh' ? "狩猎向导" : "Safari Guide",
+      date: "February 18, 2025",
+      readTime: language === 'zh' ? "15 分钟阅读" : "15 min read",
+      category: language === 'zh' ? "非洲" : "Africa"
+    },
+  ];
+
   return (
     <div className="pt-24">
       {/* Header */}
@@ -105,11 +106,11 @@ export default function GuidesPage() {
                   </div>
                   <div className="flex items-center">
                     <User className="h-4 w-4 mr-2" />
-                    <span className="text-sm">Heritage Expert</span>
+                    <span className="text-sm">{language === 'zh' ? "遗产专家" : "Heritage Expert"}</span>
                   </div>
                   <div className="flex items-center">
                     <Clock className="h-4 w-4 mr-2" />
-                    <span className="text-sm">20 min read</span>
+                    <span className="text-sm">{language === 'zh' ? "20 分钟阅读" : "20 min read"}</span>
                   </div>
                 </div>
                 <Button className="w-fit">
