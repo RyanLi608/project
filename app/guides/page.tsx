@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Clock, Calendar, User, ChevronRight } from "lucide-react";
+import { useLanguage } from "@/lib/language-context";
 
 const travelGuides = [
   {
@@ -51,6 +54,8 @@ const travelGuides = [
 ];
 
 export default function GuidesPage() {
+  const { t } = useLanguage();
+  
   return (
     <div className="pt-24">
       {/* Header */}
@@ -59,13 +64,13 @@ export default function GuidesPage() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Travel Guides
+                {t("travelGuides")}
               </h1>
               <p className="text-lg text-muted-foreground max-w-3xl">
-                In-depth guides to help you explore destinations with cultural and historical context.
+                {t("guidesDescription")}
               </p>
             </div>
-            <Button>Create Guide</Button>
+            <Button>{t("createGuide")}</Button>
           </div>
         </div>
       </section>
@@ -77,7 +82,7 @@ export default function GuidesPage() {
             <div className="absolute inset-0">
               <Image 
                 src="https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt="Featured Guide"
+                alt={t("featuredGuide")}
                 fill
                 style={{ objectFit: "cover" }}
               />
@@ -86,12 +91,12 @@ export default function GuidesPage() {
 
             <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 p-8 md:p-12">
               <div className="flex flex-col justify-center">
-                <Badge className="w-fit mb-4">Featured Guide</Badge>
+                <Badge className="w-fit mb-4">{t("featuredGuide")}</Badge>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  World Heritage Sites: A Complete Journey
+                  {t("worldHeritageSites")}
                 </h2>
                 <p className="text-muted-foreground mb-6 max-w-xl">
-                  Explore the most fascinating UNESCO World Heritage sites around the globe, with in-depth historical context and practical travel information.
+                  {t("worldHeritageDesc")}
                 </p>
                 <div className="flex items-center gap-4 mb-6">
                   <div className="flex items-center">
@@ -108,7 +113,7 @@ export default function GuidesPage() {
                   </div>
                 </div>
                 <Button className="w-fit">
-                  Read Full Guide <ChevronRight className="ml-2 h-4 w-4" />
+                  {t("readFullGuide")} <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </div>
@@ -120,16 +125,27 @@ export default function GuidesPage() {
       <section className="py-12">
         <div className="container px-4 sm:px-6">
           <h2 className="text-2xl font-bold mb-6">
-            Browse By Category
+            {t("browseByCategory")}
           </h2>
           <div className="flex flex-wrap gap-3 mb-8">
-            {["All", "Europe", "Asia", "North America", "South America", "Africa", "Oceania", "Architecture", "History", "Natural Wonders"].map((category) => (
+            {[
+              { key: "all", label: t("all") },
+              { key: "europe", label: t("europe") },
+              { key: "asia", label: t("asia") },
+              { key: "northAmerica", label: t("northAmerica") },
+              { key: "southAmerica", label: t("southAmerica") },
+              { key: "africa", label: t("africa") },
+              { key: "oceania", label: t("oceania") },
+              { key: "architecture", label: t("architecture") },
+              { key: "history", label: t("history") },
+              { key: "naturalWonders", label: t("naturalWonders") }
+            ].map((category) => (
               <Button
-                key={category}
-                variant={category === "All" ? "default" : "outline"}
+                key={category.key}
+                variant={category.key === "all" ? "default" : "outline"}
                 size="sm"
               >
-                {category}
+                {category.label}
               </Button>
             ))}
           </div>
@@ -181,7 +197,7 @@ export default function GuidesPage() {
 
           <div className="mt-12 text-center">
             <Button variant="outline" size="lg">
-              Load More Guides
+              {t("loadMoreGuides")}
             </Button>
           </div>
         </div>
@@ -192,14 +208,14 @@ export default function GuidesPage() {
         <div className="container px-4 sm:px-6 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold mb-4">
-              Stay Updated
+              {t("stayUpdated")}
             </h2>
             <p className="text-muted-foreground mb-8">
-              Subscribe to our newsletter to receive the latest travel guides and updates about new destinations.
+              {t("newsletterDesc")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <Input placeholder="Enter your email" className="flex-grow" />
-              <Button>Subscribe</Button>
+              <Input placeholder={t("enterEmail")} className="flex-grow" />
+              <Button>{t("subscribe")}</Button>
             </div>
           </div>
         </div>

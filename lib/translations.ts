@@ -138,7 +138,26 @@ export const translations = {
     teamMember: "Team Member",
     position: "Position",
     getInTouch: "Get in Touch",
-    contactDescription: "Have questions about LandmarkAI? We'd love to hear from you!"
+    contactDescription: "Have questions about LandmarkAI? We'd love to hear from you!",
+    
+    // 旅行指南页面
+    guidesDescription: "In-depth guides to help you explore destinations with cultural and historical context.",
+    createGuide: "Create Guide",
+    featuredGuide: "Featured Guide",
+    worldHeritageSites: "World Heritage Sites: A Complete Journey",
+    worldHeritageDesc: "Explore the most fascinating UNESCO World Heritage sites around the globe, with in-depth historical context and practical travel information.",
+    readFullGuide: "Read Full Guide",
+    browseByCategory: "Browse By Category",
+    all: "All",
+    northAmerica: "North America",
+    southAmerica: "South America",
+    oceania: "Oceania",
+    naturalWonders: "Natural Wonders",
+    loadMoreGuides: "Load More Guides",
+    stayUpdated: "Stay Updated",
+    newsletterDesc: "Subscribe to our newsletter to receive the latest travel guides and updates about new destinations.",
+    subscribe: "Subscribe",
+    enterEmail: "Enter your email"
   },
   zh: {
     // 导航
@@ -278,7 +297,26 @@ export const translations = {
     teamMember: "团队成员",
     position: "职位",
     getInTouch: "联系我们",
-    contactDescription: "对LandmarkAI有疑问？我们很乐意听取您的意见！"
+    contactDescription: "对LandmarkAI有疑问？我们很乐意听取您的意见！",
+    
+    // 旅行指南页面
+    guidesDescription: "深入的指南，帮助您探索具有文化和历史背景的目的地。",
+    createGuide: "创建指南",
+    featuredGuide: "精选指南",
+    worldHeritageSites: "世界遗产地：完整之旅",
+    worldHeritageDesc: "探索全球最迷人的联合国教科文组织世界遗产地，包含深入的历史背景和实用的旅行信息。",
+    readFullGuide: "阅读完整指南",
+    browseByCategory: "按类别浏览",
+    all: "全部",
+    northAmerica: "北美洲",
+    southAmerica: "南美洲",
+    oceania: "大洋洲",
+    naturalWonders: "自然奇观",
+    loadMoreGuides: "加载更多指南",
+    stayUpdated: "保持更新",
+    newsletterDesc: "订阅我们的通讯，接收最新的旅行指南和新目的地的更新。",
+    subscribe: "订阅",
+    enterEmail: "输入您的邮箱"
   }
 }; 
 
