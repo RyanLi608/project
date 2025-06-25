@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requestAIResponse } from '@/lib/api/deepseek';
 
-export const runtime = 'edge';
+// 移除edge runtime配置
+// export const runtime = 'edge';
 
 export async function POST(req: NextRequest) {
   try {

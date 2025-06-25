@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getLandmarkInfo } from '@/lib/api/deepseek';
 
-export const runtime = 'edge';
-
 // 问候语识别
 const GREETINGS = [
   'hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening', 
