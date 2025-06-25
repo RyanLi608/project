@@ -201,6 +201,8 @@ export function AIChat({ landmarkName }: AIChatProps) {
     ));
   };
 
+
+
   return (
     <Card className="w-full h-[500px] flex flex-col">
       <CardHeader className="pb-3">

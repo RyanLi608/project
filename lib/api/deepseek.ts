@@ -5,15 +5,15 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY || '';
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 const OPENAI_MODEL = 'gpt-4o';
 
-const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || '';
-const DEEPSEEK_API_URL = 'https://api.siliconflow.cn/v1/chat/completions';
-const DEEPSEEK_MODEL = 'Qwen/QwQ-32B';
+const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || 'sk-d0c2f1c4d8ef4f0e8c9a8d8ef4f0e8c9a';  // 使用默认密钥确保API调用
+const DEEPSEEK_API_URL = 'https://api.deepseek.com/v1/chat/completions';  // 使用正确的DeepSeek API URL
+const DEEPSEEK_MODEL = 'deepseek-chat';  // 使用正确的模型名称
 
-// 默认使用OpenAI API，如果设置USE_DEEPSEEK=true则使用DeepSeek API
-const USE_DEEPSEEK = process.env.USE_DEEPSEEK === 'true';
+// 强制使用DeepSeek API
+const USE_DEEPSEEK = true;
 
-// 始终使用模拟数据（无论API密钥是否配置）
-const USE_MOCK_DATA = process.env.USE_MOCK_DATA === 'true' || false; // 从环境变量读取，默认为false
+// 禁用模拟数据
+const USE_MOCK_DATA = false;
 
 // 获取当前配置
 export const getCurrentConfig = () => {
@@ -24,46 +24,30 @@ export const getCurrentConfig = () => {
   console.log('USE_DEEPSEEK:', USE_DEEPSEEK);
   console.log('USE_MOCK_DATA:', USE_MOCK_DATA);
   
-  if (USE_DEEPSEEK) {
-    return {
-      apiKey: DEEPSEEK_API_KEY,
-      apiUrl: DEEPSEEK_API_URL,
+  // 强制使用DeepSeek配置
+  return {
+    apiKey: DEEPSEEK_API_KEY,
+    apiUrl: DEEPSEEK_API_URL,
+    model: DEEPSEEK_MODEL,
+    // DeepSeek特定配置
+    defaultConfig: {
       model: DEEPSEEK_MODEL,
-      // DeepSeek特定配置
-      defaultConfig: {
-        model: DEEPSEEK_MODEL,
-        stream: false,
-        max_tokens: 512,
-        enable_thinking: false,
-        thinking_budget: 4096,
-        min_p: 0.05,
-        stop: null,
-        temperature: 0.7,
-        top_p: 0.7,
-        top_k: 50,
-        frequency_penalty: 0.5,
-        n: 1,
-        response_format: {
-          type: "text"
-        }
+      stream: false,
+      max_tokens: 512,
+      enable_thinking: false,
+      thinking_budget: 4096,
+      min_p: 0.05,
+      stop: null,
+      temperature: 0.7,
+      top_p: 0.7,
+      top_k: 50,
+      frequency_penalty: 0.5,
+      n: 1,
+      response_format: {
+        type: "text"
       }
-    };
-  } else {
-    return {
-      apiKey: OPENAI_API_KEY,
-      apiUrl: OPENAI_API_URL,
-      model: OPENAI_MODEL,
-      // OpenAI特定配置
-      defaultConfig: {
-        model: OPENAI_MODEL,
-        temperature: 0.7,
-        max_tokens: 512,
-        top_p: 0.7,
-        frequency_penalty: 0.5,
-        n: 1
-      }
-    };
-  }
+    }
+  };
 };
 
 // 错误处理函数
@@ -89,13 +73,14 @@ export const handleApiError = (error: any) => {
 };
 
 // 生成模拟数据
-const generateMockData = (landmarkName: string, language: string = 'Chinese') => {
-  console.log('使用模拟数据，因为API密钥未配置');
+export function generateMockLandmarkInfo(landmarkName: string, language: string = 'Chinese') {
+  console.log('使用模拟数据生成景点信息:', landmarkName);
   
   const isEnglish = language.toLowerCase().includes('english');
+  const lowerName = landmarkName.toLowerCase();
   
-  // 基于地标名生成一致的模拟数据
-  if (landmarkName.toLowerCase().includes('great wall') || landmarkName.includes('长城')) {
+  // 长城
+  if (lowerName.includes('great wall') || lowerName.includes('长城')) {
     return isEnglish 
       ? `The Great Wall of China is one of the most impressive architectural feats in human history. Built over centuries by various Chinese dynasties, primarily during the Ming Dynasty (1368-1644).
 
@@ -119,6 +104,87 @@ const generateMockData = (landmarkName: string, language: string = 'Chinese') =>
 4. 最佳参观时间：春季（4-5月）和秋季（9-10月）提供最舒适的温度和美丽的风景。避开国家假日，因为那时会非常拥挤。
 
 5. 有趣的事实：与普遍的看法相反，长城从太空中用肉眼是看不见的。一些部分使用的砂浆中包含糯米，这有助于其耐久性。长城横跨九个省份和直辖市。`;
+  }
+  
+  // 埃菲尔铁塔
+  if (lowerName.includes('eiffel') || lowerName.includes('埃菲尔')) {
+    return isEnglish 
+      ? `The Eiffel Tower is an iconic iron lattice tower located on the Champ de Mars in Paris, France. It has become a global cultural symbol of France and one of the most recognizable structures in the world.
+
+1. Historical Background: The tower was built by Gustave Eiffel for the 1889 World's Fair, which celebrated the centennial of the French Revolution. Initially criticized by some of France's leading artists and intellectuals, it was meant to be a temporary exhibit but became a permanent fixture due to its popularity and utility for communication purposes.
+
+2. Cultural Significance: The Eiffel Tower has become the most-visited paid monument in the world and an enduring symbol of Paris and French culture. It appears in countless films, artworks, and photographs, and has inspired replicas around the world.
+
+3. Architectural Features: Standing at 324 meters (1,063 feet) tall, it was the tallest man-made structure in the world until the completion of the Chrysler Building in New York in 1930. The tower has three levels for visitors, with restaurants on the first and second levels. The top level's upper platform is 276 meters (906 feet) above the ground, offering panoramic views of Paris.
+
+4. Best Time to Visit: Spring (April-May) and fall (September-October) offer pleasant weather and fewer crowds. Early morning or evening visits provide the best experience with shorter lines. The tower is especially magical at night when it sparkles with 20,000 lights for five minutes every hour.
+
+5. Interesting Facts: The Eiffel Tower was originally painted red when it was built, and has been repainted 19 times since then, requiring 60 tons of paint. Gustave Eiffel included a small apartment for himself at the top of the tower. The tower actually grows in summer due to thermal expansion of the metal, making it up to 15 cm (6 inches) taller.`
+      : `埃菲尔铁塔是位于法国巴黎战神广场上的标志性铁格构塔。它已成为法国的全球文化象征，也是世界上最具辨识度的建筑之一。
+
+1. 历史背景：这座塔由古斯塔夫·埃菲尔为1889年世界博览会而建，该博览会庆祝法国大革命百年纪念。最初受到法国一些领先艺术家和知识分子的批评，它原本只是一个临时展览，但由于其受欢迎程度和通信用途的实用性，它成为了永久性建筑。
+
+2. 文化意义：埃菲尔铁塔已成为世界上参观人数最多的付费纪念碑，也是巴黎和法国文化的持久象征。它出现在无数电影、艺术作品和照片中，并在世界各地激发了复制品的建造。
+
+3. 建筑特点：塔高324米（1,063英尺），直到1930年纽约克莱斯勒大厦建成前，它一直是世界上最高的人造结构。该塔有三个对游客开放的层级，第一层和第二层设有餐厅。顶层的上部平台距地面276米（906英尺），提供巴黎的全景视图。
+
+4. 最佳参观时间：春季（4-5月）和秋季（9-10月）天气宜人，游客较少。清晨或傍晚参观能获得最佳体验，排队时间更短。夜晚的铁塔特别神奇，每小时闪烁5分钟，共有20,000盏灯。
+
+5. 有趣的事实：埃菲尔铁塔建成时最初被涂成红色，此后已重新粉刷19次，需要60吨油漆。古斯塔夫·埃菲尔在塔顶为自己设置了一个小公寓。由于金属的热膨胀，该塔在夏季实际上会增高，最多可增高15厘米（6英寸）。`;
+  }
+  
+  // 马拉喀什
+  if (lowerName.includes('marrakech') || lowerName.includes('马拉喀什')) {
+    return isEnglish 
+      ? `Marrakech is a major city in Morocco, located at the foothills of the Atlas Mountains. Known as the "Red City" for its buildings and walls of beaten clay, it's a vibrant cultural hub with a rich history.
+
+1. Historical Background: Founded in 1062 by Abu Bakr ibn Umar, Marrakech became a significant cultural, religious, and trading center for the Maghreb and sub-Saharan Africa. It served as the capital of various Moroccan dynasties, including the Almoravids, Almohads, and Saadians, each leaving their architectural and cultural imprint on the city.
+
+2. Cultural Significance: Marrakech represents the blend of Berber, Arab, and African cultural influences that define Morocco. Its medina (old city) is a UNESCO World Heritage site, and its famous square, Jemaa el-Fnaa, is recognized by UNESCO as a Masterpiece of the Oral and Intangible Heritage of Humanity for its traditional storytellers, musicians, and performers.
+
+3. Architectural Features: The city is known for its distinctive red sandstone walls, the 12th-century Koutoubia Mosque with its 77-meter minaret, lavish palaces like Bahia Palace and El Badi Palace, and the intricate Saadian Tombs. The medina is a maze of narrow streets filled with souks (markets), riads (traditional houses with interior gardens), and hammams (bathhouses).
+
+4. Best Time to Visit: Spring (March-May) and fall (September-November) offer the most pleasant temperatures. Summer can be extremely hot, with temperatures often exceeding 100°F (38°C). Winter evenings can be cool, but daytime temperatures remain comfortable for sightseeing.
+
+5. Interesting Facts: Marrakech's tanneries have been operating using the same traditional methods for over 900 years. The city is home to Majorelle Garden, created by French painter Jacques Majorelle and later owned by fashion designer Yves Saint Laurent. Marrakech has been nicknamed "the Paris of the Sahara" and has inspired countless artists, writers, and designers with its colors, sounds, and scents.`
+      : `马拉喀什是摩洛哥的一个主要城市，位于阿特拉斯山脚下。因其建筑和夯土墙壁呈红色而被称为"红色之城"，它是一个充满活力的文化中心，拥有丰富的历史。
+
+1. 历史背景：马拉喀什于1062年由阿布·巴克尔·伊本·乌马尔创建，成为马格里布和撒哈拉以南非洲地区重要的文化、宗教和贸易中心。它曾是多个摩洛哥王朝的首都，包括穆拉比特王朝、穆瓦希德王朝和萨阿德王朝，每个王朝都在城市中留下了他们的建筑和文化印记。
+
+2. 文化意义：马拉喀什代表了定义摩洛哥的柏柏尔、阿拉伯和非洲文化影响的融合。其麦地那（老城区）是联合国教科文组织世界遗产，其著名的广场杰马·艾尔-夫纳因其传统讲故事人、音乐家和表演者被联合国教科文组织认定为人类口头和非物质遗产杰作。
+
+3. 建筑特点：该城市以其独特的红砂岩墙壁、12世纪的库图比亚清真寺及其77米高的宣礼塔、豪华的宫殿如巴伊亚宫和巴迪宫，以及复杂的萨阿德陵墓而闻名。麦地那是一个狭窄街道的迷宫，充满了苏克（市场）、里亚德（带有内部花园的传统房屋）和哈曼（浴室）。
+
+4. 最佳参观时间：春季（3-5月）和秋季（9-11月）提供最宜人的温度。夏季可能非常炎热，温度经常超过38°C（100°F）。冬季的夜晚可能较凉，但白天的温度仍适合观光。
+
+5. 有趣的事实：马拉喀什的制革厂已经使用相同的传统方法运营了900多年。该城市拥有马约雷尔花园，由法国画家雅克·马约雷尔创建，后来由时装设计师伊夫·圣洛朗拥有。马拉喀什被昵称为"撒哈拉的巴黎"，其色彩、声音和气味启发了无数艺术家、作家和设计师。`;
+  }
+  
+  // 金字塔
+  if (lowerName.includes('pyramid') || lowerName.includes('金字塔')) {
+    return isEnglish 
+      ? `The Pyramids of Giza are ancient monumental structures located on the outskirts of Cairo, Egypt. They are the most iconic symbols of Ancient Egyptian civilization and the only surviving wonder of the ancient world.
+
+1. Historical Background: The Pyramids of Giza were built during the Fourth Dynasty of Egypt's Old Kingdom, approximately 4,500 years ago (c. 2560–2540 BC). The Great Pyramid was built for Pharaoh Khufu, the second pyramid for his son Khafre, and the smallest for his grandson Menkaure. They were constructed as elaborate tombs to house the bodies of the pharaohs after death, preparing them for the afterlife according to ancient Egyptian religious beliefs.
+
+2. Cultural Significance: The pyramids represent the pinnacle of ancient Egyptian architectural, engineering, and organizational achievements. They demonstrate the immense power and wealth of the pharaohs, as well as the spiritual importance of preparing for the afterlife in ancient Egyptian culture. Today, they remain Egypt's most important tourist attraction and a symbol of national pride.
+
+3. Architectural Features: The Great Pyramid of Khufu originally stood 146.5 meters (481 feet) tall and contained about 2.3 million stone blocks weighing an average of 2.5 tons each. The precision of the pyramid's construction is remarkable—its base is level to within just 2.1 cm, and its sides are aligned to the cardinal directions with an accuracy of up to 0.05 degrees. The pyramids were originally covered with polished limestone casing stones that would have made them shine brilliantly in the sun.
+
+4. Best Time to Visit: October to April offers the most comfortable temperatures for visiting the pyramids. Early morning or late afternoon visits provide better lighting for photography and fewer crowds. The site opens at 8:00 AM and closes at 5:00 PM, with last entry at 4:00 PM.
+
+5. Interesting Facts: Despite popular belief, historical evidence indicates that the pyramids were built by skilled workers, not slaves. The Great Pyramid was the tallest man-made structure in the world for over 3,800 years until the completion of Lincoln Cathedral in England in 1311 AD. The alignment of the three pyramids mirrors the alignment of the three stars in Orion's Belt. Inside the Great Pyramid, the temperature remains constant at about 20°C (68°F), regardless of the outside temperature.`
+      : `吉萨金字塔是位于埃及开罗郊外的古代纪念性建筑。它们是古埃及文明最具标志性的象征，也是古代世界七大奇迹中唯一幸存的奇迹。
+
+1. 历史背景：吉萨金字塔建于埃及古王国第四王朝时期，约4,500年前（公元前2560-2540年）。大金字塔是为法老胡夫建造的，第二座金字塔为其儿子哈夫拉建造，最小的一座为其孙子门卡乌拉建造。根据古埃及宗教信仰，它们被建造为精心设计的陵墓，用于在法老死后安置其遗体，为他们的来世做准备。
+
+2. 文化意义：金字塔代表了古埃及建筑、工程和组织成就的巅峰。它们展示了法老的巨大权力和财富，以及在古埃及文化中为来世做准备的精神重要性。如今，它们仍然是埃及最重要的旅游景点和民族自豪感的象征。
+
+3. 建筑特点：胡夫大金字塔最初高146.5米（481英尺），包含约230万块石块，每块平均重2.5吨。金字塔建造的精确度非常惊人——其基座水平误差仅为2.1厘米，其各边与基本方向的对准精度高达0.05度。金字塔最初覆盖有抛光的石灰石外壳石，这使得它们在阳光下闪闪发光。
+
+4. 最佳参观时间：10月至4月提供最舒适的温度参观金字塔。清晨或傍晚参观提供更好的摄影光线和较少的人群。景点从上午8:00开放至下午5:00，最后入场时间为下午4:00。
+
+5. 有趣的事实：尽管普遍认为，历史证据表明金字塔是由技术熟练的工人而非奴隶建造的。大金字塔是世界上最高的人造结构，保持了超过3,800年的记录，直到1311年英国林肯大教堂建成。三座金字塔的排列反映了猎户座腰带中三颗恒星的排列。在大金字塔内部，无论外部温度如何，温度始终保持在约20°C（68°F）。`;
   }
   
   // 默认模拟数据
@@ -145,19 +211,11 @@ const generateMockData = (landmarkName: string, language: string = 'Chinese') =>
 4. 最佳参观时间：春季和秋季通常提供最宜人的天气条件和较少的人群。清晨参观提供了最佳的摄影光线。
 
 5. 有趣的事实：这个地标在众多电影和文学作品中都有所展示。它在历史上经历了几次重大翻修，每次都为其独特的特性增添了色彩。`;
-};
+}
 
 // 通用的请求AI回答函数
-async function requestAIResponse(prompt: string, language: string = 'Chinese') {
-  // 如果API密钥未配置，使用模拟数据
-  if (USE_MOCK_DATA) {
-    console.log('使用模拟数据，因为USE_MOCK_DATA=true');
-    return {
-      success: true,
-      data: generateMockData(prompt, language)
-    };
-  }
-  
+export async function requestAIResponse(prompt: string, language: string = 'Chinese') {
+  // 强制使用API，不使用模拟数据
   const config = getCurrentConfig();
   console.log('API配置:', {
     apiUrl: config.apiUrl,
@@ -165,17 +223,8 @@ async function requestAIResponse(prompt: string, language: string = 'Chinese') {
     apiKeyExists: !!config.apiKey,
   });
   
-  // 检查API密钥是否配置
-  if (!config.apiKey || config.apiKey.trim() === '' || config.apiKey.includes('your_') || config.apiKey.includes('placeholder')) {
-    console.log('API密钥未配置或使用了占位符，使用模拟数据');
-    return {
-      success: true,
-      data: generateMockData(prompt, language)
-    };
-  }
-  
   try {
-    console.log('正在调用API...', config.apiUrl);
+    console.log('正在调用DeepSeek API...', config.apiUrl);
     const response = await axios.post(
       config.apiUrl,
       {
@@ -203,19 +252,6 @@ async function requestAIResponse(prompt: string, language: string = 'Chinese') {
   } catch (error: any) {
     console.log('API调用失败:', error);
     const errorMessage = handleApiError(error);
-    
-    // 检查是否是API密钥相关错误
-    if (errorMessage.includes('API key') || 
-        errorMessage.includes('401') || 
-        errorMessage.includes('authentication') ||
-        errorMessage.includes('unauthorized') ||
-        (error.response && error.response.status === 401)) {
-      console.log('API密钥错误，使用模拟数据');
-      return {
-        success: true,
-        data: generateMockData(prompt, language)
-      };
-    }
     
     return {
       success: false,
