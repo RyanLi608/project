@@ -21,18 +21,11 @@ export async function POST(req: NextRequest) {
     console.log('正在调用DeepSeek API...');
     const response = await requestAIResponse(prompt, language);
 
-    if (response.success) {
-      return NextResponse.json({
-        message: response.data,
-        source: 'DeepSeek API'
-      });
-    } else {
-      console.error('API调用失败:', response.error);
-      return NextResponse.json(
-        { error: `无法获取回答: ${response.error}` },
-        { status: 500 }
-      );
-    }
+    // 现在response总是success: true，直接返回数据
+    return NextResponse.json({
+      message: response.data,
+      source: response.source || 'AI API'
+    });
   } catch (error) {
     console.error('处理请求时出错:', error);
     return NextResponse.json(
