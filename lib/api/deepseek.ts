@@ -7,14 +7,14 @@ const OPENAI_MODEL = 'gpt-4o';
 
 // 使用环境变量中的API密钥，如果没有则使用备用密钥
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || '';  // 移除硬编码的API密钥
-const DEEPSEEK_API_URL = 'https://api.deepseek.com/v1/chat/completions';
-const DEEPSEEK_MODEL = 'deepseek-chat';
+const DEEPSEEK_API_URL = process.env.DEEPSEEK_API_URL || 'https://api.deepseek.com/v1/chat/completions';
+const DEEPSEEK_MODEL = process.env.DEEPSEEK_MODEL || 'deepseek-chat';
 
 // 强制使用DeepSeek API
 const USE_DEEPSEEK = true;
 
-// 禁用模拟数据
-const USE_MOCK_DATA = true;  // 临时启用模拟数据，避免API密钥问题
+// 启用真正的API，禁用模拟数据
+const USE_MOCK_DATA = false;  // 启用真正的API
 
 // 获取当前配置
 export const getCurrentConfig = () => {
