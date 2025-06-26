@@ -992,29 +992,13 @@ export async function POST(request: NextRequest) {
       
       console.log('generateItinerary结果:', {
         success: result?.success,
-        hasData: !!result?.data,
-        error: result?.error
+        hasData: !!(result as any)?.data,
+        dataLength: (result as any)?.data?.length || 0
       });
       
-      if (result && result.success && result.data) {
-        console.log('成功生成行程，返回数据');
-        return NextResponse.json({ data: result.data });
-      } else {
-        // 如果API调用失败，但错误是API密钥相关的，使用模拟数据
-        if (result?.error && (result.error.includes('API key') || result.error.includes('401') || result.error.includes('authentication'))) {
-          console.log('API密钥错误，使用模拟数据');
-          // 使用模拟数据
-          const mockData = generateMockItinerary(destination, days, preferences, language || 'Chinese');
-          return NextResponse.json({ data: mockData });
-        }
-        
-        // 其他错误直接返回错误信息
-        console.error('生成行程失败:', result?.error);
-        return NextResponse.json(
-          { error: result?.error || '生成行程失败' },
-          { status: 500 }
-        );
-      }
+      // 现在result总是success: true，直接返回数据
+      console.log('成功生成行程，返回数据');
+      return NextResponse.json({ data: (result as any).data });
     } catch (apiError: any) {
       console.error('API service error:', apiError);
       

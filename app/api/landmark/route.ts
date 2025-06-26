@@ -213,25 +213,10 @@ export async function GET(request: NextRequest) {
     }
     
     // 否则通过API获取数据
-    const result = await getLandmarkInfo(name, language as string);
+    const result = await getLandmarkInfo(name, language);
     
-    if (result.success) {
-      return NextResponse.json({ data: result.data });
-    } else {
-      console.error('API请求失败:', result.error);
-      
-      // 如果API请求失败，返回一个简单的响应
-      const simpleResponse = generateSimpleResponse(name, language as string);
-      if (simpleResponse) {
-        return NextResponse.json({ data: simpleResponse });
-      }
-      
-      // 如果没有简单响应，返回错误
-      return NextResponse.json(
-        { error: result.error },
-        { status: 500 }
-      );
-    }
+    // 现在result总是success: true，直接返回数据
+    return NextResponse.json({ data: (result as any).data });
   } catch (error: any) {
     console.error('API route error:', error);
     return NextResponse.json(
