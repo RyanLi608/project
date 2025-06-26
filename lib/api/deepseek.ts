@@ -35,13 +35,14 @@ export const getCurrentConfig = () => {
       model: DEEPSEEK_MODEL,
       stream: false,
       max_tokens: 512,
-      enable_thinking: false,
-      thinking_budget: 4096,
-      min_p: 0.05,
+      // 移除不支持的参数
+      // enable_thinking: false,
+      // thinking_budget: 4096,
+      // min_p: 0.05,
       stop: null,
       temperature: 0.7,
       top_p: 0.7,
-      top_k: 50,
+      // top_k: 50,  // 可能不支持
       frequency_penalty: 0.5,
       n: 1,
       response_format: {
