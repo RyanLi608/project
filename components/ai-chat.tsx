@@ -67,8 +67,8 @@ export function AIChat({ landmarkName }: AIChatProps) {
     setError(null);
     
     try {
-      // 发送请求到AI API
-      console.log("Sending request to AI API with message:", userInput);
+      // 发送请求到DeepSeek API
+      console.log("发送请求到DeepSeek API，消息:", userInput);
       
       const response = await fetch("/api/chat", {
         method: "POST",
@@ -78,28 +78,24 @@ export function AIChat({ landmarkName }: AIChatProps) {
         body: JSON.stringify({
           message: userInput,
           landmark: landmarkName,
-          language: language === "en" ? "English" : "Chinese",
-          history: messages.map(msg => ({
-            role: msg.role,
-            content: msg.content
-          }))
+          language: language === "en" ? "English" : "Chinese"
         }),
       });
       
       if (!response.ok) {
         const errorData = await response.json();
-        console.error("API Response Error:", errorData);
-        throw new Error(errorData.error || "Failed to get response");
+        console.error("API响应错误:", errorData);
+        throw new Error(errorData.error || "获取响应失败");
       }
       
       const data = await response.json();
-      console.log("AI response data:", data);
+      console.log("DeepSeek API响应数据:", data);
       
-      // 处理response或answer字段
-      const aiResponseText = data.answer || data.response;
+      // 处理message或answer字段
+      const aiResponseText = data.message || data.answer;
       
       if (!aiResponseText) {
-        throw new Error("No response data received");
+        throw new Error("未收到响应数据");
       }
       
       // 添加AI回复
@@ -112,8 +108,8 @@ export function AIChat({ landmarkName }: AIChatProps) {
       
       setMessages(prev => [...prev, aiMessage]);
     } catch (error: any) {
-      console.error("Error sending message:", error);
-      setError(error.message || "Unknown error");
+      console.error("发送消息时出错:", error);
+      setError(error.message || "未知错误");
       
       // 错误消息
       const errorMessage: Message = {
