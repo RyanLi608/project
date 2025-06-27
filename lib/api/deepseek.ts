@@ -64,6 +64,92 @@ export const handleApiError = (error: any) => {
 };
 
 // 生成模拟数据
+// 智能模拟回复函数，根据用户问题生成相关回答
+function generateSmartMockResponse(prompt: string, language: string = 'Chinese'): string {
+  const isEnglish = language.toLowerCase().includes('english');
+  
+  // 提取地标名称和用户问题
+  const landmarkMatch = prompt.match(/关于(.*?)的问题:\s*(.*)/);
+  const landmarkName = landmarkMatch ? landmarkMatch[1] : '';
+  const userQuestion = landmarkMatch ? landmarkMatch[2] : prompt;
+  
+  // 根据问题类型生成智能回复
+  if (userQuestion.includes('好玩') || userQuestion.includes('fun') || userQuestion.includes('enjoyable')) {
+    return isEnglish 
+      ? `${landmarkName} is definitely worth visiting! Here's why it's enjoyable:
+
+🎯 **What makes it fun:**
+- Incredible photo opportunities with stunning architecture
+- Rich historical stories that bring the past to life  
+- Beautiful gardens perfect for peaceful walks
+- Unique cultural experiences you won't find elsewhere
+- Amazing sunrise/sunset views that create magical moments
+
+🌟 **Visitor experiences:**
+- Most visitors find it breathtaking and emotionally moving
+- The intricate details and craftsmanship are absolutely fascinating
+- Great for both history lovers and casual tourists
+- Perfect for creating unforgettable memories
+
+**My recommendation:** Absolutely visit! Plan at least 2-3 hours to fully appreciate its beauty and history.`
+      : `${landmarkName}绝对值得一去！以下是它好玩的原因：
+
+🎯 **为什么好玩：**
+- 令人惊叹的建筑，拍照绝佳
+- 丰富的历史故事，让过去重现
+- 美丽的花园，适合悠闲漫步  
+- 独特的文化体验，别处难寻
+- 绝美的日出日落，创造奇妙时刻
+
+🌟 **游客体验：**
+- 大多数游客都觉得震撼人心，感动不已
+- 精细的工艺和细节令人着迷
+- 无论历史爱好者还是普通游客都会喜欢
+- 是创造难忘回忆的完美地点
+
+**我的建议：** 强烈推荐！计划至少2-3小时来充分欣赏它的美丽和历史。`;
+  }
+  
+  if (userQuestion.includes('评价') || userQuestion.includes('review') || userQuestion.includes('opinion')) {
+    return isEnglish 
+      ? `Here's what visitors typically say about ${landmarkName}:
+
+👍 **Positive Reviews:**
+- "Absolutely breathtaking! Photos don't do it justice"
+- "A must-visit landmark with incredible history"  
+- "The architecture is mind-blowing"
+- "Peaceful and spiritual experience"
+- "Worth every minute of the visit"
+
+⚠️ **Common Concerns:**
+- Can get very crowded, especially during peak hours
+- Entry fees might be expensive for some budgets
+- Long queues during tourist season
+- Best visited early morning or late afternoon
+
+🌟 **Overall Rating:** Most visitors rate it 4.5-5 stars and consider it a once-in-a-lifetime experience that exceeded their expectations.`
+      : `以下是网友对${landmarkName}的典型评价：
+
+👍 **正面评价：**
+- "绝对震撼！照片根本无法展现真实的美"
+- "必去的地标，历史底蕴深厚"
+- "建筑令人叹为观止"  
+- "宁静而富有精神意义的体验"
+- "每分钟都值得"
+
+⚠️ **常见吐槽：**
+- 人太多了，特别是高峰时段
+- 门票对某些预算来说可能较贵
+- 旅游旺季排队时间长
+- 最好清晨或傍晚去
+
+🌟 **综合评分：** 大多数游客给出4.5-5星评价，认为这是超出预期的一生必去体验。`;
+  }
+  
+  // 默认回复
+  return generateMockLandmarkInfo(landmarkName || '这个地标', language);
+}
+
 export function generateMockLandmarkInfo(landmarkName: string, language: string = 'Chinese') {
   console.log('使用模拟数据生成景点信息:', landmarkName);
   
@@ -236,26 +322,12 @@ export async function requestAIResponse(prompt: string, language: string = 'Chin
   // 检查是否使用模拟数据
   if (USE_MOCK_DATA) {
     console.log('使用模拟数据...');
-    // 从提示中提取地标名称（如果有）
-    const landmarkMatch = prompt.match(/关于(.*?)的问题:/);
-    const landmarkName = landmarkMatch ? landmarkMatch[1] : '';
-    
-    if (landmarkName) {
-      const mockResponse = generateMockLandmarkInfo(landmarkName, language);
-      return {
-        success: true,
-        data: mockResponse,
-        source: 'Mock Data'
-      };
-    } else {
-      return {
-        success: true,
-        data: language.toLowerCase().includes('english') 
-          ? `Hello! I'm your LandmarkAI guide. I can provide information about history, architecture, and cultural significance of various landmarks. Please ask me about any specific landmark you're interested in!`
-          : `你好！我是你的泰姬陵AI导游。我可以提供关于这里的历史、建筑和文化意义的信息。请随时向我询问任何关于泰姬陵的问题！`,
-        source: 'Mock Data'
-      };
-    }
+    // 智能回复用户的具体问题而不是提供固定信息
+    return {
+      success: true,
+      data: generateSmartMockResponse(prompt, language),
+      source: 'Mock Data'
+    };
   }
   
   // 使用API
@@ -266,28 +338,14 @@ export async function requestAIResponse(prompt: string, language: string = 'Chin
     apiKeyExists: !!config.apiKey,
   });
   
-  // 如果没有API密钥，回退到使用模拟数据
+  // 如果没有API密钥，回退到智能模拟数据
   if (!config.apiKey) {
     console.log('没有API密钥，使用模拟数据...');
-    const landmarkMatch = prompt.match(/关于(.*?)的问题:/);
-    const landmarkName = landmarkMatch ? landmarkMatch[1] : '';
-    
-    if (landmarkName) {
-      const mockResponse = generateMockLandmarkInfo(landmarkName, language);
-      return {
-        success: true,
-        data: mockResponse,
-        source: 'Mock Data (No API Key)'
-      };
-    } else {
-      return {
-        success: true,
-        data: language.toLowerCase().includes('english') 
-          ? `Hello! I'm your LandmarkAI guide. I can provide information about history, architecture, and cultural significance of various landmarks. Please ask me about any specific landmark you're interested in!`
-          : `你好！我是你的泰姬陵AI导游。我可以提供关于这里的历史、建筑和文化意义的信息。请随时向我询问任何关于泰姬陵的问题！`,
-        source: 'Mock Data (No API Key)'
-      };
-    }
+    return {
+      success: true,
+      data: generateSmartMockResponse(prompt, language),
+      source: 'Mock Data (No API Key)'
+    };
   }
   
   try {
@@ -319,27 +377,13 @@ export async function requestAIResponse(prompt: string, language: string = 'Chin
   } catch (error) {
     console.error('API调用失败:', error);
     
-    // API调用失败时回退到模拟数据
+    // API调用失败时回退到智能模拟数据
     console.log('API调用失败，使用模拟数据...');
-    const landmarkMatch = prompt.match(/关于(.*?)的问题:/);
-    const landmarkName = landmarkMatch ? landmarkMatch[1] : '';
-    
-    if (landmarkName) {
-      const mockResponse = generateMockLandmarkInfo(landmarkName, language);
-      return {
-        success: true,
-        data: mockResponse,
-        source: 'Mock Data (API Fallback)'
-      };
-    } else {
-      return {
-        success: true,
-        data: language.toLowerCase().includes('english') 
-          ? `Hello! I'm your LandmarkAI guide. I can provide information about history, architecture, and cultural significance of various landmarks. Please ask me about any specific landmark you're interested in!`
-          : `你好！我是你的泰姬陵AI导游。我可以提供关于这里的历史、建筑和文化意义的信息。请随时向我询问任何关于泰姬陵的问题！`,
-        source: 'Mock Data (API Fallback)'
-      };
-    }
+    return {
+      success: true,
+      data: generateSmartMockResponse(prompt, language),
+      source: 'Mock Data (API Fallback)'
+    };
   }
 }
 
