@@ -13,8 +13,8 @@
       "use": "@vercel/next"
     }
   ],
-  "buildCommand": "npm run build",
-  "installCommand": "npm install",
+  "buildCommand": "npm install --omit=optional && npm run build",
+  "installCommand": "npm install --omit=optional --no-optional",
   "framework": "nextjs",
   "env": {
     "OPENAI_API_KEY": "sk-o7abcdefghijklmnopqrstuvwxyz123456789",
