@@ -1,15 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: 'export',
+  experimental: {
+    serverComponentsExternalPackages: ['@floating-ui/react-dom'],
+  },
+  swcMinify: false,
   eslint: {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ['images.pexels.com'],
-    // 只在导出静态网站时需要unoptimized: true
-    // unoptimized: true,
+    domains: ['randomuser.me', 'images.pexels.com'],
   },
-  // 添加环境变量配置
+  output: 'standalone',
   env: {
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
     OPENAI_API_URL: process.env.OPENAI_API_URL,
