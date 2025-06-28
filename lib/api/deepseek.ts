@@ -350,6 +350,8 @@ export async function requestAIResponse(prompt: string, language: string = 'Chin
   
   try {
     console.log('正在调用DeepSeek API...', config.apiUrl);
+    console.log('发送的prompt:', prompt);
+    
     const response = await axios.post(
       config.apiUrl,
       {
@@ -369,13 +371,14 @@ export async function requestAIResponse(prompt: string, language: string = 'Chin
       }
     );
 
-    console.log('API调用成功');
+    console.log('API调用成功，响应:', response.data);
     return {
       success: true,
-      data: response.data.choices[0].message.content
+      data: response.data.choices[0].message.content,
+      source: 'DeepSeek API'
     };
   } catch (error) {
-    console.error('API调用失败:', error);
+    console.error('API调用失败，详细错误:', (error as any).response?.data || (error as any).message);
     
     // API调用失败时回退到智能模拟数据
     console.log('API调用失败，使用模拟数据...');
