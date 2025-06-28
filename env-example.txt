@@ -10,10 +10,10 @@ GITHUB_SECRET=your-github-client-secret
 GOOGLE_CLIENT_ID=your-google-client-id
 GOOGLE_CLIENT_SECRET=your-google-client-secret
 
-# Supabase 配置
-NEXT_PUBLIC_SUPABASE_URL=https://rydtjnmcoivovxwjkubu.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5ZHRqbm1jb2l2b3Z4d2prdWJ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEwODM5MzgsImV4cCI6MjA2NjY1OTkzOH0.bZfAUhfnw8u8L6OmgGSOqGQLhJGud0MJyoFe46qHr6w
-SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5ZHRqbm1jb2l2b3Z4d2prdWJ1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MTA4MzkzOCwiZXhwIjoyMDY2NjU5OTM4fQ.hfqvtJk44RmqA5NKxTGxikW7Eas0Ga3zU46hmDvNblY
+# Supabase 配置 (需要从 Supabase 项目设置获取)
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-supabase-service-role-key
 
 # 使用说明：
 # 1. 复制此文件内容到 .env.local
@@ -21,5 +21,8 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhY
 #    回调 URL: http://localhost:3000/api/auth/callback/github
 # 3. Google: 访问 https://console.cloud.google.com/ 创建 OAuth 凭据
 #    回调 URL: http://localhost:3000/api/auth/callback/google
-# 4. 替换 GitHub 和 Google 的 your-* 值为实际的凭据
-# 5. Supabase 配置已预填，可直接使用 
+# 4. Supabase: 访问 https://supabase.com/dashboard 获取项目配置
+#    - NEXT_PUBLIC_SUPABASE_URL: 项目设置 > API > Project URL
+#    - NEXT_PUBLIC_SUPABASE_ANON_KEY: 项目设置 > API > anon public key
+#    - SUPABASE_SERVICE_ROLE_KEY: 项目设置 > API > service_role secret key
+# 5. 替换所有 your-* 值为实际的凭据 
