@@ -52,13 +52,13 @@ export function Testimonials() {
   const { language } = useLanguage();
   
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-20">
       <div className="container px-4 sm:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             {language === "en" ? "What Our Users Say" : "用户评价"}
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-white/70 max-w-2xl mx-auto text-lg">
             {language === "en" 
               ? "Discover how LandmarkAI has enhanced travel experiences for people around the world."
               : "了解LandmarkAI如何为世界各地的人们提升旅行体验。"}
@@ -69,7 +69,7 @@ export function Testimonials() {
           {testimonials.map((testimonial) => (
             <div 
               key={testimonial.id}
-              className="bg-card rounded-lg p-6 shadow-sm border border-border/50 hover:shadow-md transition-all"
+              className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300"
             >
               <div className="flex items-start mb-4">
                 <div className="relative h-12 w-12 rounded-full overflow-hidden mr-3">
@@ -81,10 +81,10 @@ export function Testimonials() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-medium">
+                  <h4 className="font-medium text-white">
                     {language === "en" ? testimonial.name : testimonial.nameCn}
                   </h4>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-white/60">
                     {language === "en" ? testimonial.location : testimonial.locationCn}
                   </p>
                 </div>
@@ -110,7 +110,7 @@ export function Testimonials() {
                 ))}
               </div>
 
-              <p className="text-sm">
+              <p className="text-sm text-white/80">
                 {testimonial.testimonial}
               </p>
             </div>

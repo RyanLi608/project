@@ -65,16 +65,16 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-200 ${
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-md shadow-sm"
+          ? "bg-black/20 backdrop-blur-xl border-b border-white/10"
           : "bg-transparent"
       }`}
     >
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="font-playfair text-xl font-bold tracking-wider bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
+            <span className="font-playfair text-xl font-bold tracking-wider bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               LandmarkAI
             </span>
           </Link>
@@ -84,26 +84,26 @@ export default function Header() {
         <nav className="hidden md:flex items-center space-x-6">
           <Link
             href="/about"
-            className="text-sm font-medium transition-colors hover:text-primary"
+            className="text-sm font-medium text-white/80 hover:text-white transition-colors"
           >
             {t("aboutUs")}
           </Link>
           <Link
             href="/popular"
-            className="text-sm font-medium transition-colors hover:text-primary"
+            className="text-sm font-medium text-white/80 hover:text-white transition-colors"
           >
             {t("popularDestinations")}
           </Link>
           <Link
             href="/itinerary"
-            className="text-sm font-medium transition-colors hover:text-primary flex items-center"
+            className="text-sm font-medium text-white/80 hover:text-white transition-colors flex items-center"
           >
             <Calendar className="h-4 w-4 mr-1" />
             {t("tripPlanner")}
           </Link>
           <Link
             href="/guides"
-            className="text-sm font-medium transition-colors hover:text-primary"
+            className="text-sm font-medium text-white/80 hover:text-white transition-colors"
           >
             {t("travelGuides")}
           </Link>
@@ -114,7 +114,7 @@ export default function Header() {
           {/* Language Selector */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="h-9 px-2">
+              <Button variant="outline" size="sm" className="h-9 px-2 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
                 <Globe className="h-4 w-4 mr-1" />
                 {selectedLanguage.name}
               </Button>
@@ -139,7 +139,7 @@ export default function Header() {
           <Button
             variant="outline"
             size="sm"
-            className="h-9 px-2"
+            className="h-9 px-2 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           >
             {theme === "light" ? (

@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
+import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { LanguageProvider } from "@/lib/language-context";
@@ -34,6 +35,7 @@ export default function RootLayout({
         >
           <LanguageProvider>
             <div className="relative flex min-h-screen flex-col">
+              <Header />
               <main className="flex-1">{children}</main>
               <Footer />
             </div>

@@ -8,12 +8,12 @@ export default function Footer() {
   const { t } = useLanguage();
   
   return (
-    <footer className="border-t bg-background/95 backdrop-blur supports-backdrop-blur:bg-background/60">
+    <footer className="border-t border-white/10 bg-black/20 backdrop-blur-xl">
       <div className="container py-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-lg font-semibold mb-3">LandmarkAI</h3>
-            <p className="text-sm text-muted-foreground">
+            <h3 className="text-lg font-semibold mb-3 text-white">LandmarkAI</h3>
+            <p className="text-sm text-white/60">
               &copy; {new Date().getFullYear()} LandmarkAI
               <br />
               {t("aboutUs")}

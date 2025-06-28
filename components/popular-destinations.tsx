@@ -51,12 +51,12 @@ export function PopularDestinations() {
   };
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-20">
       <div className="container px-4 sm:px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("popularDestinations")}</h2>
-            <p className="text-muted-foreground max-w-2xl">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{t("popularDestinations")}</h2>
+            <p className="text-white/70 max-w-2xl text-lg">
               {language === "en" 
                 ? "Explore some of the world's most iconic landmarks and attractions." 
                 : "探索世界上一些最具标志性的地标和景点。"}
@@ -64,7 +64,7 @@ export function PopularDestinations() {
           </div>
           <Link 
             href="/popular"
-            className="inline-flex items-center text-primary hover:underline mt-4 md:mt-0"
+            className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white hover:bg-white/20 transition-all duration-300 mt-4 md:mt-0"
           >
             {language === "en" ? "View all destinations" : "查看所有景点"} <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
@@ -101,24 +101,30 @@ function DestinationCard({ destination, className, getTranslation }: Destination
     <Link 
       href={`/destination/${destination.id}`}
       className={cn(
-        "group relative overflow-hidden rounded-lg shadow-md h-80 block",
+        "group relative overflow-hidden rounded-2xl h-80 block transition-all duration-300 hover:scale-105",
         className
       )}
     >
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 z-10" />
-      <Image
-        src={destination.image}
-        alt={getTranslation(destination.name)}
-        fill
-        style={{ 
-          objectFit: "cover", 
-          objectPosition: "center" 
-        }}
-        className="transition-transform duration-700 ease-in-out group-hover:scale-110"
-      />
-      <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-        <h3 className="text-xl font-semibold text-white mb-1">{getTranslation(destination.name)}</h3>
-        <p className="text-white/80 text-sm">{getTranslation(destination.location)}</p>
+      {/* Gradient Border Effect */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+      
+      {/* Main Card */}
+      <div className="relative h-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 z-10" />
+        <Image
+          src={destination.image}
+          alt={getTranslation(destination.name)}
+          fill
+          style={{ 
+            objectFit: "cover", 
+            objectPosition: "center" 
+          }}
+          className="transition-transform duration-700 ease-in-out group-hover:scale-110"
+        />
+        <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+          <h3 className="text-2xl font-bold text-white mb-2">{getTranslation(destination.name)}</h3>
+          <p className="text-white/80">{getTranslation(destination.location)}</p>
+        </div>
       </div>
     </Link>
   );
