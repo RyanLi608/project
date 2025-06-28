@@ -9,13 +9,11 @@ import {
   X, 
   Moon, 
   Sun, 
-  Calendar, 
-  User, 
-  LogIn, 
-  UserPlus 
+  Calendar 
 } from "lucide-react";
 import { useTheme } from "@/components/theme-provider";
 import { useLanguage } from "@/lib/language-context";
+import { GitHubSignInButton } from "@/components/auth/github-signin-button";
 
 const languages = [
   { code: "en", name: "English" },
@@ -25,7 +23,7 @@ const languages = [
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const { theme, setTheme } = useTheme();
@@ -40,13 +38,7 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
 
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-  };
 
   return (
     <header
@@ -141,25 +133,8 @@ function Header() {
             )}
           </Button>
 
-          {/* User Account / Login */}
-          {isLoggedIn ? (
-            <div className="relative">
-              <Button variant="outline" size="sm" className="h-9 rounded-full">
-                <User className="h-4 w-4" />
-              </Button>
-            </div>
-          ) : (
-            <div className="flex items-center space-x-2">
-              <Button variant="outline" size="sm" onClick={handleLogin} className="h-9 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
-                <LogIn className="mr-1 h-4 w-4" />
-                {t("login")}
-              </Button>
-              <Button size="sm" variant="default" className="h-9 bg-primary">
-                <UserPlus className="mr-1 h-4 w-4" />
-                {t("register")}
-              </Button>
-            </div>
-          )}
+          {/* GitHub OAuth Login */}
+          <GitHubSignInButton />
         </div>
 
         {/* Mobile Menu Button */}
@@ -213,14 +188,7 @@ function Header() {
             </Link>
             
             <div className="pt-3 border-t border-white/10">
-              <div className="flex items-center space-x-2">
-                <Button size="sm" onClick={handleLogin} className="flex-1">
-                  {t("login")}
-                </Button>
-                <Button size="sm" variant="outline" className="flex-1">
-                  {t("register")}
-                </Button>
-              </div>
+              <GitHubSignInButton className="w-full" />
             </div>
           </div>
         </div>
