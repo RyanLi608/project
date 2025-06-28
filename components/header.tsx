@@ -36,7 +36,7 @@ const languages = [
   { code: "zh", name: "中文" },
 ];
 
-export default function Header() {
+function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // 用户登录状态
@@ -338,3 +338,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default Header;
