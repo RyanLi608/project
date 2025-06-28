@@ -2,32 +2,18 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  Globe,
-  Search,
-  Moon,
-  Sun,
-  Menu,
-  X,
-  Volume2,
-  MapPin,
-  Calendar,
-  User,
-  LogIn,
-  UserPlus,
-  LogOut,
+import { 
+  Globe, 
+  Menu, 
+  X, 
+  Moon, 
+  Sun, 
+  Calendar, 
+  User, 
+  LogIn, 
+  UserPlus 
 } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
 import { useTheme } from "@/components/theme-provider";
 import { useLanguage } from "@/lib/language-context";
 
@@ -39,11 +25,11 @@ const languages = [
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // 用户登录状态
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showLanguageMenu, setShowLanguageMenu] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const { theme, setTheme } = useTheme();
 
-  // 找到当前选择的语言对象
   const selectedLanguage = languages.find(lang => lang.code === language) || languages[0];
 
   useEffect(() => {
@@ -54,7 +40,6 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 模拟登录/登出功能
   const handleLogin = () => {
     setIsLoggedIn(true);
   };
@@ -112,28 +97,35 @@ function Header() {
         {/* Desktop Right Menu */}
         <div className="hidden md:flex items-center space-x-2">
           {/* Language Selector */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="h-9 px-2 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
-                <Globe className="h-4 w-4 mr-1" />
-                {selectedLanguage.name}
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              {languages.map((lang) => (
-                <DropdownMenuItem
-                  key={lang.code}
-                  onClick={() => setLanguage(lang.code as "en" | "zh")}
-                  className={cn(
-                    "cursor-pointer",
-                    language === lang.code && "font-bold"
-                  )}
-                >
-                  {lang.name}
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <div className="relative">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="h-9 px-2 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+              onClick={() => setShowLanguageMenu(!showLanguageMenu)}
+            >
+              <Globe className="h-4 w-4 mr-1" />
+              {selectedLanguage.name}
+            </Button>
+            {showLanguageMenu && (
+              <div className="absolute top-full right-0 mt-1 bg-white rounded-md shadow-lg py-1 min-w-[120px] z-50">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      setLanguage(lang.code as "en" | "zh");
+                      setShowLanguageMenu(false);
+                    }}
+                    className={`block w-full text-left px-3 py-2 text-sm hover:bg-gray-100 ${
+                      language === lang.code ? "font-bold" : ""
+                    }`}
+                  >
+                    {lang.name}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
 
           {/* Theme Toggle */}
           <Button
@@ -151,29 +143,14 @@ function Header() {
 
           {/* User Account / Login */}
           {isLoggedIn ? (
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="h-9 rounded-full">
-                  <User className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem>
-                  <Link href="/account" className="flex w-full items-center">
-                    <User className="mr-2 h-4 w-4" />
-                    {t("myAccount")}
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={handleLogout} className="text-red-500">
-                  <LogOut className="mr-2 h-4 w-4" />
-                  {t("logout")}
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <div className="relative">
+              <Button variant="outline" size="sm" className="h-9 rounded-full">
+                <User className="h-4 w-4" />
+              </Button>
+            </div>
           ) : (
             <div className="flex items-center space-x-2">
-              <Button variant="outline" size="sm" onClick={handleLogin} className="h-9">
+              <Button variant="outline" size="sm" onClick={handleLogin} className="h-9 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
                 <LogIn className="mr-1 h-4 w-4" />
                 {t("login")}
               </Button>
@@ -187,34 +164,10 @@ function Header() {
 
         {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center space-x-2">
-          {/* Language Selector (Mobile) */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="h-9 w-9 p-0">
-                <Globe className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              {languages.map((lang) => (
-                <DropdownMenuItem
-                  key={lang.code}
-                  onClick={() => setLanguage(lang.code as "en" | "zh")}
-                  className={cn(
-                    "cursor-pointer",
-                    language === lang.code && "font-bold"
-                  )}
-                >
-                  {lang.name}
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-          
-          {/* Mobile Menu Toggle */}
           <Button
             variant="outline"
             size="sm"
-            className="h-9 w-9 p-0"
+            className="h-9 w-9 p-0 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -228,115 +181,52 @@ function Header() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-md py-4 px-4 shadow-md">
-          <nav className="flex flex-col space-y-4">
+        <div className="md:hidden bg-black/90 backdrop-blur-xl border-t border-white/10">
+          <div className="container py-4 space-y-3">
             <Link
               href="/about"
-              className="text-sm font-medium transition-colors hover:text-primary"
+              className="block text-white/80 hover:text-white transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t("aboutUs")}
             </Link>
             <Link
               href="/popular"
-              className="text-sm font-medium transition-colors hover:text-primary"
+              className="block text-white/80 hover:text-white transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t("popularDestinations")}
             </Link>
             <Link
               href="/itinerary"
-              className="text-sm font-medium transition-colors hover:text-primary flex items-center"
+              className="block text-white/80 hover:text-white transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <Calendar className="h-4 w-4 mr-1" />
               {t("tripPlanner")}
             </Link>
             <Link
               href="/guides"
-              className="text-sm font-medium transition-colors hover:text-primary"
+              className="block text-white/80 hover:text-white transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t("travelGuides")}
             </Link>
-
-            <div className="flex items-center space-x-2 pt-2">
-              {/* Theme Toggle (Mobile) */}
-              <Button
-                variant="outline"
-                size="sm"
-                className="flex gap-2 h-9"
-                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              >
-                {theme === "light" ? (
-                  <>
-                    <Moon className="h-4 w-4" />
-                    {t("darkMode")}
-                  </>
-                ) : (
-                  <>
-                    <Sun className="h-4 w-4" />
-                    {t("lightMode")}
-                  </>
-                )}
-              </Button>
+            
+            <div className="pt-3 border-t border-white/10">
+              <div className="flex items-center space-x-2">
+                <Button size="sm" onClick={handleLogin} className="flex-1">
+                  {t("login")}
+                </Button>
+                <Button size="sm" variant="outline" className="flex-1">
+                  {t("register")}
+                </Button>
+              </div>
             </div>
-
-            {/* Mobile Login/Register Options */}
-            <div className="border-t pt-4 mt-2">
-              {isLoggedIn ? (
-                <>
-                  <Link
-                    href="/account"
-                    className="flex items-center text-sm font-medium transition-colors hover:text-primary mb-3"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <User className="h-4 w-4 mr-2" />
-                    {t("myAccount")}
-                  </Link>
-                  <Button
-                    variant="destructive"
-                    size="sm"
-                    className="w-full flex items-center justify-center h-9"
-                    onClick={() => {
-                      handleLogout();
-                      setIsMobileMenuOpen(false);
-                    }}
-                  >
-                    <LogOut className="h-4 w-4 mr-2" />
-                    {t("logout")}
-                  </Button>
-                </>
-              ) : (
-                <div className="flex flex-col gap-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full flex items-center justify-center h-9"
-                    onClick={() => {
-                      handleLogin();
-                      setIsMobileMenuOpen(false);
-                    }}
-                  >
-                    <LogIn className="h-4 w-4 mr-2" />
-                    {t("login")}
-                  </Button>
-                  <Button
-                    size="sm"
-                    className="w-full flex items-center justify-center h-9"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <UserPlus className="h-4 w-4 mr-2" />
-                    {t("register")}
-                  </Button>
-                </div>
-              )}
-            </div>
-          </nav>
+          </div>
         </div>
       )}
     </header>
   );
 }
 
-export default Header;
+export default Header; 
