@@ -1,0 +1,19 @@
+# NextAuth 配置
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=DDYtb4DEFVmRmdbQuV3/0ycB4Tn6eBpbATQJ0TQqzYk=
+
+# GitHub OAuth 配置 (需要从 GitHub Developer Settings 获取)
+GITHUB_ID=your-github-client-id
+GITHUB_SECRET=your-github-client-secret
+
+# Google OAuth 配置 (需要从 Google Cloud Console 获取)
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+
+# 使用说明：
+# 1. 复制此文件内容到 .env.local
+# 2. GitHub: 访问 https://github.com/settings/developers 创建 OAuth App
+#    回调 URL: http://localhost:3000/api/auth/callback/github
+# 3. Google: 访问 https://console.cloud.google.com/ 创建 OAuth 凭据
+#    回调 URL: http://localhost:3000/api/auth/callback/google
+# 4. 替换所有 your-* 值为实际的凭据 

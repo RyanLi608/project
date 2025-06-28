@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { useTheme } from "@/components/theme-provider";
 import { useLanguage } from "@/lib/language-context";
-import { GitHubSignInButton } from "@/components/auth/github-signin-button";
+import { MultiSignInButton } from "@/components/auth/multi-signin-button";
 
 const languages = [
   { code: "en", name: "English" },
@@ -133,8 +133,8 @@ function Header() {
             )}
           </Button>
 
-          {/* GitHub OAuth Login */}
-          <GitHubSignInButton />
+          {/* Multi-Provider OAuth Login */}
+          <MultiSignInButton />
         </div>
 
         {/* Mobile Menu Button */}
@@ -188,7 +188,7 @@ function Header() {
             </Link>
             
             <div className="pt-3 border-t border-white/10">
-              <GitHubSignInButton className="w-full" />
+              <MultiSignInButton className="w-full" />
             </div>
           </div>
         </div>
