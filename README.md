@@ -77,3 +77,4 @@ const USE_DEEPSEEK = true; // 改为true即可使用DeepSeek API
 
 MIT # 触发Vercel部署
 # 强制触发 Vercel 部署 - Sat Jun 28 19:25:53 CST 2025
+# Force Deploy Wed Jul  2 20:42:12 CST 2025
