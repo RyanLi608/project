@@ -10,6 +10,7 @@ import { ArrowRight, Search, Globe, Bot, MapPin, Star, Users, Camera } from "luc
 import { PopularDestinations } from "@/components/popular-destinations";
 import { Testimonials } from "@/components/testimonials";
 import { useLanguage } from "@/lib/language-context";
+import { destinationTranslations, DestinationKey } from "@/lib/translations";
 
 // 预定义的景点ID映射，用于更精确的搜索
 const landmarkIds: Record<string, string> = {
@@ -43,6 +44,7 @@ export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
   const { t, language } = useLanguage();
+  const dt = destinationTranslations[language];
   
   const handleScroll = () => {
     setIsScrolled(window.scrollY > 100);
@@ -160,17 +162,22 @@ export default function Home() {
               <span className="text-white/60 text-sm">
                 {language === "en" ? "Popular:" : "热门:"}
               </span>
-              {["Great Wall", "Eiffel Tower", "Taj Mahal", "Machu Picchu"].map((term) => (
+              {[
+                { key: "Great Wall of China", search: "Great Wall" },
+                { key: "Eiffel Tower", search: "Eiffel Tower" },
+                { key: "Taj Mahal", search: "Taj Mahal" },
+                { key: "Machu Picchu", search: "Machu Picchu" }
+              ].map((item) => (
                 <button
-                  key={term}
+                  key={item.key}
                   className="px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white/80 hover:text-white hover:bg-white/20 transition-all duration-300 text-sm"
                   onClick={() => {
-                    setSearchQuery(term);
+                    setSearchQuery(item.search);
                     const event = { preventDefault: () => {} } as React.FormEvent;
                     handleSearch(event);
                   }}
                 >
-                  {term}
+                  {dt[item.key as DestinationKey] || item.search}
                 </button>
               ))}
             </div>
