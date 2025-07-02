@@ -113,32 +113,6 @@ export default function Home() {
             }
           </p>
 
-          {/* Category Tabs */}
-          <div className="flex justify-center mb-8">
-            <div className="flex bg-white/20 backdrop-blur-sm rounded-full p-1">
-              <button className="px-6 py-3 rounded-full bg-white text-teal-600 font-semibold text-sm flex items-center">
-                <MapPin className="w-4 h-4 mr-2" />
-                {language === "en" ? "搜索全部" : "搜索全部"}
-              </button>
-              <button className="px-6 py-3 text-white font-semibold text-sm flex items-center hover:bg-white/10 rounded-full transition-colors">
-                <Calendar className="w-4 h-4 mr-2" />
-                {language === "en" ? "酒店" : "酒店"}
-              </button>
-              <button className="px-6 py-3 text-white font-semibold text-sm flex items-center hover:bg-white/10 rounded-full transition-colors">
-                <Camera className="w-4 h-4 mr-2" />
-                {language === "en" ? "景点玩乐" : "景点玩乐"}
-              </button>
-              <button className="px-6 py-3 text-white font-semibold text-sm flex items-center hover:bg-white/10 rounded-full transition-colors">
-                <Users className="w-4 h-4 mr-2" />
-                {language === "en" ? "美食" : "美食"}
-              </button>
-              <button className="px-6 py-3 text-white font-semibold text-sm flex items-center hover:bg-white/10 rounded-full transition-colors">
-                <Compass className="w-4 h-4 mr-2" />
-                {language === "en" ? "机票" : "机票"}
-              </button>
-            </div>
-          </div>
-
           {/* Search Box */}
           <div className="max-w-4xl mx-auto">
             <form onSubmit={handleSearch}>
