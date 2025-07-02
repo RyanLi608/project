@@ -276,13 +276,13 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               {language === "en" ? "用户评价" : "用户评价"}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-white/70">
               {language === "en" 
                 ? "看看其他旅行者的真实体验"
                 : "看看其他旅行者的真实体验"
