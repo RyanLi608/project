@@ -1,39 +1,11 @@
 {
   "version": 2,
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
   "public": false,
   "github": {
     "enabled": true,
-    "autoAlias": true,
-    "silent": false,
-    "autoJobCancelation": true
-  },
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    }
-  ],
-  "buildCommand": "npm install --omit=optional && npm run build",
-  "installCommand": "npm install --omit=optional --no-optional",
-  "framework": "nextjs",
-  "env": {
-    "OPENAI_API_KEY": "sk-o7abcdefghijklmnopqrstuvwxyz123456789",
-    "OPENAI_API_URL": "https://api.openai.com/v1/chat/completions",
-    "OPENAI_MODEL": "gpt-4o",
-    "DEEPSEEK_API_KEY": "sk-d0c2f1c4d8ef4f0e8c9a8d8ef4f0e8c9a",
-    "DEEPSEEK_API_URL": "https://api.deepseek.com/v1/chat/completions",
-    "DEEPSEEK_MODEL": "deepseek-chat",
-    "USE_DEEPSEEK": "true",
-    "USE_MOCK_DATA": "false",
-    "NEXTAUTH_URL": "@nextauth_url",
-    "NEXTAUTH_SECRET": "@nextauth_secret",
-    "GITHUB_ID": "@github_id",
-    "GITHUB_SECRET": "@github_secret",
-    "GOOGLE_CLIENT_ID": "@google_client_id",
-    "GOOGLE_CLIENT_SECRET": "@google_client_secret",
-    "NEXT_PUBLIC_SUPABASE_URL": "@supabase_url",
-    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase_anon_key",
-    "SUPABASE_SERVICE_ROLE_KEY": "@supabase_service_role_key"
-  },
-  "outputDirectory": ".next"
+    "autoAlias": true
+  }
 }
