@@ -1,0 +1,10 @@
+
+> nextjs@0.1.0 build
+> next build
+
+ ⚠ Disabling SWC Minifer will not be an option in the next major version. Please report any issues you may be experiencing to https://github.com/vercel/next.js/issues
+  ▲ Next.js 14.2.30
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+Next.js build worker exited with code: null and signal: SIGILL
