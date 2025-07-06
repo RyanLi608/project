@@ -22,15 +22,8 @@ import {
 } from "lucide-react";
 import { useItineraryGenerator } from "@/hooks/useDeepSeekAPI";
 import { useLanguage } from "@/lib/language-context";
-import { 
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import { format } from "date-fns";
-import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command";
 
 export default function ItineraryPage() {
   const [destination, setDestination] = useState("");
@@ -383,30 +376,21 @@ ${days > 2 ? `## 第3天
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label>{language === "en" ? "Departure Date" : "出发日期"}</Label>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <Button
-                            variant={"outline"}
-                            className={cn(
-                              "w-full justify-start text-left font-normal",
-                              !date && "text-muted-foreground"
-                            )}
-                          >
-                            <CalendarIcon className="mr-2 h-4 w-4" />
-                            {date ? format(date, "PPP") : language === "en" ? "Pick a date" : "选择日期"}
-                          </Button>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-auto p-0">
-                          <CalendarComponent
-                            mode="single"
-                            selected={date}
-                            onSelect={setDate}
-                            initialFocus
-                            disabled={(date) => date < new Date()}
-                          />
-                        </PopoverContent>
-                      </Popover>
+                      <Label htmlFor="departure-date">{language === "en" ? "Departure Date" : "出发日期"}</Label>
+                      <div className="relative">
+                        <CalendarIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                        <Input
+                          id="departure-date"
+                          type="date"
+                          value={date ? format(date, 'yyyy-MM-dd') : ''}
+                          onChange={(e) => {
+                            const selectedDate = e.target.value ? new Date(e.target.value) : undefined;
+                            setDate(selectedDate);
+                          }}
+                          min={format(new Date(), 'yyyy-MM-dd')}
+                          className="pl-10"
+                        />
+                      </div>
                     </div>
                     
                     <div className="space-y-2">
