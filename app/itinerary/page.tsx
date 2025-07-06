@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import { Slider } from "@/components/ui/slider";
+// Slider removed - using range input
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { 
@@ -398,13 +398,15 @@ ${days > 2 ? `## 第3天
                         <Label htmlFor="days">{t("tripDuration")}</Label>
                         <span className="text-muted-foreground text-sm">{days} {t("days")}</span>
                       </div>
-                      <Slider
+                      <input
                         id="days"
+                        type="range"
                         min={1}
                         max={14}
                         step={1}
-                        value={[days]}
-                        onValueChange={(values) => setDays(values[0])}
+                        value={days}
+                        onChange={(e) => setDays(parseInt(e.target.value))}
+                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                       />
                     </div>
                   </div>
@@ -418,13 +420,15 @@ ${days > 2 ? `## 第3天
                         {formatBudget(budgetRange[0])}
                       </span>
                     </div>
-                    <Slider
+                    <input
                       id="budget"
+                      type="range"
                       min={500}
                       max={10000}
                       step={500}
-                      value={budgetRange}
-                      onValueChange={setBudgetRange}
+                      value={budgetRange[0]}
+                      onChange={(e) => setBudgetRange([parseInt(e.target.value)])}
+                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                     />
                     <div className="flex justify-between text-xs text-muted-foreground pt-1">
                       <span>{formatBudget(500)}</span>

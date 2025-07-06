@@ -89,13 +89,13 @@ export function AIChat({ landmarkName }: AIChatProps) {
       }
       
       const data = await response.json();
-      console.log("DeepSeek API响应数据:", data);
+      console.log("AI response data:", data);
       
-      // 处理message或answer字段
-      const aiResponseText = data.message || data.answer;
+      // 修复：正确处理API响应字段
+      const aiResponseText = data.message || data.answer || data.response || data.data;
       
       if (!aiResponseText) {
-        throw new Error("未收到响应数据");
+        throw new Error("No response data received");
       }
       
       // 添加AI回复
