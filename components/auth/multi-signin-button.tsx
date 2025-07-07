@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useRef } from "react"
 import { signIn, signOut, useSession } from "next-auth/react"
-import { Button } from "@/components/ui/button"
+import { Button } from "../ui/button"
 import { Github, LogOut, User, ChevronDown, Mail } from "lucide-react"
-import { useLanguage } from "@/lib/language-context"
+import { useLanguage } from "../../lib/language-context"
 
 interface MultiSignInButtonProps {
   variant?: "default" | "outline"
