@@ -1,260 +1,172 @@
-"use client";
+'use client'
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { useLanguage } from "@/lib/language-context";
+import { useState, useEffect } from 'react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { MapPin, Clock, Star, DollarSign } from 'lucide-react'
 
-interface GalleryImage {
-  id: string;
-  src: string;
-  alt: string;
-  caption?: string;
+interface Landmark {
+  id: string
+  name: string
+  city: string
+  province: string
+  description: string
+  image: string
+  category: string
+  rating: number
+  visitTime: string
+  ticketPrice: string
+  openHours: string
+  location: {
+    lat: number
+    lng: number
+  }
 }
 
 interface LandmarkGalleryProps {
-  images: GalleryImage[];
-  className?: string;
+  limit?: number
+  city?: string
+  category?: string
 }
 
-export function LandmarkGallery({ images, className }: LandmarkGalleryProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
-  const { t } = useLanguage();
-  
-  const totalImages = images.length;
-  
-  const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? totalImages - 1 : prevIndex - 1));
-  };
-  
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === totalImages - 1 ? 0 : prevIndex + 1));
-  };
-  
-  const openPreview = () => {
-    setIsPreviewOpen(true);
-  };
-  
-  const closePreview = () => {
-    setIsPreviewOpen(false);
-  };
-  
-  if (totalImages === 0) {
-    return null;
+export function LandmarkGallery({ limit = 6, city, category }: LandmarkGalleryProps) {
+  const [landmarks, setLandmarks] = useState<Landmark[]>([])
+  const [loading, setLoading] = useState(true)
+  const [selectedCategory, setSelectedCategory] = useState<string>(category || '')
+  const [categories, setCategories] = useState<string[]>([])
+
+  useEffect(() => {
+    fetchLandmarks()
+  }, [selectedCategory, city, limit])
+
+  const fetchLandmarks = async () => {
+    try {
+      setLoading(true)
+      const params = new URLSearchParams()
+      if (selectedCategory) params.append('category', selectedCategory)
+      if (city) params.append('city', city)
+      if (limit) params.append('limit', limit.toString())
+
+      const response = await fetch(`/api/landmark?${params}`)
+      const data = await response.json()
+      
+      setLandmarks(data.landmarks || [])
+      setCategories(data.categories || [])
+    } catch (error) {
+      console.error('Failed to fetch landmarks:', error)
+    } finally {
+      setLoading(false)
+    }
   }
-  
-  return (
-    <div className={cn("relative w-full overflow-hidden rounded-lg", className)}>
-      {/* Main Gallery */}
-      <Card className="relative">
-        <CardContent className="p-0">
-          <div className="relative aspect-[16/9] w-full overflow-hidden">
-            <Image
-              src={images[currentIndex].src}
-              alt={images[currentIndex].alt}
-              fill
-              className="object-cover transition-all hover:scale-105 duration-500"
-              priority
-              quality={90}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-            
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute right-4 top-4 h-8 w-8 rounded-full bg-black/50 text-white hover:bg-black/70"
-              onClick={openPreview}
-            >
-              <ZoomIn className="h-4 w-4" />
-            </Button>
-            
-            <div className="absolute bottom-4 left-4 right-4">
-              <p className="text-white text-sm md:text-base font-medium drop-shadow-md">
-                {images[currentIndex].caption}
-              </p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-      
-      {/* Navigation Controls */}
-      <div className="absolute left-0 right-0 top-1/2 flex -translate-y-1/2 justify-between px-3">
-        <Button
-          variant="ghost"
-          size="icon"
-          className="h-8 w-8 rounded-full bg-black/50 text-white hover:bg-black/70"
-          onClick={goToPrevious}
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </Button>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="h-8 w-8 rounded-full bg-black/50 text-white hover:bg-black/70"
-          onClick={goToNext}
-        >
-          <ChevronRight className="h-4 w-4" />
-        </Button>
-      </div>
-      
-      {/* Thumbnails */}
-      <div className="mt-2 flex gap-2 overflow-auto pb-2">
-        {images.map((image, index) => (
-          <button
-            key={image.id}
-            className={cn(
-              "relative h-16 w-24 flex-shrink-0 overflow-hidden rounded-md",
-              currentIndex === index && "ring-2 ring-primary"
-            )}
-            onClick={() => setCurrentIndex(index)}
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              className="object-cover"
-            />
-          </button>
+
+  const handleCategoryChange = (newCategory: string) => {
+    setSelectedCategory(newCategory === selectedCategory ? '' : newCategory)
+  }
+
+  if (loading) {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <Card key={i} className="animate-pulse">
+            <div className="h-48 bg-gray-200 rounded-t-lg"></div>
+            <CardHeader>
+              <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+              <div className="h-3 bg-gray-200 rounded w-1/2"></div>
+            </CardHeader>
+            <CardContent>
+              <div className="h-3 bg-gray-200 rounded w-full mb-2"></div>
+              <div className="h-3 bg-gray-200 rounded w-2/3"></div>
+            </CardContent>
+          </Card>
         ))}
       </div>
-      
-      {/* Fullscreen Preview Modal */}
-      {isPreviewOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90" onClick={closePreview}>
-          <div className="relative max-h-[90vh] max-w-[90vw]">
-            <Image
-              src={images[currentIndex].src}
-              alt={images[currentIndex].alt}
-              width={1200}
-              height={800}
-              className="max-h-[90vh] object-contain"
-            />
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="absolute right-4 top-4 h-8 w-8 rounded-full bg-black/50 text-white hover:bg-black/70"
-              onClick={closePreview}
+    )
+  }
+
+  return (
+    <div className="space-y-6">
+      {/* 分类筛选 */}
+      {categories.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          <Button
+            variant={selectedCategory === '' ? 'default' : 'outline'}
+            size="sm"
+            onClick={() => handleCategoryChange('')}
+          >
+            全部
+          </Button>
+          {categories.map((cat) => (
+            <Button
+              key={cat}
+              variant={selectedCategory === cat ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => handleCategoryChange(cat)}
             >
-              <ChevronLeft className="h-4 w-4 -rotate-45" />
+              {cat}
             </Button>
-          </div>
-          
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-black/70 p-4 rounded-md">
-            <p className="text-white text-center">{images[currentIndex].caption}</p>
-            <p className="text-white/70 text-sm text-center mt-1">
-              {currentIndex + 1} / {totalImages}
-            </p>
-          </div>
+          ))}
+        </div>
+      )}
+
+      {/* 地标卡片网格 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {landmarks.map((landmark) => (
+          <Card key={landmark.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <div className="relative h-48 overflow-hidden">
+              <img 
+                src={landmark.image} 
+                alt={landmark.name}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              />
+              <Badge className="absolute top-2 right-2">
+                {landmark.category}
+              </Badge>
+            </div>
+            
+            <CardHeader className="pb-2">
+              <CardTitle className="text-lg">{landmark.name}</CardTitle>
+              <CardDescription className="flex items-center gap-1 text-sm">
+                <MapPin className="w-4 h-4" />
+                {landmark.city}, {landmark.province}
+              </CardDescription>
+            </CardHeader>
+            
+            <CardContent className="space-y-3">
+              <p className="text-sm text-gray-600 line-clamp-2">
+                {landmark.description}
+              </p>
+              
+              <div className="flex items-center justify-between text-sm">
+                <div className="flex items-center gap-1">
+                  <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                  <span>{landmark.rating}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Clock className="w-4 h-4" />
+                  <span>{landmark.visitTime}</span>
+                </div>
+              </div>
+              
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-1 text-sm">
+                  <DollarSign className="w-4 h-4" />
+                  <span>{landmark.ticketPrice}</span>
+                </div>
+                <Button size="sm" variant="outline">
+                  查看详情
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {landmarks.length === 0 && !loading && (
+        <div className="text-center py-12">
+          <p className="text-gray-500">没有找到符合条件的地标景点</p>
         </div>
       )}
     </div>
-  );
-}
-
-// Helper function to create mock gallery data for a landmark
-export function getMockGalleryImages(landmarkId: string): GalleryImage[] {
-  // Default fallback images
-  const defaultImages = [
-    {
-      id: "default-1",
-      src: "https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      alt: "Beautiful landscape",
-      caption: "A scenic view of mountains and nature"
-    },
-    {
-      id: "default-2",
-      src: "https://images.pexels.com/photos/3889843/pexels-photo-3889843.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      alt: "City skyline",
-      caption: "Modern architecture in an urban setting"
-    },
-    {
-      id: "default-3",
-      src: "https://images.pexels.com/photos/2091697/pexels-photo-2091697.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      alt: "Beach sunset",
-      caption: "Golden sunset over a tropical beach"
-    }
-  ];
-  
-  // Landmark-specific image collections
-  const landmarkImages: Record<string, GalleryImage[]> = {
-    "great-wall": [
-      {
-        id: "great-wall-1",
-        src: "https://images.pexels.com/photos/2412606/pexels-photo-2412606.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        alt: "Great Wall of China",
-        caption: "The Great Wall winding through mountains, one of the world's most impressive architectural feats"
-      },
-      {
-        id: "great-wall-2",
-        src: "https://images.pexels.com/photos/2819082/pexels-photo-2819082.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        alt: "Great Wall sunset",
-        caption: "Sunset view of the Great Wall, showcasing its magnificent stretch across the landscape"
-      },
-      {
-        id: "great-wall-3",
-        src: "https://images.pexels.com/photos/2837908/pexels-photo-2837908.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        alt: "Great Wall watchtower",
-        caption: "Ancient watchtower on the Great Wall, used for military surveillance"
-      },
-      {
-        id: "great-wall-4",
-        src: "https://images.pexels.com/photos/6006074/pexels-photo-6006074.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        alt: "Great Wall in winter",
-        caption: "The Great Wall covered in snow, offering a breathtaking winter landscape"
-      }
-    ],
-    "eiffel-tower": [
-      {
-        id: "eiffel-1",
-        src: "https://images.pexels.com/photos/699466/pexels-photo-699466.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        alt: "Eiffel Tower",
-        caption: "The iconic Eiffel Tower standing tall in Paris"
-      },
-      {
-        id: "eiffel-2",
-        src: "https://images.pexels.com/photos/2344/cars-france-landmark-lights.jpg?auto=compress&cs=tinysrgb&w=1600",
-        alt: "Eiffel Tower at night",
-        caption: "The Eiffel Tower illuminated at night, showcasing Paris as the City of Lights"
-      },
-      {
-        id: "eiffel-3",
-        src: "https://images.pexels.com/photos/1308940/pexels-photo-1308940.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        alt: "Eiffel Tower from below",
-        caption: "Looking up at the Eiffel Tower's impressive iron lattice structure"
-      },
-      {
-        id: "eiffel-4",
-        src: "https://images.pexels.com/photos/1461974/pexels-photo-1461974.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        alt: "Eiffel Tower with flowers",
-        caption: "Spring in Paris with the Eiffel Tower framed by cherry blossoms"
-      }
-    ],
-    "taj-mahal": [
-      {
-        id: "taj-1",
-        src: "https://images.pexels.com/photos/1603650/pexels-photo-1603650.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        alt: "Taj Mahal",
-        caption: "The magnificent Taj Mahal, a symbol of eternal love"
-      },
-      {
-        id: "taj-2",
-        src: "https://images.pexels.com/photos/3879059/pexels-photo-3879059.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        alt: "Taj Mahal reflection",
-        caption: "Taj Mahal reflected in the water of its surrounding gardens"
-      },
-      {
-        id: "taj-3",
-        src: "https://images.pexels.com/photos/3881104/pexels-photo-3881104.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        alt: "Taj Mahal archway",
-        caption: "Intricate marble inlay work and Islamic calligraphy adorn the Taj Mahal"
-      }
-    ]
-  };
-  
-  // Return landmark-specific images if available, otherwise default images
-  return landmarkImages[landmarkId] || defaultImages;
+  )
 } 
